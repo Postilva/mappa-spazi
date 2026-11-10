@@ -150,7 +150,7 @@ table { border-collapse: collapse; width: 100%; font-size: 14px; }
 th, td { text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px solid var(--bordo); vertical-align: top; }
 th { font-weight: 600; color: var(--testo-2); }
 details { margin: 8px 0; }
-summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; }
+summary { cursor: pointer; min-height: 44px; display: list-item; padding: 10px 0; font-weight: 600; }
 .fonti-lista li { margin-bottom: 10px; overflow-wrap: anywhere; }
 .messaggio { border-left: 3px solid var(--blu); padding: 8px 12px; margin: 12px 0; background: var(--fondo-costi); }
 .linea-tempo { list-style: none; padding: 0; border-left: 2px solid var(--bordo-forte); }

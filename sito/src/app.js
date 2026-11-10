@@ -129,6 +129,11 @@
       ]
     };
   }
+  function limitiEdifici() { // inquadra i 29 edifici (non tutto il confine): simboli meno sovrapposti
+    var x0 = 180, y0 = 90, x1 = -180, y1 = -90;
+    edifici.forEach(function (f) { var c = f.geometry.coordinates; x0 = Math.min(x0, c[0]); x1 = Math.max(x1, c[0]); y0 = Math.min(y0, c[1]); y1 = Math.max(y1, c[1]); });
+    return [[x0 - 0.0015, y0 - 0.0015], [x1 + 0.0015, y1 + 0.0015]];
+  }
   function attendiLibreria(cb, n) {
     if (window.maplibregl) return cb(true);
     if ((n || 0) > 100) return cb(false);
@@ -146,8 +151,8 @@
       try {
         mappa = new maplibregl.Map({
           container: box, style: stileMappa(),
-          bounds: [[b[0] + 0.003, b[1] + 0.003], [b[2] - 0.003, b[3] - 0.003]],
-          fitBoundsOptions: { padding: 12 },
+          bounds: limitiEdifici(),
+          fitBoundsOptions: { padding: 40 },
           maxBounds: [[b[0] - 0.02, b[1] - 0.02], [b[2] + 0.02, b[3] + 0.02]],
           minZoom: 11, maxZoom: 19, dragRotate: false, pitchWithRotate: false, touchPitch: false,
           cooperativeGestures: true, attributionControl: false, fadeDuration: 0,
@@ -175,10 +180,10 @@
         el.type = "button";
         el.className = "segno";
         el.setAttribute("data-id", p.id);
-        el.setAttribute("aria-label", titolo(p) + " – stato: " + etichetta(STATI, p.stato));
         el.innerHTML = simbolo(p.stato, 22, false);
         el.addEventListener("click", function (ev) { ev.stopPropagation(); seleziona(p.id, true); });
         marcatori[p.id] = new maplibregl.Marker({ element: el }).setLngLat(f.geometry.coordinates).addTo(mappa);
+        el.setAttribute("aria-label", titolo(p) + " – stato: " + etichetta(STATI, p.stato)); // MapLibre lo sovrascrive
       });
       if (selezionato) seleziona(selezionato, false);
       applicaFiltri();
