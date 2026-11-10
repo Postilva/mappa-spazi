@@ -131,3 +131,14 @@ Script `scripts/verifica_posizioni.py`: per un campione di 6 particelle localizz
 ### Licenza
 
 Geometrie e identificativi: © Agenzia delle Entrate – Cartografia catastale, **CC BY 4.0** (vedi passo 3). Le posizioni sono un'elaborazione Postilva (baricentro) e vanno confermate al sopralluogo: il baricentro di una particella grande può cadere in un cortile o tra più corpi di fabbrica.
+
+## Passo 5 — Schede JSON (`dati/edifici/`)
+
+Script `scripts/genera_schede.py` (solo libreria standard). Rilanciabile: riscrive le schede generate e toglie quelle non più valide solo se non sono state modificate a mano (`ultima_modifica` diversa dalla data dello script).
+
+- **29 schede**, una per particella FAB localizzata e dentro il confine: `dati/edifici/<foglio>-<particella>.json`, `id` = `<foglio>-<particella>` (fogli 201: 15, 202: 6, 203: 4, 204: 1, 319: 3).
+- Le unità dell'elenco 2024 (subalterni) sono raggruppate nel campo `unita` (`id` del Comune, `subalterno`, `categoria`, `categoria_descrizione`): 323 unità in tutto.
+- `categoria_catastale` e `descrizione` = categoria prevalente tra le unità, con il conteggio (es. `203-18`: «A04 – Abitazione di tipo popolare (1 di 2 unità)»; a parità di unità vale il codice minore). Non è un nome.
+- `nome` = "", `indirizzo` = "", `stato` = "da_verificare", `quartiere` = "Tamburi", `lat`/`lon` dal passo 4, `ultima_modifica` = "2026-11-10"; `fonti` = elenco 2024 (Amministrazione Trasparente) + cartografia catastale (WFS, CC BY 4.0). Tutto il resto vuoto/null come nel modello.
+- **Nessuna scheda** per le 21 particelle non localizzate: sono in `da-localizzare.csv` (foglio, particella, numero di unità, categorie, motivo). Nessuna scheda nemmeno per le 137 particelle localizzate fuori confine (restano in `posizioni.csv`).
+- Il modello `dati/edifici/_modello.json` ha ora i campi `descrizione` e `unita`; il campo `subalterno` di primo livello è stato tolto (sta dentro `unita`). Dettagli in `dati/README.md`.

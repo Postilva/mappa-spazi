@@ -40,12 +40,18 @@ I terreni (`TER`) nel PDF hanno le stesse colonne ma senza categoria catastale: 
 
 ## `edifici/`
 
-Una scheda per edificio, file `<id>.json`, dove `id` è l'identificativo del Comune. Il modello è `_modello.json`; i campi seguono il piano del sito (§3.3).
+Una scheda per **edificio = particella catastale con fabbricati** (foglio + particella), file `<foglio>-<particella>.json`; `id` = `<foglio>-<particella>` (es. `201-59`). Le unità immobiliari dell'elenco 2024 (subalterni) stanno dentro la scheda nel campo `unita`. Il modello è `_modello.json`; i campi seguono il piano del sito (§3.3). Le schede dei Tamburi sono generate da `scripts/genera_schede.py` (vedi `tamburi/README.md`).
+
+Attenzione: una particella non è sempre un edificio (può contenere più corpi di fabbrica, o essere un'area urbana o un lastrico solare). Lo si verifica al sopralluogo.
 
 | Campo | Fonte |
 |---|---|
-| `id`, `foglio`, `particella`, `subalterno`, `categoria_catastale` | elenco 2024 |
-| `indirizzo`, `lat`, `lon` | catasto e sopralluogo |
+| `id` (`<foglio>-<particella>`), `foglio`, `particella` | elenco 2024 |
+| `unita` | elenco 2024: una voce per unità, con `id` del Comune, `subalterno`, `categoria`, `categoria_descrizione` |
+| `categoria_catastale`, `descrizione` | elenco 2024: categoria prevalente tra le unità (la più frequente; a parità, il codice minore) e sua descrizione con il conteggio, es. «A04 – Abitazione di tipo popolare (1 di 2 unità)». Non è un nome |
+| `nome` | sopralluogo o fonte citata; vuoto finché non c'è (mai inventato) |
+| `indirizzo` | sopralluogo o fonte citata; vuoto finché non verificato |
+| `lat`, `lon` | cartografia catastale (Agenzia delle Entrate, WFS INSPIRE, CC BY 4.0): baricentro del poligono della particella; da confermare al sopralluogo |
 | `quartiere` | assegnato da noi |
 | `stato` | sopralluogo: `in_uso`, `chiuso`, `abbandonato`, `rudere`, `da_verificare` |
 | `data_sopralluogo`, `autori` | sopralluogo (solo nomi) |
@@ -54,6 +60,6 @@ Una scheda per edificio, file `<id>.json`, dove `id` è l'identificativo del Com
 | `stima` | tecnico (livello 1–3, forchetta, prezzario) |
 | `idee_riuso` | incontri e segnalazioni |
 | `modello_3d` | fotogrammetria |
-| `fonti` | — |
+| `fonti` | elenco delle fonti usate nella scheda: `titolo`, `ente`, `data`, `url`, eventuale `licenza`, `uso` (cosa viene da quella fonte) |
 
-Gli edifici senza posizione restano con `lat`/`lon` a `null` («da localizzare») e non vanno in mappa.
+Le particelle senza posizione non hanno scheda: sono elencate in `tamburi/da-localizzare.csv` («da localizzare»). Se in futuro una scheda resta senza posizione, `lat`/`lon` sono `null` e non va in mappa.

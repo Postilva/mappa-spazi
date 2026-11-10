@@ -1,0 +1,58 @@
+{
+  "id": "204-914",
+  "foglio": "204",
+  "particella": "914",
+  "categoria_catastale": "B01",
+  "descrizione": "B01 – Collegi e convitti; educandati, ricoveri, orfanotrofi, ospizi, conventi, seminari e caserme (1 di 2 unità)",
+  "unita": [
+    {
+      "id": "2040009140001",
+      "subalterno": "1",
+      "categoria": "B01",
+      "categoria_descrizione": "Collegi e convitti; educandati, ricoveri, orfanotrofi, ospizi, conventi, seminari e caserme"
+    },
+    {
+      "id": "2040009140002",
+      "subalterno": "2",
+      "categoria": "F03",
+      "categoria_descrizione": "Unità in corso di costruzione"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.499772,
+  "lon": 17.2459863,
+  "quartiere": "Tamburi",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}

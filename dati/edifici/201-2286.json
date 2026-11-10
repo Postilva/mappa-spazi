@@ -1,0 +1,52 @@
+{
+  "id": "201-2286",
+  "foglio": "201",
+  "particella": "2286",
+  "categoria_catastale": "F01",
+  "descrizione": "F01 – Area urbana (1 di 1 unità)",
+  "unita": [
+    {
+      "id": "201002286",
+      "subalterno": "",
+      "categoria": "F01",
+      "categoria_descrizione": "Area urbana"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.4924088,
+  "lon": 17.2236229,
+  "quartiere": "Tamburi",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}
