@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "foglio": "",
+  "particella": "",
+  "subalterno": "",
+  "categoria_catastale": "",
+  "nome": "",
+  "indirizzo": "",
+  "lat": null,
+  "lon": null,
+  "quartiere": "Tamburi",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [
+    { "data": "", "testo": "", "fonte": "" }
+  ],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [],
+  "ultima_modifica": ""
+}
