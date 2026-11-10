@@ -1,0 +1,129 @@
+<div class="pagina">
+<a class="salta" href="#mappa" data-salta>Vai al contenuto</a>
+<header class="testata">
+  <div class="testata-riga gutter">
+    <a class="marchio" href="#mappa">
+      <span class="marchio-titolo">Spazi pubblici dei Tamburi</span>
+      <span class="firma">Per Taranto · Postilva</span>
+    </a>
+  </div>
+  <nav class="menu gutter" aria-label="Sezioni del sito">
+    <a href="#mappa" data-nav="mappa">Mappa</a>
+    <a href="#elenco" data-nav="elenco">Elenco</a>
+    <a href="#metodo" data-nav="metodo">Metodo e fonti</a>
+  </nav>
+</header>
+
+<div class="prova gutter" role="note">
+  <p><strong>Versione di prova – dati da verificare.</strong>
+  Nessun edificio è stato ancora visitato: stato, posizione e categoria di ogni scheda vanno confermati al sopralluogo.</p>
+</div>
+
+<main id="contenuto" tabindex="-1">
+
+<!-- MAPPA (home) -->
+<section class="vista" data-vista="mappa" aria-labelledby="t-mappa">
+  <div class="gutter intro">
+    <h1 id="t-mappa" tabindex="-1">Gli immobili del Comune ai Tamburi</h1>
+    <p>Le particelle con fabbricati dell'<em>elenco beni immobili 2024</em> del Comune di Taranto che cadono dentro il confine di lavoro del quartiere. Tocca un simbolo per vedere la scheda sintetica; le stesse informazioni sono nell'<a href="#elenco">elenco</a>.</p>
+  </div>
+  <div class="mappa-griglia">
+    <div class="mappa-col">
+      <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli edifici. Alternativa testuale: pagina Elenco">
+        <p class="mappa-attesa">Caricamento della mappa…</p>
+      </div>
+      <ul class="legenda gutter" id="legenda" aria-label="Legenda degli stati"></ul>
+    </div>
+    <div class="pannello gutter">
+      <div id="sintesi" class="sintesi" aria-live="polite">
+        <p class="nota">Tocca un simbolo sulla mappa per vedere qui l'edificio.</p>
+      </div>
+      <div class="filtri">
+        <p class="conteggio" id="conteggio" aria-live="polite"></p>
+        <fieldset>
+          <legend>Stato</legend>
+          <div id="filtro-stato" class="opzioni"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Tipo di bene</legend>
+          <div id="filtro-tipo" class="opzioni"></div>
+        </fieldset>
+        <p class="nota">Tipo di bene = categoria catastale prevalente, raggruppata (vedi <a href="#metodo">Metodo e fonti</a>).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDA EDIFICIO (riempita dallo script) -->
+<section class="vista" data-vista="scheda" hidden>
+  <div id="scheda"></div>
+</section>
+
+<!-- ELENCO -->
+<section class="vista gutter" data-vista="elenco" aria-labelledby="t-elenco" hidden>
+  <h1 id="t-elenco" tabindex="-1">Elenco degli edifici</h1>
+  <p>Tutti gli edifici della mappa, in ordine di foglio e particella catastale. È l'alternativa testuale alla mappa.</p>
+  <ul class="elenco" id="elenco"></ul>
+  <p class="nota">Non sono in elenco 21 particelle dell'elenco 2024 che non si trovano nella cartografia catastale («da localizzare») e 137 particelle localizzate ma fuori dal confine di lavoro: vedi <a href="#metodo">Metodo e fonti</a>.</p>
+</section>
+
+<!-- METODO E FONTI -->
+<section class="vista gutter testo" data-vista="metodo" aria-labelledby="t-metodo" hidden>
+  <h1 id="t-metodo" tabindex="-1">Metodo e fonti</h1>
+  <p>Questa mappa mette in fila dati pubblici sugli immobili del Comune di Taranto nel quartiere Tamburi. È una <strong>versione di prova</strong>: i dati vengono da documenti e cartografie ufficiali, ma nessun edificio è stato ancora visto sul posto.</p>
+
+  <h2>Da dove vengono i dati</h2>
+  <ol>
+    <li><strong>Elenco degli immobili.</strong> Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative, <em>Elenco beni immobili – anno 2024</em>, pubblicato in Amministrazione Trasparente il 29/05/2024 (<a href="https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721" target="_blank" rel="noopener">scheda della pubblicazione</a>). L'elenco riporta identificativo, foglio, particella, subalterno e categoria catastale di ogni unità. <strong>Non contiene indirizzi né nomi</strong>: per questo le schede non li hanno ancora.</li>
+    <li><strong>Posizione.</strong> Agenzia delle Entrate, <em>Cartografia catastale</em>, servizio WFS INSPIRE, licenza CC BY 4.0, consultato il 10/11/2026. Per ogni foglio e particella dell'elenco si è preso il poligono della particella sulla mappa catastale; il simbolo sulla mappa è il <strong>baricentro della particella</strong>. Gli isolati grigi della mappa di base sono le particelle catastali della zona, unite e semplificate.</li>
+    <li><strong>Confine del quartiere.</strong> ISTAT, <em>Basi territoriali 2021</em> (Puglia), licenza CC BY 4.0: unione delle sezioni di censimento della circoscrizione 2 «Tamburi-Lido Azzurro» che stanno nel centro abitato di Taranto (107 sezioni, 14.753 residenti al censimento 2021). Dalle stesse basi viene la terraferma della mappa.</li>
+  </ol>
+
+  <h2>Cosa c'è in mappa</h2>
+  <ul>
+    <li>Nell'elenco 2024, i fogli catastali che toccano i Tamburi contengono 187 particelle con fabbricati.</li>
+    <li>166 sono state localizzate sulla cartografia catastale: <strong>29 cadono dentro il confine</strong> e sono in mappa (323 unità catastali); 137 sono fuori dal confine (foglio 319, zona Città Vecchia e Borgo) e restano fuori da questa mappa.</li>
+    <li><strong>21 particelle non sono localizzate</strong> (tutte del foglio 319): il loro numero non si trova oggi nella cartografia catastale. Vanno verificate con una visura catastale o con il Comune; nessuna posizione è stata stimata.</li>
+    <li>Un «edificio» qui è una <strong>particella catastale con fabbricati</strong>: una particella può contenere più corpi di fabbrica, oppure un'area urbana o un lastrico solare. Lo si chiarisce al sopralluogo.</li>
+  </ul>
+
+  <h2>Cosa significa «da verificare»</h2>
+  <p>Ogni scheda ha uno di cinque stati, sempre con simbolo ed etichetta:</p>
+  <ul class="legenda legenda-testo" id="legenda-metodo"></ul>
+  <p>Oggi <strong>tutte le schede sono «da verificare»</strong>: lo stato si assegna solo dopo un sopralluogo, fatto dall'esterno o con autorizzazione del Comune. Fino ad allora nome, indirizzo, foto, storia, costi e idee di riuso restano «da completare».</p>
+
+  <h2>Tipo di bene</h2>
+  <p>È la categoria catastale prevalente tra le unità della particella (la più frequente), raggruppata così: <strong>abitazioni</strong> = categorie A; <strong>scuole e servizi</strong> = categorie B (scuole, uffici pubblici, biblioteche, collegi, case di cura) ed E (servizi pubblici speciali); <strong>negozi e depositi</strong> = categorie C; <strong>altro</strong> = categorie D (opifici, teatri…) e F (aree urbane, lastrici solari, unità collabenti o in costruzione). La categoria descrive l'unità in catasto, non l'uso di oggi.</p>
+
+  <h2>Costi</h2>
+  <p>Quando ci saranno, le stime saranno <strong>stime parametriche di massima, non perizie</strong>, con il livello di dettaglio (1–3) e il prezzario usato. Oggi nessuna scheda ha una stima.</p>
+
+  <h2>Limiti della mappa</h2>
+  <ul>
+    <li>Il <strong>confine dei Tamburi è provvisorio</strong>: è un confine di lavoro costruito con le sezioni ISTAT, non un confine ufficiale del quartiere, e va confermato.</li>
+    <li>Le <strong>posizioni sono approssimate</strong>: il baricentro di una particella grande può cadere in un cortile o tra più edifici.</li>
+    <li>La categoria è quella catastale dell'elenco 2024, che può non corrispondere all'uso attuale.</li>
+    <li>La mappa di base è semplificata (isolati, terraferma e confine, senza nomi di strade) e copre solo la zona delle particelle consultate.</li>
+    <li>Le informazioni servono a conoscere il patrimonio pubblico: non autorizzano a entrare negli edifici o nelle aree.</li>
+  </ul>
+
+  <h2>Attribuzioni</h2>
+  <ul class="attribuzioni">
+    <li>© Agenzia delle Entrate – Cartografia catastale, <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener">CC BY 4.0</a>. Elaborazione Postilva (baricentri, unione e semplificazione delle particelle).</li>
+    <li>ISTAT – Basi territoriali 2021, <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener">CC BY 4.0</a>. Elaborazione Postilva (confine di lavoro, terraferma).</li>
+    <li>Comune di Taranto – <em>Elenco beni immobili – anno 2024</em>, Amministrazione Trasparente.</li>
+    <li>Mappa realizzata con <a href="https://maplibre.org/" target="_blank" rel="noopener">MapLibre GL JS</a> (licenza BSD-3).</li>
+  </ul>
+  <p class="nota">Dati aggiornati al <span data-meta="generato"></span>.</p>
+</section>
+
+</main>
+
+<footer class="piede">
+  <div class="gutter">
+    <p class="firma firma-piede">Per Taranto · Postilva</p>
+    <p>Mappa degli spazi pubblici dei Tamburi · <strong>Versione di prova – dati da verificare</strong> · dati aggiornati al <span data-meta="generato"></span></p>
+    <p>Dati: Comune di Taranto (elenco beni immobili 2024); © Agenzia delle Entrate – Cartografia catastale, CC BY 4.0; ISTAT – Basi territoriali 2021, CC BY 4.0. <a href="#metodo">Metodo e fonti</a></p>
+  </div>
+</footer>
+</div>

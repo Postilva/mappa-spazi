@@ -1,0 +1,4 @@
+# Solo per scripts/confine_tamburi.py e gli script geometrici (ambiente locale, non versionato)
+pyshp
+shapely
+pyproj

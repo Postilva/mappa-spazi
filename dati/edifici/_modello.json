@@ -2,8 +2,16 @@
   "id": "",
   "foglio": "",
   "particella": "",
-  "subalterno": "",
   "categoria_catastale": "",
+  "descrizione": "",
+  "unita": [
+    {
+      "id": "",
+      "subalterno": "",
+      "categoria": "",
+      "categoria_descrizione": ""
+    }
+  ],
   "nome": "",
   "indirizzo": "",
   "lat": null,
@@ -14,7 +22,11 @@
   "autori": [],
   "foto": [],
   "storia": [
-    { "data": "", "testo": "", "fonte": "" }
+    {
+      "data": "",
+      "testo": "",
+      "fonte": ""
+    }
   ],
   "stima": {
     "livello": null,
