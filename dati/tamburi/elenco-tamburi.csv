@@ -1,0 +1,896 @@
+id,tipo,foglio,particella,subalterno,categoria_codice,categoria_descrizione,pagina,classe_foglio
+2010000590001,FAB,201,59,1,B06,"Biblioteche, pinacoteche, musei, gallerie, accademie, che non hanno sede in edifici della categoria A/9",21,a_cavallo
+2010002080001,FAB,201,208,1,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080002,FAB,201,208,2,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080003,FAB,201,208,3,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080004,FAB,201,208,4,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080005,FAB,201,208,5,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080006,FAB,201,208,6,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080007,FAB,201,208,7,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080008,FAB,201,208,8,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080009,FAB,201,208,9,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080010,FAB,201,208,10,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080011,FAB,201,208,11,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080012,FAB,201,208,12,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080013,FAB,201,208,13,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080014,FAB,201,208,14,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080015,FAB,201,208,15,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080016,FAB,201,208,16,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080017,FAB,201,208,17,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080018,FAB,201,208,18,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080019,FAB,201,208,19,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080020,FAB,201,208,20,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080021,FAB,201,208,21,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080022,FAB,201,208,22,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080023,FAB,201,208,23,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080024,FAB,201,208,24,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080025,FAB,201,208,25,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080026,FAB,201,208,26,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080027,FAB,201,208,27,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080028,FAB,201,208,28,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080029,FAB,201,208,29,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080030,FAB,201,208,30,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080031,FAB,201,208,31,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080032,FAB,201,208,32,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080033,FAB,201,208,33,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080034,FAB,201,208,34,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080035,FAB,201,208,35,A03,Abitazione di tipo economico,21,a_cavallo
+2010002080036,FAB,201,208,36,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090001,FAB,201,209,1,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090002,FAB,201,209,2,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090003,FAB,201,209,3,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090004,FAB,201,209,4,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090005,FAB,201,209,5,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090006,FAB,201,209,6,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090007,FAB,201,209,7,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090008,FAB,201,209,8,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090009,FAB,201,209,9,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090010,FAB,201,209,10,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090011,FAB,201,209,11,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090012,FAB,201,209,12,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090013,FAB,201,209,13,A03,Abitazione di tipo economico,21,a_cavallo
+2010002090014,FAB,201,209,14,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090015,FAB,201,209,15,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090016,FAB,201,209,16,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090017,FAB,201,209,17,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090018,FAB,201,209,18,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090019,FAB,201,209,19,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090020,FAB,201,209,20,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090021,FAB,201,209,21,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090022,FAB,201,209,22,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090023,FAB,201,209,23,A03,Abitazione di tipo economico,22,a_cavallo
+2010002090024,FAB,201,209,24,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100001,FAB,201,210,1,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100002,FAB,201,210,2,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100003,FAB,201,210,3,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100004,FAB,201,210,4,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100005,FAB,201,210,5,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100006,FAB,201,210,6,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100007,FAB,201,210,7,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100008,FAB,201,210,8,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100009,FAB,201,210,9,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100010,FAB,201,210,10,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100011,FAB,201,210,11,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100012,FAB,201,210,12,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100013,FAB,201,210,13,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100014,FAB,201,210,14,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100015,FAB,201,210,15,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100016,FAB,201,210,16,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100017,FAB,201,210,17,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100018,FAB,201,210,18,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100019,FAB,201,210,19,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100020,FAB,201,210,20,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100021,FAB,201,210,21,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100022,FAB,201,210,22,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100023,FAB,201,210,23,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100024,FAB,201,210,24,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100025,FAB,201,210,25,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100026,FAB,201,210,26,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100027,FAB,201,210,27,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100028,FAB,201,210,28,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100029,FAB,201,210,29,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100030,FAB,201,210,30,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100031,FAB,201,210,31,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100032,FAB,201,210,32,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100033,FAB,201,210,33,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100034,FAB,201,210,34,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100035,FAB,201,210,35,A03,Abitazione di tipo economico,22,a_cavallo
+2010002100036,FAB,201,210,36,A03,Abitazione di tipo economico,22,a_cavallo
+2010002110001,FAB,201,211,1,A03,Abitazione di tipo economico,22,a_cavallo
+2010002110002,FAB,201,211,2,A03,Abitazione di tipo economico,22,a_cavallo
+2010002110003,FAB,201,211,3,A03,Abitazione di tipo economico,22,a_cavallo
+2010002110004,FAB,201,211,4,A03,Abitazione di tipo economico,22,a_cavallo
+2010002110005,FAB,201,211,5,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110006,FAB,201,211,6,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110007,FAB,201,211,7,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110008,FAB,201,211,8,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110009,FAB,201,211,9,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110010,FAB,201,211,10,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110011,FAB,201,211,11,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110012,FAB,201,211,12,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110013,FAB,201,211,13,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110014,FAB,201,211,14,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110015,FAB,201,211,15,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110016,FAB,201,211,16,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110017,FAB,201,211,17,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110018,FAB,201,211,18,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110019,FAB,201,211,19,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110020,FAB,201,211,20,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110021,FAB,201,211,21,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110022,FAB,201,211,22,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110023,FAB,201,211,23,A03,Abitazione di tipo economico,23,a_cavallo
+2010002110024,FAB,201,211,24,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120001,FAB,201,212,1,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120002,FAB,201,212,2,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120003,FAB,201,212,3,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120004,FAB,201,212,4,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120005,FAB,201,212,5,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120006,FAB,201,212,6,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120007,FAB,201,212,7,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120008,FAB,201,212,8,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120009,FAB,201,212,9,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120010,FAB,201,212,10,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120011,FAB,201,212,11,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120012,FAB,201,212,12,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120013,FAB,201,212,13,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120014,FAB,201,212,14,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120015,FAB,201,212,15,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120016,FAB,201,212,16,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120017,FAB,201,212,17,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120018,FAB,201,212,18,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120019,FAB,201,212,19,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120020,FAB,201,212,20,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120021,FAB,201,212,21,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120023,FAB,201,212,23,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120024,FAB,201,212,24,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120025,FAB,201,212,25,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120026,FAB,201,212,26,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120027,FAB,201,212,27,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120028,FAB,201,212,28,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120029,FAB,201,212,29,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120030,FAB,201,212,30,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120031,FAB,201,212,31,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120032,FAB,201,212,32,A03,Abitazione di tipo economico,23,a_cavallo
+2010002120033,FAB,201,212,33,A03,Abitazione di tipo economico,24,a_cavallo
+2010002120034,FAB,201,212,34,A03,Abitazione di tipo economico,24,a_cavallo
+2010002120035,FAB,201,212,35,A03,Abitazione di tipo economico,24,a_cavallo
+2010002120036,FAB,201,212,36,A03,Abitazione di tipo economico,24,a_cavallo
+2010002120055,FAB,201,212,55,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420001,FAB,201,242,1,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420002,FAB,201,242,2,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420003,FAB,201,242,3,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420004,FAB,201,242,4,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420005,FAB,201,242,5,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420006,FAB,201,242,6,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420007,FAB,201,242,7,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420008,FAB,201,242,8,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420009,FAB,201,242,9,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420010,FAB,201,242,10,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420011,FAB,201,242,11,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420012,FAB,201,242,12,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420013,FAB,201,242,13,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420014,FAB,201,242,14,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420015,FAB,201,242,15,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420016,FAB,201,242,16,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420017,FAB,201,242,17,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420018,FAB,201,242,18,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420019,FAB,201,242,19,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420020,FAB,201,242,20,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420021,FAB,201,242,21,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420022,FAB,201,242,22,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420023,FAB,201,242,23,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420024,FAB,201,242,24,A02,Abitazioni di tipo civile,24,a_cavallo
+2010002420025,FAB,201,242,25,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420026,FAB,201,242,26,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420027,FAB,201,242,27,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420028,FAB,201,242,28,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420029,FAB,201,242,29,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420030,FAB,201,242,30,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420031,FAB,201,242,31,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420032,FAB,201,242,32,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420033,FAB,201,242,33,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420034,FAB,201,242,34,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420035,FAB,201,242,35,A03,Abitazione di tipo economico,24,a_cavallo
+2010002420036,FAB,201,242,36,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430001,FAB,201,243,1,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430002,FAB,201,243,2,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430003,FAB,201,243,3,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430004,FAB,201,243,4,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430005,FAB,201,243,5,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430006,FAB,201,243,6,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430007,FAB,201,243,7,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430008,FAB,201,243,8,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430009,FAB,201,243,9,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430010,FAB,201,243,10,A03,Abitazione di tipo economico,24,a_cavallo
+2010002430011,FAB,201,243,11,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430012,FAB,201,243,12,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430013,FAB,201,243,13,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430014,FAB,201,243,14,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430015,FAB,201,243,15,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430016,FAB,201,243,16,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430017,FAB,201,243,17,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430018,FAB,201,243,18,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430019,FAB,201,243,19,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430020,FAB,201,243,20,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430021,FAB,201,243,21,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430022,FAB,201,243,22,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430023,FAB,201,243,23,A03,Abitazione di tipo economico,25,a_cavallo
+2010002430024,FAB,201,243,24,A03,Abitazione di tipo economico,25,a_cavallo
+2010002440001,FAB,201,244,1,D01,Opifici,25,a_cavallo
+2010002440002,FAB,201,244,2,C02,Magazzini e locali di deposito,25,a_cavallo
+2010002450001,FAB,201,245,1,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450002,FAB,201,245,2,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450003,FAB,201,245,3,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450004,FAB,201,245,4,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450005,FAB,201,245,5,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450006,FAB,201,245,6,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450007,FAB,201,245,7,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450008,FAB,201,245,8,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450009,FAB,201,245,9,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450010,FAB,201,245,10,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450011,FAB,201,245,11,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450012,FAB,201,245,12,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450013,FAB,201,245,13,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450014,FAB,201,245,14,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450015,FAB,201,245,15,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450016,FAB,201,245,16,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450017,FAB,201,245,17,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450018,FAB,201,245,18,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450019,FAB,201,245,19,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450020,FAB,201,245,20,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450021,FAB,201,245,21,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450022,FAB,201,245,22,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450023,FAB,201,245,23,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450024,FAB,201,245,24,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450025,FAB,201,245,25,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450026,FAB,201,245,26,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450027,FAB,201,245,27,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450028,FAB,201,245,28,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450029,FAB,201,245,29,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450030,FAB,201,245,30,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450031,FAB,201,245,31,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450032,FAB,201,245,32,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450033,FAB,201,245,33,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450034,FAB,201,245,34,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450035,FAB,201,245,35,A03,Abitazione di tipo economico,25,a_cavallo
+2010002450036,FAB,201,245,36,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460001,FAB,201,246,1,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460002,FAB,201,246,2,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460003,FAB,201,246,3,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460004,FAB,201,246,4,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460005,FAB,201,246,5,A02,Abitazioni di tipo civile,26,a_cavallo
+2010002460006,FAB,201,246,6,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460007,FAB,201,246,7,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460008,FAB,201,246,8,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460009,FAB,201,246,9,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460010,FAB,201,246,10,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460011,FAB,201,246,11,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460012,FAB,201,246,12,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460013,FAB,201,246,13,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460014,FAB,201,246,14,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460015,FAB,201,246,15,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460016,FAB,201,246,16,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460017,FAB,201,246,17,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460018,FAB,201,246,18,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460019,FAB,201,246,19,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460020,FAB,201,246,20,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460021,FAB,201,246,21,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460022,FAB,201,246,22,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460023,FAB,201,246,23,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460024,FAB,201,246,24,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460025,FAB,201,246,25,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460026,FAB,201,246,26,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460027,FAB,201,246,27,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460028,FAB,201,246,28,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460029,FAB,201,246,29,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460030,FAB,201,246,30,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460031,FAB,201,246,31,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460032,FAB,201,246,32,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460033,FAB,201,246,33,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460034,FAB,201,246,34,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460035,FAB,201,246,35,A03,Abitazione di tipo economico,26,a_cavallo
+2010002460036,FAB,201,246,36,A03,Abitazione di tipo economico,26,a_cavallo
+2010002470001,FAB,201,247,1,D01,Opifici,26,a_cavallo
+2010002470002,FAB,201,247,2,C02,Magazzini e locali di deposito,26,a_cavallo
+2010002660001,FAB,201,266,1,A04,Abitazione di tipo popolare,26,a_cavallo
+201002234,FAB,201,2234,,E03,Costruzioni e fabbricati per speciali esigenze pubbliche,26,a_cavallo
+201002286,FAB,201,2286,,F01,Area urbana,26,a_cavallo
+2020001290001,FAB,202,129,1,B05,"Scuole, laboratori scientifici",26,a_cavallo
+2020001290002,FAB,202,129,2,B05,"Scuole, laboratori scientifici",26,a_cavallo
+2020001290003,FAB,202,129,3,C01,Negozi e botteghe,26,a_cavallo
+2020001290004,FAB,202,129,4,B04,Uffici pubblici,26,a_cavallo
+2020001790001,FAB,202,179,1,B05,"Scuole, laboratori scientifici",26,a_cavallo
+2020001790002,FAB,202,179,2,A03,Abitazione di tipo economico,26,a_cavallo
+2020002180001,FAB,202,218,1,B05,"Scuole, laboratori scientifici",26,a_cavallo
+2020002180002,FAB,202,218,2,A03,Abitazione di tipo economico,26,a_cavallo
+2020002190001,FAB,202,219,1,B05,"Scuole, laboratori scientifici",26,a_cavallo
+2020002190002,FAB,202,219,2,A03,Abitazione di tipo economico,27,a_cavallo
+2020002200001,FAB,202,220,1,B05,"Scuole, laboratori scientifici",27,a_cavallo
+2020002200002,FAB,202,220,2,A03,Abitazione di tipo economico,27,a_cavallo
+2020007690001,FAB,202,769,1,D01,Opifici,27,a_cavallo
+2030000180001,FAB,203,18,1,B05,"Scuole, laboratori scientifici",27,dentro
+2030000180002,FAB,203,18,2,A04,Abitazione di tipo popolare,27,dentro
+2030004980001,FAB,203,498,1,B05,"Scuole, laboratori scientifici",27,dentro
+2030004980002,FAB,203,498,2,A04,Abitazione di tipo popolare,27,dentro
+2030004980003,FAB,203,498,3,B02,Case di cure ed ospedali,27,dentro
+203003295,FAB,203,3295,,C01,Negozi e botteghe,27,dentro
+2030032960001,FAB,203,3296,1,F01,Area urbana,27,dentro
+2040009140001,FAB,204,914,1,B01,"Collegi e convitti; educandati, ricoveri, orfanotrofi, ospizi, conventi, seminari e caserme",27,a_cavallo
+2040009140002,FAB,204,914,2,F03,Unità in corso di costruzione,27,a_cavallo
+3190000450020,FAB,319,45,20,A03,Abitazione di tipo economico,79,a_cavallo
+3190002800005,FAB,319,280,5,A05,Abitazione di tipo ultrapopolare,79,a_cavallo
+3190002800006,FAB,319,280,6,A04,Abitazione di tipo popolare,79,a_cavallo
+3190005120001,FAB,319,512,1,F02,Unità collabente,79,a_cavallo
+3190005120002,FAB,319,512,2,F02,Unità collabente,79,a_cavallo
+3190005120003,FAB,319,512,3,F02,Unità collabente,79,a_cavallo
+3190005120004,FAB,319,512,4,F02,Unità collabente,79,a_cavallo
+319000514,FAB,319,514,,A04,Abitazione di tipo popolare,79,a_cavallo
+3190005150001,FAB,319,515,1,A05,Abitazione di tipo ultrapopolare,79,a_cavallo
+3190005150002,FAB,319,515,2,A05,Abitazione di tipo ultrapopolare,79,a_cavallo
+3190005150003,FAB,319,515,3,A05,Abitazione di tipo ultrapopolare,79,a_cavallo
+3190005150004,FAB,319,515,4,A05,Abitazione di tipo ultrapopolare,79,a_cavallo
+3190005160002,FAB,319,516,2,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005160003,FAB,319,516,3,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005160004,FAB,319,516,4,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005160008,FAB,319,516,8,F02,Unità collabente,80,a_cavallo
+3190005170001,FAB,319,517,1,C01,Negozi e botteghe,80,a_cavallo
+3190005170002,FAB,319,517,2,C01,Negozi e botteghe,80,a_cavallo
+3190005170003,FAB,319,517,3,C06,"Stalle, scuderie, rimesse e autorimesse",80,a_cavallo
+3190005170004,FAB,319,517,4,C02,Magazzini e locali di deposito,80,a_cavallo
+3190005170005,FAB,319,517,5,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005170006,FAB,319,517,6,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005170008,FAB,319,517,8,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005170009,FAB,319,517,9,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005170010,FAB,319,517,10,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005170011,FAB,319,517,11,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005170012,FAB,319,517,12,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005170013,FAB,319,517,13,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005190001,FAB,319,519,1,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005190002,FAB,319,519,2,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005190004,FAB,319,519,4,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005190005,FAB,319,519,5,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005190006,FAB,319,519,6,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005190007,FAB,319,519,7,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005200001,FAB,319,520,1,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005200002,FAB,319,520,2,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005210001,FAB,319,521,1,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005210002,FAB,319,521,2,A04,Abitazione di tipo popolare,80,a_cavallo
+3190005220005,FAB,319,522,5,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005220006,FAB,319,522,6,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005220007,FAB,319,522,7,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005220008,FAB,319,522,8,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005230001,FAB,319,523,1,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005230002,FAB,319,523,2,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005230003,FAB,319,523,3,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005230004,FAB,319,523,4,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005240001,FAB,319,524,1,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005240002,FAB,319,524,2,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005240003,FAB,319,524,3,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005240004,FAB,319,524,4,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005770001,FAB,319,577,1,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005770002,FAB,319,577,2,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005770003,FAB,319,577,3,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005770004,FAB,319,577,4,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005800001,FAB,319,580,1,C01,Negozi e botteghe,80,a_cavallo
+3190005800002,FAB,319,580,2,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005800003,FAB,319,580,3,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005820001,FAB,319,582,1,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005820002,FAB,319,582,2,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005880001,FAB,319,588,1,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005880002,FAB,319,588,2,A05,Abitazione di tipo ultrapopolare,80,a_cavallo
+3190005880003,FAB,319,588,3,F02,Unità collabente,80,a_cavallo
+3190005880004,FAB,319,588,4,F02,Unità collabente,80,a_cavallo
+3190005890001,FAB,319,589,1,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190005890002,FAB,319,589,2,F02,Unità collabente,81,a_cavallo
+3190005890005,FAB,319,589,5,F02,Unità collabente,81,a_cavallo
+3190005900001,FAB,319,590,1,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190005900002,FAB,319,590,2,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190005900003,FAB,319,590,3,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190005900004,FAB,319,590,4,C02,Magazzini e locali di deposito,81,a_cavallo
+3190005900006,FAB,319,590,6,A04,Abitazione di tipo popolare,81,a_cavallo
+3190005900007,FAB,319,590,7,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190005900008,FAB,319,590,8,A04,Abitazione di tipo popolare,81,a_cavallo
+3190005900009,FAB,319,590,9,A04,Abitazione di tipo popolare,81,a_cavallo
+3190005900010,FAB,319,590,10,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190005900011,FAB,319,590,11,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190005900012,FAB,319,590,12,A04,Abitazione di tipo popolare,81,a_cavallo
+3190005900013,FAB,319,590,13,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006010001,FAB,319,601,1,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006010002,FAB,319,601,2,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006010003,FAB,319,601,3,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006010004,FAB,319,601,4,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006010005,FAB,319,601,5,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006010006,FAB,319,601,6,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006020001,FAB,319,602,1,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006020002,FAB,319,602,2,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006020003,FAB,319,602,3,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006020004,FAB,319,602,4,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006140001,FAB,319,614,1,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006140002,FAB,319,614,2,C02,Magazzini e locali di deposito,81,a_cavallo
+3190006140003,FAB,319,614,3,C01,Negozi e botteghe,81,a_cavallo
+3190006140004,FAB,319,614,4,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006140005,FAB,319,614,5,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006140006,FAB,319,614,6,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006270001,FAB,319,627,1,C02,Magazzini e locali di deposito,81,a_cavallo
+3190006270002,FAB,319,627,2,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006270003,FAB,319,627,3,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006270004,FAB,319,627,4,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006420008,FAB,319,642,8,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006440002,FAB,319,644,2,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006440003,FAB,319,644,3,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006480001,FAB,319,648,1,C02,Magazzini e locali di deposito,81,a_cavallo
+3190006480002,FAB,319,648,2,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006480003,FAB,319,648,3,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006480004,FAB,319,648,4,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006590002,FAB,319,659,2,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006590003,FAB,319,659,3,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006610002,FAB,319,661,2,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006610003,FAB,319,661,3,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006620002,FAB,319,662,2,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006620003,FAB,319,662,3,A05,Abitazione di tipo ultrapopolare,81,a_cavallo
+3190006620004,FAB,319,662,4,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006620006,FAB,319,662,6,B06,"Biblioteche, pinacoteche, musei, gallerie, accademie, che non hanno sede in edifici della categoria A/9",81,a_cavallo
+3190006640001,FAB,319,664,1,A04,Abitazione di tipo popolare,81,a_cavallo
+3190006640002,FAB,319,664,2,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006640003,FAB,319,664,3,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006640004,FAB,319,664,4,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006660001,FAB,319,666,1,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006660002,FAB,319,666,2,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006660003,FAB,319,666,3,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006660004,FAB,319,666,4,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006670001,FAB,319,667,1,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006670002,FAB,319,667,2,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006700001,FAB,319,670,1,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006700002,FAB,319,670,2,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006700003,FAB,319,670,3,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006700004,FAB,319,670,4,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006720001,FAB,319,672,1,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006720002,FAB,319,672,2,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006720003,FAB,319,672,3,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720004,FAB,319,672,4,C01,Negozi e botteghe,82,a_cavallo
+3190006720005,FAB,319,672,5,F01,Area urbana,82,a_cavallo
+3190006720006,FAB,319,672,6,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190006720007,FAB,319,672,7,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720008,FAB,319,672,8,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720009,FAB,319,672,9,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720010,FAB,319,672,10,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720011,FAB,319,672,11,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720014,FAB,319,672,14,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720015,FAB,319,672,15,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720016,FAB,319,672,16,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720017,FAB,319,672,17,A04,Abitazione di tipo popolare,82,a_cavallo
+3190006720018,FAB,319,672,18,C02,Magazzini e locali di deposito,82,a_cavallo
+3190006740016,FAB,319,674,16,C01,Negozi e botteghe,82,a_cavallo
+3190007020001,FAB,319,702,1,A03,Abitazione di tipo economico,82,a_cavallo
+3190007020002,FAB,319,702,2,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+319000746,FAB,319,746,,A04,Abitazione di tipo popolare,82,a_cavallo
+3190007480001,FAB,319,748,1,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190007480002,FAB,319,748,2,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190007480003,FAB,319,748,3,C01,Negozi e botteghe,82,a_cavallo
+3190007480004,FAB,319,748,4,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190007480005,FAB,319,748,5,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190007480006,FAB,319,748,6,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190007480007,FAB,319,748,7,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190007480008,FAB,319,748,8,A04,Abitazione di tipo popolare,82,a_cavallo
+3190007480009,FAB,319,748,9,A04,Abitazione di tipo popolare,82,a_cavallo
+3190007480010,FAB,319,748,10,A04,Abitazione di tipo popolare,82,a_cavallo
+3190007550002,FAB,319,755,2,A05,Abitazione di tipo ultrapopolare,82,a_cavallo
+3190007620005,FAB,319,762,5,C01,Negozi e botteghe,82,a_cavallo
+3190007620006,FAB,319,762,6,C01,Negozi e botteghe,82,a_cavallo
+3190007620007,FAB,319,762,7,A03,Abitazione di tipo economico,82,a_cavallo
+3190007620012,FAB,319,762,12,A04,Abitazione di tipo popolare,82,a_cavallo
+3190007620018,FAB,319,762,18,A04,Abitazione di tipo popolare,82,a_cavallo
+3190007620025,FAB,319,762,25,A04,Abitazione di tipo popolare,82,a_cavallo
+3190007620026,FAB,319,762,26,A04,Abitazione di tipo popolare,82,a_cavallo
+3190007620027,FAB,319,762,27,A04,Abitazione di tipo popolare,83,a_cavallo
+3190007630001,FAB,319,763,1,C01,Negozi e botteghe,83,a_cavallo
+3190007630002,FAB,319,763,2,C01,Negozi e botteghe,83,a_cavallo
+3190007630004,FAB,319,763,4,C01,Negozi e botteghe,83,a_cavallo
+3190007630008,FAB,319,763,8,A03,Abitazione di tipo economico,83,a_cavallo
+3190007640001,FAB,319,764,1,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190007640002,FAB,319,764,2,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190007640004,FAB,319,764,4,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190007640006,FAB,319,764,6,A04,Abitazione di tipo popolare,83,a_cavallo
+3190007640007,FAB,319,764,7,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190007640010,FAB,319,764,10,A04,Abitazione di tipo popolare,83,a_cavallo
+3190007650001,FAB,319,765,1,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190007650002,FAB,319,765,2,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190007650003,FAB,319,765,3,A04,Abitazione di tipo popolare,83,a_cavallo
+3190007650004,FAB,319,765,4,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190007650005,FAB,319,765,5,A04,Abitazione di tipo popolare,83,a_cavallo
+3190007650006,FAB,319,765,6,A04,Abitazione di tipo popolare,83,a_cavallo
+3190007650007,FAB,319,765,7,A03,Abitazione di tipo economico,83,a_cavallo
+3190007650008,FAB,319,765,8,A04,Abitazione di tipo popolare,83,a_cavallo
+3190007710006,FAB,319,771,6,F05,Lastrico solare,83,a_cavallo
+3190007720015,FAB,319,772,15,F05,Lastrico solare,83,a_cavallo
+3190007720018,FAB,319,772,18,F05,Lastrico solare,83,a_cavallo
+3190007750013,FAB,319,775,13,F05,Lastrico solare,83,a_cavallo
+3190007770007,FAB,319,777,7,F05,Lastrico solare,83,a_cavallo
+3190007790014,FAB,319,779,14,F05,Lastrico solare,83,a_cavallo
+3190007790015,FAB,319,779,15,F01,Area urbana,83,a_cavallo
+3190007890009,FAB,319,789,9,F05,Lastrico solare,83,a_cavallo
+3190007900017,FAB,319,790,17,F05,Lastrico solare,83,a_cavallo
+3190007900021,FAB,319,790,21,F05,Lastrico solare,83,a_cavallo
+3190007940008,FAB,319,794,8,F05,Lastrico solare,83,a_cavallo
+3190007950001,FAB,319,795,1,C01,Negozi e botteghe,83,a_cavallo
+3190007950002,FAB,319,795,2,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190008000004,FAB,319,800,4,F05,Lastrico solare,83,a_cavallo
+3190008050016,FAB,319,805,16,F05,Lastrico solare,83,a_cavallo
+3190008060012,FAB,319,806,12,F01,Area urbana,83,a_cavallo
+3190008060013,FAB,319,806,13,F05,Lastrico solare,83,a_cavallo
+3190008060018,FAB,319,806,18,F05,Lastrico solare,83,a_cavallo
+3190008070011,FAB,319,807,11,F05,Lastrico solare,83,a_cavallo
+3190008070013,FAB,319,807,13,F05,Lastrico solare,83,a_cavallo
+3190008070016,FAB,319,807,16,F05,Lastrico solare,83,a_cavallo
+3190008070018,FAB,319,807,18,F05,Lastrico solare,83,a_cavallo
+3190008080009,FAB,319,808,9,F05,Lastrico solare,83,a_cavallo
+3190008100013,FAB,319,810,13,F05,Lastrico solare,83,a_cavallo
+3190008140017,FAB,319,814,17,F05,Lastrico solare,83,a_cavallo
+3190008170013,FAB,319,817,13,F05,Lastrico solare,83,a_cavallo
+3190008190008,FAB,319,819,8,F05,Lastrico solare,83,a_cavallo
+3190008280001,FAB,319,828,1,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190008300001,FAB,319,830,1,A04,Abitazione di tipo popolare,83,a_cavallo
+3190008300002,FAB,319,830,2,A05,Abitazione di tipo ultrapopolare,83,a_cavallo
+3190008300003,FAB,319,830,3,A04,Abitazione di tipo popolare,83,a_cavallo
+3190008300004,FAB,319,830,4,A04,Abitazione di tipo popolare,83,a_cavallo
+3190008300005,FAB,319,830,5,A04,Abitazione di tipo popolare,84,a_cavallo
+3190008320001,FAB,319,832,1,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320003,FAB,319,832,3,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320005,FAB,319,832,5,A04,Abitazione di tipo popolare,84,a_cavallo
+3190008320007,FAB,319,832,7,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320008,FAB,319,832,8,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320009,FAB,319,832,9,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320010,FAB,319,832,10,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320011,FAB,319,832,11,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320012,FAB,319,832,12,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320014,FAB,319,832,14,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008320015,FAB,319,832,15,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008330001,FAB,319,833,1,A04,Abitazione di tipo popolare,84,a_cavallo
+3190008330002,FAB,319,833,2,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008340004,FAB,319,834,4,C01,Negozi e botteghe,84,a_cavallo
+3190008440001,FAB,319,844,1,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008440002,FAB,319,844,2,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008440003,FAB,319,844,3,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008570010,FAB,319,857,10,A04,Abitazione di tipo popolare,84,a_cavallo
+3190008570011,FAB,319,857,11,A04,Abitazione di tipo popolare,84,a_cavallo
+3190008610007,FAB,319,861,7,A04,Abitazione di tipo popolare,84,a_cavallo
+3190008680001,FAB,319,868,1,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008680005,FAB,319,868,5,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008720006,FAB,319,872,6,A03,Abitazione di tipo economico,84,a_cavallo
+3190008740003,FAB,319,874,3,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008740004,FAB,319,874,4,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190008780004,FAB,319,878,4,C01,Negozi e botteghe,84,a_cavallo
+3190009050001,FAB,319,905,1,C06,"Stalle, scuderie, rimesse e autorimesse",84,a_cavallo
+3190009050002,FAB,319,905,2,C01,Negozi e botteghe,84,a_cavallo
+3190009050004,FAB,319,905,4,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190009050005,FAB,319,905,5,C06,"Stalle, scuderie, rimesse e autorimesse",84,a_cavallo
+3190009050006,FAB,319,905,6,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190009050007,FAB,319,905,7,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190009050008,FAB,319,905,8,A04,Abitazione di tipo popolare,84,a_cavallo
+3190009050009,FAB,319,905,9,A03,Abitazione di tipo economico,84,a_cavallo
+3190009050010,FAB,319,905,10,A03,Abitazione di tipo economico,84,a_cavallo
+3190009050011,FAB,319,905,11,A03,Abitazione di tipo economico,84,a_cavallo
+3190009050012,FAB,319,905,12,A03,Abitazione di tipo economico,84,a_cavallo
+3190009050013,FAB,319,905,13,A03,Abitazione di tipo economico,84,a_cavallo
+3190009050014,FAB,319,905,14,A03,Abitazione di tipo economico,84,a_cavallo
+3190009050015,FAB,319,905,15,A03,Abitazione di tipo economico,84,a_cavallo
+3190009050016,FAB,319,905,16,A04,Abitazione di tipo popolare,84,a_cavallo
+3190009050017,FAB,319,905,17,A04,Abitazione di tipo popolare,84,a_cavallo
+3190009050018,FAB,319,905,18,A04,Abitazione di tipo popolare,84,a_cavallo
+3190009050019,FAB,319,905,19,A05,Abitazione di tipo ultrapopolare,84,a_cavallo
+3190009050020,FAB,319,905,20,A03,Abitazione di tipo economico,84,a_cavallo
+3190009060001,FAB,319,906,1,C01,Negozi e botteghe,84,a_cavallo
+3190009060002,FAB,319,906,2,C01,Negozi e botteghe,84,a_cavallo
+3190009060005,FAB,319,906,5,A04,Abitazione di tipo popolare,84,a_cavallo
+3190009070004,FAB,319,907,4,A04,Abitazione di tipo popolare,84,a_cavallo
+3190009070007,FAB,319,907,7,C01,Negozi e botteghe,84,a_cavallo
+3190009070008,FAB,319,907,8,A02,Abitazioni di tipo civile,85,a_cavallo
+3190009150006,FAB,319,915,6,F05,Lastrico solare,85,a_cavallo
+3190009160028,FAB,319,916,28,F05,Lastrico solare,85,a_cavallo
+3190009160035,FAB,319,916,35,F05,Lastrico solare,85,a_cavallo
+3190009160037,FAB,319,916,37,F05,Lastrico solare,85,a_cavallo
+3190009190001,FAB,319,919,1,B06,"Biblioteche, pinacoteche, musei, gallerie, accademie, che non hanno sede in edifici della categoria A/9",85,a_cavallo
+3190009200001,FAB,319,920,1,C02,Magazzini e locali di deposito,85,a_cavallo
+3190009250014,FAB,319,925,14,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190009250020,FAB,319,925,20,F05,Lastrico solare,85,a_cavallo
+3190009250021,FAB,319,925,21,F05,Lastrico solare,85,a_cavallo
+3190009260014,FAB,319,926,14,F05,Lastrico solare,85,a_cavallo
+3190009300006,FAB,319,930,6,F05,Lastrico solare,85,a_cavallo
+3190009370012,FAB,319,937,12,F05,Lastrico solare,85,a_cavallo
+3190009380013,FAB,319,938,13,F05,Lastrico solare,85,a_cavallo
+3190009390016,FAB,319,939,16,F05,Lastrico solare,85,a_cavallo
+3190009420014,FAB,319,942,14,F05,Lastrico solare,85,a_cavallo
+3190009430019,FAB,319,943,19,F05,Lastrico solare,85,a_cavallo
+3190009430022,FAB,319,943,22,F05,Lastrico solare,85,a_cavallo
+3190009560008,FAB,319,956,8,F05,Lastrico solare,85,a_cavallo
+3190009750008,FAB,319,975,8,F05,Lastrico solare,85,a_cavallo
+3190009760007,FAB,319,976,7,F05,Lastrico solare,85,a_cavallo
+3190009800015,FAB,319,980,15,F05,Lastrico solare,85,a_cavallo
+3190009820008,FAB,319,982,8,F05,Lastrico solare,85,a_cavallo
+3190010130001,FAB,319,1013,1,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010130002,FAB,319,1013,2,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010160002,FAB,319,1016,2,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010160003,FAB,319,1016,3,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010160004,FAB,319,1016,4,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010170001,FAB,319,1017,1,C01,Negozi e botteghe,85,a_cavallo
+3190010170002,FAB,319,1017,2,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010170005,FAB,319,1017,5,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010170007,FAB,319,1017,7,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010170008,FAB,319,1017,8,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010180001,FAB,319,1018,1,A03,Abitazione di tipo economico,85,a_cavallo
+3190010180002,FAB,319,1018,2,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010600001,FAB,319,1060,1,C01,Negozi e botteghe,85,a_cavallo
+3190010600002,FAB,319,1060,2,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010640002,FAB,319,1064,2,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010640003,FAB,319,1064,3,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010640004,FAB,319,1064,4,C06,"Stalle, scuderie, rimesse e autorimesse",85,a_cavallo
+3190010640005,FAB,319,1064,5,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010640006,FAB,319,1064,6,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010640007,FAB,319,1064,7,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010640008,FAB,319,1064,8,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010640009,FAB,319,1064,9,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010640010,FAB,319,1064,10,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010640011,FAB,319,1064,11,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010640012,FAB,319,1064,12,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190010640013,FAB,319,1064,13,A04,Abitazione di tipo popolare,85,a_cavallo
+3190010930002,FAB,319,1093,2,C02,Magazzini e locali di deposito,85,a_cavallo
+3190011190001,FAB,319,1119,1,A05,Abitazione di tipo ultrapopolare,85,a_cavallo
+3190011190002,FAB,319,1119,2,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011190003,FAB,319,1119,3,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011190004,FAB,319,1119,4,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011290001,FAB,319,1129,1,C02,Magazzini e locali di deposito,86,a_cavallo
+3190011320001,FAB,319,1132,1,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011320002,FAB,319,1132,2,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011320003,FAB,319,1132,3,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011320004,FAB,319,1132,4,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011340003,FAB,319,1134,3,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011340004,FAB,319,1134,4,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011360001,FAB,319,1136,1,C03,Laboratori per arti e mestieri,86,a_cavallo
+3190011440002,FAB,319,1144,2,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011440003,FAB,319,1144,3,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011440005,FAB,319,1144,5,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011490001,FAB,319,1149,1,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011490002,FAB,319,1149,2,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011490004,FAB,319,1149,4,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011580001,FAB,319,1158,1,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011580002,FAB,319,1158,2,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011580003,FAB,319,1158,3,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011580004,FAB,319,1158,4,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011590001,FAB,319,1159,1,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011590003,FAB,319,1159,3,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011590004,FAB,319,1159,4,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011670001,FAB,319,1167,1,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011670002,FAB,319,1167,2,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011670003,FAB,319,1167,3,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011670004,FAB,319,1167,4,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011670005,FAB,319,1167,5,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011680001,FAB,319,1168,1,C02,Magazzini e locali di deposito,86,a_cavallo
+3190011680002,FAB,319,1168,2,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011680003,FAB,319,1168,3,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011710001,FAB,319,1171,1,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011710002,FAB,319,1171,2,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011710003,FAB,319,1171,3,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011720001,FAB,319,1172,1,C01,Negozi e botteghe,86,a_cavallo
+3190011720002,FAB,319,1172,2,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011740001,FAB,319,1174,1,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011740002,FAB,319,1174,2,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011750002,FAB,319,1175,2,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011750003,FAB,319,1175,3,A04,Abitazione di tipo popolare,86,a_cavallo
+3190011920002,FAB,319,1192,2,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011920006,FAB,319,1192,6,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190011920007,FAB,319,1192,7,A04,Abitazione di tipo popolare,86,a_cavallo
+3190012280005,FAB,319,1228,5,A04,Abitazione di tipo popolare,86,a_cavallo
+3190012280006,FAB,319,1228,6,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190012280007,FAB,319,1228,7,A04,Abitazione di tipo popolare,86,a_cavallo
+3190012280008,FAB,319,1228,8,A04,Abitazione di tipo popolare,86,a_cavallo
+319001247,FAB,319,1247,,A05,Abitazione di tipo ultrapopolare,86,a_cavallo
+3190014380003,FAB,319,1438,3,F02,Unità collabente,86,a_cavallo
+3190014380004,FAB,319,1438,4,F02,Unità collabente,86,a_cavallo
+3190014420001,FAB,319,1442,1,C01,Negozi e botteghe,87,a_cavallo
+3190014420006,FAB,319,1442,6,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014420007,FAB,319,1442,7,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014420008,FAB,319,1442,8,C02,Magazzini e locali di deposito,87,a_cavallo
+3190014420009,FAB,319,1442,9,C02,Magazzini e locali di deposito,87,a_cavallo
+3190014420010,FAB,319,1442,10,C02,Magazzini e locali di deposito,87,a_cavallo
+3190014420013,FAB,319,1442,13,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014420017,FAB,319,1442,17,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014420018,FAB,319,1442,18,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014420023,FAB,319,1442,23,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014420024,FAB,319,1442,24,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014450001,FAB,319,1445,1,C01,Negozi e botteghe,87,a_cavallo
+3190014450002,FAB,319,1445,2,C01,Negozi e botteghe,87,a_cavallo
+3190014450005,FAB,319,1445,5,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014450006,FAB,319,1445,6,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014450011,FAB,319,1445,11,C02,Magazzini e locali di deposito,87,a_cavallo
+3190014490001,FAB,319,1449,1,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014490002,FAB,319,1449,2,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014550001,FAB,319,1455,1,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014550002,FAB,319,1455,2,C02,Magazzini e locali di deposito,87,a_cavallo
+3190014550003,FAB,319,1455,3,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014550004,FAB,319,1455,4,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014550005,FAB,319,1455,5,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014550006,FAB,319,1455,6,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014550007,FAB,319,1455,7,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014550008,FAB,319,1455,8,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014550009,FAB,319,1455,9,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014550010,FAB,319,1455,10,A04,Abitazione di tipo popolare,87,a_cavallo
+3190014900002,FAB,319,1490,2,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190014900003,FAB,319,1490,3,A04,Abitazione di tipo popolare,87,a_cavallo
+3190015280001,FAB,319,1528,1,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190015280002,FAB,319,1528,2,C02,Magazzini e locali di deposito,87,a_cavallo
+3190015280003,FAB,319,1528,3,A04,Abitazione di tipo popolare,87,a_cavallo
+3190015280004,FAB,319,1528,4,A04,Abitazione di tipo popolare,87,a_cavallo
+3190015280005,FAB,319,1528,5,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190015470001,FAB,319,1547,1,C01,Negozi e botteghe,87,a_cavallo
+3190015470002,FAB,319,1547,2,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190015470003,FAB,319,1547,3,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190015470004,FAB,319,1547,4,C02,Magazzini e locali di deposito,87,a_cavallo
+3190015470005,FAB,319,1547,5,C02,Magazzini e locali di deposito,87,a_cavallo
+3190015470006,FAB,319,1547,6,C06,"Stalle, scuderie, rimesse e autorimesse",87,a_cavallo
+3190015470008,FAB,319,1547,8,A03,Abitazione di tipo economico,87,a_cavallo
+3190015470009,FAB,319,1547,9,C06,"Stalle, scuderie, rimesse e autorimesse",87,a_cavallo
+3190015470010,FAB,319,1547,10,A04,Abitazione di tipo popolare,87,a_cavallo
+3190015470011,FAB,319,1547,11,A02,Abitazioni di tipo civile,87,a_cavallo
+3190015470012,FAB,319,1547,12,A02,Abitazioni di tipo civile,87,a_cavallo
+3190015480002,FAB,319,1548,2,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190015510001,FAB,319,1551,1,C01,Negozi e botteghe,87,a_cavallo
+3190015510002,FAB,319,1551,2,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190015510003,FAB,319,1551,3,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190015510004,FAB,319,1551,4,A05,Abitazione di tipo ultrapopolare,87,a_cavallo
+3190015510005,FAB,319,1551,5,C02,Magazzini e locali di deposito,88,a_cavallo
+3190015510006,FAB,319,1551,6,A03,Abitazione di tipo economico,88,a_cavallo
+3190015700017,FAB,319,1570,17,B04,Uffici pubblici,88,a_cavallo
+3190015820011,FAB,319,1582,11,A04,Abitazione di tipo popolare,88,a_cavallo
+3190015980007,FAB,319,1598,7,B06,"Biblioteche, pinacoteche, musei, gallerie, accademie, che non hanno sede in edifici della categoria A/9",88,a_cavallo
+3190016090001,FAB,319,1609,1,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190016110001,FAB,319,1611,1,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190016350004,FAB,319,1635,4,A03,Abitazione di tipo economico,88,a_cavallo
+3190016760001,FAB,319,1676,1,A04,Abitazione di tipo popolare,88,a_cavallo
+3190016760002,FAB,319,1676,2,A04,Abitazione di tipo popolare,88,a_cavallo
+3190016760003,FAB,319,1676,3,A04,Abitazione di tipo popolare,88,a_cavallo
+3190016760004,FAB,319,1676,4,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190020090109,FAB,319,2009,109,F05,Lastrico solare,88,a_cavallo
+3190024340005,FAB,319,2434,5,C01,Negozi e botteghe,88,a_cavallo
+3190024340010,FAB,319,2434,10,C01,Negozi e botteghe,88,a_cavallo
+3190024350001,FAB,319,2435,1,D03,"Teatri, cinematografi, sale per concerti e spettacoli e simili",88,a_cavallo
+3190029180003,FAB,319,2918,3,C02,Magazzini e locali di deposito,88,a_cavallo
+3190029180004,FAB,319,2918,4,C07,Tettoie chiuse o aperte,88,a_cavallo
+3190029180005,FAB,319,2918,5,C02,Magazzini e locali di deposito,88,a_cavallo
+3190029180006,FAB,319,2918,6,C02,Magazzini e locali di deposito,88,a_cavallo
+3190029180007,FAB,319,2918,7,C02,Magazzini e locali di deposito,88,a_cavallo
+3190029180008,FAB,319,2918,8,C02,Magazzini e locali di deposito,88,a_cavallo
+3190029180009,FAB,319,2918,9,C02,Magazzini e locali di deposito,88,a_cavallo
+3190029180010,FAB,319,2918,10,C02,Magazzini e locali di deposito,88,a_cavallo
+3190029180011,FAB,319,2918,11,C03,Laboratori per arti e mestieri,88,a_cavallo
+3190034780003,FAB,319,3478,3,C03,Laboratori per arti e mestieri,88,a_cavallo
+3190034780004,FAB,319,3478,4,C01,Negozi e botteghe,88,a_cavallo
+3190034780005,FAB,319,3478,5,E03,Costruzioni e fabbricati per speciali esigenze pubbliche,88,a_cavallo
+319004500,FAB,319,4500,,F01,Area urbana,88,a_cavallo
+3190045720020,FAB,319,4572,20,A03,Abitazione di tipo economico,88,a_cavallo
+3190046100016,FAB,319,4610,16,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046100028,FAB,319,4610,28,C02,Magazzini e locali di deposito,88,a_cavallo
+3190046110001,FAB,319,4611,1,C03,Laboratori per arti e mestieri,88,a_cavallo
+3190046110003,FAB,319,4611,3,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046110004,FAB,319,4611,4,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190046110008,FAB,319,4611,8,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190046110010,FAB,319,4611,10,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046110012,FAB,319,4611,12,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190046110013,FAB,319,4611,13,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190046120011,FAB,319,4612,11,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046120016,FAB,319,4612,16,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190046120017,FAB,319,4612,17,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046120018,FAB,319,4612,18,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046170006,FAB,319,4617,6,A05,Abitazione di tipo ultrapopolare,88,a_cavallo
+3190046170007,FAB,319,4617,7,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046170008,FAB,319,4617,8,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046640001,FAB,319,4664,1,B05,"Scuole, laboratori scientifici",88,a_cavallo
+3190046640002,FAB,319,4664,2,A04,Abitazione di tipo popolare,88,a_cavallo
+3190046640003,FAB,319,4664,3,B05,"Scuole, laboratori scientifici",88,a_cavallo
+3190046680001,FAB,319,4668,1,C01,Negozi e botteghe,88,a_cavallo
+3190046680002,FAB,319,4668,2,C01,Negozi e botteghe,88,a_cavallo
+3190046680004,FAB,319,4668,4,A03,Abitazione di tipo economico,89,a_cavallo
+3190046680005,FAB,319,4668,5,A03,Abitazione di tipo economico,89,a_cavallo
+3190047140031,FAB,319,4714,31,B04,Uffici pubblici,89,a_cavallo
+3190047140032,FAB,319,4714,32,C01,Negozi e botteghe,89,a_cavallo
+3190047140033,FAB,319,4714,33,C01,Negozi e botteghe,89,a_cavallo
+3190047140034,FAB,319,4714,34,C01,Negozi e botteghe,89,a_cavallo
+3190047140035,FAB,319,4714,35,C01,Negozi e botteghe,89,a_cavallo
+3190047140037,FAB,319,4714,37,C01,Negozi e botteghe,89,a_cavallo
+3190047140038,FAB,319,4714,38,C01,Negozi e botteghe,89,a_cavallo
+3190047140039,FAB,319,4714,39,C01,Negozi e botteghe,89,a_cavallo
+3190047140040,FAB,319,4714,40,C01,Negozi e botteghe,89,a_cavallo
+3190047140041,FAB,319,4714,41,C01,Negozi e botteghe,89,a_cavallo
+3190047140043,FAB,319,4714,43,B04,Uffici pubblici,89,a_cavallo
+3190635570001,FAB,319,63557,1,D01,Opifici,89,a_cavallo
+3190635590001,FAB,319,63559,1,D01,Opifici,89,a_cavallo
+3190635600001,FAB,319,63560,1,C01,Negozi e botteghe,89,a_cavallo
+3190635610001,FAB,319,63561,1,E01,"Stazioni per servizi di trasporto terrestri, marittimi ed aerei",89,a_cavallo
+3190635620001,FAB,319,63562,1,C01,Negozi e botteghe,89,a_cavallo
+3190635630001,FAB,319,63563,1,C01,Negozi e botteghe,89,a_cavallo
+3190635630002,FAB,319,63563,2,E01,"Stazioni per servizi di trasporto terrestri, marittimi ed aerei",89,a_cavallo
+3190635640001,FAB,319,63564,1,E01,"Stazioni per servizi di trasporto terrestri, marittimi ed aerei",89,a_cavallo
+3190635650001,FAB,319,63565,1,E03,Costruzioni e fabbricati per speciali esigenze pubbliche,89,a_cavallo
+3190636510001,FAB,319,63651,1,C01,Negozi e botteghe,89,a_cavallo
+3190636800001,FAB,319,63680,1,C01,Negozi e botteghe,89,a_cavallo
+3190636800002,FAB,319,63680,2,E03,Costruzioni e fabbricati per speciali esigenze pubbliche,89,a_cavallo
+3190637300001,FAB,319,63730,1,C01,Negozi e botteghe,89,a_cavallo
+3190637320001,FAB,319,63732,1,C01,Negozi e botteghe,89,a_cavallo
+195000098,TER,195,98,,,,94,a_cavallo
+195000099,TER,195,99,,,,94,a_cavallo
+195000134,TER,195,134,,,,94,a_cavallo
+195000136,TER,195,136,,,,94,a_cavallo
+195000149,TER,195,149,,,,94,a_cavallo
+199000006,TER,199,6,,,,94,a_cavallo
+199000008,TER,199,8,,,,94,a_cavallo
+200000026,TER,200,26,,,,94,dentro
+200000034,TER,200,34,,,,94,dentro
+200000036,TER,200,36,,,,94,dentro
+200000039,TER,200,39,,,,94,dentro
+200000168,TER,200,168,,,,94,dentro
+200000191,TER,200,191,,,,94,dentro
+200000251,TER,200,251,,,,94,dentro
+200000255,TER,200,255,,,,94,dentro
+200000339,TER,200,339,,,,94,dentro
+0020000000A,TER,200,00000A,,,,94,dentro
+201000162,TER,201,162,,,,94,a_cavallo
+201000168,TER,201,168,,,,94,a_cavallo
+201000264,TER,201,264,,,,94,a_cavallo
+201002160,TER,201,2160,,,,94,a_cavallo
+201002282,TER,201,2282,,,,94,a_cavallo
+201002284,TER,201,2284,,,,94,a_cavallo
+202000001,TER,202,1,,,,94,a_cavallo
+202000231,TER,202,231,,,,94,a_cavallo
+202000772,TER,202,772,,,,94,a_cavallo
+202000775,TER,202,775,,,,94,a_cavallo
+202000778,TER,202,778,,,,94,a_cavallo
+202000781,TER,202,781,,,,94,a_cavallo
+202000784,TER,202,784,,,,94,a_cavallo
+202000787,TER,202,787,,,,94,a_cavallo
+203000170,TER,203,170,,,,94,dentro
+203000200,TER,203,200,,,,94,dentro
+204000734,TER,204,734,,,,94,a_cavallo
+204000737,TER,204,737,,,,94,a_cavallo
+204000740,TER,204,740,,,,94,a_cavallo
+204000744,TER,204,744,,,,94,a_cavallo
+204000906,TER,204,906,,,,94,a_cavallo
+204000907,TER,204,907,,,,94,a_cavallo
+204000908,TER,204,908,,,,95,a_cavallo
+0020400000B,TER,204,00000B,,,,95,a_cavallo
+319001880,TER,319,1880,,,,107,a_cavallo
+319002236,TER,319,2236,,,,107,a_cavallo
+319002246,TER,319,2246,,,,107,a_cavallo
+319003003,TER,319,3003,,,,107,a_cavallo
+319003319,TER,319,3319,,,,107,a_cavallo
+319003383,TER,319,3383,,,,107,a_cavallo
+319003396,TER,319,3396,,,,107,a_cavallo
+319003430,TER,319,3430,,,,107,a_cavallo
+319004001,TER,319,4001,,,,107,a_cavallo
+319004006,TER,319,4006,,,,107,a_cavallo
+319004029,TER,319,4029,,,,107,a_cavallo
+319004037,TER,319,4037,,,,107,a_cavallo
+319004038,TER,319,4038,,,,107,a_cavallo
+319004043,TER,319,4043,,,,107,a_cavallo
+319004073,TER,319,4073,,,,107,a_cavallo
+319004074,TER,319,4074,,,,107,a_cavallo
+319004075,TER,319,4075,,,,107,a_cavallo
+319004083,TER,319,4083,,,,107,a_cavallo
+319004092,TER,319,4092,,,,107,a_cavallo
+319004093,TER,319,4093,,,,107,a_cavallo
+319004094,TER,319,4094,,,,107,a_cavallo
+319004095,TER,319,4095,,,,107,a_cavallo
+319004106,TER,319,4106,,,,107,a_cavallo
+319004122,TER,319,4122,,,,107,a_cavallo
+319004123,TER,319,4123,,,,107,a_cavallo
+319004135,TER,319,4135,,,,107,a_cavallo
+319004136,TER,319,4136,,,,107,a_cavallo
+319004137,TER,319,4137,,,,107,a_cavallo
+319004148,TER,319,4148,,,,107,a_cavallo
+319004149,TER,319,4149,,,,107,a_cavallo
+319004174,TER,319,4174,,,,107,a_cavallo
+319004500,TER,319,4500,,,,107,a_cavallo
+319063636,TER,319,63636,,,,107,a_cavallo
+319063638,TER,319,63638,,,,107,a_cavallo
+319063679,TER,319,63679,,,,107,a_cavallo
+0031900000Q,TER,319,00000Q,,,,107,a_cavallo
+003190000AM,TER,319,0000AM,,,,107,a_cavallo
+003190000AN,TER,319,0000AN,,,,107,a_cavallo
