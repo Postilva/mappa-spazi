@@ -2,7 +2,7 @@
 
 ## `fonti/`
 
-Fonte di partenza: *Elenco beni immobili – anno 2024*, Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative (PDF, 107 pagine, esportato da Excel il 28/05/2024 secondo i metadati del file; ricevuto tramite il Drive di Postilva, cartella del T4). Pubblicazione ufficiale e presenza degli indirizzi: vedi `fonti/2026-11-10_verifica-elenco-2024.md`.
+Fonte di partenza: *Elenco beni immobili – anno 2024*, Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative (PDF, 107 pagine, esportato da Excel il 28/05/2024 secondo i metadati del file; ricevuto tramite il Drive di Postilva, cartella del T4). È la versione pubblicata dal Comune in Amministrazione Trasparente il 29/05/2024 (file identico) e **non contiene indirizzi**: dettagli e link in `fonti/2026-11-10_verifica-elenco-2024.md`.
 
 | File | Contenuto |
 |---|---|

@@ -35,4 +35,16 @@ Questo repository contiene solo **dati e codice**.
 
 ## Stato
 
-In avvio (10/11/2026): struttura del repository; nessun dato né codice ancora caricato.
+In avvio (10/11/2026): struttura del repository; caricati l'elenco immobili 2024 del Comune e la sua estrazione in CSV (`dati/fonti/`). Nessun codice del sito ancora.
+
+## Stato del lavoro
+
+1. [x] Estrazione dell'elenco 2024 in CSV — fatto 10/11/2026 (`scripts/estrai_elenco.py`, `dati/fonti/elenco-immobili-2024.csv`, 5.450 righe)
+2. [x] Verifiche sulla fonte (indirizzi, statistiche, pubblicazione ufficiale) — fatto 10/11/2026 (`dati/fonti/2026-11-10_verifica-elenco-2024.md`)
+3. [ ] Fogli catastali dei Tamburi e filtro dell'elenco — **prossimo: passo 3**
+4. [ ] Posizione degli edifici
+5. [ ] Schede JSON degli edifici
+6. [ ] Sito statico Astro + MapLibre, stile A
+7. [ ] Pagine mappa, scheda, elenco, metodo
+8. [ ] Controllo da smartphone e accessibilità
+9. [ ] Pubblicazione come pagina privata claude.ai
