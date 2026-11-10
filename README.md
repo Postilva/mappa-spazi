@@ -47,4 +47,4 @@ In avvio (10/11/2026): struttura del repository; caricati l'elenco immobili 2024
 6. [x] Sito statico MapLibre, stile A — fatto 10/11/2026 (niente Astro: generatore Python `scripts/build_sito.py`, sorgenti in `sito/src/`, mappa di base vettoriale incorporata; vedi `sito/README.md`)
 7. [x] Pagine mappa, scheda, elenco, metodo — fatto 10/11/2026 (`sito/dist/pagina-claude.html`, file unico; `sito/index.html` per hosting normale)
 8. [x] Controllo da smartphone e accessibilità — fatto 10/11/2026 (Playwright 390×844 e 1280×800: console pulita, niente scroll orizzontale, 29 punti, target ≥ 44 px)
-9. [ ] Pubblicazione come pagina privata claude.ai — **prossimo**
+9. [x] Pubblicazione come pagina privata claude.ai (10/11/2026): https://claude.ai/artifact/EzPvgu5dKgkUJwo3YYgVwb (privata: si condivide dal menu Condividi). Prossimo: revisione del team, conferma del confine, sopralluoghi.
