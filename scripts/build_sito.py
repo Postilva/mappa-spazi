@@ -21,7 +21,7 @@ Se la cache WFS o le sezioni ISTAT non sono disponibili, i livelli corrispondent
 ripresi dal sito/dati/base.geojson già generato (che è versionato).
 Serve shapely (e pyshp se si passa --istat): vedi scripts/requirements.txt.
 """
-import argparse, csv, glob, json, os, sys, warnings
+import argparse, base64, csv, glob, json, os, sys, warnings
 import xml.etree.ElementTree as ET
 
 from shapely.geometry import shape, mapping, box
@@ -138,6 +138,25 @@ def terra_istat(cartella, vista):
     return transform(tr, terra).intersection(vista).simplify(TOLL * 4)
 
 
+def osm_incorporato():
+    """Tessere e caratteri OSM (scripts/scarica_base_osm.py) in base64, per la pagina unica."""
+    cart = os.path.join(SITO, "dati/osm")
+    if not os.path.exists(os.path.join(cart, "fonte.json")):
+        print("ATTENZIONE: base OSM assente, lanciare scripts/scarica_base_osm.py", file=sys.stderr)
+        return None
+    b64 = lambda fn: base64.b64encode(open(fn, "rb").read()).decode("ascii")
+    tessere, fonts = {}, {}
+    for fn in glob.glob(os.path.join(cart, "*/*/*.pbf")):
+        z, x, y = os.path.relpath(fn, cart)[:-4].split(os.sep)
+        if z.isdigit():
+            tessere[f"{z}/{x}/{y}"] = b64(fn)
+    for fn in glob.glob(os.path.join(cart, "fonts/*/*.pbf")):
+        f, r = os.path.relpath(fn, os.path.join(cart, "fonts"))[:-4].split(os.sep)
+        fonts[f"{f}/{r}"] = b64(fn)
+    fonte = json.load(open(os.path.join(cart, "fonte.json")))
+    return {"tessere": tessere, "fonts": fonts, "zoom": fonte["zoom"], "attribuzione": fonte["attribuzione"]}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--istat", help="cartella con R16_21_WGS84.shp (sezioni ISTAT 2021)")
@@ -223,7 +242,13 @@ def main():
              f'<link rel="stylesheet" href="{FONT}">\n')
 
     # 1) file unico per claude.ai (frammento, tutto incorporato)
-    dati_js = ("window.MAPPA_DATI=" + json.dumps({"edifici": gj_edifici, "base": gj_base, "meta": meta},
+    osm = osm_incorporato()
+    if osm:  # con la base OSM la terraferma ISTAT e gli isolati catastali non servono più nella pagina
+        meta["osm"] = {"zoom": osm["zoom"], "attribuzione": osm["attribuzione"]}
+        base_pag = dict(gj_base, features=[f for f in base if f["properties"]["livello"] not in ("terra", "particelle")])
+    else:
+        base_pag = gj_base
+    dati_js = ("window.MAPPA_DATI=" + json.dumps({"edifici": gj_edifici, "base": base_pag, "meta": meta, "osm": osm},
                                                   ensure_ascii=False, separators=(",", ":")) + ";")
     dati_js = dati_js.replace("</", "<\\/")
     pagina = (testa + f'<script src="{MAPLIBRE_JS}"></script>\n'
@@ -240,7 +265,7 @@ def main():
               + testa +
               f'<link rel="stylesheet" href="{MAPLIBRE_CSS}">\n<link rel="stylesheet" href="assets/app.css">\n'
               f'<script src="{MAPLIBRE_JS}"></script>\n</head>\n<body>\n{corpo}\n'
-              f'<script>window.MAPPA_DATI_URL={{"edifici":"dati/edifici.geojson","base":"dati/base.geojson","meta":{json.dumps(meta)}}};</script>\n'
+              f'<script>window.MAPPA_DATI_URL={{"edifici":"dati/edifici.geojson","base":"dati/base.geojson","meta":{json.dumps(meta)},"osm":"dati/osm/"}};</script>\n'
               '<script src="assets/app.js"></script>\n</body>\n</html>\n')
     open(os.path.join(SITO, "index.html"), "w", encoding="utf-8").write(indice)
 

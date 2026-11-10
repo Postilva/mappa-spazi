@@ -19,7 +19,7 @@
   var DA_COMPLETARE = "da completare dopo il sopralluogo";
   var riduciMoto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  var edifici = [], perId = {}, base = null, meta = {};
+  var edifici = [], perId = {}, base = null, meta = {}, osm = null;
   var mappa = null, marcatori = {}, selezionato = null, primaVista = true;
   var filtroStato = {}, filtroTipo = {};
 
@@ -110,23 +110,107 @@
   }
 
   /* ---------- mappa ---------- */
+  /* Base OpenStreetMap (tessere vettoriali OpenMapTiles scaricate da scripts/scarica_base_osm.py).
+     Pagina unica: tessere e caratteri incorporati, serviti con il protocollo "incorporato://".
+     Versione normale: file in sito/dati/osm/. */
+  var B = { // colori della base, vicini a quelli indicativi di stile.md (terra, mare, strade bianche)
+    terra: C.terra, mare: C.mare, verde: "#E1E6D6", industria: "#ECE9E4", costruito: "#E4E0D7",
+    costruitoBordo: "#D6D1C6", bordoStrada: "#D3CEC4", ferrovia: "#8F97B0", etichetta: C.testo2
+  };
+  function b64(s) {
+    var bin = atob(s), u = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+    return u.buffer;
+  }
+  function sorgentiOsm() {
+    if (osm && typeof osm === "object") {
+      var cache = {};
+      maplibregl.addProtocol("incorporato", function (params) {
+        var k = decodeURIComponent(params.url.replace("incorporato://", ""));
+        var tab = k.charAt(0) === "t" ? osm.tessere : osm.fonts, c = k.slice(2);
+        if (!cache[k]) cache[k] = tab[c] ? b64(tab[c]) : new ArrayBuffer(0);
+        return Promise.resolve({ data: cache[k].slice(0) });
+      });
+      return { tiles: "incorporato://t/{z}/{x}/{y}", glyphs: "incorporato://f/{fontstack}/{range}", zoom: osm.zoom };
+    }
+    var dir = new URL(osm || "dati/osm/", location.href).href;
+    return { tiles: dir + "{z}/{x}/{y}.pbf", glyphs: dir + "fonts/{fontstack}/{range}.pbf", zoom: (meta.osm || {}).zoom || [10, 14] };
+  }
   function stileMappa() {
-    var haTerra = base.features.some(function (f) { return f.properties.livello === "terra"; });
+    var o = sorgentiOsm();
     function liv(n) { return ["==", ["get", "livello"], n]; }
+    function cls(v) { return ["match", ["get", "class"], v, true, false]; }
+    var nome = ["coalesce", ["get", "name:it"], ["get", "name"]];
+    var z = function (a) { return ["interpolate", ["exponential", 1.5], ["zoom"]].concat(a); };
+    var STRADE = [
+      // [id, classi, larghezze (zoom, px) per il riempimento, zoom minimo]
+      ["minori", ["minor", "service"], [13, 0.8, 16, 6, 19, 22], 13],
+      ["secondarie", ["secondary", "tertiary"], [11, 1, 14, 3.5, 16, 9, 19, 30], 10],
+      ["principali", ["motorway", "trunk", "primary"], [10, 1.2, 14, 4.5, 16, 11, 19, 36], 10]
+    ];
+    var L = [
+      { id: "fondo", type: "background", paint: { "background-color": B.terra } },
+      { id: "uso-suolo", type: "fill", source: "osm", "source-layer": "landuse",
+        filter: cls(["industrial", "railway", "commercial", "retail", "quarry"]), paint: { "fill-color": B.industria } },
+      { id: "verde", type: "fill", source: "osm", "source-layer": "landcover",
+        filter: cls(["grass", "wood", "farmland", "scrub"]), paint: { "fill-color": B.verde, "fill-opacity": 0.8 } },
+      { id: "parchi", type: "fill", source: "osm", "source-layer": "park", paint: { "fill-color": B.verde } },
+      { id: "acqua", type: "fill", source: "osm", "source-layer": "water", paint: { "fill-color": B.mare } },
+      { id: "corsi-acqua", type: "line", source: "osm", "source-layer": "waterway", paint: { "line-color": B.mare, "line-width": 1.5 } },
+      { id: "costruito", type: "fill", source: "osm", "source-layer": "building", minzoom: 13,
+        paint: { "fill-color": B.costruito, "fill-outline-color": B.costruitoBordo } },
+      { id: "pedonali", type: "line", source: "osm", "source-layer": "transportation", minzoom: 15,
+        filter: cls(["path", "track"]), paint: { "line-color": B.bordoStrada, "line-width": 1, "line-dasharray": [2, 2] } }
+    ];
+    STRADE.forEach(function (s) {
+      var w = s[2], bordo = w.slice();
+      for (var i = 1; i < bordo.length; i += 2) bordo[i] = bordo[i] + (bordo[i] < 2 ? 0.8 : 2);
+      var f = ["all", cls(s[1]), ["!=", ["get", "brunnel"], "tunnel"]];
+      L.push({ id: "strade-" + s[0] + "-bordo", type: "line", source: "osm", "source-layer": "transportation", minzoom: s[3],
+        filter: f, layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": B.bordoStrada, "line-width": z(bordo) } });
+    });
+    STRADE.forEach(function (s) {
+      L.push({ id: "strade-" + s[0], type: "line", source: "osm", "source-layer": "transportation", minzoom: s[3],
+        filter: ["all", cls(s[1]), ["!=", ["get", "brunnel"], "tunnel"]],
+        layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": C.bianco, "line-width": z(s[2]) } });
+    });
+    L.push(
+      { id: "ferrovia", type: "line", source: "osm", "source-layer": "transportation",
+        filter: ["all", cls(["rail"]), ["!=", ["get", "brunnel"], "tunnel"]],
+        paint: { "line-color": B.ferrovia, "line-width": ["interpolate", ["linear"], ["zoom"], 11, 0.8, 16, 2] } },
+      { id: "ferrovia-traversine", type: "line", source: "osm", "source-layer": "transportation", minzoom: 14,
+        filter: ["all", cls(["rail"]), ["!=", ["get", "brunnel"], "tunnel"], ["!", ["has", "service"]]],
+        paint: { "line-color": B.ferrovia, "line-width": 5, "line-dasharray": [0.15, 2.5] } },
+      // livelli del progetto (catasto e confine)
+      { id: "fuori", type: "fill", source: "base", filter: liv("fuori"), paint: { "fill-color": C.bianco, "fill-opacity": 0.55 } },
+      { id: "edifici", type: "fill", source: "base", filter: liv("edificio"), paint: { "fill-color": C.chiuso, "fill-opacity": 0.35 } },
+      { id: "edifici-bordo", type: "line", source: "base", filter: liv("edificio"), minzoom: 14, paint: { "line-color": C.blu, "line-width": 1 } },
+      { id: "edificio-sel", type: "line", source: "base", filter: ["all", liv("edificio"), ["==", ["get", "id"], ""]], paint: { "line-color": C.rosso, "line-width": 2.5 } },
+      { id: "confine", type: "line", source: "base", filter: liv("confine"), paint: { "line-color": C.blu, "line-width": 2.5, "line-dasharray": [3, 2] } },
+      // etichette
+      { id: "nomi-acqua", type: "symbol", source: "osm", "source-layer": "water_name",
+        layout: { "text-field": nome, "text-font": ["Noto Sans Italic"], "text-size": 13, "symbol-placement": "point" },
+        paint: { "text-color": B.etichetta, "text-halo-color": B.mare, "text-halo-width": 1.5 } },
+      { id: "nomi-strade", type: "symbol", source: "osm", "source-layer": "transportation_name", minzoom: 14,
+        filter: cls(["motorway", "trunk", "primary", "secondary", "tertiary", "minor", "service"]),
+        layout: { "text-field": nome, "text-font": ["Noto Sans Regular"], "symbol-placement": "line",
+          "text-size": ["interpolate", ["linear"], ["zoom"], 14, 10.5, 17, 13], "text-max-angle": 30, "text-padding": 4 },
+        paint: { "text-color": B.etichetta, "text-halo-color": C.bianco, "text-halo-width": 1.5 } },
+      { id: "nomi-luoghi", type: "symbol", source: "osm", "source-layer": "place",
+        filter: cls(["suburb", "quarter", "neighbourhood", "village", "hamlet", "town", "city"]),
+        layout: { "text-field": ["upcase", nome], "text-font": ["Noto Sans Bold"], "text-letter-spacing": 0.12,
+          "text-size": ["match", ["get", "class"], ["city", "town"], 15, 12], "text-max-width": 8, "text-padding": 8 },
+        paint: { "text-color": C.blu, "text-halo-color": C.bianco, "text-halo-width": 2 } }
+    );
     return {
       version: 8,
-      sources: { base: { type: "geojson", data: base } },
-      layers: [
-        { id: "mare", type: "background", paint: { "background-color": haTerra ? C.mare : C.bianco } },
-        { id: "terra", type: "fill", source: "base", filter: liv("terra"), paint: { "fill-color": C.bianco } },
-        { id: "isolati", type: "fill", source: "base", filter: liv("particelle"), paint: { "fill-color": C.terra } },
-        { id: "isolati-bordo", type: "line", source: "base", filter: liv("particelle"), paint: { "line-color": C.bordoForte, "line-width": 0.6 } },
-        { id: "fuori", type: "fill", source: "base", filter: liv("fuori"), paint: { "fill-color": C.bianco, "fill-opacity": 0.5 } },
-        { id: "edifici", type: "fill", source: "base", filter: liv("edificio"), paint: { "fill-color": C.bordoForte } },
-        { id: "edifici-bordo", type: "line", source: "base", filter: liv("edificio"), paint: { "line-color": C.testo2, "line-width": 1 } },
-        { id: "edificio-sel", type: "line", source: "base", filter: ["all", liv("edificio"), ["==", ["get", "id"], ""]], paint: { "line-color": C.rosso, "line-width": 2.5 } },
-        { id: "confine", type: "line", source: "base", filter: liv("confine"), paint: { "line-color": C.blu, "line-width": 2.5, "line-dasharray": [3, 2] } }
-      ]
+      glyphs: o.glyphs,
+      sources: {
+        osm: { type: "vector", tiles: [o.tiles], minzoom: o.zoom[0], maxzoom: o.zoom[1],
+          attribution: "© OpenStreetMap contributors (ODbL) · OpenMapTiles · OpenFreeMap" },
+        base: { type: "geojson", data: base }
+      },
+      layers: L
     };
   }
   function limitiEdifici() { // inquadra i 29 edifici (non tutto il confine): simboli meno sovrapposti
@@ -170,8 +254,7 @@
       var att = $(".mappa-attesa"); if (att) att.remove();
       mappa.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
       mappa.addControl(new maplibregl.AttributionControl({
-        compact: false,
-        customAttribution: "© Agenzia delle Entrate – Cartografia catastale, CC BY 4.0 · ISTAT 2021, CC BY 4.0"
+        customAttribution: "Particelle: © Agenzia delle Entrate, CC BY 4.0 · Confine: ISTAT 2021, CC BY 4.0"
       }), "bottom-right");
       mappa.on("error", function (e) { if (window.console) console.warn("Mappa:", e && e.error && e.error.message); });
       edifici.forEach(function (f) {
@@ -421,6 +504,7 @@
     edifici = dati.edifici.features;
     base = dati.base;
     meta = dati.meta || {};
+    osm = dati.osm || null;
     edifici.forEach(function (f) { perId[f.properties.id] = f; });
     $$('[data-meta="generato"]').forEach(function (s) { s.textContent = dataIt(meta.generato) || "–"; });
     disegnaLegenda("#legenda");
@@ -438,7 +522,7 @@
     var u = window.MAPPA_DATI_URL;
     if (!u || !window.fetch) return erroreMappa();
     Promise.all([fetch(u.edifici).then(function (r) { return r.json(); }), fetch(u.base).then(function (r) { return r.json(); })])
-      .then(function (r) { avvia({ edifici: r[0], base: r[1], meta: u.meta }); })
+      .then(function (r) { avvia({ edifici: r[0], base: r[1], meta: u.meta, osm: u.osm }); })
       .catch(function () { erroreMappa(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", carica); else carica();
