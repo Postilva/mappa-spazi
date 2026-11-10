@@ -1,26 +1,29 @@
 """Scarica la mappa di base OpenStreetMap (tessere vettoriali OpenFreeMap, schema OpenMapTiles)
-per la zona dei Tamburi, più i caratteri per le etichette.
+per Taranto, più i caratteri per le etichette.
 
 La pagina claude.ai non può caricare tessere da server esterni (CSP): le tessere scaricate qui
 vengono incorporate nella pagina da build_sito.py.
 
-Uso: python3 scripts/scarica_base_osm.py
+Cosa scarica:
+  zoom 10–13: tutto il riquadro che contiene le particelle localizzate (più un margine);
+  zoom 14:    solo le tessere dove c'è almeno una particella con locali di interesse (scripts/tipi.py),
+              più la tessera accanto quando la particella è vicina al bordo. Altrove la mappa ingrandisce z13.
+
+Uso: python3 scripts/scarica_base_osm.py   (dopo scripts/posizioni_citta.py)
 Esito: sito/dati/osm/{z}/{x}/{y}.pbf, sito/dati/osm/fonts/<font>/<range>.pbf, sito/dati/osm/fonte.json
 
 Dati © OpenStreetMap contributors (ODbL), tessere OpenFreeMap / OpenMapTiles.
 """
-import json
-import math
-import os
-import urllib.request
-import gzip
+import csv, gzip, json, math, os, shutil, sys, urllib.request
+from collections import defaultdict
+sys.path.insert(0, os.path.dirname(__file__))
+import tipi
 
 QUI = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(QUI, "..", "sito", "dati", "osm")
-BASE = os.path.join(QUI, "..", "sito", "dati", "base.geojson")
-
-ZOOM = range(10, 15)          # OpenFreeMap arriva a z14; oltre la mappa ingrandisce le tessere z14
-MARGINE = 0.02                # gradi oltre la vista (come maxBounds nel sito)
+R = os.path.join(QUI, "..")
+OUT = os.path.join(R, "sito", "dati", "osm")
+MARGINE = 0.015               # gradi oltre i punti
+BORDO = 0.2                   # frazione di tessera: sotto, si scarica anche la tessera accanto
 FONT = ["Noto Sans Regular", "Noto Sans Bold", "Noto Sans Italic"]
 RANGE = ["0-255", "256-511", "8192-8447"]  # latino, latino esteso, punteggiatura (’ –)
 
@@ -34,40 +37,83 @@ def scarica(url):
         return dati
 
 
-def tessera(lon, lat, z):
+def frazione(lon, lat, z):
     n = 2 ** z
-    x = int((lon + 180) / 360 * n)
-    y = int((1 - math.asinh(math.tan(math.radians(lat))) / math.pi) / 2 * n)
-    return x, y
+    return (lon + 180) / 360 * n, (1 - math.asinh(math.tan(math.radians(lat))) / math.pi) / 2 * n
+
+
+def punti():
+    """(lon, lat, di_interesse) per ogni particella localizzata."""
+    cat = defaultdict(list)
+    for r in csv.DictReader(open(os.path.join(R, "dati/fonti/elenco-immobili-2024.csv"), encoding="utf-8")):
+        if r["tipo"] == "FAB":
+            cat[(r["foglio"], r["particella"])].append(r["categoria_codice"])
+    out = []
+    for r in csv.DictReader(open(os.path.join(R, "dati/citta/posizioni.csv"))):
+        if r["lat"]:
+            t, _, _ = tipi.classifica(cat[(r["foglio"], r["particella"])])
+            out.append((float(r["lon"]), float(r["lat"]), any(t)))
+    return out
 
 
 def main():
-    b = json.load(open(BASE))["bbox"]
-    b = [b[0] - MARGINE, b[1] - MARGINE, b[2] + MARGINE, b[3] + MARGINE]
+    pp = punti()
+    b = [min(p[0] for p in pp) - MARGINE, min(p[1] for p in pp) - MARGINE,
+         max(p[0] for p in pp) + MARGINE, max(p[1] for p in pp) + MARGINE]
+    voglio = set()
+    for z in range(10, 14):
+        x0, y1 = (int(v) for v in frazione(b[0], b[1], z))
+        x1, y0 = (int(v) for v in frazione(b[2], b[3], z))
+        voglio |= {(z, x, y) for x in range(x0, x1 + 1) for y in range(y0, y1 + 1)}
+    for lon, lat, interesse in pp:
+        if not interesse:
+            continue
+        fx, fy = frazione(lon, lat, 14)
+        xs, ys = {int(fx)}, {int(fy)}
+        if fx % 1 < BORDO: xs.add(int(fx) - 1)
+        if fx % 1 > 1 - BORDO: xs.add(int(fx) + 1)
+        if fy % 1 < BORDO: ys.add(int(fy) - 1)
+        if fy % 1 > 1 - BORDO: ys.add(int(fy) + 1)
+        voglio |= {(14, x, y) for x in xs for y in ys}
     tj = json.loads(scarica("https://tiles.openfreemap.org/planet"))
     modello = tj["tiles"][0]
+    vecchia = None
+    try:
+        vecchia = json.load(open(os.path.join(OUT, "fonte.json")))["tessere"]
+    except Exception:
+        pass
+    if vecchia != modello:   # nuova versione dei dati: si riparte da zero per non mescolare versioni
+        for d in os.listdir(OUT) if os.path.isdir(OUT) else []:
+            if d.isdigit():
+                shutil.rmtree(os.path.join(OUT, d))
     n = peso = 0
-    for z in ZOOM:
-        x0, y1 = tessera(b[0], b[1], z)
-        x1, y0 = tessera(b[2], b[3], z)
-        for x in range(x0, x1 + 1):
-            for y in range(y0, y1 + 1):
-                d = scarica(modello.format(z=z, x=x, y=y))
-                p = os.path.join(OUT, str(z), str(x))
-                os.makedirs(p, exist_ok=True)
-                open(os.path.join(p, f"{y}.pbf"), "wb").write(d)
-                n += 1
-                peso += len(d)
+    for z, x, y in sorted(voglio):
+        f = os.path.join(OUT, str(z), str(x), f"{y}.pbf")
+        if not os.path.exists(f):
+            os.makedirs(os.path.dirname(f), exist_ok=True)
+            open(f, "wb").write(scarica(modello.format(z=z, x=x, y=y)))
+        n += 1
+        peso += os.path.getsize(f)
+    # tessere non più necessarie
+    for z in os.listdir(OUT):
+        if z.isdigit():
+            for x in os.listdir(os.path.join(OUT, z)):
+                for fy in os.listdir(os.path.join(OUT, z, x)):
+                    if (int(z), int(x), int(fy[:-4])) not in voglio:
+                        os.remove(os.path.join(OUT, z, x, fy))
     for f in FONT:
         for r in RANGE:
-            d = scarica(f"https://tiles.openfreemap.org/fonts/{urllib.request.quote(f)}/{r}.pbf")
-            p = os.path.join(OUT, "fonts", f)
-            os.makedirs(p, exist_ok=True)
-            open(os.path.join(p, f"{r}.pbf"), "wb").write(d)
-    json.dump({"tessere": modello, "zoom": [min(ZOOM), max(ZOOM)], "bbox": [round(v, 5) for v in b],
+            p = os.path.join(OUT, "fonts", f, f"{r}.pbf")
+            if not os.path.exists(p):
+                os.makedirs(os.path.dirname(p), exist_ok=True)
+                open(p, "wb").write(scarica(f"https://tiles.openfreemap.org/fonts/{urllib.request.quote(f)}/{r}.pbf"))
+    json.dump({"tessere": modello, "zoom": [10, 14], "bbox": [round(v, 5) for v in b],
                "attribuzione": "© OpenStreetMap contributors (ODbL) · OpenFreeMap · OpenMapTiles"},
               open(os.path.join(OUT, "fonte.json"), "w"), indent=1)
-    print(f"{n} tessere, {peso / 1024:.0f} KB; caratteri: {len(FONT)}×{len(RANGE)}")
+    per_z = defaultdict(int)
+    for z, _, _ in voglio:
+        per_z[z] += 1
+    print(f"{n} tessere ({dict(sorted(per_z.items()))}), {peso / 1024:.0f} KB")
 
 
 if __name__ == "__main__":

@@ -40,7 +40,7 @@ I terreni (`TER`) nel PDF hanno le stesse colonne ma senza categoria catastale: 
 
 ## `edifici/`
 
-Una scheda per **edificio = particella catastale con fabbricati** (foglio + particella), file `<foglio>-<particella>.json`; `id` = `<foglio>-<particella>` (es. `201-59`). Le unità immobiliari dell'elenco 2024 (subalterni) stanno dentro la scheda nel campo `unita`. Il modello è `_modello.json`; i campi seguono il piano del sito (§3.3). Le schede dei Tamburi sono generate da `scripts/genera_schede.py` (vedi `tamburi/README.md`).
+Una scheda per **edificio = particella catastale con fabbricati** (foglio + particella), file `<foglio>-<particella>.json`; `id` = `<foglio>-<particella>` (es. `201-59`). Le unità immobiliari dell'elenco 2024 (subalterni) stanno dentro la scheda nel campo `unita`. Il modello è `_modello.json`; i campi seguono il piano del sito (§3.3). Dal 10/11/2026 le schede coprono **tutta Taranto** e sono generate da `scripts/genera_schede_citta.py` (tutte le particelle localizzate, abitazioni comprese). Cosa va sulla mappa pubblica lo decide `scripts/build_sito.py` con la regola di `scripts/tipi.py`: solo i locali non residenziali. Le schede modificate a mano non vengono sovrascritte: lo script aggiorna solo i campi generati.
 
 Attenzione: una particella non è sempre un edificio (può contenere più corpi di fabbrica, o essere un'area urbana o un lastrico solare). Lo si verifica al sopralluogo.
 
@@ -52,7 +52,10 @@ Attenzione: una particella non è sempre un edificio (può contenere più corpi 
 | `nome` | sopralluogo o fonte citata; vuoto finché non c'è (mai inventato) |
 | `indirizzo` | sopralluogo o fonte citata; vuoto finché non verificato |
 | `lat`, `lon` | cartografia catastale (Agenzia delle Entrate, WFS INSPIRE, CC BY 4.0): baricentro del poligono della particella; da confermare al sopralluogo |
-| `quartiere` | assegnato da noi |
+| `via_vicina` | OpenStreetMap: strada con nome più vicina al poligono della particella, entro 60 m (`nome`, `distanza_m`). **Non è l'indirizzo** e non è verificata (`verificata: false`) |
+| `zona` | OpenStreetMap: quartiere o località più vicina, entro 3 km. Indicativa, non verificata |
+| `quartiere` | assegnato da noi; oggi solo «Tamburi» per le particelle dentro il confine di lavoro |
+| `superficie_m2`, `uso_originario` | sopralluogo e ricerca d'archivio |
 | `stato` | sopralluogo: `in_uso`, `chiuso`, `abbandonato`, `rudere`, `da_verificare` |
 | `data_sopralluogo`, `autori` | sopralluogo (solo nomi) |
 | `foto` | sopralluogo |
@@ -62,4 +65,16 @@ Attenzione: una particella non è sempre un edificio (può contenere più corpi 
 | `modello_3d` | fotogrammetria |
 | `fonti` | elenco delle fonti usate nella scheda: `titolo`, `ente`, `data`, `url`, eventuale `licenza`, `uso` (cosa viene da quella fonte) |
 
-Le particelle senza posizione non hanno scheda: sono elencate in `tamburi/da-localizzare.csv` («da localizzare»). Se in futuro una scheda resta senza posizione, `lat`/`lon` sono `null` e non va in mappa.
+Le particelle senza posizione non hanno scheda: sono elencate in `citta/da-localizzare.csv` («da localizzare»). Se in futuro una scheda resta senza posizione, `lat`/`lon` sono `null` e non va in mappa.
+
+## `citta/`
+
+Posizioni di tutte le particelle con fabbricati dell'elenco 2024, dalla cartografia catastale (Agenzia delle Entrate, WFS INSPIRE, CC BY 4.0), con lo stesso metodo usato per i Tamburi (`tamburi/README.md`), esteso da `scripts/posizioni_citta.py` a tutti i fogli dell'elenco.
+
+| File | Contenuto |
+|---|---|
+| `posizioni.csv` | Una riga per particella FAB: `lat`, `lon`, `metodo` (`baricentro_poligono`, `punto_interno` o `da_localizzare`), `area_m2`, mappe INSPIRE |
+| `poligoni.geojson` | Poligoni delle particelle localizzate (semplificati a ~0,5 m) |
+| `da-localizzare.csv` | Particelle dell'elenco non trovate nella cartografia: nessuna scheda, nessuna posizione stimata |
+
+La cartella `tamburi/` resta com'era (confine di lavoro, fogli, primo filtro): è la base del quartiere pilota.

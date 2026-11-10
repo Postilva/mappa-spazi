@@ -16,7 +16,21 @@
   "indirizzo": "",
   "lat": null,
   "lon": null,
-  "quartiere": "Tamburi",
+  "via_vicina": {
+    "nome": "",
+    "distanza_m": null,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "",
+    "distanza_m": null,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "superficie_m2": null,
+  "uso_originario": "",
   "stato": "da_verificare",
   "data_sopralluogo": null,
   "autori": [],
@@ -25,7 +39,8 @@
     {
       "data": "",
       "testo": "",
-      "fonte": ""
+      "fonte": "",
+      "chiusura": false
     }
   ],
   "stima": {

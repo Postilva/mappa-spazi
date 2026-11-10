@@ -1,0 +1,132 @@
+{
+  "id": "319-4714",
+  "foglio": "319",
+  "particella": "4714",
+  "categoria_catastale": "C01",
+  "descrizione": "C01 – Negozi e botteghe (9 di 11 unità)",
+  "unita": [
+    {
+      "id": "3190047140031",
+      "subalterno": "31",
+      "categoria": "B04",
+      "categoria_descrizione": "Uffici pubblici"
+    },
+    {
+      "id": "3190047140032",
+      "subalterno": "32",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140033",
+      "subalterno": "33",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140034",
+      "subalterno": "34",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140035",
+      "subalterno": "35",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140037",
+      "subalterno": "37",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140038",
+      "subalterno": "38",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140039",
+      "subalterno": "39",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140040",
+      "subalterno": "40",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140041",
+      "subalterno": "41",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190047140043",
+      "subalterno": "43",
+      "categoria": "B04",
+      "categoria_descrizione": "Uffici pubblici"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.470169,
+  "lon": 17.2410668,
+  "via_vicina": {
+    "nome": "Via Anfiteatro",
+    "distanza_m": 31,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Borgo Umbertino",
+    "distanza_m": 310.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}

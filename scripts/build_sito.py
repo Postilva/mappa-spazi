@@ -1,33 +1,29 @@
-"""Genera il sito di prova della mappa degli spazi pubblici dei Tamburi.
+"""Genera il sito di prova «Spazi pubblici di Taranto».
 
 Uso (dalla radice del repository):
-    python3 scripts/build_sito.py [--istat <cartella SHP di R16_21 estratta>]
+    python3 scripts/build_sito.py
 
 Legge:
-  dati/edifici/*.json                 schede degli edifici (passo 5)
-  dati/tamburi/posizioni.csv          area della particella sulla mappa (passo 4)
-  dati/geo/tamburi-confine.geojson    confine di lavoro (passo 3)
-  .cache/catasto/*.xml                risposte WFS dell'Agenzia delle Entrate (passo 4, non versionate)
-  <istat>/R16_21_WGS84.shp            sezioni ISTAT 2021 (facoltativo, per la terraferma)
-  sito/src/                           template HTML, CSS, JS
+  dati/edifici/*.json            schede (scripts/genera_schede_citta.py)
+  dati/citta/posizioni.csv       area della particella sulla mappa catastale
+  dati/citta/poligoni.geojson    poligoni delle particelle (Agenzia delle Entrate, CC BY 4.0)
+  sito/dati/osm/                 base OpenStreetMap (scripts/scarica_base_osm.py)
+  sito/src/                      template HTML, CSS, JS
 
 Scrive:
-  sito/dati/edifici.geojson           punti degli edifici con i campi della scheda
-  sito/dati/base.geojson              mappa di base vettoriale (terra, particelle, confine, edifici)
-  sito/index.html, sito/assets/       versione normale (documento completo, dati letti con fetch)
-  sito/dist/pagina-claude.html        file unico per la pagina privata claude.ai (frammento)
+  sito/dati/edifici.geojson      punti degli immobili sulla mappa pubblica, con i campi della scheda
+  sito/dati/base.geojson         poligoni delle particelle in mappa
+  sito/index.html, sito/assets/  versione normale (documento completo, dati letti con fetch)
+  sito/dist/pagina-claude.html   file unico per la pagina claude.ai (frammento, tutto incorporato)
 
-Se la cache WFS o le sezioni ISTAT non sono disponibili, i livelli corrispondenti vengono
-ripresi dal sito/dati/base.geojson già generato (che è versionato).
-Serve shapely (e pyshp se si passa --istat): vedi scripts/requirements.txt.
+Cosa va sulla mappa pubblica: solo le particelle con almeno un «locale di interesse» secondo
+scripts/tipi.py (niente abitazioni né pertinenze). Delle unità escluse si pubblica solo il numero.
 """
-import argparse, base64, csv, glob, json, os, sys, warnings
-import xml.etree.ElementTree as ET
+import base64, csv, glob, gzip, json, os, sys
+from collections import Counter
 
-from shapely.geometry import shape, mapping, box
-from shapely.ops import unary_union
-
-warnings.filterwarnings("ignore", category=DeprecationWarning)
+sys.path.insert(0, os.path.dirname(__file__))
+import tipi
 
 RADICE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITO = os.path.join(RADICE, "sito")
@@ -36,219 +32,129 @@ MAPLIBRE = "4.7.1"
 MAPLIBRE_JS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.js"
 MAPLIBRE_CSS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.css"
 FONT = "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap"
-GML = "{http://www.opengis.net/gml/3.2}"
-CP = "{http://mapserver.gis.umn.edu/mapserver}"
-MARGINE = 0.004  # gradi attorno al confine per la mappa di base
-TOLL = 0.000006  # semplificazione (~0,5 m)
-DEC = 6          # decimali delle coordinate (~0,1 m)
-
-# Tipo di bene: categoria catastale raggruppata (spiegato nella pagina Metodo)
-GRUPPI = {"A": "abitazioni", "B": "scuole_servizi", "E": "scuole_servizi", "C": "negozi_depositi"}
+TITOLO = "Spazi pubblici di Taranto"
+DEC = 6  # decimali delle coordinate (~0,1 m)
 
 
-def gruppo(cat):
-    return GRUPPI.get((cat or "?")[0], "altro")
-
-
-def arrotonda(geom):
-    def r(c):
-        if isinstance(c, (list, tuple)) and c and isinstance(c[0], (int, float)):
-            return [round(c[0], DEC), round(c[1], DEC)]
-        return [r(x) for x in c]
-    g = mapping(geom)
-    return {"type": g["type"], "coordinates": r(g["coordinates"])}
+def arrotonda(c):
+    if isinstance(c, (list, tuple)) and c and isinstance(c[0], (int, float)):
+        return [round(c[0], DEC), round(c[1], DEC)]
+    return [arrotonda(x) for x in c]
 
 
 def edifici():
+    """(feature pubbliche, statistiche sull'intero elenco localizzato)."""
     aree = {}
-    with open(os.path.join(RADICE, "dati/tamburi/posizioni.csv"), encoding="utf-8") as f:
+    with open(os.path.join(RADICE, "dati/citta/posizioni.csv"), encoding="utf-8") as f:
         for r in csv.DictReader(f):
             aree[(r["foglio"], r["particella"])] = r["area_m2"]
-    out = []
+    out, fonti, st = [], [], Counter()
     for fn in sorted(glob.glob(os.path.join(RADICE, "dati/edifici/*.json"))):
         if os.path.basename(fn).startswith("_"):
             continue
         d = json.load(open(fn, encoding="utf-8"))
         if d.get("lat") is None or d.get("lon") is None:
             continue
-        p = {k: v for k, v in d.items() if k not in ("lat", "lon")}
-        p["tipo_bene"] = gruppo(d.get("categoria_catastale"))
-        p["n_unita"] = len(d.get("unita", []))
+        st["schede"] += 1
+        us = d.get("unita", [])
+        tt, n_ab, n_pert = tipi.classifica([u["categoria"] for u in us])
+        st["abitazioni"] += n_ab
+        if not any(tt):
+            st["solo_abitazioni"] += 1
+            continue
+        locali = [dict(u, tipo=t) for u, t in zip(us, tt) if t]
+        conta = Counter(l["tipo"] for l in locali)
+        ordine = [k for k, _ in tipi.TIPI]
+        tipi_p = sorted(conta, key=lambda k: (-conta[k], ordine.index(k)))
+        st["locali"] += len(locali)
+        p = {k: v for k, v in d.items() if k not in ("lat", "lon", "unita", "fonti", "descrizione", "categoria_catastale")}
+        # le fonti uguali per tutte le schede si scrivono una volta sola (meta.fonti)
+        if d.get("fonti") not in fonti:
+            fonti.append(d.get("fonti"))
+        p["fonti_rif"] = fonti.index(d.get("fonti"))
+        p.update(locali=locali, n_locali=len(locali), tipi=tipi_p, tipo_bene=tipi_p[0],
+                 n_abitazioni=n_ab, n_pertinenze=n_pert, lat=d["lat"], lon=d["lon"])
         a = aree.get((d["foglio"], d["particella"]))
         p["area_particella_m2"] = int(a) if a else None
-        p["lat"], p["lon"] = d["lat"], d["lon"]
         out.append({"type": "Feature", "id": d["id"], "properties": p,
                     "geometry": {"type": "Point", "coordinates": [d["lon"], d["lat"]]}})
-    out.sort(key=lambda f: (int(f["properties"]["foglio"]), int(f["properties"]["particella"])))
-    return out
-
-
-def particelle_wfs():
-    """Tutti i poligoni CP:CadastralParcel presenti nella cache WFS, per riferimento INSPIRE."""
-    pol = {}
-    for fn in glob.glob(os.path.join(RADICE, ".cache/catasto/*.xml")):
-        try:
-            root = ET.parse(fn).getroot()
-        except ET.ParseError:
-            continue
-        for el in root.iter(CP + "CadastralParcel"):
-            ref = el.findtext(CP + "NATIONALCADASTRALREFERENCE")
-            if not ref or ref in pol:
-                continue
-            polys = []
-            for p in el.iter(GML + "Polygon"):
-                rings = []
-                for ring in p.iter(GML + "posList"):
-                    v = [float(x) for x in ring.text.split()]
-                    rings.append([(v[i + 1], v[i]) for i in range(0, len(v), 2)])
-                if rings and len(rings[0]) >= 4:
-                    from shapely.geometry import Polygon
-                    polys.append(Polygon(rings[0], rings[1:]))
-            if polys:
-                pol[ref] = unary_union(polys)
-    return pol
-
-
-def chiave(ref):
-    # L049A0201A0.129 -> ("201", "129")
-    try:
-        mappa, part = ref.split(".", 1)
-        return str(int(mappa[5:9])), part
-    except (ValueError, IndexError):
-        return None
-
-
-def terra_istat(cartella, vista):
-    import shapefile
-    from pyproj import Transformer
-    from shapely.ops import transform
-    tr = Transformer.from_crs("EPSG:32632", "EPSG:4326", always_xy=True).transform
-    inv = Transformer.from_crs("EPSG:4326", "EPSG:32632", always_xy=True).transform
-    vista_utm = transform(inv, vista)
-    r = shapefile.Reader(os.path.join(cartella, "R16_21_WGS84"))
-    geoms = []
-    for i, s in enumerate(r.iterShapes()):
-        x0, y0, x1, y1 = s.bbox
-        if x1 < vista_utm.bounds[0] or x0 > vista_utm.bounds[2] or y1 < vista_utm.bounds[1] or y0 > vista_utm.bounds[3]:
-            continue
-        g = shape(s.__geo_interface__)
-        if g.intersects(vista_utm):
-            geoms.append(g.buffer(0))
-    terra = unary_union(geoms).buffer(1).buffer(-1)  # chiude le fessure tra sezioni
-    return transform(tr, terra).intersection(vista).simplify(TOLL * 4)
+    def chiave(f):
+        p = f["properties"]
+        return ((p.get("zona") or {}).get("nome") or "￿", (p.get("via_vicina") or {}).get("nome") or "￿",
+                int(p["foglio"]), p["particella"].zfill(8))
+    out.sort(key=chiave)
+    return out, fonti, st
 
 
 def osm_incorporato():
-    """Tessere e caratteri OSM (scripts/scarica_base_osm.py) in base64, per la pagina unica."""
+    """Tessere (compresse gzip) e caratteri OSM in base64, per la pagina unica."""
     cart = os.path.join(SITO, "dati/osm")
     if not os.path.exists(os.path.join(cart, "fonte.json")):
         print("ATTENZIONE: base OSM assente, lanciare scripts/scarica_base_osm.py", file=sys.stderr)
         return None
-    b64 = lambda fn: base64.b64encode(open(fn, "rb").read()).decode("ascii")
+    b64 = lambda b: base64.b64encode(b).decode("ascii")
     tessere, fonts = {}, {}
     for fn in glob.glob(os.path.join(cart, "*/*/*.pbf")):
         z, x, y = os.path.relpath(fn, cart)[:-4].split(os.sep)
         if z.isdigit():
-            tessere[f"{z}/{x}/{y}"] = b64(fn)
+            tessere[f"{z}/{x}/{y}"] = b64(gzip.compress(open(fn, "rb").read(), 9, mtime=0))
     for fn in glob.glob(os.path.join(cart, "fonts/*/*.pbf")):
         f, r = os.path.relpath(fn, os.path.join(cart, "fonts"))[:-4].split(os.sep)
-        fonts[f"{f}/{r}"] = b64(fn)
+        fonts[f"{f}/{r}"] = b64(gzip.compress(open(fn, "rb").read(), 9, mtime=0))
     fonte = json.load(open(os.path.join(cart, "fonte.json")))
-    return {"tessere": tessere, "fonts": fonts, "zoom": fonte["zoom"], "attribuzione": fonte["attribuzione"]}
+    return {"tessere": tessere, "fonts": fonts, "gzip": True, "zoom": fonte["zoom"], "bbox": fonte["bbox"],
+            "attribuzione": fonte["attribuzione"]}
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--istat", help="cartella con R16_21_WGS84.shp (sezioni ISTAT 2021)")
-    a = ap.parse_args()
+    feats, fonti, st = edifici()
+    ids = {f["properties"]["id"] for f in feats}
+    pol = json.load(open(os.path.join(RADICE, "dati/citta/poligoni.geojson")))["features"]
+    base = [{"type": "Feature", "properties": {"livello": "edificio", "id": f["properties"]["id"]},
+             "geometry": {"type": f["geometry"]["type"], "coordinates": arrotonda(f["geometry"]["coordinates"])}}
+            for f in pol if f["properties"]["id"] in ids]
+    xs = [f["geometry"]["coordinates"][0] for f in feats]
+    ys = [f["geometry"]["coordinates"][1] for f in feats]
+    bbox = [round(min(xs), 5), round(min(ys), 5), round(max(xs), 5), round(max(ys), 5)]
 
-    feats = edifici()
-    ids = {(f["properties"]["foglio"], f["properties"]["particella"]) for f in feats}
-    confine = shape(json.load(open(os.path.join(RADICE, "dati/geo/tamburi-confine.geojson")))["features"][0]["geometry"])
-    x0, y0, x1, y1 = confine.bounds
-    vista = box(x0 - MARGINE, y0 - MARGINE, x1 + MARGINE, y1 + MARGINE)
-
-    precedente = {}
-    fb = os.path.join(SITO, "dati/base.geojson")
-    if os.path.exists(fb):
-        for f in json.load(open(fb))["features"]:
-            precedente.setdefault(f["properties"]["livello"], []).append(f)
-
-    base = []
-    # terraferma (ISTAT)
-    if a.istat:
-        t = terra_istat(a.istat, vista)
-        base.append({"type": "Feature", "properties": {"livello": "terra"}, "geometry": arrotonda(t)})
-        print("terra: da ISTAT")
-    else:
-        base += precedente.get("terra", [])
-        print("terra: ripresa da base.geojson" if "terra" in precedente else "terra: assente (sfondo = terra)")
-
-    # particelle catastali (WFS)
-    pol = particelle_wfs()
-    if pol:
-        n = 0
-        evidenziate = {}
-        sfondo = []
-        for ref, g in pol.items():
-            k = chiave(ref)
-            if k in ids:
-                evidenziate.setdefault(k, []).append(g)
-            if not g.intersects(vista):
-                continue
-            sfondo.append(g.intersection(vista).simplify(TOLL, preserve_topology=True))
-        # le particelle di sfondo in un solo MultiPolygon (molto più leggero)
-        fondo = unary_union([g for g in sfondo if not g.is_empty])
-        base.append({"type": "Feature", "properties": {"livello": "particelle"}, "geometry": arrotonda(fondo)})
-        for k, gs in sorted(evidenziate.items()):
-            g = unary_union(gs).simplify(TOLL, preserve_topology=True)
-            base.append({"type": "Feature", "properties": {"livello": "edificio", "id": f"{k[0]}-{k[1]}"},
-                         "geometry": arrotonda(g)})
-            n += 1
-        print(f"particelle WFS: {len(pol)} in cache, {len(sfondo)} nella vista, {n} degli edifici")
-        mancano = ids - set(evidenziate)
-        if mancano:
-            print("ATTENZIONE: particelle senza poligono:", sorted(mancano), file=sys.stderr)
-    else:
-        base += precedente.get("particelle", []) + precedente.get("edificio", [])
-        print("particelle: riprese da base.geojson (cache WFS assente)")
-
-    # confine del quartiere e maschera dell'area fuori confine (resa più chiara sulla mappa)
-    base.append({"type": "Feature", "properties": {"livello": "fuori"},
-                 "geometry": arrotonda(vista.buffer(0.01, join_style=2).difference(confine).simplify(TOLL * 2))})
-    base.append({"type": "Feature", "properties": {"livello": "confine"}, "geometry": arrotonda(confine.simplify(TOLL * 2))})
+    # numeri per le pagine (calcolati, mai scritti a mano)
+    da_loc = sum(1 for _ in csv.DictReader(open(os.path.join(RADICE, "dati/citta/da-localizzare.csv"))))
+    per_tipo = Counter(l["tipo"] for f in feats for l in f["properties"]["locali"])
+    numeri = {
+        "particelle_elenco": st["schede"] + da_loc, "localizzate": st["schede"], "da_localizzare": da_loc,
+        "in_mappa": len(feats), "locali": st["locali"], "solo_abitazioni": st["solo_abitazioni"],
+        "con_via": sum(1 for f in feats if f["properties"].get("via_vicina")),
+        "verificati": sum(1 for f in feats if f["properties"].get("data_sopralluogo")),
+        "per_tipo": {k: per_tipo.get(k, 0) for k, _ in tipi.TIPI},
+    }
 
     os.makedirs(os.path.join(SITO, "dati"), exist_ok=True)
     gj_edifici = {"type": "FeatureCollection", "features": feats}
-    gj_base = {"type": "FeatureCollection", "bbox": [round(v, 5) for v in vista.bounds], "features": base}
+    gj_base = {"type": "FeatureCollection", "bbox": bbox, "features": base}
     s_ed = json.dumps(gj_edifici, ensure_ascii=False, separators=(",", ":"))
     s_base = json.dumps(gj_base, ensure_ascii=False, separators=(",", ":"))
     open(os.path.join(SITO, "dati/edifici.geojson"), "w", encoding="utf-8").write(s_ed)
-    open(fb, "w", encoding="utf-8").write(s_base)
+    open(os.path.join(SITO, "dati/base.geojson"), "w", encoding="utf-8").write(s_base)
 
     # --- assemblaggio pagine ---
     leggi = lambda n: open(os.path.join(SRC, n), encoding="utf-8").read()
-    corpo = leggi("corpo.html")
-    css = leggi("app.css")
-    js = leggi("app.js")
+    corpo, css, js = leggi("corpo.html"), leggi("app.css"), leggi("app.js")
     css_ml = leggi(f"vendor/maplibre-gl-{MAPLIBRE}.css")
-    meta = {"generato": feats[0]["properties"].get("ultima_modifica") if feats else "", "maplibre": MAPLIBRE}
+    generato = max((f["properties"].get("ultima_modifica") or "" for f in feats), default="")
+    osm = osm_incorporato()
+    meta = {"generato": generato, "maplibre": MAPLIBRE, "titolo": TITOLO, "tipi": tipi.TIPI, "numeri": numeri, "fonti": fonti}
+    if osm:
+        meta["osm"] = {"zoom": osm["zoom"], "bbox": osm["bbox"], "attribuzione": osm["attribuzione"]}
 
-    testa = (f'<title>Spazi pubblici dei Tamburi</title>\n'
+    testa = (f'<title>{TITOLO}</title>\n'
              f'<meta name="claude:viewport-fit-sides" content="cover">\n'
-             f'<meta name="description" content="Mappa di prova degli immobili del Comune di Taranto nel quartiere Tamburi (elenco beni immobili 2024). Dati da verificare.">\n'
+             f'<meta name="description" content="Mappa di prova dei locali non residenziali del Comune di Taranto (elenco beni immobili 2024). Dati da verificare.">\n'
              f'<link rel="preconnect" href="https://fonts.googleapis.com">\n'
              f'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
              f'<link rel="stylesheet" href="{FONT}">\n')
 
     # 1) file unico per claude.ai (frammento, tutto incorporato)
-    osm = osm_incorporato()
-    if osm:  # con la base OSM la terraferma ISTAT e gli isolati catastali non servono più nella pagina
-        meta["osm"] = {"zoom": osm["zoom"], "attribuzione": osm["attribuzione"]}
-        base_pag = dict(gj_base, features=[f for f in base if f["properties"]["livello"] not in ("terra", "particelle")])
-    else:
-        base_pag = gj_base
-    dati_js = ("window.MAPPA_DATI=" + json.dumps({"edifici": gj_edifici, "base": base_pag, "meta": meta, "osm": osm},
+    dati_js = ("window.MAPPA_DATI=" + json.dumps({"edifici": gj_edifici, "base": gj_base, "meta": meta, "osm": osm},
                                                   ensure_ascii=False, separators=(",", ":")) + ";")
     dati_js = dati_js.replace("</", "<\\/")
     pagina = (testa + f'<script src="{MAPLIBRE_JS}"></script>\n'
@@ -260,18 +166,20 @@ def main():
     os.makedirs(os.path.join(SITO, "assets"), exist_ok=True)
     open(os.path.join(SITO, "assets/app.css"), "w", encoding="utf-8").write(css)
     open(os.path.join(SITO, "assets/app.js"), "w", encoding="utf-8").write(js)
+    url = {"edifici": "dati/edifici.geojson", "base": "dati/base.geojson", "meta": meta, "osm": "dati/osm/"}
     indice = ('<!doctype html>\n<html lang="it">\n<head>\n<meta charset="utf-8">\n'
               '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
               + testa +
               f'<link rel="stylesheet" href="{MAPLIBRE_CSS}">\n<link rel="stylesheet" href="assets/app.css">\n'
               f'<script src="{MAPLIBRE_JS}"></script>\n</head>\n<body>\n{corpo}\n'
-              f'<script>window.MAPPA_DATI_URL={{"edifici":"dati/edifici.geojson","base":"dati/base.geojson","meta":{json.dumps(meta)},"osm":"dati/osm/"}};</script>\n'
+              f'<script>window.MAPPA_DATI_URL={json.dumps(url, ensure_ascii=False)};</script>\n'
               '<script src="assets/app.js"></script>\n</body>\n</html>\n')
     open(os.path.join(SITO, "index.html"), "w", encoding="utf-8").write(indice)
 
     kb = lambda s: len(s.encode("utf-8")) / 1024
-    print(f"edifici: {len(feats)} · edifici.geojson {kb(s_ed):.0f} KB · base.geojson {kb(s_base):.0f} KB · "
-          f"pagina-claude.html {kb(pagina):.0f} KB")
+    print(f"in mappa: {len(feats)} particelle, {st['locali']} locali · solo abitazioni (non pubblicate): {st['solo_abitazioni']} · "
+          f"edifici.geojson {kb(s_ed):.0f} KB · base.geojson {kb(s_base):.0f} KB · pagina-claude.html {kb(pagina):.0f} KB")
+    print("numeri:", json.dumps(numeri, ensure_ascii=False))
 
 
 if __name__ == "__main__":
