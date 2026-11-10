@@ -7,3 +7,6 @@ dist/
 .DS_Store
 .cache/
 __pycache__/
+
+# il sito generato va versionato (pagina unica per claude.ai)
+!sito/dist/
