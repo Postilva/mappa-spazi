@@ -23,7 +23,7 @@ python3 scripts/build_sito.py [--istat <cartella SHP di R16_21 estratta>]
 | `src/app.js` | JS vanilla: navigazione con hash, mappa MapLibre, filtri, elenco, scheda edificio |
 | `src/vendor/maplibre-gl-4.7.1.css` | CSS di MapLibre (BSD-3), incorporato nella pagina unica |
 | `dati/edifici.geojson` | Punti dei 29 edifici con tutti i campi della scheda + `tipo_bene`, `n_unita`, `area_particella_m2` |
-| `dati/osm/` | Base OpenStreetMap (11/11/2026): 50 tessere vettoriali OpenFreeMap, schema OpenMapTiles, zoom 10–14, più i caratteri Noto Sans per le etichette (`fonte.json`: versione e attribuzione). © OpenStreetMap contributors, ODbL |
+| `dati/osm/` | Base OpenStreetMap (10/11/2026): 50 tessere vettoriali OpenFreeMap, schema OpenMapTiles, zoom 10–14, più i caratteri Noto Sans per le etichette (`fonte.json`: versione e attribuzione). © OpenStreetMap contributors, ODbL |
 | `dati/base.geojson` | Mappa di base: `terra` (ISTAT), `particelle` (isolati catastali uniti e semplificati), `edificio` (poligoni delle 29 particelle), `fuori` (maschera), `confine` |
 | `dist/pagina-claude.html` | **File unico** per la pagina privata claude.ai: frammento senza doctype/html/head/body, CSS, JS e dati incorporati (~370 KB) |
 | `index.html`, `assets/` | Versione normale per un futuro hosting: documento completo, dati letti con `fetch` da `dati/` (serve un server http, non funziona da `file://`) |
