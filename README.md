@@ -41,9 +41,9 @@ In avvio (10/11/2026): struttura del repository; caricati l'elenco immobili 2024
 
 1. [x] Estrazione dell'elenco 2024 in CSV — fatto 10/11/2026 (`scripts/estrai_elenco.py`, `dati/fonti/elenco-immobili-2024.csv`, 5.450 righe)
 2. [x] Verifiche sulla fonte (indirizzi, statistiche, pubblicazione ufficiale) — fatto 10/11/2026 (`dati/fonti/2026-11-10_verifica-elenco-2024.md`)
-3. [ ] Fogli catastali dei Tamburi e filtro dell'elenco — **prossimo: passo 3**
-4. [ ] Posizione degli edifici
-5. [ ] Schede JSON degli edifici
+3. [x] Fogli catastali dei Tamburi e filtro dell'elenco — fatto 10/11/2026 (confine di lavoro ISTAT 2021, circoscrizione 2 ∩ centro abitato, **da confermare**; 11 fogli intersecano il confine; `dati/tamburi/elenco-tamburi.csv`: 895 righe, 187 particelle FAB)
+4. [x] Posizione degli edifici — fatto 10/11/2026 (poligoni WFS dell'Agenzia delle Entrate, CC BY 4.0: 166 particelle localizzate, 29 dentro i Tamburi, 137 fuori confine, 21 da localizzare; controllo WMS 5/5 ok; `dati/tamburi/posizioni.csv`)
+5. [x] Schede JSON degli edifici — fatto 10/11/2026 (29 schede `dati/edifici/<foglio>-<particella>.json` con 323 unità, tutte `da_verificare`, senza nome né indirizzo) — **prossimo: passo 6**
 6. [ ] Sito statico Astro + MapLibre, stile A
 7. [ ] Pagine mappa, scheda, elenco, metodo
 8. [ ] Controllo da smartphone e accessibilità
