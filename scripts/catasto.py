@@ -16,17 +16,21 @@ Coordinate: EPSG:6706 (RDN2008), ordine lat lon nel GML 3.2. La differenza con
 WGS84/ETRS89 è sotto il metro: per la mappa si usano come lat/lon WGS84.
 
 Massimo 500 oggetti per richiesta (valori più alti sono rifiutati): chi chiama
-controlla numberMatched == numberReturned e divide il riquadro se serve.
+controlla numberMatched == numberReturned e divide il riquadro se serve. Alcuni riquadri
+(densi o con geometrie complesse) sono rifiutati sempre con «Richiesta non valida»: anche
+in quel caso chi chiama divide il riquadro. Un riquadro vuoto (o troppo grande) restituisce
+numberMatched="unknown" e 0 oggetti.
 
 Le risposte vengono messe in cache in `.cache/catasto/` (non versionata) per non
 ripetere le richieste. Pausa di cortesia tra le richieste: PAUSA secondi.
 """
-import hashlib, os, re, time, urllib.parse, urllib.request
+import hashlib, os, re, sys, time, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 
 WFS = "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php"
 UA = "mappa-spazi/0.1"
-PAUSA = 3.0
+PAUSA = 10.0
+ATTESE = (30, 60, 120, 240, 480)  # se il servizio rifiuta ("Richiesta non valida" per richieste ravvicinate)
 CACHE = os.path.join(os.path.dirname(__file__), "..", ".cache", "catasto")
 NS = {"gml": "http://www.opengis.net/gml/3.2", "wfs": "http://www.opengis.net/wfs/2.0",
       "CP": "http://mapserver.gis.umn.edu/mapserver"}
@@ -35,8 +39,8 @@ RIF = re.compile(r"^(?P<comune>[A-Z]\d{3})(?P<sezione>[A-Z_])(?P<foglio>\d{4})(?
 _ultima = [0.0]
 
 
-def get(params, tentativi=4):
-    """GET sul WFS con cache su disco, pausa tra richieste e retry (2,4,8,16 s)."""
+def get(params, tentativi=len(ATTESE)):
+    """GET sul WFS con cache su disco, pausa tra richieste e nuovi tentativi con attese crescenti."""
     url = WFS + "?" + urllib.parse.urlencode(params, safe=":,")
     os.makedirs(CACHE, exist_ok=True)
     f = os.path.join(CACHE, hashlib.sha1(url.encode()).hexdigest() + ".xml")
@@ -51,21 +55,22 @@ def get(params, tentativi=4):
             data = urllib.request.urlopen(req, timeout=180).read()
             _ultima[0] = time.time()
             if b"FeatureCollection" not in data[:2000]:
-                raise IOError("risposta inattesa: " + data[:300].decode("latin1"))
+                raise IOError("risposta inattesa: " + data[-200:].decode("latin1") + " URL " + url)
             open(f, "wb").write(data)
             return data
         except Exception as e:
             _ultima[0] = time.time()
             if i == tentativi:
                 raise
-            time.sleep(2 ** (i + 1))
+            print(f"  attesa {ATTESE[i]} s: {str(e)[-400:]}", file=sys.stderr, flush=True)
+            time.sleep(ATTESE[i])
 
 
-def get_features(tipo, bbox):
+def get_features(tipo, bbox, tentativi=len(ATTESE)):
     """tipo: 'CP:CadastralParcel' o 'CP:CadastralZoning'; bbox = (lat_min, lon_min, lat_max, lon_max).
     Restituisce (lista di feature, numberMatched, numberReturned)."""
     data = get({"SERVICE": "WFS", "VERSION": "2.0.0", "REQUEST": "GetFeature", "TYPENAMES": tipo,
-                "BBOX": "%.6f,%.6f,%.6f,%.6f,urn:ogc:def:crs:EPSG::6706" % bbox, "COUNT": "500"})
+                "BBOX": "%.6f,%.6f,%.6f,%.6f,urn:ogc:def:crs:EPSG::6706" % bbox, "COUNT": "500"}, tentativi)
     root = ET.fromstring(data)
     out = []
     for m in root.findall("wfs:member", NS):

@@ -82,3 +82,52 @@ Per categoria (solo FAB, prima del controllo di posizione):
 | F05 | Lastrico solare | 43 | 33 |
 
 (Una particella può avere unità di più categorie: la colonna «Particelle» non si somma.)
+
+## Passo 4 — Posizione delle particelle FAB (`posizioni.csv`)
+
+### Metodo
+
+Script `scripts/posizioni_tamburi.py` (modulo comune `scripts/catasto.py`; cache delle risposte in `.cache/catasto/`, non versionata).
+
+1. **Fogli completi.** WFS `CP:CadastralZoning` su un riquadro ampio (40,45–40,52 N, 17,15–17,30 E) per avere *tutte* le parti (mappa principale, allegati, sviluppi) dei fogli con fabbricati: 201, 202, 203, 204, 319 → 28 parti.
+2. **Poligoni delle particelle.** WFS `CP:CadastralParcel` a tasselli di 0,004° (~400 m) sul riquadro di quelle parti (17,2159–17,2523 E, 40,4633–40,5081 N): 152 richieste, una ogni 10 s; 14 tasselli vuoti (mare); 7 tasselli rifiutati dal servizio («Richiesta non valida», sempre sugli stessi riquadri, probabilmente per dimensione della risposta) e quindi divisi in quattro.
+3. **Posizione.** Per ogni coppia foglio+particella FAB dell'elenco: unione dei poligoni con lo stesso foglio (qualsiasi allegato) e lo stesso numero di particella; posizione = **baricentro del poligono** (`baricentro_poligono`). Se il baricentro fosse caduto fuori dal poligono (forme a L o a C) si sarebbe usato un punto interno garantito (`punto_interno`): non è successo per nessuna particella.
+4. **Confine.** Ogni punto è controllato contro il confine di lavoro (`dentro_tamburi` = `si`/`no`), per tutte le particelle e non solo per i fogli «a cavallo».
+
+Non si è usata la griglia di GetFeatureInfo: il WFS dà direttamente i poligoni, quindi la posizione è esatta rispetto alla mappa catastale e servono molte meno richieste. Per questo la colonna `n_punti` della griglia è sostituita da `n_poligoni` (poligoni della particella; 1 per tutte).
+
+Colonne: `foglio`, `particella`, `lat`, `lon` (WGS84/RDN2008, 7 decimali), `metodo`, `n_poligoni`, `area_m2` (area della particella sulla mappa, UTM 33N), `mappe_inspire` (foglio/allegato in cui sta), `dentro_tamburi`.
+
+### Risultati
+
+| | Particelle FAB | Unità |
+|---|---|---|
+| Nell'elenco filtrato (passo 3) | 187 | 816 |
+| Localizzate | 166 | 717 |
+| — dentro il confine dei Tamburi → **in mappa** | **29** | **323** |
+| — fuori dal confine → fuori dalla mappa del quartiere | 137 (tutte del foglio 319) | 394 |
+| **Non localizzate** («da localizzare», lat/lon vuoti) | **21** (tutte del foglio 319) | 99 |
+
+- **Dentro, per foglio:** 201 → 15, 202 → 6, 203 → 4, 204 → 1, 319 → 3.
+- **Il foglio 319 è quasi tutto fuori:** 137 delle 140 particelle localizzate cadono fuori dal confine (zona Città Vecchia/Borgo, circoscrizione 3). Restano nei dati ma non nella mappa dei Tamburi; serviranno se si estende la mappa ad altri quartieri.
+- **Non localizzate (21, foglio 319):** 512, 514–517, 519–524, 659, 661, 666, 667, 670, 672, 905, 939, 63557, 63559. Il numero di particella dell'elenco non esiste (oggi) nella cartografia: possibili soppressioni/fusioni dopo il 2024, numerazioni del catasto fabbricati non allineate alla mappa, o refusi dell'elenco. **Da verificare** con una visura catastale o con la Direzione Patrimonio. Tra queste ci sono **tutte le 5 particelle F02 «unità collabente»** dell'elenco filtrato: per ora nessun rudere catastale finisce in mappa. Non è stata stimata nessuna posizione approssimata.
+- **Categorie delle 29 particelle in mappa (unità):** A03 291, B05 8, A04 3, C01 3, D01 3, A02 2, C02 2, E03 2, F01 2, B01 1, B02 1, B04 1, B06 1, C03 1, F03 1, F05 1.
+
+### Controllo indipendente (`verifica-posizioni.csv`)
+
+Script `scripts/verifica_posizioni.py`: per un campione di 6 particelle localizzate (seme fisso, una per foglio più una), richiesta **GetFeatureInfo al WMS** (servizio diverso dal WFS usato per calcolare la posizione) nel punto calcolato, layer `CP.CadastralParcel`, EPSG:25833.
+
+| Foglio | Particella | Risposta del WMS | Esito |
+|---|---|---|---|
+| 201 | 2234 | `L049A020100.2234` | ok |
+| 201 | 247 | `L049A020100.247` | ok |
+| 203 | 3295 | `L049A0203B0.3295` | ok |
+| 204 | 914 | `L049A020400.914` | ok |
+| 319 | 857 | `L049A0319D0.857` | ok |
+| 202 | 179 | nessuna risposta (`ERRX-2` / connessione interrotta, anche dopo 4 tentativi in ~15 min) | non verificato |
+
+**5 su 5 risposte ottenute coincidono** (stessa particella, stesso foglio). Il WMS limita molto le richieste: anche a una richiesta ogni 75 s risponde spesso `ERRX-2` o chiude la connessione. Lo script riprende da dove si era fermato (non ripete i campioni già verificati).
+
+### Licenza
+
+Geometrie e identificativi: © Agenzia delle Entrate – Cartografia catastale, **CC BY 4.0** (vedi passo 3). Le posizioni sono un'elaborazione Postilva (baricentro) e vanno confermate al sopralluogo: il baricentro di una particella grande può cadere in un cortile o tra più corpi di fabbrica.
