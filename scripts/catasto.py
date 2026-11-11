@@ -46,6 +46,8 @@ def get(params, tentativi=len(ATTESE)):
     f = os.path.join(CACHE, hashlib.sha1(url.encode()).hexdigest() + ".xml")
     if os.path.exists(f):
         return open(f, "rb").read()
+    if os.environ.get("SOLO_CACHE"):   # nessuna richiesta al servizio: si usa solo ciò che è già stato scaricato
+        raise IOError("non in cache")
     for i in range(tentativi + 1):
         attesa = PAUSA - (time.time() - _ultima[0])
         if attesa > 0:

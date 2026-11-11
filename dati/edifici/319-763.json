@@ -1,0 +1,90 @@
+{
+  "id": "319-763",
+  "foglio": "319",
+  "particella": "763",
+  "categoria_catastale": "C01",
+  "descrizione": "C01 – Negozi e botteghe (3 di 4 unità)",
+  "unita": [
+    {
+      "id": "3190007630001",
+      "subalterno": "1",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190007630002",
+      "subalterno": "2",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190007630004",
+      "subalterno": "4",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "3190007630008",
+      "subalterno": "8",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.4778295,
+  "lon": 17.2269277,
+  "via_vicina": {
+    "nome": "Via San Martino",
+    "distanza_m": 1,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Borgo Umbertino",
+    "distanza_m": 1500.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}

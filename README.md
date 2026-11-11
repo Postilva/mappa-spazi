@@ -4,7 +4,7 @@
 
 Mappa pubblica online degli edifici del Comune di Taranto: per ogni edificio una scheda con stato verificato sul posto, storia, stima di massima dei costi di riapertura, idee di riuso ed eventuale modello 3D.
 
-**Quartiere pilota: Tamburi.**
+**Ambito: tutta Taranto** (dal 10/11/2026), solo locali non residenziali; i Tamburi restano il primo quartiere da verificare sul posto.
 
 ## Dove sono i documenti
 
@@ -48,3 +48,5 @@ In avvio (10/11/2026): struttura del repository; caricati l'elenco immobili 2024
 7. [x] Pagine mappa, scheda, elenco, metodo — fatto 10/11/2026 (`sito/dist/pagina-claude.html`, file unico; `sito/index.html` per hosting normale)
 8. [x] Controllo da smartphone e accessibilità — fatto 10/11/2026 (Playwright 390×844 e 1280×800: console pulita, niente scroll orizzontale, 29 punti, target ≥ 44 px)
 9. [x] Pubblicazione come pagina privata claude.ai (10/11/2026): https://claude.ai/artifact/EzPvgu5dKgkUJwo3YYgVwb (privata: si condivide dal menu Condividi). Prossimo: revisione del team, conferma del confine, sopralluoghi.
+10. [x] Mappa di base OpenStreetMap (10/11/2026): strade con i nomi, edifici, ferrovia, verde e mare al posto degli isolati catastali (`scripts/scarica_base_osm.py`, `sito/dati/osm/`); pubblicata sullo stesso link.
+11. [x] Estensione a tutta Taranto e pagine «piattaforma» (10–11/11/2026). Sulla mappa pubblica solo le particelle con almeno un locale non residenziale (`scripts/tipi.py`): niente abitazioni né pertinenze. Nuove pagine «Cerco uno spazio» (modulo in **bozza, non attivo**: non salva e non invia) e «Scheda di esempio» (edificio **inventato**, con modello 3D). Posizioni: `scripts/posizioni_citta.py` → `dati/citta/`. Cartografia catastale letta su tutti i 420 riquadri, tranne 3 quadrati di 0,001° rifiutati dal servizio (elenco nel log dello script). **488 particelle su 539 localizzate**, 51 in `dati/citta/da-localizzare.csv` (24 hanno locali di interesse, 28 locali; 21 sono del foglio 319). In mappa: **203 particelle, 340 locali**, tutti «da verificare». Con `SOLO_CACHE=1` lo script non interroga il servizio.

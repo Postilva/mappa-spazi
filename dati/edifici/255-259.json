@@ -1,0 +1,356 @@
+{
+  "id": "255-259",
+  "foglio": "255",
+  "particella": "259",
+  "categoria_catastale": "A03",
+  "descrizione": "A03 – Abitazione di tipo economico (29 di 48 unità)",
+  "unita": [
+    {
+      "id": "2550002590001",
+      "subalterno": "1",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590002",
+      "subalterno": "2",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590003",
+      "subalterno": "3",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590004",
+      "subalterno": "4",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590005",
+      "subalterno": "5",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590006",
+      "subalterno": "6",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590007",
+      "subalterno": "7",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590008",
+      "subalterno": "8",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590009",
+      "subalterno": "9",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590010",
+      "subalterno": "10",
+      "categoria": "A04",
+      "categoria_descrizione": "Abitazione di tipo popolare"
+    },
+    {
+      "id": "2550002590011",
+      "subalterno": "11",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590012",
+      "subalterno": "12",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590013",
+      "subalterno": "13",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590014",
+      "subalterno": "14",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590015",
+      "subalterno": "15",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590016",
+      "subalterno": "16",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590017",
+      "subalterno": "17",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590018",
+      "subalterno": "18",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590019",
+      "subalterno": "19",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590020",
+      "subalterno": "20",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590021",
+      "subalterno": "21",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590022",
+      "subalterno": "22",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590023",
+      "subalterno": "23",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590024",
+      "subalterno": "24",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590025",
+      "subalterno": "25",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590026",
+      "subalterno": "26",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590027",
+      "subalterno": "27",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590028",
+      "subalterno": "28",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590029",
+      "subalterno": "29",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590030",
+      "subalterno": "30",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590031",
+      "subalterno": "31",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590032",
+      "subalterno": "32",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590033",
+      "subalterno": "33",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590034",
+      "subalterno": "34",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590035",
+      "subalterno": "35",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590036",
+      "subalterno": "36",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590037",
+      "subalterno": "37",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590038",
+      "subalterno": "38",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2550002590039",
+      "subalterno": "39",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590040",
+      "subalterno": "40",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590041",
+      "subalterno": "41",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590042",
+      "subalterno": "42",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590043",
+      "subalterno": "43",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590044",
+      "subalterno": "44",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590045",
+      "subalterno": "45",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590046",
+      "subalterno": "46",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590047",
+      "subalterno": "47",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2550002590048",
+      "subalterno": "48",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.450357,
+  "lon": 17.274376,
+  "via_vicina": {
+    "nome": "Via Lago di Monticchio",
+    "distanza_m": 10,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Salinella",
+    "distanza_m": 420.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "superficie_m2": null,
+  "uso_originario": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}
