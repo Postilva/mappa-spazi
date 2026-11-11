@@ -24,7 +24,7 @@
   "lon": 17.2305315,
   "via_vicina": {
     "nome": "Posteria Via Nuova",
-    "distanza_m": 11,
+    "distanza_m": 6,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

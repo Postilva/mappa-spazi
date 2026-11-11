@@ -24,7 +24,7 @@
   "lon": 17.2311107,
   "via_vicina": {
     "nome": "Vicoletto Serafico",
-    "distanza_m": 4,
+    "distanza_m": 1,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

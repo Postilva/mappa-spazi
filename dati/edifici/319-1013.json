@@ -24,7 +24,7 @@
   "lon": 17.2296991,
   "via_vicina": {
     "nome": "Via Pentite",
-    "distanza_m": 14,
+    "distanza_m": 11,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

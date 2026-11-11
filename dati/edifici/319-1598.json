@@ -18,7 +18,7 @@
   "lon": 17.2264756,
   "via_vicina": {
     "nome": "Vico Civico",
-    "distanza_m": 17,
+    "distanza_m": 6,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

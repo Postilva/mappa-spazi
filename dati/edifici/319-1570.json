@@ -17,8 +17,8 @@
   "lat": 40.4768124,
   "lon": 17.2265815,
   "via_vicina": {
-    "nome": "Vicolo Carducci",
-    "distanza_m": 9,
+    "nome": "Vicoletto Mercanti",
+    "distanza_m": 1,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

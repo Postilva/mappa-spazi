@@ -18,7 +18,7 @@
   "lon": 17.2274403,
   "via_vicina": {
     "nome": "Vico Carrieri",
-    "distanza_m": 6,
+    "distanza_m": 3,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

@@ -71,8 +71,8 @@
   "lat": 40.4783872,
   "lon": 17.2275318,
   "via_vicina": {
-    "nome": "Vico Tre Scalini",
-    "distanza_m": 23,
+    "nome": "Via Cava",
+    "distanza_m": 17,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

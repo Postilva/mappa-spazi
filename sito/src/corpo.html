@@ -27,7 +27,7 @@
 <section class="vista" data-vista="mappa" aria-labelledby="t-mappa">
   <div class="gutter intro">
     <h1 id="t-mappa" tabindex="-1">Gli spazi del Comune, per chi vuole far partire qualcosa</h1>
-    <p>Il Comune di Taranto possiede <strong><span data-num="locali"></span> locali non residenziali</strong> in <span data-num="in_mappa"></span> immobili: negozi, laboratori, magazzini, uffici, scuole, capannoni. Questa mappa li mette in fila, uno per uno, per capire quali sono chiusi e a chi potrebbero servire.</p>
+    <p>Su questa mappa ci sono <strong><span data-num="locali"></span> locali non residenziali del Comune di Taranto</strong> in <span data-num="in_mappa"></span> immobili: negozi, laboratori, magazzini, uffici, scuole, capannoni. Nell'elenco del Comune ce ne sono altri, non ancora localizzati. La mappa li mette in fila, uno per uno, per capire quali sono chiusi e a chi potrebbero servire.</p>
     <p class="azioni-intro"><a class="bottone" href="#cerco-spazio">Cerco uno spazio</a> <a class="bottone secondario" href="#esempio">Guarda una scheda di esempio</a></p>
   </div>
   <div class="mappa-griglia">
@@ -75,7 +75,7 @@
   <h1 id="t-elenco" tabindex="-1">Elenco degli spazi</h1>
   <p>Tutti gli spazi della mappa, raggruppati per zona. È l'alternativa testuale alla mappa. Zona e via sono ricavate in automatico da OpenStreetMap e <strong>non sono ancora verificate</strong>.</p>
   <div id="elenco"></div>
-  <p class="nota">Non sono in elenco le abitazioni comunali e <span data-num="da_localizzare"></span> particelle che non si trovano nella cartografia catastale: vedi <a href="#metodo">Metodo e fonti</a>.</p>
+  <p class="nota">Non sono in elenco le abitazioni comunali e <span data-num="da_localizzare"></span> particelle non ancora localizzate sulla cartografia catastale: vedi <a href="#metodo">Metodo e fonti</a>.</p>
 </section>
 
 <!-- CERCO UNO SPAZIO -->
@@ -186,7 +186,7 @@
 
   <h2>Cosa c'è in mappa e cosa no</h2>
   <ul>
-    <li>L'elenco 2024 contiene <span data-num="particelle_elenco"></span> particelle catastali con fabbricati. <span data-num="localizzate"></span> sono state trovate sulla cartografia catastale; <strong><span data-num="da_localizzare"></span> non sono localizzate</strong> e non sono in mappa: nessuna posizione è stata stimata.</li>
+    <li>L'elenco 2024 contiene <span data-num="particelle_elenco"></span> particelle catastali con fabbricati. <span data-num="localizzate"></span> sono state trovate sulla cartografia catastale; <strong><span data-num="da_localizzare"></span> non sono ancora localizzate</strong> e non sono in mappa: nessuna posizione è stata stimata. La lettura della cartografia non è completa (circa un quarto dei riquadri del territorio non è stato ancora letto), quindi una parte di queste particelle potrà essere aggiunta.</li>
     <li><strong>In mappa ci sono <span data-num="in_mappa"></span> particelle</strong>, con <span data-num="locali"></span> locali non residenziali.</li>
     <li><strong>Le abitazioni non sono in mappa.</strong> <span data-num="solo_abitazioni"></span> particelle contengono solo case e loro pertinenze: questa mappa serve a trovare spazi per attività, non riguarda gli alloggi.</li>
     <li>Non contiamo come locali: autorimesse (C/6), tettoie (C/7), aree urbane (F/1), lastrici solari (F/5) e i magazzini (C/2) che stanno in edifici con abitazioni, perché quasi sempre sono cantine. È una <strong>regola di lavoro di Postilva</strong>, da rivedere.</li>

@@ -1,0 +1,266 @@
+{
+  "id": "254-1121",
+  "foglio": "254",
+  "particella": "1121",
+  "categoria_catastale": "A03",
+  "descrizione": "A03 – Abitazione di tipo economico (24 di 33 unità)",
+  "unita": [
+    {
+      "id": "2540011210001",
+      "subalterno": "1",
+      "categoria": "A10",
+      "categoria_descrizione": "Uffici e studi privati"
+    },
+    {
+      "id": "2540011210002",
+      "subalterno": "2",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210003",
+      "subalterno": "3",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210004",
+      "subalterno": "4",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210007",
+      "subalterno": "7",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210009",
+      "subalterno": "9",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210010",
+      "subalterno": "10",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210011",
+      "subalterno": "11",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210012",
+      "subalterno": "12",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210013",
+      "subalterno": "13",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210015",
+      "subalterno": "15",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210016",
+      "subalterno": "16",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210017",
+      "subalterno": "17",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210019",
+      "subalterno": "19",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2540011210020",
+      "subalterno": "20",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2540011210022",
+      "subalterno": "22",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2540011210024",
+      "subalterno": "24",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2540011210025",
+      "subalterno": "25",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210028",
+      "subalterno": "28",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210030",
+      "subalterno": "30",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210031",
+      "subalterno": "31",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210032",
+      "subalterno": "32",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210034",
+      "subalterno": "34",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210035",
+      "subalterno": "35",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210038",
+      "subalterno": "38",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210040",
+      "subalterno": "40",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210041",
+      "subalterno": "41",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2540011210043",
+      "subalterno": "43",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2540011210044",
+      "subalterno": "44",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2540011210050",
+      "subalterno": "50",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210051",
+      "subalterno": "51",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2540011210052",
+      "subalterno": "52",
+      "categoria": "A10",
+      "categoria_descrizione": "Uffici e studi privati"
+    },
+    {
+      "id": "2540011210053",
+      "subalterno": "53",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.45759,
+  "lon": 17.2720361,
+  "via_vicina": {
+    "nome": "Via Cataldantonio Atenisio Carducci",
+    "distanza_m": 5,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Solito-Tre Carrare",
+    "distanza_m": 890.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "superficie_m2": null,
+  "uso_originario": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}

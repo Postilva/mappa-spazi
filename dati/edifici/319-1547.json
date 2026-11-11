@@ -77,8 +77,8 @@
   "lat": 40.4765519,
   "lon": 17.2276944,
   "via_vicina": {
-    "nome": "Vico Seminario I",
-    "distanza_m": 16,
+    "nome": "Via Duomo",
+    "distanza_m": 0,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

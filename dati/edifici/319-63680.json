@@ -23,8 +23,8 @@
   "lat": 40.4737808,
   "lon": 17.2437155,
   "via_vicina": {
-    "nome": "Via Nicola Mignogna",
-    "distanza_m": 20,
+    "nome": "Via Luigi Viola",
+    "distanza_m": 11,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

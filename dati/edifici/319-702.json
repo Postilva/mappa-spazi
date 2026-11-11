@@ -24,7 +24,7 @@
   "lon": 17.2281294,
   "via_vicina": {
     "nome": "Vico Pastorelli",
-    "distanza_m": 10,
+    "distanza_m": 7,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

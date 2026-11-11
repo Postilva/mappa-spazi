@@ -36,7 +36,7 @@
   "lon": 17.2287085,
   "via_vicina": {
     "nome": "Strada Garibaldi",
-    "distanza_m": 20,
+    "distanza_m": 17,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

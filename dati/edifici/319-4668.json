@@ -35,8 +35,8 @@
   "lat": 40.4758835,
   "lon": 17.2294247,
   "via_vicina": {
-    "nome": "Piazza Duomo",
-    "distanza_m": 17,
+    "nome": "Via Duomo",
+    "distanza_m": 3,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

@@ -1,0 +1,356 @@
+{
+  "id": "246-712",
+  "foglio": "246",
+  "particella": "712",
+  "categoria_catastale": "A03",
+  "descrizione": "A03 – Abitazione di tipo economico (48 di 48 unità)",
+  "unita": [
+    {
+      "id": "2460007120002",
+      "subalterno": "2",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120003",
+      "subalterno": "3",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120004",
+      "subalterno": "4",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120005",
+      "subalterno": "5",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120008",
+      "subalterno": "8",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120010",
+      "subalterno": "10",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120012",
+      "subalterno": "12",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120013",
+      "subalterno": "13",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120015",
+      "subalterno": "15",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120017",
+      "subalterno": "17",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120018",
+      "subalterno": "18",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120019",
+      "subalterno": "19",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120020",
+      "subalterno": "20",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120022",
+      "subalterno": "22",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120025",
+      "subalterno": "25",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120027",
+      "subalterno": "27",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120029",
+      "subalterno": "29",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120030",
+      "subalterno": "30",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120031",
+      "subalterno": "31",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120032",
+      "subalterno": "32",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120034",
+      "subalterno": "34",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120035",
+      "subalterno": "35",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120036",
+      "subalterno": "36",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120038",
+      "subalterno": "38",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120040",
+      "subalterno": "40",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120041",
+      "subalterno": "41",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120042",
+      "subalterno": "42",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120044",
+      "subalterno": "44",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120045",
+      "subalterno": "45",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120046",
+      "subalterno": "46",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120048",
+      "subalterno": "48",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120049",
+      "subalterno": "49",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120050",
+      "subalterno": "50",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120053",
+      "subalterno": "53",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120057",
+      "subalterno": "57",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120058",
+      "subalterno": "58",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120059",
+      "subalterno": "59",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120061",
+      "subalterno": "61",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120062",
+      "subalterno": "62",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120063",
+      "subalterno": "63",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120065",
+      "subalterno": "65",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120068",
+      "subalterno": "68",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120070",
+      "subalterno": "70",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120072",
+      "subalterno": "72",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120074",
+      "subalterno": "74",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120075",
+      "subalterno": "75",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120076",
+      "subalterno": "76",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460007120078",
+      "subalterno": "78",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.4640485,
+  "lon": 17.2729669,
+  "via_vicina": {
+    "nome": "Via Ancona",
+    "distanza_m": 19,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Solito-Tre Carrare",
+    "distanza_m": 750.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "superficie_m2": null,
+  "uso_originario": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}

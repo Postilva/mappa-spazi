@@ -24,7 +24,7 @@
   "lon": 17.2273518,
   "via_vicina": {
     "nome": "Vico Vigile",
-    "distanza_m": 7,
+    "distanza_m": 0,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

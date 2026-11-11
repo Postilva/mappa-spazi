@@ -18,7 +18,7 @@
   "lon": 17.2277445,
   "via_vicina": {
     "nome": "Via Martongelli",
-    "distanza_m": 8,
+    "distanza_m": 0,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

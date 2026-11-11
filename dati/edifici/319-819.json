@@ -18,7 +18,7 @@
   "lon": 17.227833,
   "via_vicina": {
     "nome": "Via San Martino",
-    "distanza_m": 6,
+    "distanza_m": 2,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

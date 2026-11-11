@@ -130,7 +130,7 @@ def main():
         if not po or not po["lat"]:
             da_loc.append({"foglio": f, "particella": p, "unita": len(us),
                            "categorie": " ".join(f"{k}:{v}" for k, v in sorted(cat.items())),
-                           "motivo": "particella non trovata nella cartografia catastale WFS"})
+                           "motivo": "non trovata nei riquadri della cartografia catastale WFS letti finora (lettura incompleta)"})
             continue
         lat, lon = float(po["lat"]), float(po["lon"])
         top = sorted(cat.items(), key=lambda kv: (-kv[1], kv[0]))[0][0]

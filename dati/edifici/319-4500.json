@@ -18,7 +18,7 @@
   "lon": 17.2386242,
   "via_vicina": {
     "nome": "Via Cavour",
-    "distanza_m": 4,
+    "distanza_m": 3,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

@@ -1,0 +1,944 @@
+{
+  "id": "246-642",
+  "foglio": "246",
+  "particella": "642",
+  "categoria_catastale": "A02",
+  "descrizione": "A02 – Abitazioni di tipo civile (72 di 146 unità)",
+  "unita": [
+    {
+      "id": "2460006420001",
+      "subalterno": "1",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420002",
+      "subalterno": "2",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420003",
+      "subalterno": "3",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420004",
+      "subalterno": "4",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420005",
+      "subalterno": "5",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420006",
+      "subalterno": "6",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420007",
+      "subalterno": "7",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420008",
+      "subalterno": "8",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420009",
+      "subalterno": "9",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420011",
+      "subalterno": "11",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420012",
+      "subalterno": "12",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420013",
+      "subalterno": "13",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420015",
+      "subalterno": "15",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420016",
+      "subalterno": "16",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420017",
+      "subalterno": "17",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420018",
+      "subalterno": "18",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420019",
+      "subalterno": "19",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420020",
+      "subalterno": "20",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420022",
+      "subalterno": "22",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420023",
+      "subalterno": "23",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420024",
+      "subalterno": "24",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420025",
+      "subalterno": "25",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420026",
+      "subalterno": "26",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420027",
+      "subalterno": "27",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420028",
+      "subalterno": "28",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420029",
+      "subalterno": "29",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420030",
+      "subalterno": "30",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420031",
+      "subalterno": "31",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420033",
+      "subalterno": "33",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420034",
+      "subalterno": "34",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420035",
+      "subalterno": "35",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420036",
+      "subalterno": "36",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420037",
+      "subalterno": "37",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420038",
+      "subalterno": "38",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420039",
+      "subalterno": "39",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420040",
+      "subalterno": "40",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420041",
+      "subalterno": "41",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420042",
+      "subalterno": "42",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420043",
+      "subalterno": "43",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420044",
+      "subalterno": "44",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420045",
+      "subalterno": "45",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420046",
+      "subalterno": "46",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420047",
+      "subalterno": "47",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420048",
+      "subalterno": "48",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420049",
+      "subalterno": "49",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420050",
+      "subalterno": "50",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420051",
+      "subalterno": "51",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420052",
+      "subalterno": "52",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420053",
+      "subalterno": "53",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420054",
+      "subalterno": "54",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420057",
+      "subalterno": "57",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420058",
+      "subalterno": "58",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420060",
+      "subalterno": "60",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420061",
+      "subalterno": "61",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420062",
+      "subalterno": "62",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420063",
+      "subalterno": "63",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420064",
+      "subalterno": "64",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420065",
+      "subalterno": "65",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420066",
+      "subalterno": "66",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420067",
+      "subalterno": "67",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420068",
+      "subalterno": "68",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420069",
+      "subalterno": "69",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420070",
+      "subalterno": "70",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420071",
+      "subalterno": "71",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420073",
+      "subalterno": "73",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2460006420074",
+      "subalterno": "74",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2460006420075",
+      "subalterno": "75",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420076",
+      "subalterno": "76",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420078",
+      "subalterno": "78",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "2460006420079",
+      "subalterno": "79",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420080",
+      "subalterno": "80",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420081",
+      "subalterno": "81",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420082",
+      "subalterno": "82",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420083",
+      "subalterno": "83",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420084",
+      "subalterno": "84",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420085",
+      "subalterno": "85",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420086",
+      "subalterno": "86",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420087",
+      "subalterno": "87",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420088",
+      "subalterno": "88",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420089",
+      "subalterno": "89",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420090",
+      "subalterno": "90",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420091",
+      "subalterno": "91",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420092",
+      "subalterno": "92",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420093",
+      "subalterno": "93",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420094",
+      "subalterno": "94",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420095",
+      "subalterno": "95",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420096",
+      "subalterno": "96",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420097",
+      "subalterno": "97",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420098",
+      "subalterno": "98",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420099",
+      "subalterno": "99",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420100",
+      "subalterno": "100",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420101",
+      "subalterno": "101",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420102",
+      "subalterno": "102",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420103",
+      "subalterno": "103",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420104",
+      "subalterno": "104",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420105",
+      "subalterno": "105",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420106",
+      "subalterno": "106",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420107",
+      "subalterno": "107",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420108",
+      "subalterno": "108",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420109",
+      "subalterno": "109",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420110",
+      "subalterno": "110",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420111",
+      "subalterno": "111",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420112",
+      "subalterno": "112",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420113",
+      "subalterno": "113",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420114",
+      "subalterno": "114",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420115",
+      "subalterno": "115",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420116",
+      "subalterno": "116",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420117",
+      "subalterno": "117",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420118",
+      "subalterno": "118",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420119",
+      "subalterno": "119",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420120",
+      "subalterno": "120",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420121",
+      "subalterno": "121",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420122",
+      "subalterno": "122",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420123",
+      "subalterno": "123",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420124",
+      "subalterno": "124",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420125",
+      "subalterno": "125",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420126",
+      "subalterno": "126",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420127",
+      "subalterno": "127",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420129",
+      "subalterno": "129",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420130",
+      "subalterno": "130",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420131",
+      "subalterno": "131",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420132",
+      "subalterno": "132",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420133",
+      "subalterno": "133",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420134",
+      "subalterno": "134",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420135",
+      "subalterno": "135",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420136",
+      "subalterno": "136",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420137",
+      "subalterno": "137",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420138",
+      "subalterno": "138",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420139",
+      "subalterno": "139",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420141",
+      "subalterno": "141",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420142",
+      "subalterno": "142",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420143",
+      "subalterno": "143",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420144",
+      "subalterno": "144",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420145",
+      "subalterno": "145",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420146",
+      "subalterno": "146",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420147",
+      "subalterno": "147",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420148",
+      "subalterno": "148",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420149",
+      "subalterno": "149",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420150",
+      "subalterno": "150",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460006420151",
+      "subalterno": "151",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2460006420152",
+      "subalterno": "152",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420153",
+      "subalterno": "153",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420154",
+      "subalterno": "154",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420156",
+      "subalterno": "156",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420157",
+      "subalterno": "157",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    },
+    {
+      "id": "2460006420158",
+      "subalterno": "158",
+      "categoria": "A02",
+      "categoria_descrizione": "Abitazioni di tipo civile"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.4587456,
+  "lon": 17.2745065,
+  "via_vicina": {
+    "nome": "Via Cataldantonio Atenisio Carducci",
+    "distanza_m": 21,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Solito-Tre Carrare",
+    "distanza_m": 990.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "superficie_m2": null,
+  "uso_originario": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}

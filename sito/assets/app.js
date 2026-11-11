@@ -684,7 +684,7 @@
       cubo(riuso, 30, 0.08, 6, 0, 0, 13.4, C.bordoForte); // piazzetta davanti
       [[-19, 6], [19, 6], [-19, -6], [19, -6]].forEach(function (a) {
         cubo(riuso, 0.5, 2.6, 0.5, a[0], 0, a[1], C.testo2);
-        var ch = new T.Mesh(new T.SphereGeometry(2.1, 12, 10), mat("#B9C6A4")); ch.position.set(a[0], 4.2, a[1]); riuso.add(ch);
+        var ch = new T.Mesh(new T.SphereGeometry(2.1, 12, 10), mat(B.verde)); ch.position.set(a[0], 4.2, a[1]); riuso.add(ch);
       });
       riuso.visible = false;
       scena.add(oggi); scena.add(riuso);

@@ -77,8 +77,8 @@
   "lat": 40.470169,
   "lon": 17.2410668,
   "via_vicina": {
-    "nome": "Via Anfiteatro",
-    "distanza_m": 31,
+    "nome": "Via Domenico Acclavio",
+    "distanza_m": 5,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

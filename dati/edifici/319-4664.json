@@ -29,8 +29,8 @@
   "lat": 40.4748307,
   "lon": 17.2342456,
   "via_vicina": {
-    "nome": "Via di Mezzo",
-    "distanza_m": 24,
+    "nome": "Via Sant'Egidio",
+    "distanza_m": 3,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

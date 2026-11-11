@@ -18,7 +18,7 @@
   "lon": 17.2268682,
   "via_vicina": {
     "nome": "Via Porto",
-    "distanza_m": 8,
+    "distanza_m": 1,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

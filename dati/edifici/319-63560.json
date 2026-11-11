@@ -18,7 +18,7 @@
   "lon": 17.2244952,
   "via_vicina": {
     "nome": "Via Cristoforo Colombo",
-    "distanza_m": 13,
+    "distanza_m": 10,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

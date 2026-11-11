@@ -42,7 +42,7 @@
   "lon": 17.2288176,
   "via_vicina": {
     "nome": "Vicolo Santa Chiara",
-    "distanza_m": 10,
+    "distanza_m": 1,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

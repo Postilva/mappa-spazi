@@ -65,8 +65,8 @@
   "lat": 40.4659383,
   "lon": 17.2507296,
   "via_vicina": {
-    "nome": "Via Guglielmo Oberdan",
-    "distanza_m": 28,
+    "nome": "Via Tito Minniti",
+    "distanza_m": 7,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

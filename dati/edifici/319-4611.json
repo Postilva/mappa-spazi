@@ -54,7 +54,7 @@
   "lon": 17.2320729,
   "via_vicina": {
     "nome": "Posteria Immacolata",
-    "distanza_m": 10,
+    "distanza_m": 0,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

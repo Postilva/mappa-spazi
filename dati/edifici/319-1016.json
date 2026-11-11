@@ -30,7 +30,7 @@
   "lon": 17.2297466,
   "via_vicina": {
     "nome": "Via di Mezzo",
-    "distanza_m": 13,
+    "distanza_m": 10,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

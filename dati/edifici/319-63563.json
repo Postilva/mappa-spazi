@@ -24,7 +24,7 @@
   "lon": 17.2242004,
   "via_vicina": {
     "nome": "Via per Massafra",
-    "distanza_m": 15,
+    "distanza_m": 11,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

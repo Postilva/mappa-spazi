@@ -36,7 +36,7 @@
   "lon": 17.2286819,
   "via_vicina": {
     "nome": "Via San Gaetano",
-    "distanza_m": 17,
+    "distanza_m": 3,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

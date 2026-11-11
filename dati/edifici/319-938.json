@@ -18,7 +18,7 @@
   "lon": 17.2283732,
   "via_vicina": {
     "nome": "Via Cava",
-    "distanza_m": 9,
+    "distanza_m": 0,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

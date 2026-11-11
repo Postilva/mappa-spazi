@@ -18,7 +18,7 @@
   "lon": 17.2399708,
   "via_vicina": {
     "nome": "Via Ciro Giovinazzi",
-    "distanza_m": 12,
+    "distanza_m": 3,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

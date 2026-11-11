@@ -1,0 +1,578 @@
+{
+  "id": "246-9364",
+  "foglio": "246",
+  "particella": "9364",
+  "categoria_catastale": "A03",
+  "descrizione": "A03 – Abitazione di tipo economico (59 di 85 unità)",
+  "unita": [
+    {
+      "id": "2460093640065",
+      "subalterno": "65",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640084",
+      "subalterno": "84",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640112",
+      "subalterno": "112",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640137",
+      "subalterno": "137",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640141",
+      "subalterno": "141",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640149",
+      "subalterno": "149",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640156",
+      "subalterno": "156",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640159",
+      "subalterno": "159",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640161",
+      "subalterno": "161",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640169",
+      "subalterno": "169",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640170",
+      "subalterno": "170",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640178",
+      "subalterno": "178",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640182",
+      "subalterno": "182",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640187",
+      "subalterno": "187",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640190",
+      "subalterno": "190",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640191",
+      "subalterno": "191",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640194",
+      "subalterno": "194",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640217",
+      "subalterno": "217",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640220",
+      "subalterno": "220",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640221",
+      "subalterno": "221",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640222",
+      "subalterno": "222",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640224",
+      "subalterno": "224",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640227",
+      "subalterno": "227",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640240",
+      "subalterno": "240",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640245",
+      "subalterno": "245",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640250",
+      "subalterno": "250",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640257",
+      "subalterno": "257",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640261",
+      "subalterno": "261",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640262",
+      "subalterno": "262",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640264",
+      "subalterno": "264",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640267",
+      "subalterno": "267",
+      "categoria": "C06",
+      "categoria_descrizione": "Stalle, scuderie, rimesse e autorimesse"
+    },
+    {
+      "id": "2460093640278",
+      "subalterno": "278",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640285",
+      "subalterno": "285",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640290",
+      "subalterno": "290",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640292",
+      "subalterno": "292",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640294",
+      "subalterno": "294",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640295",
+      "subalterno": "295",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640297",
+      "subalterno": "297",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640298",
+      "subalterno": "298",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640299",
+      "subalterno": "299",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640301",
+      "subalterno": "301",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640302",
+      "subalterno": "302",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640303",
+      "subalterno": "303",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640304",
+      "subalterno": "304",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640305",
+      "subalterno": "305",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640307",
+      "subalterno": "307",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640316",
+      "subalterno": "316",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640320",
+      "subalterno": "320",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640324",
+      "subalterno": "324",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640327",
+      "subalterno": "327",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640331",
+      "subalterno": "331",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640333",
+      "subalterno": "333",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640334",
+      "subalterno": "334",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640336",
+      "subalterno": "336",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640338",
+      "subalterno": "338",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640340",
+      "subalterno": "340",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640341",
+      "subalterno": "341",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640343",
+      "subalterno": "343",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640345",
+      "subalterno": "345",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640351",
+      "subalterno": "351",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640352",
+      "subalterno": "352",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640354",
+      "subalterno": "354",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640357",
+      "subalterno": "357",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640360",
+      "subalterno": "360",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640362",
+      "subalterno": "362",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640366",
+      "subalterno": "366",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640367",
+      "subalterno": "367",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640368",
+      "subalterno": "368",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640369",
+      "subalterno": "369",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640370",
+      "subalterno": "370",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640371",
+      "subalterno": "371",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640373",
+      "subalterno": "373",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640377",
+      "subalterno": "377",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640379",
+      "subalterno": "379",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640380",
+      "subalterno": "380",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640381",
+      "subalterno": "381",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640384",
+      "subalterno": "384",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640386",
+      "subalterno": "386",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640390",
+      "subalterno": "390",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640395",
+      "subalterno": "395",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640398",
+      "subalterno": "398",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640399",
+      "subalterno": "399",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640402",
+      "subalterno": "402",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640403",
+      "subalterno": "403",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2460093640404",
+      "subalterno": "404",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.4595987,
+  "lon": 17.273525,
+  "via_vicina": {
+    "nome": "Via Fratelli Rosselli",
+    "distanza_m": 0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Solito-Tre Carrare",
+    "distanza_m": 870.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "superficie_m2": null,
+  "uso_originario": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}

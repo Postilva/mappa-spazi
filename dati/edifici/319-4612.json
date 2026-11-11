@@ -36,7 +36,7 @@
   "lon": 17.2310092,
   "via_vicina": {
     "nome": "Vicolo Pontescuro",
-    "distanza_m": 7,
+    "distanza_m": 0,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

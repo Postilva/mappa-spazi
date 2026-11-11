@@ -78,7 +78,7 @@
   "lon": 17.231444,
   "via_vicina": {
     "nome": "Via Duomo",
-    "distanza_m": 15,
+    "distanza_m": 1,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

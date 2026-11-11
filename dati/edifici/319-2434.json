@@ -24,7 +24,7 @@
   "lon": 17.2410937,
   "via_vicina": {
     "nome": "Via Anfiteatro",
-    "distanza_m": 16,
+    "distanza_m": 9,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

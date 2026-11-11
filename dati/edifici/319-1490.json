@@ -24,7 +24,7 @@
   "lon": 17.2305656,
   "via_vicina": {
     "nome": "Via Giovanni Paisiello",
-    "distanza_m": 19,
+    "distanza_m": 13,
     "fonte": "OpenStreetMap",
     "verificata": false
   },

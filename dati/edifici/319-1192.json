@@ -30,7 +30,7 @@
   "lon": 17.2333577,
   "via_vicina": {
     "nome": "Vicolo Casalino",
-    "distanza_m": 20,
+    "distanza_m": 11,
     "fonte": "OpenStreetMap",
     "verificata": false
   },
