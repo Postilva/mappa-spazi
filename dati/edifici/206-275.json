@@ -1,0 +1,986 @@
+{
+  "id": "206-275",
+  "foglio": "206",
+  "particella": "275",
+  "categoria_catastale": "A03",
+  "descrizione": "A03 – Abitazione di tipo economico (77 di 153 unità)",
+  "unita": [
+    {
+      "id": "2060002750030",
+      "subalterno": "30",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750031",
+      "subalterno": "31",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750032",
+      "subalterno": "32",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750033",
+      "subalterno": "33",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750034",
+      "subalterno": "34",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750035",
+      "subalterno": "35",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750036",
+      "subalterno": "36",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750037",
+      "subalterno": "37",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750038",
+      "subalterno": "38",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750039",
+      "subalterno": "39",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750040",
+      "subalterno": "40",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750041",
+      "subalterno": "41",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750042",
+      "subalterno": "42",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750043",
+      "subalterno": "43",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750044",
+      "subalterno": "44",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750045",
+      "subalterno": "45",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750047",
+      "subalterno": "47",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750048",
+      "subalterno": "48",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750050",
+      "subalterno": "50",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750051",
+      "subalterno": "51",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750052",
+      "subalterno": "52",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750053",
+      "subalterno": "53",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750054",
+      "subalterno": "54",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750055",
+      "subalterno": "55",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750056",
+      "subalterno": "56",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750057",
+      "subalterno": "57",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750058",
+      "subalterno": "58",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750059",
+      "subalterno": "59",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750060",
+      "subalterno": "60",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750062",
+      "subalterno": "62",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750063",
+      "subalterno": "63",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750064",
+      "subalterno": "64",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750065",
+      "subalterno": "65",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750066",
+      "subalterno": "66",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750067",
+      "subalterno": "67",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750068",
+      "subalterno": "68",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750069",
+      "subalterno": "69",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750070",
+      "subalterno": "70",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750071",
+      "subalterno": "71",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750072",
+      "subalterno": "72",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750073",
+      "subalterno": "73",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750074",
+      "subalterno": "74",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750075",
+      "subalterno": "75",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750076",
+      "subalterno": "76",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750079",
+      "subalterno": "79",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750080",
+      "subalterno": "80",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750081",
+      "subalterno": "81",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750082",
+      "subalterno": "82",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750084",
+      "subalterno": "84",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750085",
+      "subalterno": "85",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750086",
+      "subalterno": "86",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750087",
+      "subalterno": "87",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750088",
+      "subalterno": "88",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750089",
+      "subalterno": "89",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750090",
+      "subalterno": "90",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750092",
+      "subalterno": "92",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750093",
+      "subalterno": "93",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750094",
+      "subalterno": "94",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750095",
+      "subalterno": "95",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750096",
+      "subalterno": "96",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750097",
+      "subalterno": "97",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750098",
+      "subalterno": "98",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750099",
+      "subalterno": "99",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750100",
+      "subalterno": "100",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750101",
+      "subalterno": "101",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750102",
+      "subalterno": "102",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750103",
+      "subalterno": "103",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750104",
+      "subalterno": "104",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750105",
+      "subalterno": "105",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750106",
+      "subalterno": "106",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750107",
+      "subalterno": "107",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750108",
+      "subalterno": "108",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750109",
+      "subalterno": "109",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750110",
+      "subalterno": "110",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750111",
+      "subalterno": "111",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750112",
+      "subalterno": "112",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750113",
+      "subalterno": "113",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750115",
+      "subalterno": "115",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750116",
+      "subalterno": "116",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750117",
+      "subalterno": "117",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750118",
+      "subalterno": "118",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750119",
+      "subalterno": "119",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750120",
+      "subalterno": "120",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750121",
+      "subalterno": "121",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750123",
+      "subalterno": "123",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750124",
+      "subalterno": "124",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750125",
+      "subalterno": "125",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750126",
+      "subalterno": "126",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750127",
+      "subalterno": "127",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750128",
+      "subalterno": "128",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750129",
+      "subalterno": "129",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750130",
+      "subalterno": "130",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750131",
+      "subalterno": "131",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750132",
+      "subalterno": "132",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750133",
+      "subalterno": "133",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750134",
+      "subalterno": "134",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750135",
+      "subalterno": "135",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750137",
+      "subalterno": "137",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750138",
+      "subalterno": "138",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750139",
+      "subalterno": "139",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750140",
+      "subalterno": "140",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750141",
+      "subalterno": "141",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750142",
+      "subalterno": "142",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750143",
+      "subalterno": "143",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750144",
+      "subalterno": "144",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750145",
+      "subalterno": "145",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750146",
+      "subalterno": "146",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750148",
+      "subalterno": "148",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750149",
+      "subalterno": "149",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750150",
+      "subalterno": "150",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750151",
+      "subalterno": "151",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750152",
+      "subalterno": "152",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750153",
+      "subalterno": "153",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750154",
+      "subalterno": "154",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750155",
+      "subalterno": "155",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750156",
+      "subalterno": "156",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750157",
+      "subalterno": "157",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750158",
+      "subalterno": "158",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750159",
+      "subalterno": "159",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750160",
+      "subalterno": "160",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750161",
+      "subalterno": "161",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750162",
+      "subalterno": "162",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750163",
+      "subalterno": "163",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750164",
+      "subalterno": "164",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750165",
+      "subalterno": "165",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750166",
+      "subalterno": "166",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750167",
+      "subalterno": "167",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750168",
+      "subalterno": "168",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750169",
+      "subalterno": "169",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750170",
+      "subalterno": "170",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750171",
+      "subalterno": "171",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750172",
+      "subalterno": "172",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750173",
+      "subalterno": "173",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750174",
+      "subalterno": "174",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750175",
+      "subalterno": "175",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750176",
+      "subalterno": "176",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750177",
+      "subalterno": "177",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750178",
+      "subalterno": "178",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750179",
+      "subalterno": "179",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750180",
+      "subalterno": "180",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750181",
+      "subalterno": "181",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750182",
+      "subalterno": "182",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750183",
+      "subalterno": "183",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750184",
+      "subalterno": "184",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750185",
+      "subalterno": "185",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750186",
+      "subalterno": "186",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750187",
+      "subalterno": "187",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750188",
+      "subalterno": "188",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "2060002750216",
+      "subalterno": "216",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750217",
+      "subalterno": "217",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750218",
+      "subalterno": "218",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750221",
+      "subalterno": "221",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "2060002750222",
+      "subalterno": "222",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.5187429,
+  "lon": 17.2714468,
+  "via_vicina": {
+    "nome": "Via Achille Grandi",
+    "distanza_m": 3,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Quartiere Paolo VI",
+    "distanza_m": 760.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "superficie_m2": null,
+  "uso_originario": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}

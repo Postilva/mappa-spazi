@@ -1,0 +1,2288 @@
+{
+  "id": "145-556",
+  "foglio": "145",
+  "particella": "556",
+  "categoria_catastale": "A03",
+  "descrizione": "A03 – Abitazione di tipo economico (354 di 370 unità)",
+  "unita": [
+    {
+      "id": "1450005560001",
+      "subalterno": "1",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560002",
+      "subalterno": "2",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560003",
+      "subalterno": "3",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560004",
+      "subalterno": "4",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560005",
+      "subalterno": "5",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560006",
+      "subalterno": "6",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560007",
+      "subalterno": "7",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560008",
+      "subalterno": "8",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560009",
+      "subalterno": "9",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560010",
+      "subalterno": "10",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560011",
+      "subalterno": "11",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560012",
+      "subalterno": "12",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560013",
+      "subalterno": "13",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560014",
+      "subalterno": "14",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560015",
+      "subalterno": "15",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560016",
+      "subalterno": "16",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560017",
+      "subalterno": "17",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560018",
+      "subalterno": "18",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560019",
+      "subalterno": "19",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560020",
+      "subalterno": "20",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560021",
+      "subalterno": "21",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560022",
+      "subalterno": "22",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560023",
+      "subalterno": "23",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560024",
+      "subalterno": "24",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560025",
+      "subalterno": "25",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560026",
+      "subalterno": "26",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560027",
+      "subalterno": "27",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560028",
+      "subalterno": "28",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560029",
+      "subalterno": "29",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560030",
+      "subalterno": "30",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560032",
+      "subalterno": "32",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560033",
+      "subalterno": "33",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560034",
+      "subalterno": "34",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560035",
+      "subalterno": "35",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560036",
+      "subalterno": "36",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560037",
+      "subalterno": "37",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560038",
+      "subalterno": "38",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560039",
+      "subalterno": "39",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560040",
+      "subalterno": "40",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560041",
+      "subalterno": "41",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560042",
+      "subalterno": "42",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560043",
+      "subalterno": "43",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560044",
+      "subalterno": "44",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560045",
+      "subalterno": "45",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560046",
+      "subalterno": "46",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560047",
+      "subalterno": "47",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560048",
+      "subalterno": "48",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560049",
+      "subalterno": "49",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560050",
+      "subalterno": "50",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560051",
+      "subalterno": "51",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560052",
+      "subalterno": "52",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560053",
+      "subalterno": "53",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560056",
+      "subalterno": "56",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560057",
+      "subalterno": "57",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560058",
+      "subalterno": "58",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560059",
+      "subalterno": "59",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560060",
+      "subalterno": "60",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560061",
+      "subalterno": "61",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560062",
+      "subalterno": "62",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560063",
+      "subalterno": "63",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560064",
+      "subalterno": "64",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560065",
+      "subalterno": "65",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560066",
+      "subalterno": "66",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560067",
+      "subalterno": "67",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560068",
+      "subalterno": "68",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560069",
+      "subalterno": "69",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560070",
+      "subalterno": "70",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560071",
+      "subalterno": "71",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560072",
+      "subalterno": "72",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560073",
+      "subalterno": "73",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560074",
+      "subalterno": "74",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560075",
+      "subalterno": "75",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560076",
+      "subalterno": "76",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560077",
+      "subalterno": "77",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560078",
+      "subalterno": "78",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560081",
+      "subalterno": "81",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "1450005560082",
+      "subalterno": "82",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560083",
+      "subalterno": "83",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560084",
+      "subalterno": "84",
+      "categoria": "C02",
+      "categoria_descrizione": "Magazzini e locali di deposito"
+    },
+    {
+      "id": "1450005560085",
+      "subalterno": "85",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560086",
+      "subalterno": "86",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560087",
+      "subalterno": "87",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560088",
+      "subalterno": "88",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560089",
+      "subalterno": "89",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560090",
+      "subalterno": "90",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560091",
+      "subalterno": "91",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560092",
+      "subalterno": "92",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560093",
+      "subalterno": "93",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560094",
+      "subalterno": "94",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560095",
+      "subalterno": "95",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560096",
+      "subalterno": "96",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560097",
+      "subalterno": "97",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560098",
+      "subalterno": "98",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560099",
+      "subalterno": "99",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560100",
+      "subalterno": "100",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560101",
+      "subalterno": "101",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560102",
+      "subalterno": "102",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560103",
+      "subalterno": "103",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560104",
+      "subalterno": "104",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560106",
+      "subalterno": "106",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560107",
+      "subalterno": "107",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560108",
+      "subalterno": "108",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560109",
+      "subalterno": "109",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560110",
+      "subalterno": "110",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560111",
+      "subalterno": "111",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560112",
+      "subalterno": "112",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560113",
+      "subalterno": "113",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560114",
+      "subalterno": "114",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560115",
+      "subalterno": "115",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560116",
+      "subalterno": "116",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560117",
+      "subalterno": "117",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560118",
+      "subalterno": "118",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560119",
+      "subalterno": "119",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560120",
+      "subalterno": "120",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560121",
+      "subalterno": "121",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560122",
+      "subalterno": "122",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560123",
+      "subalterno": "123",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560124",
+      "subalterno": "124",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560125",
+      "subalterno": "125",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560126",
+      "subalterno": "126",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560128",
+      "subalterno": "128",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560129",
+      "subalterno": "129",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560130",
+      "subalterno": "130",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560131",
+      "subalterno": "131",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560132",
+      "subalterno": "132",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560133",
+      "subalterno": "133",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560134",
+      "subalterno": "134",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560135",
+      "subalterno": "135",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560136",
+      "subalterno": "136",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560137",
+      "subalterno": "137",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560138",
+      "subalterno": "138",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560139",
+      "subalterno": "139",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560140",
+      "subalterno": "140",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560141",
+      "subalterno": "141",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560142",
+      "subalterno": "142",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560143",
+      "subalterno": "143",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560144",
+      "subalterno": "144",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560145",
+      "subalterno": "145",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560146",
+      "subalterno": "146",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560147",
+      "subalterno": "147",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560148",
+      "subalterno": "148",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560150",
+      "subalterno": "150",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560151",
+      "subalterno": "151",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560152",
+      "subalterno": "152",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560153",
+      "subalterno": "153",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560154",
+      "subalterno": "154",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560155",
+      "subalterno": "155",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560156",
+      "subalterno": "156",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560157",
+      "subalterno": "157",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560158",
+      "subalterno": "158",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560159",
+      "subalterno": "159",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560160",
+      "subalterno": "160",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560162",
+      "subalterno": "162",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560163",
+      "subalterno": "163",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560164",
+      "subalterno": "164",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560165",
+      "subalterno": "165",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560166",
+      "subalterno": "166",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560167",
+      "subalterno": "167",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560168",
+      "subalterno": "168",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560169",
+      "subalterno": "169",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560170",
+      "subalterno": "170",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560171",
+      "subalterno": "171",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560172",
+      "subalterno": "172",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560174",
+      "subalterno": "174",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560175",
+      "subalterno": "175",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560176",
+      "subalterno": "176",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560177",
+      "subalterno": "177",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560178",
+      "subalterno": "178",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560179",
+      "subalterno": "179",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560180",
+      "subalterno": "180",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560181",
+      "subalterno": "181",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560182",
+      "subalterno": "182",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560183",
+      "subalterno": "183",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560184",
+      "subalterno": "184",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560186",
+      "subalterno": "186",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560187",
+      "subalterno": "187",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560188",
+      "subalterno": "188",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560189",
+      "subalterno": "189",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560190",
+      "subalterno": "190",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560191",
+      "subalterno": "191",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560192",
+      "subalterno": "192",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560193",
+      "subalterno": "193",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560194",
+      "subalterno": "194",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560195",
+      "subalterno": "195",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560196",
+      "subalterno": "196",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560197",
+      "subalterno": "197",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560199",
+      "subalterno": "199",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560200",
+      "subalterno": "200",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560201",
+      "subalterno": "201",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560202",
+      "subalterno": "202",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560203",
+      "subalterno": "203",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560204",
+      "subalterno": "204",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560205",
+      "subalterno": "205",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560206",
+      "subalterno": "206",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560207",
+      "subalterno": "207",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560208",
+      "subalterno": "208",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560209",
+      "subalterno": "209",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560210",
+      "subalterno": "210",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560211",
+      "subalterno": "211",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560213",
+      "subalterno": "213",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560214",
+      "subalterno": "214",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560216",
+      "subalterno": "216",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560217",
+      "subalterno": "217",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560218",
+      "subalterno": "218",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560219",
+      "subalterno": "219",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560220",
+      "subalterno": "220",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560221",
+      "subalterno": "221",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560222",
+      "subalterno": "222",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560223",
+      "subalterno": "223",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560224",
+      "subalterno": "224",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560225",
+      "subalterno": "225",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560226",
+      "subalterno": "226",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560227",
+      "subalterno": "227",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560228",
+      "subalterno": "228",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560229",
+      "subalterno": "229",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560230",
+      "subalterno": "230",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560231",
+      "subalterno": "231",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560232",
+      "subalterno": "232",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560234",
+      "subalterno": "234",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560235",
+      "subalterno": "235",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560236",
+      "subalterno": "236",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560237",
+      "subalterno": "237",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560238",
+      "subalterno": "238",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560239",
+      "subalterno": "239",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560240",
+      "subalterno": "240",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560241",
+      "subalterno": "241",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560242",
+      "subalterno": "242",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560243",
+      "subalterno": "243",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560244",
+      "subalterno": "244",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560245",
+      "subalterno": "245",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560247",
+      "subalterno": "247",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560248",
+      "subalterno": "248",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560249",
+      "subalterno": "249",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560250",
+      "subalterno": "250",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560251",
+      "subalterno": "251",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560252",
+      "subalterno": "252",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560253",
+      "subalterno": "253",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560254",
+      "subalterno": "254",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560255",
+      "subalterno": "255",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560256",
+      "subalterno": "256",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560257",
+      "subalterno": "257",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560258",
+      "subalterno": "258",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560259",
+      "subalterno": "259",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560260",
+      "subalterno": "260",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560261",
+      "subalterno": "261",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560262",
+      "subalterno": "262",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560263",
+      "subalterno": "263",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560265",
+      "subalterno": "265",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560266",
+      "subalterno": "266",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560267",
+      "subalterno": "267",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560268",
+      "subalterno": "268",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560269",
+      "subalterno": "269",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560270",
+      "subalterno": "270",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560271",
+      "subalterno": "271",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560272",
+      "subalterno": "272",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560273",
+      "subalterno": "273",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560274",
+      "subalterno": "274",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560275",
+      "subalterno": "275",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560276",
+      "subalterno": "276",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560278",
+      "subalterno": "278",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560279",
+      "subalterno": "279",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560280",
+      "subalterno": "280",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560281",
+      "subalterno": "281",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560282",
+      "subalterno": "282",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560283",
+      "subalterno": "283",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560284",
+      "subalterno": "284",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560285",
+      "subalterno": "285",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560286",
+      "subalterno": "286",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560287",
+      "subalterno": "287",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560288",
+      "subalterno": "288",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560289",
+      "subalterno": "289",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560290",
+      "subalterno": "290",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560291",
+      "subalterno": "291",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560292",
+      "subalterno": "292",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560293",
+      "subalterno": "293",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560294",
+      "subalterno": "294",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560295",
+      "subalterno": "295",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560296",
+      "subalterno": "296",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560297",
+      "subalterno": "297",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560298",
+      "subalterno": "298",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560299",
+      "subalterno": "299",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560300",
+      "subalterno": "300",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560301",
+      "subalterno": "301",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560302",
+      "subalterno": "302",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560303",
+      "subalterno": "303",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560304",
+      "subalterno": "304",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560305",
+      "subalterno": "305",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560306",
+      "subalterno": "306",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560307",
+      "subalterno": "307",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560308",
+      "subalterno": "308",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560309",
+      "subalterno": "309",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560310",
+      "subalterno": "310",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560312",
+      "subalterno": "312",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560313",
+      "subalterno": "313",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560314",
+      "subalterno": "314",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560315",
+      "subalterno": "315",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560317",
+      "subalterno": "317",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560318",
+      "subalterno": "318",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560320",
+      "subalterno": "320",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560321",
+      "subalterno": "321",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560322",
+      "subalterno": "322",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560323",
+      "subalterno": "323",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560324",
+      "subalterno": "324",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560325",
+      "subalterno": "325",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560327",
+      "subalterno": "327",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "1450005560328",
+      "subalterno": "328",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560329",
+      "subalterno": "329",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560330",
+      "subalterno": "330",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560331",
+      "subalterno": "331",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560332",
+      "subalterno": "332",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560333",
+      "subalterno": "333",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560334",
+      "subalterno": "334",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560335",
+      "subalterno": "335",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560336",
+      "subalterno": "336",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560337",
+      "subalterno": "337",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560338",
+      "subalterno": "338",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560339",
+      "subalterno": "339",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560340",
+      "subalterno": "340",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560341",
+      "subalterno": "341",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560343",
+      "subalterno": "343",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "1450005560344",
+      "subalterno": "344",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560345",
+      "subalterno": "345",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560346",
+      "subalterno": "346",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560347",
+      "subalterno": "347",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560348",
+      "subalterno": "348",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560349",
+      "subalterno": "349",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560350",
+      "subalterno": "350",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560351",
+      "subalterno": "351",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560352",
+      "subalterno": "352",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560353",
+      "subalterno": "353",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560354",
+      "subalterno": "354",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560355",
+      "subalterno": "355",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560356",
+      "subalterno": "356",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560357",
+      "subalterno": "357",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560360",
+      "subalterno": "360",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560361",
+      "subalterno": "361",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560362",
+      "subalterno": "362",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560363",
+      "subalterno": "363",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560364",
+      "subalterno": "364",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560365",
+      "subalterno": "365",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560366",
+      "subalterno": "366",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560367",
+      "subalterno": "367",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560368",
+      "subalterno": "368",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560369",
+      "subalterno": "369",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560370",
+      "subalterno": "370",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560371",
+      "subalterno": "371",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560372",
+      "subalterno": "372",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560373",
+      "subalterno": "373",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560375",
+      "subalterno": "375",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560376",
+      "subalterno": "376",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560377",
+      "subalterno": "377",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560378",
+      "subalterno": "378",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560379",
+      "subalterno": "379",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560380",
+      "subalterno": "380",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560381",
+      "subalterno": "381",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560382",
+      "subalterno": "382",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560383",
+      "subalterno": "383",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560384",
+      "subalterno": "384",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560385",
+      "subalterno": "385",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560386",
+      "subalterno": "386",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560387",
+      "subalterno": "387",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560388",
+      "subalterno": "388",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560389",
+      "subalterno": "389",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560390",
+      "subalterno": "390",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560391",
+      "subalterno": "391",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560392",
+      "subalterno": "392",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560393",
+      "subalterno": "393",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560394",
+      "subalterno": "394",
+      "categoria": "A03",
+      "categoria_descrizione": "Abitazione di tipo economico"
+    },
+    {
+      "id": "1450005560396",
+      "subalterno": "396",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    },
+    {
+      "id": "1450005560397",
+      "subalterno": "397",
+      "categoria": "C01",
+      "categoria_descrizione": "Negozi e botteghe"
+    }
+  ],
+  "nome": "",
+  "indirizzo": "",
+  "lat": 40.5351954,
+  "lon": 17.2815531,
+  "via_vicina": {
+    "nome": "Viale Pietro Nenni",
+    "distanza_m": 0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "zona": {
+    "nome": "Quartiere Paolo VI",
+    "distanza_m": 1330.0,
+    "fonte": "OpenStreetMap",
+    "verificata": false
+  },
+  "quartiere": "",
+  "superficie_m2": null,
+  "uso_originario": "",
+  "stato": "da_verificare",
+  "data_sopralluogo": null,
+  "autori": [],
+  "foto": [],
+  "storia": [],
+  "stima": {
+    "livello": null,
+    "min_eur": null,
+    "max_eur": null,
+    "prezzario": "",
+    "note": "stima parametrica di massima, non perizia"
+  },
+  "idee_riuso": [],
+  "modello_3d": null,
+  "fonti": [
+    {
+      "titolo": "Elenco beni immobili – anno 2024",
+      "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative",
+      "data": "2024-05-29",
+      "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721",
+      "uso": "identificativi, foglio, particella, subalterni e categorie catastali"
+    },
+    {
+      "titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)",
+      "ente": "Agenzia delle Entrate",
+      "data": "2026-11-10",
+      "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php",
+      "licenza": "CC BY 4.0",
+      "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"
+    },
+    {
+      "titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)",
+      "ente": "© OpenStreetMap contributors",
+      "data": "2026-11-01",
+      "url": "https://www.openstreetmap.org/copyright",
+      "licenza": "ODbL",
+      "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
+    }
+  ],
+  "ultima_modifica": "2026-11-10"
+}
