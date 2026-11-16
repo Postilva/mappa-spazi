@@ -31,7 +31,7 @@ SRC = os.path.join(SITO, "src")
 MAPLIBRE = "4.7.1"
 MAPLIBRE_JS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.js"
 MAPLIBRE_CSS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.css"
-FONT = "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap"
+FONT = "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
 TITOLO = "Spazi pubblici di Taranto"
 DEC = 6  # decimali delle coordinate (~0,1 m)
 

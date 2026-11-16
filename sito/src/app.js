@@ -9,9 +9,13 @@
     ["rudere", "Rudere"], ["da_verificare", "Da verificare"]
   ];
   var TIPI = []; // da meta.tipi (scripts/tipi.py)
-  var C = {
-    blu: "#212D57", rosso: "#CC1417", bianco: "#FFFFFF", chiuso: "#7F8AB0", rudere: "#7A0C0E",
-    verificare: "#6B7280", terra: "#F3F1EC", mare: "#D7E3EE", bordo: "#E3E5EC", bordoForte: "#C9CDD9", testo2: "#4A5373"
+  var C = { // tema unico scuro (stile del sito delle bonifiche, colori di Postilva)
+    sfondo: "#0b0b0c", superficie: "#151517", superficie2: "#1f1f22", linea: "#27272a",
+    testo: "#f4f4f5", testo2: "#a1a1aa", testo3: "#71717a",
+    rosso: "#CC1417", rossoVivo: "#ef3b3d", blu: "#212D57", bluChiaro: "#8ea0e6",
+    // stati: in uso = chiaro, chiuso = blu chiaro, abbandonato = rosso, rudere = rosso scuro con bordo rosso, da verificare = grigio tratteggiato
+    inUso: "#f4f4f5", chiuso: "#8ea0e6", abbandonato: "#ef3b3d", rudere: "#7d0c0e", verificare: "#d4d4d8",
+    terra: "#131315", mare: "#0c1820"
   };
   var DA_COMPLETARE = "da completare dopo il sopralluogo";
   var riduciMoto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -40,20 +44,20 @@
   function simbolo(stato, px, sel) {
     var s = px || 22, h = s / 2, r = h - 2, f, forma;
     switch (stato) {
-      case "in_uso": f = C.blu; forma = '<circle cx="' + h + '" cy="' + h + '" r="' + r + '"/>'; break;
+      case "in_uso": f = C.inUso; forma = '<circle cx="' + h + '" cy="' + h + '" r="' + r + '"/>'; break;
       case "chiuso": f = C.chiuso; forma = '<rect x="2" y="2" width="' + (s - 4) + '" height="' + (s - 4) + '"/>'; break;
-      case "abbandonato": f = C.rosso; forma = '<polygon points="' + h + ',1.5 ' + (s - 1.5) + ',' + (s - 2.5) + ' 1.5,' + (s - 2.5) + '"/>'; break;
+      case "abbandonato": f = C.abbandonato; forma = '<polygon points="' + h + ',1.5 ' + (s - 1.5) + ',' + (s - 2.5) + ' 1.5,' + (s - 2.5) + '"/>'; break;
       case "rudere": f = C.rudere; forma = '<polygon points="' + h + ',1 ' + (s - 1) + ',' + h + ' ' + h + ',' + (s - 1) + ' 1,' + h + '"/>'; break;
       default: f = null;
     }
     var pad = sel ? 7 : 0, w = s + pad * 2;
     var out = '<svg width="' + w + '" height="' + w + '" viewBox="' + (-pad) + " " + (-pad) + " " + w + " " + w + '" aria-hidden="true" focusable="false">';
-    if (sel) out += '<circle cx="' + h + '" cy="' + h + '" r="' + (h + 4.5) + '" fill="none" stroke="' + C.bianco + '" stroke-width="5"/>' +
-      '<circle cx="' + h + '" cy="' + h + '" r="' + (h + 4.5) + '" fill="none" stroke="' + C.rosso + '" stroke-width="3"/>';
+    if (sel) out += '<circle cx="' + h + '" cy="' + h + '" r="' + (h + 4.5) + '" fill="none" stroke="' + C.sfondo + '" stroke-width="5"/>' +
+      '<circle cx="' + h + '" cy="' + h + '" r="' + (h + 4.5) + '" fill="none" stroke="' + C.rossoVivo + '" stroke-width="3"/>';
     if (f) {
-      out += '<g fill="' + f + '" stroke="' + C.bianco + '" stroke-width="2" stroke-linejoin="miter">' + forma + "</g>";
-    } else { // da verificare: cerchio vuoto tratteggiato con bordo bianco
-      out += '<circle cx="' + h + '" cy="' + h + '" r="' + (r - 1) + '" fill="' + C.bianco + '" fill-opacity="0.85" stroke="' + C.bianco + '" stroke-width="6"/>' +
+      out += '<g fill="' + f + '" stroke="' + (stato === "rudere" ? C.rossoVivo : C.sfondo) + '" stroke-width="2" stroke-linejoin="miter">' + forma + "</g>";
+    } else { // da verificare: cerchio vuoto tratteggiato su fondo scuro
+      out += '<circle cx="' + h + '" cy="' + h + '" r="' + (r - 1) + '" fill="' + C.superficie2 + '" fill-opacity="0.9" stroke="' + C.sfondo + '" stroke-width="6"/>' +
         '<circle cx="' + h + '" cy="' + h + '" r="' + (r - 1) + '" fill="none" stroke="' + C.verificare + '" stroke-width="2.5" stroke-dasharray="3.2 2.2"/>';
     }
     return out + "</svg>";
@@ -131,9 +135,10 @@
      Pagina unica: tessere e caratteri incorporati (gzip + base64), serviti con il protocollo "incorporato://".
      Versione normale: file in sito/dati/osm/. Le tessere z14 ci sono solo attorno agli spazi: dove mancano
      il protocollo risponde 404 e MapLibre ingrandisce la tessera z13. */
-  var B = { // colori della base (stile.md, sezione «Base OpenStreetMap»)
-    terra: C.terra, mare: C.mare, verde: "#E1E6D6", industria: "#ECE9E4", costruito: "#E4E0D7",
-    costruitoBordo: "#D6D1C6", bordoStrada: "#D3CEC4", ferrovia: "#8F97B0", etichetta: C.testo2
+  var B = { // colori della base, scura e sobria
+    terra: C.terra, mare: C.mare, verde: "#141a15", industria: "#17171a", costruito: "#1c1c1f",
+    costruitoBordo: "#26262a", strada: "#2a2a2e", bordoStrada: "#0e0e10", ferrovia: "#3a3a40",
+    etichetta: C.testo2, alone: C.sfondo, luoghi: C.testo, albero: "#4b6b52"
   };
   function b64(s) {
     var bin = atob(s), u = new Uint8Array(bin.length);
@@ -183,7 +188,7 @@
       { id: "costruito", type: "fill", source: "osm", "source-layer": "building", minzoom: 13,
         paint: { "fill-color": B.costruito, "fill-outline-color": B.costruitoBordo } },
       { id: "pedonali", type: "line", source: "osm", "source-layer": "transportation", minzoom: 15,
-        filter: cls(["path", "track"]), paint: { "line-color": B.bordoStrada, "line-width": 1, "line-dasharray": [2, 2] } }
+        filter: cls(["path", "track"]), paint: { "line-color": B.strada, "line-width": 1, "line-dasharray": [2, 2] } }
     ];
     STRADE.forEach(function (s) {
       var bordo = s[2].slice();
@@ -195,7 +200,7 @@
     STRADE.forEach(function (s) {
       L.push({ id: "strade-" + s[0], type: "line", source: "osm", "source-layer": "transportation", minzoom: s[3],
         filter: ["all", cls(s[1]), ["!=", ["get", "brunnel"], "tunnel"]],
-        layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": C.bianco, "line-width": z(s[2]) } });
+        layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": B.strada, "line-width": z(s[2]) } });
     });
     L.push(
       { id: "ferrovia", type: "line", source: "osm", "source-layer": "transportation",
@@ -205,9 +210,9 @@
         filter: ["all", cls(["rail"]), ["!=", ["get", "brunnel"], "tunnel"], ["!", ["has", "service"]]],
         paint: { "line-color": B.ferrovia, "line-width": 5, "line-dasharray": [0.15, 2.5] } },
       // particelle degli spazi (catasto)
-      { id: "edifici", type: "fill", source: "base", minzoom: 14, paint: { "fill-color": C.chiuso, "fill-opacity": 0.35 } },
-      { id: "edifici-bordo", type: "line", source: "base", minzoom: 14, paint: { "line-color": C.blu, "line-width": 1 } },
-      { id: "edificio-sel", type: "line", source: "base", filter: ["==", ["get", "id"], ""], paint: { "line-color": C.rosso, "line-width": 2.5 } },
+      { id: "edifici", type: "fill", source: "base", minzoom: 14, paint: { "fill-color": C.bluChiaro, "fill-opacity": 0.35 } },
+      { id: "edifici-bordo", type: "line", source: "base", minzoom: 14, paint: { "line-color": C.testo, "line-width": 1.2 } },
+      { id: "edificio-sel", type: "line", source: "base", filter: ["==", ["get", "id"], ""], paint: { "line-color": C.rossoVivo, "line-width": 2.5 } },
       // etichette
       { id: "nomi-acqua", type: "symbol", source: "osm", "source-layer": "water_name",
         layout: { "text-field": nome, "text-font": ["Noto Sans Italic"], "text-size": 13, "symbol-placement": "point" },
@@ -216,12 +221,12 @@
         filter: cls(["motorway", "trunk", "primary", "secondary", "tertiary", "minor", "service"]),
         layout: { "text-field": nome, "text-font": ["Noto Sans Regular"], "symbol-placement": "line",
           "text-size": ["interpolate", ["linear"], ["zoom"], 14, 10.5, 17, 13], "text-max-angle": 30, "text-padding": 4 },
-        paint: { "text-color": B.etichetta, "text-halo-color": C.bianco, "text-halo-width": 1.5 } },
+        paint: { "text-color": B.etichetta, "text-halo-color": B.alone, "text-halo-width": 1.5 } },
       { id: "nomi-luoghi", type: "symbol", source: "osm", "source-layer": "place",
         filter: cls(["suburb", "quarter", "neighbourhood", "village", "hamlet", "town", "city"]),
         layout: { "text-field": ["upcase", nome], "text-font": ["Noto Sans Bold"], "text-letter-spacing": 0.12,
           "text-size": ["match", ["get", "class"], ["city", "town"], 15, 12], "text-max-width": 8, "text-padding": 8 },
-        paint: { "text-color": C.blu, "text-halo-color": C.bianco, "text-halo-width": 2 } }
+        paint: { "text-color": B.luoghi, "text-halo-color": B.alone, "text-halo-width": 2 } }
     );
     return {
       version: 8,
@@ -241,15 +246,15 @@
     c.width = c.height = S * k;
     var g = c.getContext("2d"), h = S / 2, r = h - 3;
     g.scale(k, k);
-    g.lineJoin = "miter"; g.lineWidth = 2; g.strokeStyle = C.bianco;
-    function chiudi(col) { g.closePath(); g.fillStyle = col; g.fill(); g.stroke(); }
+    g.lineJoin = "miter"; g.lineWidth = 2; g.strokeStyle = C.sfondo;
+    function chiudi(col, bordo) { g.closePath(); g.fillStyle = col; g.fill(); if (bordo) g.strokeStyle = bordo; g.stroke(); }
     g.beginPath();
-    if (stato === "in_uso") { g.arc(h, h, r, 0, 6.2832); chiudi(C.blu); }
+    if (stato === "in_uso") { g.arc(h, h, r, 0, 6.2832); chiudi(C.inUso); }
     else if (stato === "chiuso") { g.rect(h - r + 1, h - r + 1, 2 * r - 2, 2 * r - 2); chiudi(C.chiuso); }
-    else if (stato === "abbandonato") { g.moveTo(h, 2.5); g.lineTo(S - 2.5, S - 4); g.lineTo(2.5, S - 4); chiudi(C.rosso); }
-    else if (stato === "rudere") { g.moveTo(h, 2); g.lineTo(S - 2, h); g.lineTo(h, S - 2); g.lineTo(2, h); chiudi(C.rudere); }
+    else if (stato === "abbandonato") { g.moveTo(h, 2.5); g.lineTo(S - 2.5, S - 4); g.lineTo(2.5, S - 4); chiudi(C.abbandonato); }
+    else if (stato === "rudere") { g.moveTo(h, 2); g.lineTo(S - 2, h); g.lineTo(h, S - 2); g.lineTo(2, h); chiudi(C.rudere, C.rossoVivo); }
     else {
-      g.arc(h, h, r - 1, 0, 6.2832); g.fillStyle = "rgba(255,255,255,.9)"; g.fill(); g.lineWidth = 5; g.stroke();
+      g.arc(h, h, r - 1, 0, 6.2832); g.fillStyle = "rgba(31,31,34,.92)"; g.fill(); g.lineWidth = 5; g.stroke();
       g.beginPath(); g.arc(h, h, r - 1, 0, 6.2832); g.setLineDash([3.4, 2.3]); g.lineWidth = 2.5; g.strokeStyle = C.verificare; g.stroke();
     }
     return g.getImageData(0, 0, S * k, S * k);
@@ -312,13 +317,13 @@
         STATI.forEach(function (s) { mappa.addImage("st-" + s[0], icona(s[0]), { pixelRatio: 2 }); });
         mappa.addSource("punti", { type: "geojson", data: puntiFiltrati(), cluster: true, clusterRadius: 36, clusterMaxZoom: 15 });
         mappa.addLayer({ id: "gruppi", type: "circle", source: "punti", filter: ["has", "point_count"],
-          paint: { "circle-color": C.blu, "circle-stroke-color": C.bianco, "circle-stroke-width": 2,
+          paint: { "circle-color": C.blu, "circle-stroke-color": C.testo, "circle-stroke-width": 2,
             "circle-radius": ["step", ["get", "point_count"], 14, 10, 18, 40, 23] } });
         mappa.addLayer({ id: "gruppi-n", type: "symbol", source: "punti", filter: ["has", "point_count"],
           layout: { "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 13, "text-allow-overlap": true },
-          paint: { "text-color": C.bianco } });
+          paint: { "text-color": "#ffffff" } });
         mappa.addLayer({ id: "punto-sel", type: "circle", source: "punti", filter: ["==", ["get", "id"], ""],
-          paint: { "circle-radius": 16, "circle-color": C.bianco, "circle-opacity": 0.6, "circle-stroke-color": C.rosso, "circle-stroke-width": 3 } });
+          paint: { "circle-radius": 16, "circle-color": C.rossoVivo, "circle-opacity": 0.25, "circle-stroke-color": C.rossoVivo, "circle-stroke-width": 3 } });
         mappa.addLayer({ id: "punti", type: "symbol", source: "punti", filter: ["!", ["has", "point_count"]],
           layout: { "icon-image": ["concat", "st-", ["get", "stato"]], "icon-allow-overlap": true } });
         mappaPronta = true;
@@ -581,18 +586,18 @@
 
   /* ---------- scheda di esempio: edificio inventato ---------- */
   function disegnoFoto(tipo) { // illustrazioni schematiche al posto delle foto (nessuna foto vera)
-    var muro = "#C9CDD9", scuro = C.testo2, cielo = C.mare, s = '<svg viewBox="0 0 320 200" role="img" aria-label="Disegno di esempio, non è una foto"><rect width="320" height="200" fill="' + cielo + '"/><rect y="150" width="320" height="50" fill="' + C.terra + '"/>';
+    var muro = "#3f3f46", tetto = "#52525b", vano = C.linea, scuro = C.testo2, cielo = C.superficie2, s = '<svg viewBox="0 0 320 200" role="img" aria-label="Disegno di esempio, non è una foto"><rect width="320" height="200" fill="' + cielo + '"/><rect y="150" width="320" height="50" fill="' + C.superficie + '"/>';
     if (tipo === "fronte") {
-      s += '<rect x="30" y="70" width="260" height="85" fill="' + muro + '" stroke="' + scuro + '"/><polygon points="30,70 95,40 160,70" fill="' + C.chiuso + '" stroke="' + scuro + '"/><polygon points="160,70 225,40 290,70" fill="' + C.chiuso + '" stroke="' + scuro + '"/>';
-      for (var i = 0; i < 5; i++) s += '<rect x="' + (45 + i * 50) + '" y="100" width="32" height="55" fill="' + (i === 2 ? scuro : C.bordo) + '" stroke="' + scuro + '"/><line x1="' + (45 + i * 50) + '" y1="100" x2="' + (77 + i * 50) + '" y2="155" stroke="' + scuro + '"/>';
+      s += '<rect x="30" y="70" width="260" height="85" fill="' + muro + '" stroke="' + scuro + '"/><polygon points="30,70 95,40 160,70" fill="' + tetto + '" stroke="' + scuro + '"/><polygon points="160,70 225,40 290,70" fill="' + tetto + '" stroke="' + scuro + '"/>';
+      for (var i = 0; i < 5; i++) s += '<rect x="' + (45 + i * 50) + '" y="100" width="32" height="55" fill="' + (i === 2 ? C.sfondo : vano) + '" stroke="' + scuro + '"/><line x1="' + (45 + i * 50) + '" y1="100" x2="' + (77 + i * 50) + '" y2="155" stroke="' + scuro + '"/>';
     } else if (tipo === "interno") {
-      s = '<svg viewBox="0 0 320 200" role="img" aria-label="Disegno di esempio, non è una foto"><rect width="320" height="200" fill="' + C.bordo + '"/><polygon points="0,200 90,130 230,130 320,200" fill="' + C.terra + '" stroke="' + scuro + '"/><polygon points="0,0 90,50 230,50 320,0" fill="' + muro + '" stroke="' + scuro + '"/><rect x="90" y="50" width="140" height="80" fill="' + C.bianco + '" stroke="' + scuro + '"/>';
+      s = '<svg viewBox="0 0 320 200" role="img" aria-label="Disegno di esempio, non è una foto"><rect width="320" height="200" fill="' + vano + '"/><polygon points="0,200 90,130 230,130 320,200" fill="' + C.superficie + '" stroke="' + scuro + '"/><polygon points="0,0 90,50 230,50 320,0" fill="' + muro + '" stroke="' + scuro + '"/><rect x="90" y="50" width="140" height="80" fill="' + cielo + '" stroke="' + scuro + '"/>';
       for (var j = 0; j < 4; j++) s += '<line x1="' + (20 + j * 20) + '" y1="' + (12 + j * 11) + '" x2="' + (20 + j * 20) + '" y2="' + (185 - j * 16) + '" stroke="' + scuro + '"/><line x1="' + (300 - j * 20) + '" y1="' + (12 + j * 11) + '" x2="' + (300 - j * 20) + '" y2="' + (185 - j * 16) + '" stroke="' + scuro + '"/>';
-      s += '<polygon points="120,50 150,50 135,95" fill="' + cielo + '"/>';
+      s += '<polygon points="120,50 150,50 135,95" fill="' + C.testo + '" fill-opacity="0.25"/>';
     } else {
-      s += '<rect x="60" y="60" width="200" height="95" fill="' + muro + '" stroke="' + scuro + '"/><rect x="60" y="48" width="200" height="12" fill="' + C.chiuso + '" stroke="' + scuro + '"/><rect x="135" y="95" width="50" height="60" fill="' + scuro + '"/><path d="M80 80 l30 22 M250 70 l-40 30 l14 8" stroke="' + C.rosso + '" stroke-width="2" fill="none"/>';
+      s += '<rect x="60" y="60" width="200" height="95" fill="' + muro + '" stroke="' + scuro + '"/><rect x="60" y="48" width="200" height="12" fill="' + tetto + '" stroke="' + scuro + '"/><rect x="135" y="95" width="50" height="60" fill="' + C.sfondo + '" stroke="' + scuro + '"/><path d="M80 80 l30 22 M250 70 l-40 30 l14 8" stroke="' + C.rossoVivo + '" stroke-width="2" fill="none"/>';
     }
-    return s + '<text x="160" y="192" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="' + scuro + '">DISEGNO DI ESEMPIO</text></svg>';
+    return s + '<text x="160" y="192" text-anchor="middle" font-family="IBM Plex Mono,ui-monospace,monospace" font-size="10" letter-spacing="1" fill="' + scuro + '">DISEGNO DI ESEMPIO</text></svg>';
   }
   var ESEMPIO = {
     id: "esempio", foglio: "000", particella: "000", nome: "Ex mercato coperto «di esempio»", indirizzo: "via dell'Esempio 12, Taranto",
@@ -647,13 +652,13 @@
       try { r = new T.WebGLRenderer({ antialias: true }); } catch (e) { att.textContent = "Questo browser non può mostrare il modello 3D."; return; }
       att.remove();
       r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      r.setClearColor(C.mare);
+      r.setClearColor(C.superficie);
       box.insertBefore(r.domElement, box.firstChild);
       r.domElement.setAttribute("role", "img");
       r.domElement.setAttribute("aria-label", "Modello 3D schematico dell'edificio di esempio");
       var scena = new T.Scene(), cam = new T.PerspectiveCamera(35, 1, 0.1, 500);
-      scena.add(new T.HemisphereLight(0xffffff, 0x9a968c, 0.72));
-      var sole = new T.DirectionalLight(0xffffff, 0.38); sole.position.set(30, 50, 20); scena.add(sole);
+      scena.add(new T.HemisphereLight(0xffffff, 0x3f3f46, 0.8));
+      var sole = new T.DirectionalLight(0xffffff, 0.45); sole.position.set(30, 50, 20); scena.add(sole);
       function mat(col) { return new T.MeshLambertMaterial({ color: col }); }
       function cubo(g, w, hh, d, x, y, zz, col) {
         var m = new T.Mesh(new T.BoxGeometry(w, hh, d), mat(col)); m.position.set(x, y + hh / 2, zz); g.add(m); return m;
@@ -663,28 +668,28 @@
         var m = new T.Mesh(new T.ExtrudeGeometry(sh, { depth: 20, bevelEnabled: false }), mat(col));
         m.position.set(x, 6, -10); g.add(m); return m;
       }
-      var suolo = new T.Mesh(new T.CircleGeometry(40, 48), mat(B.costruito)); suolo.rotation.x = -Math.PI / 2; scena.add(suolo);
-      cubo(scena, 46, 0.06, 7, 0, 0, 15.5, C.bianco); // strada
+      var suolo = new T.Mesh(new T.CircleGeometry(40, 48), mat("#232327")); suolo.rotation.x = -Math.PI / 2; scena.add(suolo);
+      cubo(scena, 46, 0.06, 7, 0, 0, 15.5, "#34343a"); // strada
       // com'è oggi: muri grigi, aperture murate, un tetto mancante
       var oggi = new T.Group();
-      cubo(oggi, 32, 6, 20, 0, 0, 0, C.bordoForte);
-      tetto(oggi, -8, C.chiuso);
-      cubo(oggi, 15.6, 0.3, 19.6, 8, 6, 0, C.testo2); // falda crollata: resta il solaio scuro
-      for (var i = 0; i < 5; i++) cubo(oggi, 3.6, 3.6, 0.3, -12 + i * 6, 0, 10.1, C.verificare);
+      cubo(oggi, 32, 6, 20, 0, 0, 0, C.testo3);
+      tetto(oggi, -8, "#52525b");
+      cubo(oggi, 15.6, 0.3, 19.6, 8, 6, 0, "#34343a"); // falda crollata: resta il solaio scuro
+      for (var i = 0; i < 5; i++) cubo(oggi, 3.6, 3.6, 0.3, -12 + i * 6, 0, 10.1, "#3f3f46");
       cubo(oggi, 1.2, 1.4, 0.35, 5, 3.9, 10.1, C.rosso); // cartello di chiusura
       // come potrebbe essere: tetti rifatti, botteghe aperte, pannelli, alberi, piazzetta
       var riuso = new T.Group();
-      cubo(riuso, 32, 6, 20, 0, 0, 0, C.terra);
-      tetto(riuso, -8, C.blu); tetto(riuso, 8, C.blu);
+      cubo(riuso, 32, 6, 20, 0, 0, 0, C.testo);
+      tetto(riuso, -8, "#3d4f95"); tetto(riuso, 8, "#3d4f95");
       for (var j = 0; j < 5; j++) {
-        cubo(riuso, 3.6, 3.6, 0.3, -12 + j * 6, 0, 10.1, C.mare);
-        cubo(riuso, 4.4, 0.25, 2.2, -12 + j * 6, 3.9, 11.2, j % 2 ? C.chiuso : C.blu); // tende delle botteghe
+        cubo(riuso, 3.6, 3.6, 0.3, -12 + j * 6, 0, 10.1, C.bluChiaro);
+        cubo(riuso, 4.4, 0.25, 2.2, -12 + j * 6, 3.9, 11.2, j % 2 ? C.testo2 : C.rosso); // tende delle botteghe
       }
-      for (var k = 0; k < 4; k++) { var pn = cubo(riuso, 3, 0.15, 2.4, 4.6 + (k % 2) * 3.6, 7.6 - 0.0, -5 + Math.floor(k / 2) * 4, C.testo2); pn.rotation.z = -0.38; pn.position.y = 7.9 - (k % 2) * 1.35; }
-      cubo(riuso, 30, 0.08, 6, 0, 0, 13.4, C.bordoForte); // piazzetta davanti
+      for (var k = 0; k < 4; k++) { var pn = cubo(riuso, 3, 0.15, 2.4, 4.6 + (k % 2) * 3.6, 7.6 - 0.0, -5 + Math.floor(k / 2) * 4, C.superficie2); pn.rotation.z = -0.38; pn.position.y = 7.9 - (k % 2) * 1.35; }
+      cubo(riuso, 30, 0.08, 6, 0, 0, 13.4, C.testo3); // piazzetta davanti
       [[-19, 6], [19, 6], [-19, -6], [19, -6]].forEach(function (a) {
-        cubo(riuso, 0.5, 2.6, 0.5, a[0], 0, a[1], C.testo2);
-        var ch = new T.Mesh(new T.SphereGeometry(2.1, 12, 10), mat(B.verde)); ch.position.set(a[0], 4.2, a[1]); riuso.add(ch);
+        cubo(riuso, 0.5, 2.6, 0.5, a[0], 0, a[1], C.testo3);
+        var ch = new T.Mesh(new T.SphereGeometry(2.1, 12, 10), mat(B.albero)); ch.position.set(a[0], 4.2, a[1]); riuso.add(ch);
       });
       riuso.visible = false;
       scena.add(oggi); scena.add(riuso);

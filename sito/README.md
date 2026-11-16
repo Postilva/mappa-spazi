@@ -1,6 +1,6 @@
 # Sito di prova – Spazi pubblici di Taranto
 
-Stato al 10/11/2026: **versione di prova**, tutti i dati «da verificare» (nessun sopralluogo). Stile A «Istituzionale chiaro» (hub: `progetti/mappa-spazi/stile.md`): solo i colori e i font approvati o proposti lì.
+Stato al 10/11/2026: **versione di prova**, tutti i dati «da verificare» (nessun sopralluogo). Stile: dal 16/11/2026 quello del sito delle bonifiche («Notte industriale») con i colori di Postilva, tema unico scuro; caratteri Space Grotesk e IBM Plex Mono, rosso e blu di marca usati poco (prima: stile A «Istituzionale chiaro»).
 
 Cosa mostra: i **locali non residenziali** del Comune di Taranto (elenco beni immobili 2024) in tutta la città. Le abitazioni non sono pubblicate. La regola di selezione è in `scripts/tipi.py`.
 
@@ -21,7 +21,7 @@ Dopo una modifica a mano alle schede `dati/edifici/*.json` basta l'ultimo comand
 | Percorso | Contenuto |
 |---|---|
 | `src/corpo.html` | Struttura delle pagine e testi (apertura, «Cerco uno spazio», Metodo e fonti). I numeri nei testi sono segnaposto `data-num`, riempiti dai dati |
-| `src/app.css` | Stile; colori come variabili su `:root`, tema unico chiaro |
+| `src/app.css` | Stile; colori come variabili su `:root`, tema unico scuro (stile del sito delle bonifiche); i colori della mappa e dei simboli sono in `app.js` (`C` e `B`) |
 | `src/app.js` | JS vanilla: navigazione con hash, mappa MapLibre, filtri, elenco, scheda, scheda di esempio con modello 3D, modulo in bozza |
 | `src/vendor/maplibre-gl-4.7.1.css` | CSS di MapLibre (BSD-3), incorporato nella pagina unica |
 | `dati/edifici.geojson` | Punti degli spazi in mappa con i campi della scheda: solo i locali di interesse (`locali`), più il numero di abitazioni e pertinenze nella stessa particella |
