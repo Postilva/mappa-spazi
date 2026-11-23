@@ -291,14 +291,20 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 
 .righe .cod, .lista .cod { align-self: flex-start; }
 
-/* in primo piano */
-.primo-piano { margin-top: 8px; background: var(--acc-soft); border: 1px solid var(--acc); border-radius: var(--r); padding: 24px; }
-.primo-piano h2 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.12; margin: 0 0 12px; font-weight: 600; max-width: 24em; }
-.primo-piano h2 em { font-style: normal; color: var(--acc); }
-.primo-piano p { color: var(--ink-2); max-width: 46em; margin: 0 0 16px; }
-.primo-piano .nota { margin: 14px 0 0; }
-.azioni-pp { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
-.link-fonte { color: var(--ink-2); font-size: 15px; }
+/* in primo piano: fascia a tutta larghezza, come sul sito dell'associazione */
+.fascia { background: var(--acc); color: var(--on-acc); margin-top: 0; }
+.fascia .w { padding-block: 40px 44px; }
+.primo-piano .kicker { color: rgba(17, 17, 17, .72); margin: 0 0 12px; font-size: 12px; }
+.primo-piano h2 { font-size: clamp(26px, 3.8vw, 40px); line-height: 1.1; margin: 0 0 14px; font-weight: 600; max-width: 22em; }
+.primo-piano h2 em { font-style: normal; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.primo-piano p { color: rgba(17, 17, 17, .85); max-width: 46em; margin: 0 0 20px; font-size: 17px; }
+.primo-piano .nota { color: rgba(17, 17, 17, .7); font-size: 13px; margin: 16px 0 0; }
+.azioni-pp { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; }
+.bottone.scuro { background: var(--bg); color: var(--ink); }
+.bottone.scuro:hover { color: var(--acc); filter: none; }
+.fascia .link-fonte { color: var(--on-acc); font-size: 15px; font-weight: 500; }
+.fascia .link-fonte:hover { color: var(--on-acc); text-decoration-thickness: 2px; }
+.fascia :focus-visible { outline-color: var(--bg); }
 
 /* edifici fuori dalla mappa */
 .fuori-mappa { margin-top: 10px; display: flex; gap: 18px; align-items: center; border: 1px dashed var(--line); border-radius: var(--r); padding: 16px 20px; }
