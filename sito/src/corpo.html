@@ -49,7 +49,7 @@
     <div class="pannello censimento">
       <div class="intro">
         <div>
-          <h2>Visti sul posto: <em><span data-num="verificati"></span> su <span data-num="in_mappa"></span></em>. Si parte dai Tamburi.</h2>
+          <h2>Edifici visti sul posto: <em><span data-num="verificati"></span> su <span data-num="in_mappa"></span></em>. Si parte dai Tamburi.</h2>
         </div>
         <div>
           <p>Ogni edificio passa per cinque passaggi. I primi quattro si fanno a tavolino, con dati pubblici; l'ultimo si fa a piedi, dall'esterno. Solo dopo il sopralluogo un edificio è «verificato».</p>
@@ -58,17 +58,21 @@
       <ol class="passi">
         <li class="passo"><div class="seg"><i>1</i><b></b></div><div class="n" data-num="particelle_elenco"></div><h3>Nell'elenco del Comune</h3><p>particelle con fabbricati, elenco beni immobili 2024</p></li>
         <li class="passo"><div class="seg"><i>2</i><b></b></div><div class="n" data-num="localizzate"></div><h3>Trovate sul catasto</h3><p><span data-num="da_localizzare"></span> non si trovano: le chiederemo al Comune</p></li>
-        <li class="passo"><div class="seg"><i>3</i><b></b></div><div class="n" data-num="in_mappa"></div><h3>Con locali non residenziali</h3><p><span data-num="locali"></span> locali; le case restano fuori</p></li>
-        <li class="passo"><div class="seg"><i>4</i><b></b></div><div class="n" data-num="cercati_online"></div><h3>Cercati online</h3><p>atti del Comune, scuole, notizie, mappe</p></li>
+        <li class="passo"><div class="seg"><i>3</i><b></b></div><div class="n" data-num="in_mappa"></div><h3>Sulla mappa</h3><p>con <span data-num="locali"></span> locali non residenziali</p></li>
+        <li class="passo"><div class="seg"><i>4</i><b></b></div><div class="n" data-num="cercati_online"></div><h3>Cercati nelle fonti</h3><p>atti del Comune, scuole, notizie, mappe</p></li>
         <li class="passo vuoto"><div class="seg"><i>5</i><b></b></div><div class="n" data-num="verificati"></div><h3>Visti sul posto</h3><p>stato, foto, misure: il sopralluogo</p></li>
       </ol>
       <div class="barra-avanz">
         <div class="quadri" id="quadri" aria-hidden="true"></div>
-        <span class="nota">Un quadratino per immobile: bordo pieno se l'abbiamo cercato online, quadratino pieno quando l'avremo visto sul posto.</span>
+        <span class="nota">Un quadratino per edificio: bordo acceso se l'abbiamo cercato nelle fonti, pieno quando l'avremo visto sul posto.</span>
       </div>
     </div>
 
-    <p class="etichetta">Cosa c'è nell'elenco</p>
+    <p class="etichetta">Come sono usati, per quanto ne sappiamo</p>
+    <div class="pannello usi" id="usi"></div>
+    <p class="nota piccola">L'uso viene da atti del Comune, catasto, anagrafe delle scuole, notizie e mappe, con la fonte in ogni scheda. Diventa certo solo con il sopralluogo. Tocca una riga per vedere quegli edifici sulla mappa.</p>
+
+    <p class="etichetta">Che tipo di locali</p>
     <div class="griglia" id="tipi"></div>
     <p class="nota piccola">Il tipo viene dalla categoria catastale: dice com'è registrato il locale, non come si usa oggi.</p>
 
@@ -78,9 +82,9 @@
       <p>Sono anche loro del Comune, ma non li mettiamo sulla mappa e non li fotografiamo: ci vivono delle persone. Restano nei numeri del censimento.</p></div>
     </div>
 
-    <p class="etichetta">Dove si parte</p>
+    <p class="etichetta">Per quartiere</p>
     <div class="quartiere">
-      <a class="grande pieno" href="#mappa" data-zona="tamburi"><div class="n" data-num="tamburi"></div><div><b>Tamburi</b><br><span>immobili con locali non residenziali, primo quartiere da visitare</span></div></a>
+      <a class="grande pieno" href="#mappa" data-zona="tamburi"><div class="n" data-num="tamburi"></div><div><b>Tamburi</b><br><span>edifici sulla mappa: il primo quartiere dei sopralluoghi</span></div></a>
       <a class="grande contorno" href="#mappa"><div class="n" data-num="resto"></div><div><b>Il resto della città</b><br><span>Borgo, Città vecchia, Paolo VI, Salinella, Talsano e le altre zone</span></div></a>
     </div>
 
@@ -101,8 +105,8 @@
     <aside class="lato" aria-label="Filtri ed elenco degli spazi">
       <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
       <p class="nota">Tocca un quadratino per vedere lo spazio; i numeri raggruppano spazi vicini.</p>
-      <p class="sotto-et">Cosa si sa online</p>
-      <div class="chips" id="filtro-online" role="group" aria-label="Cosa si sa online"></div>
+      <p class="sotto-et">Uso conosciuto</p>
+      <div class="chips" id="filtro-online" role="group" aria-label="Uso conosciuto"></div>
       <p class="sotto-et">Tipo di locale</p>
       <div class="chips" id="filtro-tipo" role="group" aria-label="Tipo di locale"></div>
       <label for="cerca" class="sotto-et">Cerca</label>
@@ -155,9 +159,9 @@
   </ul>
   <div class="tabella-box"><table id="tab-tipi"><caption>Locali sulla mappa per tipo</caption><thead><tr><th scope="col">Tipo</th><th scope="col">Categorie catastali</th><th scope="col">Locali</th></tr></thead><tbody></tbody></table></div>
 
-  <h2>I simboli</h2>
+  <h2>I colori della mappa</h2>
   <ul class="legenda-testo" id="legenda-metodo"></ul>
-  <p>Oggi <strong>tutte le schede sono «da verificare»</strong>: lo stato (in uso, chiuso, abbandonato, rudere) si assegna solo dopo un sopralluogo, fatto dall'esterno o con autorizzazione del Comune.</p>
+  <p>Il colore dice l'uso che conosciamo, il riempimento da dove lo sappiamo. Oggi <strong>nessun edificio è stato visto sul posto</strong>: tutti gli usi vengono dalle fonti, e diventano certi solo con un sopralluogo, fatto dall'esterno o con autorizzazione del Comune.</p>
 
   <h2>Costi</h2>
   <p>Quando ci saranno, le stime saranno <strong>stime parametriche di massima, non perizie</strong>, con il livello di dettaglio (1–3) e il prezzario usato. Oggi nessuna scheda ha una stima.</p>

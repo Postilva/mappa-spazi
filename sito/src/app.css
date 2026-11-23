@@ -312,3 +312,23 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .fuori-mappa b { display: block; }
 .fuori-mappa p { margin: 4px 0 0; color: var(--ink-2); font-size: 14px; }
 
+/* usi */
+.fonte-uso { color: var(--ink-3); text-transform: none; letter-spacing: 0; font-family: var(--f-body); font-size: 12px; }
+.uso-scheda { margin: -6px 0 14px; }
+.chips .pallino { display: inline-block; width: 10px; height: 10px; border: 2.5px solid; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.barra-usi { display: flex; height: 18px; border-radius: 6px; overflow: hidden; gap: 2px; margin-bottom: 18px; }
+.barra-usi i { display: block; min-width: 4px; }
+.usi-righe { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 16px; }
+.usi-righe a { display: flex; gap: 10px; align-items: flex-start; text-decoration: none; padding: 8px; border-radius: 10px; }
+.usi-righe a:hover { background: var(--surface-2); color: var(--ink); }
+.usi-righe i { width: 12px; height: 12px; border-radius: 3px; flex: none; margin-top: 7px; }
+.usi-righe b { font-size: 24px; line-height: 1.1; font-variant-numeric: tabular-nums; min-width: 2.2ch; }
+.usi-righe span { display: flex; flex-direction: column; font-weight: 500; }
+.usi-righe small { color: var(--ink-3); font-weight: 400; font-size: 13px; }
+.legenda-testo li { margin-bottom: 6px; }
+@media (max-width: 860px) { .usi-righe { grid-template-columns: minmax(0, 1fr); } }
+
+
+/* link lunghi (URL) che vanno a capo; dati in colonna su telefono */
+.sez a, .fonti-lista a, .online-note a { overflow-wrap: anywhere; word-break: break-word; }
+@media (max-width: 600px) { .dati { grid-template-columns: minmax(0, 1fr); gap: 0; } .dati dt { margin-top: 8px; } }
