@@ -765,9 +765,22 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
     mappa.resize();
     var c = mappa.getContainer();
     if (!c.clientWidth || !c.clientHeight) return;
-    mappa.fitBounds(limitiEdifici(), { padding: margini(), duration: 0 });
+    // blocca l'allontanamento: non si può andare oltre la vista che mostra tutti gli immobili
+    mappa.setMaxBounds(null);
+    mappa.setMinZoom(8);
+    var cam = mappa.cameraForBounds(limitiEdifici(), { padding: margini() });
+    if (!cam) return;
+    mappa.jumpTo(cam);
+    var bb = mappa.getBounds(), dx = (bb.getEast() - bb.getWest()) * 0.08, dy = (bb.getNorth() - bb.getSouth()) * 0.08;
+    mappa.setMinZoom(mappa.getZoom());
+    mappa.setMaxBounds([[bb.getWest() - dx, bb.getSouth() - dy], [bb.getEast() + dx, bb.getNorth() + dy]]);
     vistaFatta = true;
   }
+  var attesaRidimensiona = null;
+  window.addEventListener("resize", function () { // se cambia la finestra (o si gira il telefono) ricalcola il limite
+    clearTimeout(attesaRidimensiona);
+    attesaRidimensiona = setTimeout(function () { if (mappa && vistaFatta && !$('[data-vista="mappa"]').hidden) { var c = mappa.getCenter(), z = mappa.getZoom(); inquadraTutti(); if (z > mappa.getZoom()) mappa.jumpTo({ center: c, zoom: z }); } }, 250);
+  });
   function limitiEdifici() {
     var x0 = 180, y0 = 90, x1 = -180, y1 = -90;
     edifici.forEach(function (f) { var c = f.geometry.coordinates; x0 = Math.min(x0, c[0]); x1 = Math.max(x1, c[0]); y0 = Math.min(y0, c[1]); y1 = Math.max(y1, c[1]); });
