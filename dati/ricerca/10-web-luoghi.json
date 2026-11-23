@@ -1,0 +1,691 @@
+{
+ "319-63651": {
+  "nome_probabile": "Chiosco-bar sul Lungomare (probabile «Chalet Rosa dei Venti»)",
+  "indicazione": "in_uso",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Al centro della particella (37 m²) OSM segna il bar «Chalet Rosa dei Venti», sul Lungomare Vittorio Emanuele III.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.46737&lon=17.2417&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Il bar risulta attivo come «Chalet Rosa dei Venti», Lungomare Vittorio Emanuele III 29F; nessuna fonte dice se è un chiosco comunale in concessione né chi è il concessionario.",
+    "fonte": "Leggimenu, Bar / Caffetteria Chalet Rosa dei Venti - Menu digitale",
+    "url": "https://www.leggimenu.it/menu/chaletrosadeiventi/",
+    "data": "2026"
+   },
+   {
+    "testo": "Il locale ha recensioni su Tripadvisor (quindi è stato aperto di recente), ma la data dell'ultima recensione non è verificata.",
+    "fonte": "Tripadvisor, Chalet Rosa dei Venti",
+    "url": "https://www.tripadvisor.com/Restaurant_Review-g187878-d17838183-Reviews-Chalet_Rosa_dei_Venti-Taranto_Province_of_Taranto_Puglia.html",
+    "data": "2026"
+   }
+  ]
+ },
+ "319-4611": {
+  "nome_probabile": "Postierla Immacolata – GATA Galleria Taranto",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Nella postierla Immacolata (Città vecchia) i fratelli Andrea e Domenico Sciroccale hanno aperto il GATA dopo aver firmato un contratto di locazione con il Comune.",
+    "fonte": "Corriere di Taranto, «Postierla Immacolata: ecco il Gata»",
+    "url": "https://www.corriereditaranto.it/2022/05/29/postierla-immacolata-ecco-il-gata/",
+    "data": "2022-05-29"
+   },
+   {
+    "testo": "GATA è galleria d'arte contemporanea in Postierla Immacolata 15-17, con mostre nel 2024 e a marzo 2025.",
+    "fonte": "Artribune, «Urka – Conflitto» (scheda mostra)",
+    "url": "https://www.artribune.com/mostre-evento-arte/urka-conflitto/",
+    "data": "2025"
+   },
+   {
+    "testo": "Il Comune aveva una scheda tecnica dedicata alla postierla Immacolata (documento non scaricabile oggi: server del vecchio sito non raggiungibile).",
+    "fonte": "Comune di Taranto, «Scheda n.1 postierla immacolata»",
+    "url": "https://old.comune.taranto.it/images/Scheda_n.1_postierla_immacolata.pdf",
+    "data": "da verificare"
+   }
+  ]
+ },
+ "319-2434": {
+  "nome_probabile": "Ex Mercato coperto del Borgo (lato via Anfiteatro), oggi uffici comunali – negozi al piano terra?",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Al centro della particella OSM segna «Caffè Tarentum», via Anfiteatro 97: può essere solo un vicino.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.47061&lon=17.24109&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "L'ex Mercato coperto occupa l'isolato tra via Anfiteatro, via Acclavio, via Principe Amedeo e via De Cesare; è stato ristrutturato dal Comune per uffici (progetto 2012). Deduzione: questa particella C/1 potrebbe essere una parte commerciale dello stesso isolato.",
+    "fonte": "Studio Libero, «Ex Mercato Coperto di Taranto» (scheda di progetto)",
+    "url": "https://www.studiolibero.it/ex-mercato-coperto-di-taranto",
+    "data": "2012"
+   },
+   {
+    "testo": "Segnalati assembramenti e inciviltà intorno all'ex mercato coperto di via Anfiteatro.",
+    "fonte": "Corriere di Taranto, «Ex mercato coperto in via Anfiteatro: assembramenti e inciviltà»",
+    "url": "https://www.corriereditaranto.it/2020/06/03/ex-mercato-coperto-in-via-anfiteatro-assembramenti-e-incivilta/",
+    "data": "2020-06-03"
+   }
+  ]
+ },
+ "319-2435": {
+  "nome_probabile": "Teatro comunale «Fusco»",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Il cine-teatro, chiuso nel 2004, è stato comprato dal Comune e riaperto dopo un intervento da circa 4,2 milioni.",
+    "fonte": "La Gazzetta del Mezzogiorno, «Riapre il teatro Fusco a Taranto: interventi da 4,2 milioni»",
+    "url": "https://www.lagazzettadelmezzogiorno.it/news/taranto/1089480/riapre-il-teatro-fusco-a-taranto-interventi-da-4-2-milioni.html",
+    "data": "2018-12"
+   },
+   {
+    "testo": "Pagina ufficiale del Comune sul Teatro comunale «Fusco», via Ciro Giovinazzi.",
+    "fonte": "Comune di Taranto, «Teatro Comunale Fusco»",
+    "url": "https://comune.taranto.it/it/vivere/754449",
+    "data": "2026"
+   },
+   {
+    "testo": "Stagione 2026/2027 in programma (es. «Breaking Brecht» 2-4 dicembre 2026, «Falstaff» 17-19 dicembre 2026).",
+    "fonte": "Mentelocale, «Breaking Brecht» al Teatro Fusco",
+    "url": "https://www.mentelocale.it/taranto/138062-breaking-brecht.htm",
+    "data": "2026"
+   }
+  ]
+ },
+ "319-4714": {
+  "nome_probabile": "Ex Mercato coperto del Borgo – sede di uffici comunali (via Anfiteatro / via Acclavio / via Principe Amedeo / via De Cesare)",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Il palazzo tra via Anfiteatro, via Acclavio, via Principe Amedeo e via De Cesare è l'ex Mercato coperto, edificio comunale ristrutturato per uffici (circa 4.750 m², circa 2 milioni di lavori).",
+    "fonte": "Studio Libero, «Ex Mercato Coperto di Taranto»",
+    "url": "https://www.studiolibero.it/ex-mercato-coperto-di-taranto",
+    "data": "2012"
+   },
+   {
+    "testo": "Il Comune vi ha trasferito uffici (Risorse finanziarie, Risorse umane, Tributi) per risparmiare sugli affitti passivi.",
+    "fonte": "Cronache Tarantine, «Trasferiti gli uffici comunali in via Anfiteatro»",
+    "url": "http://cronachetarantine.it/index.php/primo-piano/item/3060-trasferiti-gli-uffici-comunali-in-via-anfiteatro-il-comune-risparmiera-800-milioni-di-euro-di-fitti-passivi/3060-trasferiti-gli-uffici-comunali-in-via-anfiteatro-il-comune-risparmiera-800-milioni-di-euro-di-fitti-passivi",
+    "data": "2014 circa"
+   },
+   {
+    "testo": "Sotto il mercato coperto c'è l'anfiteatro romano; l'edificio ospita uffici comunali ed è usato anche come parcheggio.",
+    "fonte": "La Gazzetta del Mezzogiorno, «L'Anfiteatro ... oggi è sotto il Mercato Coperto»",
+    "url": "https://www.lagazzettadelmezzogiorno.it/news/taranto/1508307/taranto-l-anfiteatro-della-capitale-della-magna-grecia-oggi-e-sotto-il-mercato-coperto-uno-studio-per-ridargli-vita.html",
+    "data": "da verificare"
+   },
+   {
+    "testo": "Nota: i 9 locali C/1 della particella potrebbero essere negozi al piano terra; il ristorante «Le Due Fontane» segnato da OSM può essere uno di questi o un vicino (non verificato).",
+    "fonte": "OpenStreetMap (osm_dentro del file di partenza)",
+    "url": "https://www.openstreetmap.org/#map=19/40.47017/17.24107",
+    "data": "2026-11-23"
+   }
+  ]
+ },
+ "319-1547": {
+  "nome_probabile": "Locale/i commerciali presso Palazzo Carducci Artenisio (Città vecchia)",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "OSM segna qui il «Palazzo Carducci Artenisio», Vico Seminario I.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.47655&lon=17.22769&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Il palazzo (1650) è abitato dai discendenti della famiglia: è privato. La particella comunale è C/1 (negozi): deduzione, può trattarsi di locali al piano terra o di un edificio vicino.",
+    "fonte": "FAI – I Luoghi del Cuore, «Palazzo Carducci»",
+    "url": "https://fondoambiente.it/luoghi/palazzo-carducci?ldc",
+    "data": "da verificare"
+   },
+   {
+    "testo": "Scheda museale: «temporaneamente chiuso».",
+    "fonte": "Which Museum, Palazzo Carducci Artenisio",
+    "url": "https://whichmuseum.co.uk/museum/palazzo-carducci-artenisio-taranto-39999",
+    "data": "2026"
+   }
+  ]
+ },
+ "319-662": {
+  "nome_probabile": "Ex convento / chiesa di San Gaetano (ex Cantiere Maggese) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "OSM segna un luogo di culto senza nome su Vico San Gaetano.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.47761&lon=17.22868&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Lavori di recupero dell'ex convento di San Gaetano avviati nel 2021 (circa 250.000 euro, programma SISUS); l'edificio era abbandonato e vandalizzato.",
+    "fonte": "Corriere di Taranto, «Città vecchia, ex convento di San Gaetano: avviato il cantiere»",
+    "url": "https://www.corriereditaranto.it/2021/05/07/citta-vecchia-ex-convento-di-san-gaetano-avviato-il-cantiere/",
+    "data": "2021-05-07"
+   },
+   {
+    "testo": "Il Comune lo affida per almeno 10 anni alla rete del progetto «L'isola che accoglie» (capofila Associazione Symbolum), finanziato da Fondazione Con il Sud con circa 350.000 euro.",
+    "fonte": "Fondazione Con il Sud, «Nuova vita per l'ex convento di San Gaetano a Taranto»",
+    "url": "https://www.fondazioneconilsud.it/2021/11/24/lisola-che-accoglie-nuova-vita-per-lex-convento-di-san-gaetano-a-taranto/",
+    "data": "2021-11-24"
+   },
+   {
+    "testo": "Non trovate notizie 2025-2026 sull'attività attuale: da verificare al sopralluogo. Non è certo che la particella sia l'ex convento e non la chiesetta di San Gaetano.",
+    "fonte": "Deduzione da ricerca web",
+    "url": "https://www.vita.it/taranto-lex-convento-di-san-gaetano-diventera-un-hub-socio-culturale/",
+    "data": "2026-11-23"
+   }
+  ]
+ },
+ "319-1598": {
+  "nome_probabile": "Palazzo Pantaleo – Civico Museo etnografico «Alfredo Majorano»",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Il museo, di proprietà comunale, è nel palazzo settecentesco di Palazzo Pantaleo (Rampa Pantaleo).",
+    "fonte": "Ministero della Cultura, «Museo etnografico Alfredo Majorano»",
+    "url": "https://cultura.gov.it/luogo/museo-etnografico-alfredo-majorano",
+    "data": "2026"
+   },
+   {
+    "testo": "Conferenza «Etnografie del Mediterraneo» nel piano nobile di Palazzo Pantaleo il 24 agosto 2026 con visita guidata a cura di MUSEION Soc. Coop.: il museo è in attività.",
+    "fonte": "TarantoSera, «Evento Etnografie del Mediterraneo (Civico Museo Etnografico A. Majorano, 24 agosto 2026)»",
+    "url": "https://tarantosera.it/2026/08/23/evento-etnografie-del-mediterraneo-civico-museo-etnografico-a-majorano-24-agosto-2026/",
+    "data": "2026-08-23"
+   },
+   {
+    "testo": "Attenzione: la scheda del Ministero segna il museo «chiuso» tutti i giorni (dato probabilmente non aggiornato); orari da verificare.",
+    "fonte": "Ministero della Cultura, scheda luogo",
+    "url": "https://cultura.gov.it/luogo/museo-etnografico-alfredo-majorano",
+    "data": "2026"
+   }
+  ]
+ },
+ "145-214": {
+  "nome_probabile": "Area di Piazza Brodolini / via La Torre (Paolo VI): guardia medica e possibile mercato rionale",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "In Piazza Brodolini, Edificio K (via La Torre 200) c'è la sede della Continuità assistenziale (guardia medica) Tamburi-Paolo VI dell'ASL.",
+    "fonte": "ASL Taranto – PugliaSalute, «Continuità Assistenziale: nuovi spazi per la Guardia Medica a Taranto»",
+    "url": "https://www.sanita.puglia.it/web/asl-taranto/-/continuita-assistenziale-nuovi-spazi-per-la-guardia-medica-a-taranto",
+    "data": "2023-01"
+   },
+   {
+    "testo": "Consiglieri di opposizione segnalano il «mercato coperto abbandonato» di via La Torre a Paolo VI; secondo la risposta della Direzione Patrimonio gli immobili non sarebbero di proprietà comunale («giallo» sulla proprietà).",
+    "fonte": "Quotidiano di Puglia, «Mercato coperto abbandonato a Paolo VI: giallo sui fondi e sulla proprietà»",
+    "url": "https://www.quotidianodipuglia.it/taranto/mercato_coperto_abbandonato_paolo_vi_giallo_fondi_proprieta_cosa_e_successo-7495422.html",
+    "data": "2023 circa"
+   },
+   {
+    "testo": "Consiglieri FdI: il mercato di Paolo VI è in «completo abbandono», con molti spazi commerciali vuoti.",
+    "fonte": "Blunote, «Criticità e inattività nei mercati di Taranto: la denuncia di FdI»",
+    "url": "https://www.blunote.it/news/288139677190/criticita-e-inattivita-nei-mercati-di-taranto-la-denuncia-di-fdi",
+    "data": "2024 circa"
+   },
+   {
+    "testo": "Deduzione: via La Torre passa proprio da Piazza Brodolini (Nominatim), quindi i 3 C/1 potrebbero essere locali di quel mercato. Non confondere con l'ex mercato coperto PINQuA di viale della Repubblica, che è più a ovest.",
+    "fonte": "OpenStreetMap / Nominatim, Via La Torre",
+    "url": "https://nominatim.openstreetmap.org/search?q=Via%20La%20Torre%2C%20Taranto&format=json",
+    "data": "2026-11-23"
+   }
+  ]
+ },
+ "144-516": {
+  "nome_probabile": "Locali su viale Cannata (Paolo VI)",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "OSM segna solo un bar senza nome su viale Giuseppe Cannata: può essere un vicino.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.51911&lon=17.26631&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Contesto: a Paolo VI il Comune ha chiuso l'ufficio comunale di quartiere (servizi spostati ai Tamburi). Non è detto che riguardi questa particella.",
+    "fonte": "PugliaIn, «Taranto, chiudono gli uffici comunali del Quartiere Paolo VI»",
+    "url": "https://www.pugliain.net/174201-taranto-uffici-comunali-quartiere-paolo-vi/",
+    "data": "2023 circa"
+   }
+  ]
+ },
+ "145-687": {
+  "nome_probabile": "Locali e area verde (Giardini M. Domenica Mazzarello) su viale Cannata, Paolo VI",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "OSM segna dentro la particella il parco «Giardini M. Domenica Mazzarello»; nessuna notizia online su questo giardino o sui locali C/1-E/3.",
+    "fonte": "OpenStreetMap (osm_dentro del file di partenza)",
+    "url": "https://www.openstreetmap.org/#map=18/40.51976/17.27517",
+    "data": "2026-11-23"
+   }
+  ]
+ },
+ "145-556": {
+  "nome_probabile": "Locali commerciali su via Pietro Nenni (Paolo VI), particella molto grande",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "OSM segna solo la farmacia «Ferone»: con 50.000 m² di particella è probabilmente un vicino. Nessuna notizia trovata sui 5 locali C/1.",
+    "fonte": "OpenStreetMap (osm_dentro del file di partenza)",
+    "url": "https://www.openstreetmap.org/#map=17/40.5352/17.28155",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Un elenco comunale 2017 degli immobili di Paolo VI esiste ma non è stato possibile scaricarlo (server non raggiungibile): da consultare.",
+    "fonte": "Comune di Taranto (Gazzetta Amministrativa), «Immobili del Comune di Taranto – Paolo VI»",
+    "url": "https://ww2.gazzettaamministrativa.it/opencms/export/sites/default/_gazzetta_amministrativa/amministrazione_trasparente/_puglia/_taranto/140_ben_imm_ges_pat/010_pat_imm/2017/Documenti_1489588019898/1489588288605_paolo_vi.pdf",
+    "data": "2017"
+   }
+  ]
+ },
+ "254-10924": {
+  "nome_probabile": "Distretto Socio Sanitario Unico ASL Taranto, via Ancona",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Al centro della particella OSM segna «ASL Distretto Socio Sanitario Taranto», via Ancona.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.45174&lon=17.26727&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Il Distretto Unico di Taranto ha sede in via Ancona (sala Tagliente), usata per incontri dell'ASL.",
+    "fonte": "ASL Taranto – PugliaSalute, «Comunicazione e Umanizzazione nel DSS Unico ... Distretto Unico – Via Ancona»",
+    "url": "https://sanita.puglia.it/documents/36057/222788106/23+maggio+2022+-+Comunicazione+e+Umanizzazione+nel+DSS+Unico+il+cammino+fatto+e+quello+da+fare+Sala+Tagliente+Distretto+Unico+-+Via+Ancona/824a9342-7e12-4705-b8c3-6ab00506a6e3",
+    "data": "2022-05-23"
+   }
+  ]
+ },
+ "253-1839": {
+  "nome_probabile": "Giardini Virgilio (viale Virgilio / viale Magna Grecia) con chiosco-bar",
+  "indicazione": "chiuso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Il Comune ha revocato le licenze e ordinato la chiusura dei Giardini Virgilio (8 aprile 2026): concessione considerata conclusa.",
+    "fonte": "TarantoToday, «Chiusi i Giardini Virgilio, scoppia la polemica a Taranto»",
+    "url": "https://www.tarantotoday.it/attualita/chiusi-giardini-virgilio-mino-palmisano-sfogo.html",
+    "data": "2026-04"
+   },
+   {
+    "testo": "Tre persone (due gestori e un dipendente comunale) a processo per abusi edilizi (chiosco, gazebo, tensostruttura, palco); udienza fissata al 2 marzo 2027.",
+    "fonte": "TarantoToday, «Giardini Virgilio, tre persone a processo»",
+    "url": "https://www.tarantotoday.it/cronaca/giardini-virgilio-taranto.html",
+    "data": "2026"
+   },
+   {
+    "testo": "Delibera di Giunta n. 298 del 29 luglio 2026: il Comune prepara la riapertura e una nuova gestione con gara.",
+    "fonte": "TarantoToday, «Giardini Virgilio, il Comune prepara la riapertura dell'area verde»",
+    "url": "https://www.tarantotoday.it/attualita/giardini-virgilio-comune-taranto-riapertura-area-verde-nuova-gestione-03-08-2026.html",
+    "data": "2026-08-03"
+   },
+   {
+    "testo": "Il Comune chiederà il dissequestro delle strutture.",
+    "fonte": "Corriere di Taranto, «Giardini Virgilio, il Comune chiederà il dissequestro»",
+    "url": "https://www.corriereditaranto.it/2026/09/03/giardini-virgilio-il-comune-chiedera-il-dissequestro/",
+    "data": "2026-09-03"
+   }
+  ]
+ },
+ "258-199": {
+  "nome_probabile": "Stadio di atletica «Giuseppe Valente» (ex Campo Scuola), Salinella",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Primo lotto inaugurato a giugno 2024 (circa 3 milioni, Istituto per il Credito Sportivo): pista a 8 corsie e spogliatoi rifatti.",
+    "fonte": "ANSA, «Giochi Mediterraneo: inaugurato lo stadio di atletica a Taranto»",
+    "url": "https://www.ansa.it/puglia/notizie/2024/06/28/giochi-mediterraneo-inaugurato-lo-stadio-di-atletica-a-taranto_a2447194-9759-450b-ad1f-9fc6d9c99f65.html",
+    "data": "2024-06-28"
+   },
+   {
+    "testo": "Secondo lotto di lavori: termine prorogato di 35 giorni a maggio 2026 (impresa Archimpresa).",
+    "fonte": "Corriere di Taranto, «Taranto, prorogati anche i lavori allo Stadio di atletica Valente»",
+    "url": "https://www.corriereditaranto.it/2026/05/05/taranto-prorogati-i-lavori-allo-stadio-di-atletica-g-valente/",
+    "data": "2026-05-05"
+   },
+   {
+    "testo": "Dopo i Giochi, la SS Taranto ha proposto di gestire anche il Campo scuola: la gestione post-Giochi è ancora da definire.",
+    "fonte": "Studio 100, «Il Taranto punta alla gestione degli impianti post Giochi»",
+    "url": "https://www.studio100.it/2026/09/22/il-taranto-punta-alla-gestione-degli-impianti-post-giochi-proposta-per-iacovone-salinella-campo-scuola-e-palaricciardi/",
+    "data": "2026-09-22"
+   }
+  ]
+ },
+ "255-39": {
+  "nome_probabile": "Sede del Comitato di Taranto della Croce Rossa Italiana, via Lago di Bracciano 11",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Il Comune ha dato in concessione d'uso gratuita alla CRI un immobile di circa 400 m² in via Lago di Bracciano come sede.",
+    "fonte": "Comune di Taranto, «Croce Rossa di Taranto, una nuova sede grazie all'impegno dell'amministrazione Melucci»",
+    "url": "https://www.comune.taranto.it/index.php/14-lavori-pubblici/4645-avviso-n-51-del-23-12-2016",
+    "data": "2016-12 circa"
+   },
+   {
+    "testo": "Il Comitato CRI di Taranto risulta in via Lago di Bracciano 11 anche a settembre 2026.",
+    "fonte": "Ministero della Giustizia, Convenzione art. 56-bis Ministero-CRI, elenco sedi",
+    "url": "https://www.giustizia.it/cmsresources/cms/documents/convenzione_art56bis_ministero_CRI_30set2026_sedi.pdf",
+    "data": "2026-09-30"
+   }
+  ]
+ },
+ "254-10917": {
+  "nome_probabile": "Stazione Carabinieri Taranto Salinella, via Lago di Nemi 97",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La Stazione Carabinieri Taranto Salinella è in via Lago di Nemi 97 (tel. 099 7724061). Fonte: elenco commerciale, non ufficiale. Non trovato chi paga il canone.",
+    "fonte": "Virgilio Aziende, «Stazione Carabinieri Taranto Salinella»",
+    "url": "https://aziende.virgilio.it/carabinieri/taranto-ta/stazione-carabinieri-taranto-salinella",
+    "data": "2026"
+   }
+  ]
+ },
+ "258-360": {
+  "nome_probabile": "Ufficio pubblico (B/4) in via Mar Grande / via Salina Piccola, Salinella",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Al centro della particella OSM segna la farmacia «Mandurino», via Salina Piccola 6: probabilmente solo un vicino o un locale nello stesso stabile.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.4465&lon=17.26987&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Non trovato quale ufficio pubblico occupi l'immobile. L'ufficio decentrato anagrafe Montegranaro-Salinella risulta invece in via Romagna, quindi non è questo.",
+    "fonte": "Comune di Taranto, pagina «Anagrafe» (vecchio sito)",
+    "url": "https://old.comune.taranto.it/2-uncategorised/1162-anagrafe",
+    "data": "da verificare"
+   }
+  ]
+ },
+ "258-765": {
+  "nome_probabile": "Locali commerciali e area (C/1, D/8, E/3) in via Scoglio del Tonno",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Al centro della particella OSM segna un distributore di carburante «LC», via Scoglio del Tonno 19; c'è anche un supermercato vicino.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.44062&lon=17.26028&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Nessuna notizia trovata. Il mercato settimanale Salinella e l'ufficio commercio del Comune sono altrove (via Lago di Garda / via Scoglio del Tonno 6), non dentro questa particella.",
+    "fonte": "Comune di Taranto, Sviluppo economico, avviso mercato Salinella",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-mercato-salinella.pdf",
+    "data": "2026-01"
+   }
+  ]
+ },
+ "246-642": {
+  "nome_probabile": "Locale commerciale in via Atenisio Carducci (dove c'è il supermercato DOK)",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Il supermercato DOK è in via Atenisio Carducci 8; non trovato se il locale sia comunale e in concessione (OSM lo mette dentro la particella, ma la particella è grande).",
+    "fonte": "Virgilio Aziende, «Dok – Taranto, Via Atenisio Carducci Cataldantonio, 8»",
+    "url": "https://aziende.virgilio.it/centri-commerciali/taranto-ta/supermercati-dok",
+    "data": "2026"
+   }
+  ]
+ },
+ "243-391": {
+  "nome_probabile": "Sede del Tribunale di Taranto (settore civile / Presidenza), zona via Marche – corso Italia",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Al centro della particella OSM segna «Tribunale Civile di Taranto» (corso Italia).",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.45938&lon=17.25457&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "La Presidenza del Tribunale risulta in via Marche s.n. nella relazione per l'anno giudiziario 2026.",
+    "fonte": "Tribunale di Taranto, Relazione Anno Giudiziario 2026",
+    "url": "https://tribunale-taranto.giustizia.it/cmsresources/cms/documents/Relazione_Anno_Giudiziario_2026.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "È prevista una nuova Cittadella della Giustizia (via Impastato / ex ANCIFAP) con trasferimento di gran parte degli uffici entro il 2029: in futuro l'immobile potrebbe liberarsi (previsione).",
+    "fonte": "Giudice di Pace di Taranto, Programma attività 2026",
+    "url": "https://tribunale-taranto.giustizia.it/cmsresources/cms/documents/PROGRAMMA_ATTIVITA_2026_-_Giudice_di_Pace_di_Taranto_signed_signed.pdf",
+    "data": "2026"
+   }
+  ]
+ },
+ "245-404": {
+  "nome_probabile": "Ex area di sosta camper di via Mascherpa (davanti al PalaMazzola)",
+  "indicazione": "probabile_abbandono",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'area camper è andata in abbandono dopo il dissesto del 2007, con vandalismi e furti; la vicenda è definita una «telenovela».",
+    "fonte": "Corriere di Taranto, «Area camper: la telenovela continua»",
+    "url": "https://www.corriereditaranto.it/2024/03/16/area-camper-la-telenovela-continua-1/",
+    "data": "2024-03-16"
+   },
+   {
+    "testo": "Nel 2020 il Comune e Kyma Mobilità (ex AMAT) annunciavano il recupero dell'area di sosta (13 piazzole).",
+    "fonte": "Ora Quadra, «Comune di Taranto e Kyma Mobilità recuperano l'area di sosta in via Mascherpa»",
+    "url": "https://oraquadra.info/2020/09/01/comune-di-taranto-e-kyma-mobilita-amat-recuperano-larea-di-sosta-in-via-mascherpa/",
+    "data": "2020-09-01"
+   },
+   {
+    "testo": "A fine 2025 l'«ex Area camper» recintata è stata messa a disposizione dal Comune per la festa di Capodanno «Taranto in Fest»: oggi è usata solo per eventi.",
+    "fonte": "Lo Jonio, «Il Taranto in Fest per salutare il 2026: stasera tutti in via Mascherpa»",
+    "url": "https://www.lojonio.it/il-taranto-in-fest-per-salutare-il-2026-stasera-tutti-in-via-mascherpa/",
+    "data": "2025-12-31"
+   },
+   {
+    "testo": "Taranto risulta ancora senza un'area camper pubblica (articolo che riprende il Corriere di Puglia e Lucania).",
+    "fonte": "OpenVan.camp, «Taranto, il camper che non trova casa»",
+    "url": "https://openvan.camp/en/news/lifestyle/taranto-il-camper-che-non-trova-casa-corriere-di",
+    "data": "2025"
+   }
+  ]
+ },
+ "244-174": {
+  "nome_probabile": "MUDIT – Museo degli Illustri Tarantini (ex Masseria Solito, via Plateja 51)",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Inaugurato il 24 ottobre 2022 nella Masseria Solito, recuperata con il bando regionale «Community library».",
+    "fonte": "Corriere di Taranto, «Inaugurato il MUDIT»",
+    "url": "https://www.corriereditaranto.it/2022/10/24/22inaugurato-il-museo-dei-tarantini-illustri/",
+    "data": "2022-10-24"
+   },
+   {
+    "testo": "Rimasto chiuso e abbandonato quasi subito dopo l'apertura; ad agosto 2024 il Comune ne ha affidato la gestione per 6 anni con bando.",
+    "fonte": "Telenorba, «Taranto, nuova gestione per il Museo degli illustri tarantini»",
+    "url": "https://telenorba.it/2024/08/21/taranto-nuova-gestione-per-il-museo-degli-illustri-tarantini/",
+    "data": "2024-08-21"
+   },
+   {
+    "testo": "Riaperto a dicembre 2024 con la gestione di quattro realtà locali guidate da «Noi&Voi».",
+    "fonte": "Nuovo Dialogo, «Riapre il Mudit, il Museo degli illustri tarantini»",
+    "url": "https://www.nuovodialogo.com/2024/12/13/riapre-il-mudit-il-museo-degli-illustri-tarantini/",
+    "data": "2024-12-13"
+   },
+   {
+    "testo": "Ospita eventi nel 2026 (es. incontro Università di Bari «Sport Up!» il 14 settembre 2026 al «Centro Culturale Casa Viola (MUDIT)»).",
+    "fonte": "Università di Bari, volantino «Sport Up – giovani e impresa nello sport»",
+    "url": "https://www.uniba.it/it/ricerca/dipartimenti/sistemi-giuridici-ed-economici/notizie/sport-up-giovani-e-impresa-nello-sport-volantino-versione-definitiva.pdf",
+    "data": "2026"
+   }
+  ]
+ },
+ "246-929": {
+  "nome_probabile": "Centro Tennis «Magna Grecia» (tra via Venezia Giulia, via Zara, via Alto Adige) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Al centro della particella OSM segna un centro sportivo senza nome tra via Venezia Giulia e viale Magna Grecia.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.4604&lon=17.26632&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Il centro tennis «Magna Grecia» è stato rifatto per i Giochi del Mediterraneo: 8 campi, tribuna centrale; si trova tra via Zara e via Alto Adige (deduzione: corrisponde a questa particella D/6).",
+    "fonte": "ANSA, «Giochi del Mediterraneo, 8 campi al Centro Tennis Magna Grecia»",
+    "url": "https://www.ansa.it/puglia/notizie/speciali/xx_giochi_del_mediterraneo_taranto_2026/2026/05/05/giochi-del-mediterraneo-8-campi-al-centro-tennis-magna-grecia_7c388065-3bb1-4a22-9bbf-7962f6f79b4a.html",
+    "data": "2026-05-05"
+   },
+   {
+    "testo": "Appalto da circa 5,5 milioni assegnato per la riqualificazione del centro sportivo.",
+    "fonte": "La Gazzetta del Mezzogiorno, «Riqualificazione del Centro sportivo Magna Grecia: assegnato l'appalto per 5,5 milioni»",
+    "url": "https://www.lagazzettadelmezzogiorno.it/news/taranto/1742509/taranto-riqualificazione-del-centro-sportivo-magna-grecia-assegnato-lappalto-per-5-5-milioni.html",
+    "data": "2025"
+   },
+   {
+    "testo": "Gestione dopo i Giochi non trovata: da verificare (il Comune ha aperto una consultazione per la gestione degli impianti post-Giochi).",
+    "fonte": "Antenna Sud, «Comune lancia avviso per gestione impianti sportivi post Giochi 2026»",
+    "url": "https://www.antennasud.com/taranto-comune-lancia-avviso-per-gestione-impianti-sportivi-post-giochi-2026/",
+    "data": "2026"
+   }
+  ]
+ },
+ "247-1012": {
+  "nome_probabile": "Complesso parrocchiale San Nunzio Sulprizio con campetto (via Vito Forleo / via della Croce Rossa)",
+  "indicazione": "in_uso",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "OSM segna un campo da calcio su via della Croce Rossa e la chiesa di San Nunzio Sulprizio.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.46215&lon=17.27947&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "La parrocchia San Nunzio Sulprizio esiste ed è dell'Arcidiocesi di Taranto; non trovato l'atto con cui il Comune ha dato il terreno (categoria E/7 = culto, D/6 sport, B/1).",
+    "fonte": "GCatholic, «Chiesa San Nunzio Sulprizio, Taranto»",
+    "url": "https://gcatholic.org/churches/italia/101600",
+    "data": "2026"
+   }
+  ]
+ },
+ "307-1281": {
+  "nome_probabile": "Centro commerciale comunale «Il Mio Mercato» (Talsano, piazzale Carmine Briganti)",
+  "indicazione": "probabile_abbandono",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Al centro della particella OSM segna il Centro commerciale «Mio Mercato», piazzale Carmine Briganti.",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.40373&lon=17.27835&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "A febbraio 2024 il Comune ha intimato lo sgombero a 9 commercianti; la struttura è passata nel 2018 da un consorzio di commercianti al Comune, ma i nuovi contratti non erano stati firmati.",
+    "fonte": "Corriere di Puglia e Lucania, «Il comune ordina sgombero ad ambulanti, la reazione del Pd di Talsano»",
+    "url": "https://www.corrierepl.it/2024/02/18/taranto-il-comune-ordina-sgombero-ad-ambulanti-la-reazione-del-pd-di-talsano/",
+    "data": "2024-02-18"
+   },
+   {
+    "testo": "Ad aprile 2025: molti locali chiusi, spazi abbandonati, contratti da regolarizzare, barriere architettoniche.",
+    "fonte": "TarantoToday, «Disorganizzazione, locali chiusi, barriere architettoniche...: il mercato di Talsano visto da Di Bello»",
+    "url": "https://www.tarantotoday.it/politica/mirko-di-bello-mercato-talsano-05-04-2025.html",
+    "data": "2025-04-05"
+   },
+   {
+    "testo": "Il centro è in parte ancora attivo (alcuni negozi aperti): l'indicazione «probabile abbandono» vale per una parte dei locali.",
+    "fonte": "Cronache Tarantine, «Centro Mio Mercato, il Comune intima lo sgombero a 9 commercianti»",
+    "url": "https://www.cronachetarantine.it/index.php/attualita/4424-centro-mio-mercato-il-comune-intima-lo-sgombero-a-9-commercianti",
+    "data": "2024-02"
+   }
+  ]
+ },
+ "302-732": {
+  "nome_probabile": "Stadio comunale di Talsano «Renzino Paradiso»",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Lavori conclusi ad agosto 2026 (circa 2,5 milioni): nuova tribuna da circa 500 posti; campo di allenamento per i Giochi.",
+    "fonte": "TRM TV, «Nuovo stadio Renzino Paradiso a Talsano: completati i lavori per i Giochi del Mediterraneo»",
+    "url": "https://www.trmtv.it/sport/2026_08_10/564429.html",
+    "data": "2026-08-10"
+   },
+   {
+    "testo": "Dal 4 settembre 2026 previsto l'uso quotidiano da parte della comunità.",
+    "fonte": "Giornale RossoBlu, «Talsano, conclusi i lavori allo stadio Renzino Paradiso»",
+    "url": "https://giornalerossoblu.it/talsano-conclusi-i-lavori-allo-stadio-renzino-paradiso-limpianto-e-pronto-per-i-giochi/",
+    "data": "2026-08"
+   },
+   {
+    "testo": "In passato il Comune ne affidava la gestione con avvisi annuali (12 mesi); gestore attuale non trovato.",
+    "fonte": "Comune di Taranto, «Allegato 1 Avviso Renzino Paradiso 2022-2023»",
+    "url": "https://old.comune.taranto.it/attachments/article/5222/Allegato%201_Avviso%20Renzino%20Paradiso%202022-2023.pdf",
+    "data": "2022"
+   }
+  ]
+ },
+ "248-863": {
+  "nome_probabile": "Terminal bus / Park & Ride di Parco Cimino (Kyma Mobilità)",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "OSM segna dentro la particella bike sharing, taxi, pensilina e bar: corrisponde al terminal di Cimino (deduzione).",
+    "fonte": "OpenStreetMap / Nominatim (reverse geocoding del centro della particella)",
+    "url": "https://nominatim.openstreetmap.org/reverse?lat=40.46615&lon=17.30039&format=json&zoom=18",
+    "data": "2026-11-23"
+   },
+   {
+    "testo": "Il terminal di Parco Cimino, gestito da Kyma Mobilità, è descritto nel degrado: sedute distrutte, bagni fuori uso (denuncia del consigliere Gregorio Stano).",
+    "fonte": "Voce del Popolo, «Terminal Parco Cimino nel degrado, Stano attacca Kyma Mobilità»",
+    "url": "https://www.vocedelpopolo.org/2026/06/27/terminal-parco-cimino-degrado-stano-kyma/",
+    "data": "2026-06-27"
+   },
+   {
+    "testo": "Il terminal è definito «terra di nessuno».",
+    "fonte": "La Gazzetta del Mezzogiorno, «Il Terminal di Parco Cimino ormai terra di nessuno»",
+    "url": "https://www.lagazzettadelmezzogiorno.it/news/taranto/2032697/taranto-la-zona-dimenticata-il-terminal-di-parco-cimino-ormai-terra-di-nessuno.html",
+    "data": "2026"
+   }
+  ]
+ },
+ "248-862": {
+  "nome_probabile": "Parco (Pineta) Cimino",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Custodia, manutenzione, apertura e chiusura del parco affidate a General Service s.r.l. (Potenza) dal 1° aprile 2026 al 31 marzo 2029.",
+    "fonte": "Corriere di Taranto, «Parco Cimino, affidata gestione servizio custodia e manutenzione»",
+    "url": "https://www.corriereditaranto.it/2026/04/28/parco-cimino-affidata-gestione-servizio-custodia-e-manutenzione/",
+    "data": "2026-04-28"
+   },
+   {
+    "testo": "Prima dell'affidamento, per l'esercizio provvisorio del bilancio, il contratto era stato fatto per un solo mese e i lavoratori erano rimasti in attesa.",
+    "fonte": "TarantoToday, «Pineta Cimino, appalto aggiudicato ... contratto di un mese»",
+    "url": "https://www.tarantotoday.it/attualita/pineta-cimino-taranto-contratto-mese-bilancio-non-approvato-26-02-2026.html",
+    "data": "2026-02-26"
+   }
+  ]
+ }
+}

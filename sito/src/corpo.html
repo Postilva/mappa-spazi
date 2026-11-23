@@ -1,236 +1,225 @@
-<div class="pagina">
-<a class="salta" href="#mappa" data-salta>Vai al contenuto</a>
-<header class="testata">
-  <div class="testata-riga gutter">
-    <a class="marchio" href="#mappa">
-      <span class="marchio-titolo">Spazi pubblici di Taranto</span>
-      <span class="firma">Per Taranto · Postilva</span>
-    </a>
-  </div>
-  <nav class="menu gutter" aria-label="Sezioni del sito">
-    <a href="#mappa" data-nav="mappa">Mappa</a>
-    <a href="#elenco" data-nav="elenco">Elenco</a>
-    <a href="#cerco-spazio" data-nav="cerco-spazio">Cerco uno spazio</a>
-    <a href="#esempio" data-nav="esempio">Scheda di esempio</a>
-    <a href="#metodo" data-nav="metodo">Metodo e fonti</a>
-  </nav>
-</header>
+<a class="salta" href="#contenuto" data-salta>Vai al contenuto</a>
 
-<div class="prova gutter" role="note">
-  <p><strong>Versione di prova – dati da verificare.</strong>
-  Nessuno spazio è stato ancora visitato: non sappiamo quali sono in uso e quali sono chiusi. Lo dirà il sopralluogo.</p>
-</div>
+<!-- striscia Postilva: comune a tutti gli strumenti del portale -->
+<header class="striscia g"><div class="w">
+  <a class="firma" href="https://www.postilva.it/" target="_blank" rel="noopener">__LOGO__<span><small>PER TARANTO</small><b>POSTILVA</b></span></a>
+  <span class="tavolo">Un progetto del tavolo Quartieri, Spazi e Mare</span>
+  <a class="partecipa" href="https://www.postilva.it/" target="_blank" rel="noopener">Partecipa ›</a>
+</div></header>
+
+<!-- barra dello strumento -->
+<div class="barra g"><div class="w">
+  <a class="marchio" href="#inizio" aria-label="Patrimonio comune, pagina iniziale"><svg class="marchio-segno" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7.5 12 2.5l9 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="4" y="9" width="4" height="4" rx=".8"/><rect x="10" y="9" width="4" height="4" rx=".8"/><rect x="16" y="9" width="4" height="4" rx=".8"/><rect x="4" y="15" width="4" height="4" rx=".8" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="10.6" y="15" width="2.8" height="6.5" rx=".6"/><rect x="16" y="15" width="4" height="4" rx=".8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 21.5h19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="nome">Patrimonio <em>comune</em></span></a>
+  <nav aria-label="Sezioni del sito">
+    <a href="#inizio" data-nav="inizio">Inizio</a>
+    <a href="#mappa" data-nav="mappa">Mappa</a>
+    <a href="#metodo" data-nav="metodo">Metodo</a>
+  </nav>
+</div></div>
 
 <main id="contenuto" tabindex="-1">
 
-<!-- MAPPA (home) -->
-<section class="vista" data-vista="mappa" aria-labelledby="t-mappa">
-  <div class="gutter intro">
-    <h1 id="t-mappa" tabindex="-1">Gli spazi del Comune, per chi vuole far partire qualcosa</h1>
-    <p>Su questa mappa ci sono <strong><span data-num="locali"></span> locali non residenziali del Comune di Taranto</strong> in <span data-num="in_mappa"></span> immobili: negozi, laboratori, magazzini, uffici, scuole, capannoni. Nell'elenco del Comune ce ne sono altri, non ancora localizzati. La mappa li mette in fila, uno per uno, per capire quali sono chiusi e a chi potrebbero servire.</p>
-    <p class="azioni-intro"><a class="bottone" href="#cerco-spazio">Cerco uno spazio</a> <a class="bottone secondario" href="#esempio">Guarda una scheda di esempio</a></p>
-  </div>
-  <div class="mappa-griglia">
-    <div class="mappa-col">
-      <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli spazi. Alternativa testuale: pagina Elenco">
-        <p class="mappa-attesa">Caricamento della mappa…</p>
-      </div>
-      <ul class="legenda gutter" id="legenda" aria-label="Legenda degli stati"></ul>
+<!-- INIZIO -->
+<section class="vista" data-vista="inizio" aria-labelledby="t-inizio">
+  <div class="apertura g" role="img" aria-label="Foto: il Palazzo di Città di Taranto, sede del Comune"><div class="w">
+    <div class="apertura-testo">
+      <p class="kicker">Taranto · il censimento degli edifici del Comune · dati al <span data-meta="generato"></span></p>
+      <h1 id="t-inizio" tabindex="-1">Il patrimonio del Comune, <em>edificio per edificio.</em></h1>
+      <p class="sotto">Nell'elenco ufficiale ci sono <span data-num="particelle_elenco"></span> particelle con edifici: scuole, uffici, negozi, magazzini, impianti sportivi, ruderi, case popolari. Le mettiamo sulla mappa una per una, con le fonti, e andiamo a vedere come sono usate.</p>
+      <a class="bottone" href="#mappa">Apri la mappa</a>
+      <p class="credito">Foto: il Palazzo di Città, sede del Comune, 2022 · Bernard Gagnon, <a href="https://commons.wikimedia.org/wiki/File:Palazzo_di_citt%C3%A0,_Taranto.jpg" target="_blank" rel="noopener">CC0</a></p>
     </div>
-    <div class="pannello gutter">
-      <div id="sintesi" class="sintesi" aria-live="polite">
-        <p class="nota">Tocca un simbolo sulla mappa per vedere qui lo spazio. I cerchi blu con un numero raggruppano più spazi vicini: toccali per ingrandire.</p>
+  </div></div>
+
+  <section class="fascia g" aria-roledescription="carosello" aria-label="Notizie del censimento"><div class="w">
+    <div class="notizie" id="notizie" tabindex="0"></div>
+    <div class="notizie-nav">
+      <button type="button" class="freccia-n" id="notizia-prima" aria-label="Notizia precedente">‹</button>
+      <div class="puntini" id="notizie-puntini" role="group" aria-label="Scegli la notizia"></div>
+      <button type="button" class="freccia-n" id="notizia-dopo" aria-label="Notizia successiva">›</button>
+    </div>
+  </div></section>
+
+  <div class="g"><div class="w">
+    <p class="etichetta">Il censimento</p>
+    <div class="pannello censimento">
+      <div class="intro">
+        <div>
+          <h2>Edifici visti sul posto: <em><span data-num="verificati"></span> su <span data-num="in_mappa"></span></em>. Si parte dai Tamburi.</h2>
+        </div>
+        <div>
+          <p>Ogni edificio passa per cinque passaggi. I primi quattro si fanno a tavolino, con dati pubblici; l'ultimo si fa a piedi, dall'esterno. Solo dopo il sopralluogo un edificio è «verificato».</p>
+        </div>
       </div>
-      <div class="filtri">
-        <p class="conteggio" id="conteggio" aria-live="polite"></p>
-        <fieldset>
-          <legend>Tipo di locale</legend>
-          <div id="filtro-tipo" class="opzioni"></div>
-        </fieldset>
-        <fieldset>
-          <legend>Stato</legend>
-          <div id="filtro-stato" class="opzioni"></div>
-        </fieldset>
-        <p class="nota">Il tipo viene dalla categoria catastale, che può non corrispondere all'uso di oggi (vedi <a href="#metodo">Metodo e fonti</a>).</p>
+      <ol class="passi">
+        <li class="passo"><div class="seg"><i>1</i><b></b></div><div class="n" data-num="particelle_elenco"></div><h3>Nell'elenco del Comune</h3><p>particelle con fabbricati, elenco beni immobili 2024</p></li>
+        <li class="passo"><div class="seg"><i>2</i><b></b></div><div class="n" data-num="localizzate"></div><h3>Trovate sul catasto</h3><p><span data-num="da_localizzare"></span> non si trovano: le chiederemo al Comune</p></li>
+        <li class="passo"><div class="seg"><i>3</i><b></b></div><div class="n" data-num="in_mappa"></div><h3>Sulla mappa</h3><p>con <span data-num="locali"></span> locali non residenziali</p></li>
+        <li class="passo"><div class="seg"><i>4</i><b></b></div><div class="n" data-num="cercati_online"></div><h3>Cercati nelle fonti</h3><p>atti del Comune, scuole, notizie, mappe</p></li>
+        <li class="passo vuoto"><div class="seg"><i>5</i><b></b></div><div class="n" data-num="verificati"></div><h3>Visti sul posto</h3><p>stato, foto, misure: il sopralluogo</p></li>
+      </ol>
+      <div class="barra-avanz">
+        <div class="quadri" id="quadri" aria-hidden="true"></div>
+        <span class="nota">Un quadratino per edificio: bordo acceso se l'abbiamo cercato nelle fonti, pieno quando l'avremo visto sul posto.</span>
+      </div>
+    </div>
+
+    <p class="etichetta">Come sono usati, per quanto ne sappiamo</p>
+    <div class="pannello usi" id="usi"></div>
+    <p class="nota piccola">L'uso viene da atti del Comune, catasto, anagrafe delle scuole, notizie e mappe, con la fonte in ogni scheda. Diventa certo solo con il sopralluogo. Tocca una riga per vedere quegli edifici sulla mappa.</p>
+
+    <p class="etichetta">Che tipo di locali</p>
+    <div class="griglia" id="tipi"></div>
+    <p class="nota piccola">Il tipo viene dalla categoria catastale: dice com'è registrato il locale, non come si usa oggi.</p>
+
+    <div class="fuori-mappa">
+      <div class="n" data-num="solo_abitazioni"></div>
+      <div><b>edifici con soli alloggi, per lo più case popolari</b>
+      <p>Sono anche loro del Comune, ma non li mettiamo sulla mappa e non li fotografiamo: ci vivono delle persone. Restano nei numeri del censimento.</p></div>
+    </div>
+
+    <p class="etichetta">Per quartiere</p>
+    <div class="quartiere">
+      <a class="grande pieno" href="#mappa" data-zona="tamburi"><div class="n" data-num="tamburi"></div><div><b>Tamburi</b><br><span>edifici sulla mappa: il primo quartiere dei sopralluoghi</span></div></a>
+      <a class="grande contorno" href="#mappa"><div class="n" data-num="resto"></div><div><b>Il resto della città</b><br><span>Borgo, Città vecchia, Paolo VI, Salinella, Talsano e le altre zone</span></div></a>
+    </div>
+
+    <p class="etichetta">Il progetto</p>
+    <div class="righe">
+      <a href="#metodo"><span class="ic">i</span><div><b>Come lavoriamo</b><span>Solo dati pubblici; «verificato» solo dopo il sopralluogo</span></div><span class="freccia">›</span></a>
+      <a href="#metodo" data-vai-dopo="m-fuori"><span class="ic">?</span><div><b>Cosa non è sulla mappa</b><span>Le case, le particelle non trovate, i beni di altri enti</span></div><span class="freccia">›</span></a>
+      <a href="#esempio"><span class="ic">□</span><div><b>Com'è fatta una scheda completa</b><span>Un esempio inventato: foto, storia, costi, idee di riuso, 3D</span></div><span class="freccia">›</span></a>
+      <a href="#metodo" data-vai-dopo="m-fonti"><span class="ic">[1]</span><div><b>Fonti e licenze</b><span>Comune di Taranto, Agenzia delle Entrate, Ministero dell'Istruzione, OpenStreetMap</span></div><span class="freccia">›</span></a>
+      <a href="#privacy" data-vai-dopo="scrivici"><span class="ic">@</span><div><b>Scrivici</b><span>Conosci uno di questi edifici? Un errore da segnalare?</span></div><span class="freccia">›</span></a>
+      <a href="#privacy"><span class="ic">©</span><div><b>Privacy e crediti</b><span>Niente cookie né statistiche; crediti; come riusare i contenuti</span></div><span class="freccia">›</span></a>
+    </div>
+  </div></div>
+</section>
+
+<!-- MAPPA -->
+<section class="vista" data-vista="mappa" aria-labelledby="t-mappa" hidden>
+  <div class="mappa-v">
+    <aside class="lato" aria-label="Filtri ed elenco degli spazi">
+      <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
+      <p class="nota">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini. Colore: uso conosciuto. Solo bordo: secondo le fonti; pieno: visto sul posto.</p>
+      <p class="sotto-et">Uso conosciuto</p>
+      <div class="chips" id="filtro-online" role="group" aria-label="Uso conosciuto"></div>
+      <p class="sotto-et">Tipo di locale</p>
+      <div class="chips" id="filtro-tipo" role="group" aria-label="Tipo di locale"></div>
+      <label for="cerca" class="sotto-et">Cerca</label>
+      <input id="cerca" class="cerca" type="search" placeholder="Via, zona, nome o codice (es. 203-18)" autocomplete="off">
+      <ul class="lista" id="lista"></ul>
+    </aside>
+    <div class="campo-mappa">
+      <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli spazi. Alternativa testuale: l'elenco a fianco">
+        <p class="mappa-attesa">Caricamento della mappa…</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SCHEDA (riempita dallo script) -->
-<section class="vista" data-vista="scheda" hidden>
+<!-- SCHEDA -->
+<section class="vista scheda" data-vista="scheda" hidden>
   <div id="scheda"></div>
 </section>
 
-<!-- SCHEDA DI ESEMPIO (riempita dallo script) -->
-<section class="vista" data-vista="esempio" hidden>
-  <div class="esempio-avviso gutter" role="note">
-    <p><strong>Scheda di esempio: l'edificio non esiste.</strong> Nome, indirizzo, date, costi, immagini e modello 3D sono inventati, solo per mostrare come sarà una scheda dopo il sopralluogo. Non sono dati.</p>
-  </div>
+<!-- SCHEDA DI ESEMPIO -->
+<section class="vista scheda" data-vista="esempio" hidden>
+  <div class="g"><div class="w"><div class="esempio-avviso" role="note"><strong>Scheda di esempio: l'edificio non esiste.</strong> Nome, indirizzo, date, costi, immagini e modello 3D sono inventati, per mostrare come sarà una scheda dopo il sopralluogo. Non sono dati.</div></div></div>
   <div id="scheda-esempio"></div>
 </section>
 
-<!-- ELENCO -->
-<section class="vista gutter" data-vista="elenco" aria-labelledby="t-elenco" hidden>
-  <h1 id="t-elenco" tabindex="-1">Elenco degli spazi</h1>
-  <p>Tutti gli spazi della mappa, raggruppati per zona. È l'alternativa testuale alla mappa. Zona e via sono ricavate in automatico da OpenStreetMap e <strong>non sono ancora verificate</strong>.</p>
-  <div id="elenco"></div>
-  <p class="nota">Non sono in elenco le abitazioni comunali e <span data-num="da_localizzare"></span> particelle non ancora localizzate sulla cartografia catastale: vedi <a href="#metodo">Metodo e fonti</a>.</p>
-</section>
-
-<!-- CERCO UNO SPAZIO -->
-<section class="vista gutter testo" data-vista="cerco-spazio" aria-labelledby="t-cerco" hidden>
-  <h1 id="t-cerco" tabindex="-1">Cerco uno spazio</h1>
-  <p>Stai avviando un'attività a Taranto e ti serve un posto? Dicci cosa cerchi. Più richieste raccogliamo, più è forte la domanda che portiamo al Comune: «ci sono persone pronte a riaprire questi spazi».</p>
-
-  <div class="pericolo" role="note"><p><strong>Postilva non assegna spazi.</strong> Gli immobili sono del Comune di Taranto, che decide con una procedura pubblica. Noi raccogliamo l'interesse, verifichiamo gli spazi e portiamo al Comune proposte concrete. Compilare il modulo non dà alcun diritto su uno spazio.</p></div>
-
-  <h2>Come funziona</h2>
-  <ol class="passi">
-    <li><strong>Ci dici cosa cerchi.</strong> Con il modulo qui sotto: non è vincolante.</li>
-    <li><strong>Ti richiamiamo.</strong> Una breve chiacchierata per capire bene il tuo progetto.</li>
-    <li><strong>Cerchiamo lo spazio adatto</strong> tra quelli che abbiamo già visitato e verificato.</li>
-    <li><strong>Portiamo la proposta al Comune:</strong> lo spazio, il progetto e una stima di massima dei costi per riaprirlo.</li>
-    <li><strong>Decide il Comune,</strong> con un avviso o un'altra procedura pubblica aperta a tutti.</li>
-  </ol>
-  <p class="nota">I criteri (chi può candidarsi e con quali priorità) non sono ancora stati decisi: li definirà il tavolo «Quartieri, Spazi e Mare» di Postilva e saranno pubblicati qui prima di aprire il modulo.</p>
-
-  <h2>Il modulo</h2>
-  <div class="bozza" role="note"><p><strong>Bozza: il modulo non è ancora attivo.</strong> Puoi provarlo, ma non salva e non invia nulla. Lo attiveremo dopo aver definito i criteri e l'informativa sulla privacy.</p></div>
-  <form id="modulo-spazio" class="modulo" novalidate>
-    <fieldset>
-      <legend>Chi sei</legend>
-      <div class="opzioni colonna">
-        <label class="opzione"><input type="radio" name="chi" id="chi-nuova" value="Nuova impresa (non ancora avviata o nata da meno di 3 anni)"> <span>Nuova impresa (da avviare o nata da meno di 3 anni)</span></label>
-        <label class="opzione"><input type="radio" name="chi" id="chi-esistente" value="Impresa già attiva"> <span>Impresa già attiva</span></label>
-        <label class="opzione"><input type="radio" name="chi" id="chi-coop" value="Cooperativa"> <span>Cooperativa</span></label>
-        <label class="opzione"><input type="radio" name="chi" id="chi-ets" value="Associazione o altro ente non profit"> <span>Associazione o altro ente non profit</span></label>
-        <label class="opzione"><input type="radio" name="chi" id="chi-gruppo" value="Gruppo informale"> <span>Gruppo informale</span></label>
-      </div>
-    </fieldset>
-    <div class="campo">
-      <label for="m-attivita">Che attività vuoi fare?</label>
-      <textarea id="m-attivita" name="attivita" rows="3" placeholder="Per esempio: laboratorio di falegnameria con vendita, forno di quartiere, officina di riparazione biciclette"></textarea>
-    </div>
-    <div class="campo-riga">
-      <div class="campo">
-        <label for="m-mq">Di quanti metri quadri hai bisogno?</label>
-        <select id="m-mq" name="mq">
-          <option value="">Scegli</option>
-          <option>Fino a 50 m²</option><option>Da 50 a 150 m²</option><option>Da 150 a 500 m²</option><option>Più di 500 m²</option><option>Non lo so ancora</option>
-        </select>
-      </div>
-      <div class="campo">
-        <label for="m-persone">Quante persone ci lavorerebbero?</label>
-        <select id="m-persone" name="persone">
-          <option value="">Scegli</option>
-          <option>Solo io</option><option>Da 2 a 5</option><option>Da 6 a 15</option><option>Più di 15</option>
-        </select>
-      </div>
-    </div>
-    <fieldset>
-      <legend>Cosa ti serve</legend>
-      <div class="opzioni">
-        <label class="opzione"><input type="checkbox" name="req" id="req-terra" value="piano terra"> <span>Piano terra</span></label>
-        <label class="opzione"><input type="checkbox" name="req" id="req-vetrina" value="vetrina su strada"> <span>Vetrina su strada</span></label>
-        <label class="opzione"><input type="checkbox" name="req" id="req-carico" value="carico e scarico"> <span>Carico e scarico</span></label>
-        <label class="opzione"><input type="checkbox" name="req" id="req-esterno" value="spazio all'aperto"> <span>Spazio all'aperto</span></label>
-        <label class="opzione"><input type="checkbox" name="req" id="req-accessibile" value="accesso senza barriere"> <span>Accesso senza barriere</span></label>
-      </div>
-    </fieldset>
-    <div class="campo-riga">
-      <div class="campo">
-        <label for="m-zona">In quale zona?</label>
-        <select id="m-zona" name="zona"><option value="">Qualsiasi zona</option></select>
-      </div>
-      <div class="campo">
-        <label for="m-tempi">Quando vorresti partire?</label>
-        <select id="m-tempi" name="tempi">
-          <option value="">Scegli</option>
-          <option>Entro 6 mesi</option><option>Entro un anno</option><option>Più avanti</option>
-        </select>
-      </div>
-    </div>
-    <div class="campo">
-      <label for="m-spazi">Hai già visto uno spazio sulla mappa? <span class="nota">(facoltativo)</span></label>
-      <input type="text" id="m-spazi" name="spazi" placeholder="Scrivi l'ID della scheda, per esempio 254-312">
-    </div>
-    <fieldset>
-      <legend>Come ti ricontattiamo</legend>
-      <div class="campo-riga">
-        <div class="campo"><label for="m-nome">Nome e cognome</label><input type="text" id="m-nome" name="nome" autocomplete="name"></div>
-        <div class="campo"><label for="m-contatto">Email o telefono</label><input type="text" id="m-contatto" name="contatto" autocomplete="email"></div>
-      </div>
-      <p class="nota">Quando il modulo sarà attivo, qui ci saranno l'informativa sulla privacy e la richiesta di consenso. Nomi e contatti non saranno mai pubblicati: sul sito compariranno solo numeri.</p>
-    </fieldset>
-    <button type="submit" class="bottone">Prova l'invio</button>
-    <div id="modulo-esito" class="messaggio" role="status" aria-live="polite" tabindex="-1" hidden></div>
-  </form>
-
-  <h2>Cosa si vedrà sul sito</h2>
-  <p>Solo numeri: quante persone sono interessate a uno spazio, quante richieste ci sono per tipo di attività e per zona. Oggi le richieste raccolte sono <strong>zero</strong>, perché il modulo non è attivo.</p>
-</section>
-
 <!-- METODO E FONTI -->
-<section class="vista gutter testo" data-vista="metodo" aria-labelledby="t-metodo" hidden>
-  <h1 id="t-metodo" tabindex="-1">Metodo e fonti</h1>
-  <p>Questa mappa mette in fila dati pubblici sui locali non residenziali del Comune di Taranto. È una <strong>versione di prova</strong>: i dati vengono da documenti e cartografie ufficiali, ma nessuno spazio è stato ancora visto sul posto.</p>
+<section class="vista g" data-vista="metodo" aria-labelledby="t-metodo" hidden><div class="w testo">
+  <p class="kicker">Il progetto</p>
+  <h1 id="t-metodo" tabindex="-1">Come lavoriamo</h1>
+  <p class="sotto">Patrimonio comune mette in fila dati pubblici sugli edifici del Comune di Taranto, per sapere cosa possiede il Comune, dov'è e come è usato. Nessun edificio è stato ancora visto sul posto: tutto è «da verificare».</p>
 
-  <h2>Da dove vengono i dati</h2>
+  <h2 id="m-fonti" tabindex="-1">Da dove vengono i dati</h2>
   <ol>
-    <li><strong>Elenco degli immobili.</strong> Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative, <em>Elenco beni immobili – anno 2024</em>, pubblicato in Amministrazione Trasparente il 29/05/2024 (<a href="https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721" target="_blank" rel="noopener">scheda della pubblicazione</a>). L'elenco riporta identificativo, foglio, particella, subalterno e categoria catastale di ogni unità. <strong>Non contiene indirizzi, nomi né l'uso attuale.</strong></li>
-    <li><strong>Posizione.</strong> Agenzia delle Entrate, <em>Cartografia catastale</em>, servizio WFS INSPIRE, licenza CC BY 4.0, consultato il 10/11/2026. Per ogni foglio e particella dell'elenco si è preso il poligono della particella; il simbolo sulla mappa è il <strong>baricentro della particella</strong>, che è evidenziata in azzurro.</li>
-    <li><strong>Via e zona.</strong> Ricavate in automatico da OpenStreetMap: la via è la strada con nome più vicina alla particella (entro 60 metri), la zona è il quartiere o la località più vicina. <strong>Non sono l'indirizzo</strong> e possono essere sbagliate: servono solo a orientarsi finché non c'è il sopralluogo.</li>
+    <li><strong>Elenco degli immobili.</strong> Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative, <em>Elenco beni immobili – anno 2024</em>, pubblicato in Amministrazione Trasparente il 29/05/2024 (<a href="https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721" target="_blank" rel="noopener">scheda della pubblicazione</a>). Riporta identificativo, foglio, particella, subalterno e categoria catastale di ogni unità. <strong>Non contiene indirizzi, nomi né l'uso attuale.</strong></li>
+    <li><strong>Posizione.</strong> Agenzia delle Entrate, <em>Cartografia catastale</em>, servizio WFS INSPIRE, licenza CC BY 4.0, consultato il 10/11/2026. Il quadratino sulla mappa è il <strong>baricentro della particella</strong>.</li>
+    <li><strong>Via e zona.</strong> Ricavate in automatico da OpenStreetMap: la via è la strada con nome più vicina (entro 60 metri), la zona è il quartiere più vicino. <strong>Non sono l'indirizzo</strong> e possono essere sbagliate.</li>
+    <li><strong>Cercato online.</strong> Prima dei sopralluoghi cerchiamo cosa si sa già di ogni spazio: il <em>Piano delle alienazioni e valorizzazioni 2026-2028</em> del Comune (DUP 2026-2028, delibera di Consiglio comunale n. 30 del 17/03/2026), l'anagrafe delle scuole e dell'edilizia scolastica del Ministero dell'Istruzione, la categoria catastale F/2 (ruderi), cosa segna OpenStreetMap dentro la particella, notizie locali e atti pubblici. Ogni indicazione ha la sua fonte nella scheda. <strong>Non sono dati verificati</strong>: molti articoli li abbiamo letti attraverso i risultati delle ricerche, e l'abbinamento tra una notizia e una particella è spesso una deduzione, dichiarata nella scheda. Finora cercati online: <span data-num="cercati_online"></span> spazi.</li>
     <li><strong>Mappa di base.</strong> © OpenStreetMap contributors, licenza <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">ODbL</a>; tessere vettoriali OpenFreeMap (schema OpenMapTiles) del 1/11/2026, incorporate nella pagina.</li>
   </ol>
 
-  <h2>Cosa c'è in mappa e cosa no</h2>
+  <h2 id="m-fuori" tabindex="-1">Cosa c'è sulla mappa e cosa no</h2>
   <ul>
-    <li>L'elenco 2024 contiene <span data-num="particelle_elenco"></span> particelle catastali con fabbricati. <span data-num="localizzate"></span> sono state trovate sulla cartografia catastale; <strong><span data-num="da_localizzare"></span> non sono ancora localizzate</strong> e non sono in mappa: nessuna posizione è stata stimata. La cartografia è stata letta su tutto il territorio, tranne 3 piccoli riquadri (circa 100 metri di lato) che il servizio dell'Agenzia delle Entrate ha rifiutato: le particelle mancanti vanno cercate con una visura o chieste al Comune.</li>
-    <li><strong>In mappa ci sono <span data-num="in_mappa"></span> particelle</strong>, con <span data-num="locali"></span> locali non residenziali.</li>
-    <li><strong>Le abitazioni non sono in mappa.</strong> <span data-num="solo_abitazioni"></span> particelle contengono solo case e loro pertinenze: questa mappa serve a trovare spazi per attività, non riguarda gli alloggi.</li>
+    <li>L'elenco 2024 contiene <span data-num="particelle_elenco"></span> particelle catastali con fabbricati. <span data-num="localizzate"></span> sono state trovate sulla cartografia catastale; <strong><span data-num="da_localizzare"></span> non sono ancora localizzate</strong> e non sono in mappa: le chiederemo al Comune.</li>
+    <li><strong>Sulla mappa ci sono <span data-num="in_mappa"></span> particelle</strong>, con <span data-num="locali"></span> locali non residenziali.</li>
+    <li><strong>Le abitazioni non ci sono.</strong> <span data-num="solo_abitazioni"></span> particelle contengono solo case e loro pertinenze: questo censimento riguarda gli spazi per attività, non gli alloggi.</li>
     <li>Non contiamo come locali: autorimesse (C/6), tettoie (C/7), aree urbane (F/1), lastrici solari (F/5) e i magazzini (C/2) che stanno in edifici con abitazioni, perché quasi sempre sono cantine. È una <strong>regola di lavoro di Postilva</strong>, da rivedere.</li>
-    <li>Un simbolo è una <strong>particella catastale</strong>: può contenere più locali o più corpi di fabbrica. Lo si chiarisce al sopralluogo.</li>
+    <li>Non ci sono i beni di altri enti (Stato, Regione, Provincia, ASL, Marina) né i beni confiscati alla criminalità.</li>
+    <li>Un quadratino è una <strong>particella catastale</strong>: può contenere più locali o più edifici. Lo si chiarisce al sopralluogo.</li>
   </ul>
-  <div class="tabella-box"><table id="tab-tipi"><caption>Locali in mappa per tipo</caption><thead><tr><th scope="col">Tipo</th><th scope="col">Categorie catastali</th><th scope="col">Locali</th></tr></thead><tbody></tbody></table></div>
+  <div class="tabella-box"><table id="tab-tipi"><caption>Locali sulla mappa per tipo</caption><thead><tr><th scope="col">Tipo</th><th scope="col">Categorie catastali</th><th scope="col">Locali</th></tr></thead><tbody></tbody></table></div>
 
-  <h2>Cosa significa «da verificare»</h2>
-  <p>Ogni scheda ha uno di cinque stati, sempre con simbolo ed etichetta:</p>
-  <ul class="legenda legenda-testo" id="legenda-metodo"></ul>
-  <p>Oggi <strong>tutte le schede sono «da verificare»</strong>: lo stato si assegna solo dopo un sopralluogo, fatto dall'esterno o con autorizzazione del Comune. Molti di questi spazi, a partire dalle scuole e dagli uffici, sono con ogni probabilità in uso. Fino al sopralluogo nome, indirizzo, foto, storia, costi e idee di riuso restano «da completare». Come sarà una scheda completa si vede nella <a href="#esempio">scheda di esempio</a>.</p>
-
-  <h2>Tipo di locale</h2>
-  <p>Viene dalla categoria catastale di ogni unità (tabella sopra). La categoria descrive l'unità in catasto, <strong>non l'uso di oggi</strong>: un «negozio» può essere chiuso da anni o usato per altro.</p>
+  <h2>I colori della mappa</h2>
+  <ul class="legenda-testo" id="legenda-metodo"></ul>
+  <p>Il colore dice l'uso che conosciamo, il riempimento da dove lo sappiamo. Oggi <strong>nessun edificio è stato visto sul posto</strong>: tutti gli usi vengono dalle fonti, e diventano certi solo con un sopralluogo, fatto dall'esterno o con autorizzazione del Comune.</p>
 
   <h2>Costi</h2>
   <p>Quando ci saranno, le stime saranno <strong>stime parametriche di massima, non perizie</strong>, con il livello di dettaglio (1–3) e il prezzario usato. Oggi nessuna scheda ha una stima.</p>
 
-  <h2>Limiti della mappa</h2>
+  <h2>Limiti</h2>
   <ul>
-    <li><strong>Non sappiamo quali spazi sono vuoti.</strong> L'elenco dice cosa possiede il Comune, non se un locale è in uso.</li>
+    <li><strong>Non sappiamo quali spazi sono vuoti</strong> finché non li vediamo: l'elenco dice cosa possiede il Comune, non se un locale è in uso.</li>
     <li>Le <strong>posizioni sono approssimate</strong>: il baricentro di una particella grande può cadere in un cortile o tra più edifici.</li>
-    <li>La categoria è quella catastale dell'elenco 2024, che può non corrispondere all'uso attuale.</li>
-    <li>La mappa di base è più dettagliata attorno agli spazi; altrove, ingrandendo, i dettagli non aumentano.</li>
-    <li>Le informazioni servono a conoscere il patrimonio pubblico: non autorizzano a entrare negli edifici o nelle aree.</li>
+    <li>La categoria è quella catastale del 2024, che può non corrispondere all'uso di oggi.</li>
+    <li>Le informazioni servono a conoscere il patrimonio pubblico: <strong>non autorizzano a entrare</strong> negli edifici o nelle aree.</li>
   </ul>
 
   <h2>Attribuzioni</h2>
   <ul class="attribuzioni">
-    <li>© Agenzia delle Entrate – Cartografia catastale, <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener">CC BY 4.0</a>. Elaborazione Postilva (baricentri e semplificazione delle particelle).</li>
+    <li>Comune di Taranto – <em>Elenco beni immobili – anno 2024</em> e <em>DUP 2026-2028</em>, Amministrazione Trasparente.</li>
+    <li>© Agenzia delle Entrate – Cartografia catastale, <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener">CC BY 4.0</a>. Elaborazione Postilva.</li>
+    <li>Ministero dell'Istruzione e del Merito – Anagrafe scuole statali e anagrafe dell'edilizia scolastica (open data).</li>
     <li>OpenStreetMap – © OpenStreetMap contributors, <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">ODbL</a>; tessere OpenFreeMap / OpenMapTiles.</li>
-    <li>Comune di Taranto – <em>Elenco beni immobili – anno 2024</em>, Amministrazione Trasparente.</li>
+    <li>Foto in apertura: il Palazzo di Città, 2022 · Bernard Gagnon, Wikimedia Commons, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.it" target="_blank" rel="noopener">CC0</a>.</li>
     <li>Mappa realizzata con <a href="https://maplibre.org/" target="_blank" rel="noopener">MapLibre GL JS</a> (licenza BSD-3).</li>
   </ul>
-  <p class="nota">Dati aggiornati al <span data-meta="generato"></span>.</p>
-</section>
+</div></section>
+
+<!-- PRIVACY E CREDITI -->
+<section class="vista g" data-vista="privacy" aria-labelledby="t-privacy" hidden><div class="w testo">
+  <p class="kicker">Il progetto</p>
+  <h1 id="t-privacy" tabindex="-1">Privacy, crediti e licenze</h1>
+  <p class="sotto">Questo sito non usa cookie, non conta le visite e non ti chiede dati per leggerlo. Qui sotto chi vede la tua visita, chi ha fatto le cose che usiamo e come riusare i nostri contenuti.</p>
+
+  <h2>Cosa raccogliamo</h2>
+  <p>Niente: nessun cookie, nessuna statistica delle visite, nessuna pubblicità, nessun pulsante dei social network. Il sito non salva niente sul tuo telefono o computer.</p>
+
+  <h2>Chi vede la tua visita</h2>
+  <ul>
+    <li><strong>Vercel</strong>, che ospita il sito: come ogni server riceve i dati tecnici di ogni richiesta (indirizzo IP, pagina, tipo di browser) per far funzionare e proteggere il servizio. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Informativa di Vercel</a>.</li>
+    <li>Mappa di base, caratteri e librerie stanno sul nostro server: aprendo il sito non fai richieste a Google né ad altri, a parte Vercel.</li>
+    <li>I link alle fonti portano ai siti degli enti e delle testate: da lì valgono le loro regole.</li>
+  </ul>
+
+  <h2 id="scrivici" tabindex="-1">Se ci scrivi</h2>
+  <p>Il sito è un progetto dell'associazione Postilva, con sede a Taranto, codice fiscale 90294300737, che è titolare del trattamento dei dati che ci mandi. Per segnalare un errore, raccontarci un edificio o chiedere quali tuoi dati abbiamo, per farli correggere o cancellare, scrivi a <strong>postilva@pec.it</strong> (posta certificata) oppure dalla pagina <a href="https://www.postilva.it/" target="_blank" rel="noopener">Partecipa di postilva.it</a>. I messaggi servono a correggere e completare le schede e non vengono pubblicati. Puoi anche fare reclamo al Garante per la protezione dei dati personali.</p>
+
+  <h2>Persone e foto</h2>
+  <p>Nelle schede non ci sono dati di persone: solo edifici, con le fonti pubbliche. Le foto dei sopralluoghi saranno fatte solo dall'esterno, senza persone riconoscibili né targhe. Gli edifici con soli alloggi non sono sulla mappa e non vengono fotografati. Se in una foto o in una scheda c'è qualcosa che ti riguarda e pensi non debba esserci, scrivici e lo togliamo.</p>
+
+  <h2>Riusare i contenuti</h2>
+  <p>Testi, schede e tabelle di questo sito si possono copiare, ripubblicare e modificare, anche per scopi commerciali, con la licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener">Creative Commons Attribuzione 4.0 (CC BY 4.0)</a>: basta citare «Patrimonio comune – Postilva» con il link al sito e dire se li hai modificati. Non vale per le cose non nostre, elencate qui sotto: documenti degli enti, foto, mappe e caratteri hanno le loro licenze.</p>
+
+  <h2>Crediti</h2>
+  <ul class="attribuzioni">
+    <li>Dati: Comune di Taranto (elenco beni immobili 2024, DUP 2026-2028); © Agenzia delle Entrate – Cartografia catastale, CC BY 4.0; Ministero dell'Istruzione e del Merito (open data). Dettagli in <a href="#metodo">Come lavoriamo</a>.</li>
+    <li>Mappa di base: © OpenStreetMap contributors, licenza ODbL; tessere OpenFreeMap / OpenMapTiles. Caratteri della mappa: Noto Sans (licenza SIL OFL 1.1).</li>
+    <li>Foto in apertura: il Palazzo di Città, 2022 · Bernard Gagnon, Wikimedia Commons, CC0.</li>
+    <li>Mappa interattiva: MapLibre GL JS 4.7.1, licenza BSD a 3 clausole. Modello 3D della scheda di esempio: three.js, licenza MIT.</li>
+    <li>Caratteri: Space Grotesk (The Space Grotesk Project Authors), IBM Plex Mono (IBM) e Anton (Vernon Adams), licenza SIL OFL 1.1.</li>
+  </ul>
+  <p class="nota">Ultimo aggiornamento: <span data-meta="generato"></span>.</p>
+</div></section>
 
 </main>
 
-<footer class="piede">
-  <div class="gutter">
-    <p class="firma firma-piede">Per Taranto · Postilva</p>
-    <p>Spazi pubblici di Taranto · <strong>Versione di prova – dati da verificare</strong> · dati aggiornati al <span data-meta="generato"></span></p>
-    <p>Dati: Comune di Taranto (elenco beni immobili 2024); © Agenzia delle Entrate – Cartografia catastale, CC BY 4.0; mappa © OpenStreetMap contributors (ODbL). <a href="#metodo">Metodo e fonti</a></p>
-  </div>
-</footer>
-</div>
+<footer class="piede g"><div class="w">
+  <p>Ogni dato viene da una fonte pubblica: Comune di Taranto (elenco beni immobili 2024, DUP 2026-2028), Agenzia delle Entrate (cartografia catastale, CC BY 4.0), Ministero dell'Istruzione, OpenStreetMap (ODbL). Zona e via sono indicative finché non c'è il sopralluogo. <a href="#metodo">Come lavoriamo</a></p>
+  <p>Patrimonio comune, il censimento degli edifici del Comune di Taranto. A cura di <a href="https://www.postilva.it/" target="_blank" rel="noopener">Postilva</a>, tavolo Quartieri, Spazi e Mare · Versione di prova, dati al <span data-meta="generato"></span> · <a href="#privacy">Privacy e crediti</a></p>
+</div></footer>

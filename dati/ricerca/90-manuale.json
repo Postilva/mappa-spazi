@@ -1,0 +1,172 @@
+{
+ "202-218": {
+  "nome_probabile": "Scuola secondaria di primo grado «Ugo De Carolis»",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Chiusa con ordinanza del sindaco nel marzo 2019, dopo il sequestro delle «collinette ecologiche» dell'ex Ilva, e poi riaperta.",
+    "fonte": "Buonasera24, «Il Sindaco ordina: \"Chiuse le scuole Deledda e De Carolis\"»",
+    "url": "https://www.buonasera24.it/news/cronaca/66259/il-sindaco-ordina-chiuse-le-scuole-deledda-e-de-carolis.html",
+    "data": "2019"
+   },
+   {
+    "testo": "Riapertura delle scuole dei Tamburi vicine all'ex Ilva.",
+    "fonte": "Gazzetta del Mezzogiorno, «Taranto, riaperte le scuole del Tamburi a ridosso dell'ex Ilva»",
+    "url": "https://www.lagazzettadelmezzogiorno.it/news/taranto/1171530/taranto-riaperte-le-scuole-del-tamburi-a-ridosso-dell-ex-ilva.html",
+    "data": "2019"
+   }
+  ]
+ },
+ "202-219": {
+  "nome_probabile": "Scuola primaria e dell'infanzia «Grazia Deledda»",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Chiusa con ordinanza del sindaco nel marzo 2019 insieme alla De Carolis, poi riaperta.",
+    "fonte": "Buonasera24, «Il Sindaco ordina: \"Chiuse le scuole Deledda e De Carolis\"»",
+    "url": "https://www.buonasera24.it/news/cronaca/66259/il-sindaco-ordina-chiuse-le-scuole-deledda-e-de-carolis.html",
+    "data": "2019"
+   }
+  ]
+ },
+ "203-18": {
+  "nome_probabile": "Scuola «Vico» (I.C. Vico – De Carolis)",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": []
+ },
+ "203-498": {
+  "nome_probabile": "Scuola «Aristide Gabelli»",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'anagrafe del Ministero mette la Gabelli in via Verdi 1, OpenStreetMap la segna qui: va verificato che sia lo stesso edificio.",
+    "fonte": "Postilva, confronto tra fonti",
+    "url": "",
+    "data": "2026-11-23"
+   }
+  ]
+ },
+ "202-220": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "OpenStreetMap segna una scuola senza nome, accanto alla De Carolis. Forse un altro corpo della stessa scuola.",
+    "fonte": "Postilva, confronto tra fonti",
+    "url": "",
+    "data": "2026-11-23"
+   }
+  ]
+ },
+ "202-129": {
+  "nome_probabile": "Sede della Circoscrizione Tamburi-Lido Azzurro",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": []
+ },
+ "201-59": {
+  "nome_probabile": "Biblioteca di quartiere «Marco Motolese»",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Biblioteca di quartiere in via Lisippo 8, attiva almeno fino al 2020 (iniziative del Club UNESCO e dell'Associazione Marco Motolese). Da verificare se è aperta oggi.",
+    "fonte": "ISPRA, manifesto BiblioPride 2014",
+    "url": "https://www.isprambiente.gov.it/it/attivita/biblioteca/eventi/ManifestoEcoBiblioteche.pdf",
+    "data": "2014"
+   },
+   {
+    "testo": "Incontro delle realtà culturali del MAB Ionico ospitato in biblioteca.",
+    "fonte": "Tarantini Time",
+    "url": "https://tarantinitime.it/2017/10/17/domani-lassociazione-marco-motolese-riunisce-il-mab",
+    "data": "2017-10-17"
+   }
+  ]
+ },
+ "202-179": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Il catasto la registra come scuola (B/5), ma OpenStreetMap qui segna una chiesa evangelica. Concessione? Errore della mappa? Da chiarire.",
+    "fonte": "Postilva, confronto tra fonti",
+    "url": "",
+    "data": "2026-11-23"
+   }
+  ]
+ },
+ "204-914": {
+  "nome_probabile": "Batteria Galeso (ex postazione antiaerea)",
+  "indicazione": "probabile_abbandono",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Vecchia batteria antiaerea sul Mar Piccolo, con bunker quasi intatti, descritta come lasciata al degrado; la zona del Galeso è segnalata per rifiuti abbandonati. Da confermare che la particella del Comune sia la batteria.",
+    "fonte": "Oltre il fatto, «Il fiume Galeso da risorsa storico-naturalistica a discarica a cielo aperto»",
+    "url": "https://www.oltreilfatto.it/2024/09/il-fiume-galeso-da-risorsa-storico-naturalistica-a-discarica-a-cielo-aperto/",
+    "data": "2024-09"
+   }
+  ]
+ },
+ "319-3478": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": []
+ },
+ "203-3295": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": []
+ },
+ "202-769": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": []
+ },
+ "201-2234": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": []
+ },
+ "201-244": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": []
+ },
+ "201-247": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": []
+ },
+ "144-475": {
+  "nome_probabile": "Ex scuola di viale della Repubblica (probabilmente l'ex scuola media «Ungaretti»)",
+  "indicazione": "probabile_abbandono",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Il Comune la chiama «ex scuola» nel piano delle alienazioni; le notizie descrivono l'ex scuola Ungaretti di viale della Repubblica chiusa dal 2014, saccheggiata e usata come discarica. Che sia proprio questa particella è una deduzione da confermare.",
+    "fonte": "Postilva, confronto tra fonti",
+    "url": "",
+    "data": "2026-11-23"
+   }
+  ]
+ },
+ "144-474": {
+  "nome_probabile": "Ex scuola di via IV Novembre e viale della Liberazione (Paolo VI)",
+  "indicazione": "chiuso",
+  "certezza": "alta",
+  "note": []
+ }
+}

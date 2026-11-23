@@ -1,0 +1,27 @@
+[
+  {
+    "data": "2026-11-23",
+    "etichetta": "In primo piano · Piano delle alienazioni 2026-2028",
+    "titolo": "Il Comune vuole vendere <em>{piano_alienazioni} beni</em> e darne in affitto altri {piano_valorizzazioni}.",
+    "testo": "Lo ha deciso il Consiglio comunale il 17 marzo 2026, nel Documento unico di programmazione. Tra questi ci sono due ex scuole del Paolo VI (in vendita nel 2028), l'ex Gerontocomio di via delle Ceramiche (1.248.000 €) e 63 locali in Città vecchia da dare in affitto. L'asta dell'ex mercato di via Plinio è stata revocata ad agosto.",
+    "pulsante": {"testo": "Vedi sulla mappa i {nel_piano} edifici del piano", "filtro_uso": "piano"},
+    "link": {"testo": "La delibera n. 30/2026", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-ap/-/papca/display/5250181"},
+    "nota": "Gli altri beni del piano sono appartamenti, box e locali che non sono sulla mappa. Gli edifici del piano non sono per forza vuoti: il piano dice che il Comune non li ritiene necessari alle sue funzioni."
+  },
+  {
+    "data": "2026-11-23",
+    "etichetta": "Il censimento · Ricerca nelle fonti",
+    "titolo": "Abbiamo cercato <em>{cercati_online} edifici su {in_mappa}</em> negli atti e nelle notizie.",
+    "testo": "Prima di andare sul posto guardiamo cosa si sa già: il piano delle alienazioni del Comune, l'anagrafe delle scuole, il catasto, le notizie locali. Per {uso:in_uso} edifici le fonti dicono che sono in uso, per {uso:non_noto} non sappiamo ancora niente. Ogni indicazione ha la sua fonte nella scheda.",
+    "pulsante": {"testo": "Vedi gli edifici di cui non sappiamo niente", "filtro_uso": "non_noto"},
+    "nota": "Le indicazioni delle fonti non sono verifiche: diventano certe solo con il sopralluogo."
+  },
+  {
+    "data": "2026-11-19",
+    "etichetta": "In programma · Sopralluoghi",
+    "titolo": "Si parte dai Tamburi: <em>{tamburi} edifici</em> da andare a vedere.",
+    "testo": "Il tavolo Quartieri, Spazi e Mare ha in programma i primi sopralluoghi ai Tamburi. Si guarda solo dall'esterno: com'è l'edificio, se è aperto, che uso ha. Le foto, senza persone né targhe, arriveranno nelle schede.",
+    "pulsante": {"testo": "Vedi gli edifici dei Tamburi", "zona": "tamburi"},
+    "nota": "Qui pubblicheremo le notizie di ogni sopralluogo."
+  }
+]

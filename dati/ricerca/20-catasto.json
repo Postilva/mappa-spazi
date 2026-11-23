@@ -1,0 +1,30 @@
+{
+ "319-588": {
+  "indicazione": "probabile_abbandono",
+  "certezza": "media"
+ },
+ "319-589": {
+  "indicazione": "probabile_abbandono",
+  "certezza": "media"
+ },
+ "319-1438": {
+  "indicazione": "probabile_abbandono",
+  "certezza": "media"
+ },
+ "295-2003": {
+  "indicazione": "probabile_abbandono",
+  "certezza": "media"
+ },
+ "295-2031": {
+  "indicazione": "probabile_abbandono",
+  "certezza": "media"
+ },
+ "245-2982": {
+  "indicazione": "probabile_abbandono",
+  "certezza": "media"
+ },
+ "248-828": {
+  "indicazione": "probabile_abbandono",
+  "certezza": "media"
+ }
+}
