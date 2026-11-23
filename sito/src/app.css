@@ -351,3 +351,8 @@ html { -webkit-tap-highlight-color: transparent; }
 .marchio:hover .nome { opacity: .85; }
 h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
 .marchio { -webkit-user-select: none; user-select: none; }
+
+/* la firma di Postilva nella striscia non cambia colore al passaggio del mouse (Antonio, 23/11/2026) */
+.firma:hover, .firma:focus, .firma:active { color: var(--ink); }
+.firma:hover small { color: #ef3b3d; }
+.striscia .tavolo:hover { color: var(--ink-2); }
