@@ -31,8 +31,8 @@ SRC = os.path.join(SITO, "src")
 MAPLIBRE = "4.7.1"
 MAPLIBRE_JS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.js"
 MAPLIBRE_CSS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.css"
-FONT = "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap"
-TITOLO = "Spazi pubblici di Taranto"
+FONT = "https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+TITOLO = "Vuoti a rendere"
 DEC = 6  # decimali delle coordinate (~0,1 m)
 
 
@@ -149,6 +149,8 @@ def main():
         "verificati": sum(1 for f in feats if f["properties"].get("data_sopralluogo")),
         "per_tipo": {k: per_tipo.get(k, 0) for k, _ in tipi.TIPI},
         "cercati_online": sum(1 for f in feats if f["properties"].get("online")),
+        "tamburi": sum(1 for f in feats if f["properties"].get("quartiere") == "Tamburi"),
+        "resto": sum(1 for f in feats if f["properties"].get("quartiere") != "Tamburi"),
         "per_indicazione": dict(per_indicazione),
     }
 
@@ -163,8 +165,11 @@ def main():
     # --- assemblaggio pagine ---
     leggi = lambda n: open(os.path.join(SRC, n), encoding="utf-8").read()
     corpo, css, js = leggi("corpo.html"), leggi("app.css"), leggi("app.js")
+    corpo = corpo.replace("__LOGO__", leggi("logo.svg").strip())
     css_ml = leggi(f"vendor/maplibre-gl-{MAPLIBRE}.css")
     generato = max((f["properties"].get("ultima_modifica") or "" for f in feats), default="")
+    import datetime
+    generato = max(generato, datetime.date.today().isoformat())  # anche la ricerca online aggiorna i dati
     osm = osm_incorporato()
     meta = {"generato": generato, "maplibre": MAPLIBRE, "titolo": TITOLO, "tipi": tipi.TIPI, "numeri": numeri, "fonti": fonti}
     if osm:
@@ -172,7 +177,7 @@ def main():
 
     testa = (f'<title>{TITOLO}</title>\n'
              f'<meta name="claude:viewport-fit-sides" content="cover">\n'
-             f'<meta name="description" content="Mappa di prova dei locali non residenziali del Comune di Taranto (elenco beni immobili 2024). Dati da verificare.">\n'
+             f'<meta name="description" content="Vuoti a rendere: il censimento degli spazi del Comune di Taranto, uno per uno. Versione di prova, dati da verificare. Un progetto di Postilva.">\n'
              f'<link rel="preconnect" href="https://fonts.googleapis.com">\n'
              f'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
              f'<link rel="stylesheet" href="{FONT}">\n')

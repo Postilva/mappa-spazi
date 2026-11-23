@@ -1,6 +1,8 @@
-/* Spazi pubblici di Taranto – JS vanilla, nessun framework.
+/* Vuoti a rendere – il censimento degli spazi del Comune di Taranto. JS vanilla, nessun framework.
    Dati: window.MAPPA_DATI (pagina unica claude.ai) oppure window.MAPPA_DATI_URL (versione normale).
-   Navigazione: #mappa, #elenco, #esempio, #metodo, #edificio-<foglio>-<particella>. */
+   Navigazione: #inizio, #mappa, #esempio, #metodo, #edificio-<foglio>-<particella>.
+   Segno dello strumento: il quadratino (un immobile). Vuoto = da verificare; con il centro pieno = secondo le
+   fonti online è chiuso o probabilmente abbandonato; pieno = visto sul posto. */
 (function () {
   "use strict";
 
@@ -9,16 +11,19 @@
     ["rudere", "Rudere"], ["da_verificare", "Da verificare"]
   ];
   var TIPI = []; // da meta.tipi (scripts/tipi.py)
-  var C = {
-    blu: "#212D57", rosso: "#CC1417", bianco: "#FFFFFF", chiuso: "#7F8AB0", rudere: "#7A0C0E",
-    verificare: "#6B7280", terra: "#F3F1EC", mare: "#D7E3EE", bordo: "#E3E5EC", bordoForte: "#C9CDD9", testo2: "#4A5373"
+  var C = { // stessi valori di app.css (:root)
+    acc: "#e0b56a", accSoft: "#2a2213", onAcc: "#111111", bg: "#0b0b0c", sup: "#151517", sup2: "#1f1f22", linea: "#27272a",
+    ink: "#f4f4f5", ink2: "#a1a1aa", ink3: "#8b8b94", rosso: "#cc1417", bianco: "#ffffff",
+    // usati dai disegni della scheda di esempio
+    blu: "#3a4466", chiuso: "#7f8ab0", rudere: "#7a0c0e", verificare: "#8b8b94", terra: "#141416", mare: "#1d2a36",
+    bordo: "#27272a", bordoForte: "#3a3a40", testo2: "#a1a1aa"
   };
   var DA_COMPLETARE = "da completare dopo il sopralluogo";
   var riduciMoto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var edifici = [], perId = {}, base = null, meta = {}, osm = null;
   var mappa = null, mappaPronta = false, selezionato = null, primaVista = true;
-  var filtroStato = {}, filtroTipo = {};
+  var filtroT = "", filtroO = "", testo = "", dopo = null;
 
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
@@ -36,30 +41,22 @@
   function numIt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
   function vuoto(s) { return '<span class="da-completare">' + esc(s || DA_COMPLETARE) + "</span>"; }
 
-  /* ---------- simboli degli stati (SVG) ---------- */
-  function simbolo(stato, px, sel) {
-    var s = px || 22, h = s / 2, r = h - 2, f, forma;
-    switch (stato) {
-      case "in_uso": f = C.blu; forma = '<circle cx="' + h + '" cy="' + h + '" r="' + r + '"/>'; break;
-      case "chiuso": f = C.chiuso; forma = '<rect x="2" y="2" width="' + (s - 4) + '" height="' + (s - 4) + '"/>'; break;
-      case "abbandonato": f = C.rosso; forma = '<polygon points="' + h + ',1.5 ' + (s - 1.5) + ',' + (s - 2.5) + ' 1.5,' + (s - 2.5) + '"/>'; break;
-      case "rudere": f = C.rudere; forma = '<polygon points="' + h + ',1 ' + (s - 1) + ',' + h + ' ' + h + ',' + (s - 1) + ' 1,' + h + '"/>'; break;
-      default: f = null;
+  /* ---------- simboli: quadratini (SVG) ---------- */
+  function segnalato(p) { var i = p && p.online && p.online.indicazione; return i === "chiuso" || i === "probabile_abbandono"; }
+  function simbolo(stato, px, segn) {
+    var s = px || 18, o = '<svg width="' + s + '" height="' + s + '" viewBox="0 0 20 20" aria-hidden="true" focusable="false">';
+    if (!stato || stato === "da_verificare") {
+      o += '<rect x="2.5" y="2.5" width="15" height="15" rx="3" fill="' + C.bg + '" stroke="' + C.acc + '" stroke-width="2.6"/>';
+      if (segn) o += '<rect x="7" y="7" width="6" height="6" rx="1" fill="' + C.acc + '"/>';
+    } else {
+      o += '<rect x="2" y="2" width="16" height="16" rx="3" fill="' + (stato === "in_uso" ? C.ink2 : C.acc) + '"/>';
+      if (stato === "abbandonato") o += '<path d="M6.5 6.5l7 7M13.5 6.5l-7 7" stroke="' + C.bg + '" stroke-width="2.2"/>';
+      if (stato === "rudere") o += '<path d="M5.5 14.5l9-9" stroke="' + C.bg + '" stroke-width="2.2"/>';
     }
-    var pad = sel ? 7 : 0, w = s + pad * 2;
-    var out = '<svg width="' + w + '" height="' + w + '" viewBox="' + (-pad) + " " + (-pad) + " " + w + " " + w + '" aria-hidden="true" focusable="false">';
-    if (sel) out += '<circle cx="' + h + '" cy="' + h + '" r="' + (h + 4.5) + '" fill="none" stroke="' + C.bianco + '" stroke-width="5"/>' +
-      '<circle cx="' + h + '" cy="' + h + '" r="' + (h + 4.5) + '" fill="none" stroke="' + C.rosso + '" stroke-width="3"/>';
-    if (f) {
-      out += '<g fill="' + f + '" stroke="' + C.bianco + '" stroke-width="2" stroke-linejoin="miter">' + forma + "</g>";
-    } else { // da verificare: cerchio vuoto tratteggiato con bordo bianco
-      out += '<circle cx="' + h + '" cy="' + h + '" r="' + (r - 1) + '" fill="' + C.bianco + '" fill-opacity="0.85" stroke="' + C.bianco + '" stroke-width="6"/>' +
-        '<circle cx="' + h + '" cy="' + h + '" r="' + (r - 1) + '" fill="none" stroke="' + C.verificare + '" stroke-width="2.5" stroke-dasharray="3.2 2.2"/>';
-    }
-    return out + "</svg>";
+    return o + "</svg>";
   }
-  function etichettaStato(stato) {
-    return '<span class="stato">' + simbolo(stato, 18) + esc(etichetta(STATI, stato)) + "</span>";
+  function etichettaStato(stato, segn) {
+    return '<span class="stato">' + simbolo(stato, 16, segn) + esc(etichetta(STATI, stato)) + "</span>";
   }
 
   /* ---------- testi delle schede ---------- */
@@ -85,13 +82,14 @@
   function nLocali(p) { return p.n_locali === 1 ? "1 locale" : p.n_locali + " locali"; }
 
   /* ---------- router ---------- */
-  var VISTE = ["mappa", "elenco", "esempio", "metodo"];
+  var VISTE = ["inizio", "mappa", "esempio", "metodo"];
   function rotta() {
     var h = (location.hash || "").replace(/^#/, "");
     var m = /^edificio-([0-9a-z]+-[0-9a-z]+)$/i.exec(h);
     if (m) return { vista: "scheda", id: m[1] };
     if (VISTE.indexOf(h) >= 0) return { vista: h };
-    return { vista: "mappa" };
+    if (h === "elenco") return { vista: "mappa" };
+    return { vista: "inizio" };
   }
   function vai() {
     var r = rotta();
@@ -101,12 +99,12 @@
       var attivo = a.getAttribute("data-nav") === r.vista;
       if (attivo) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
-    var t = meta.titolo || "Spazi pubblici di Taranto";
+    var t = meta.titolo || "Vuoti a rendere";
     if (r.vista === "scheda") {
       disegnaScheda(r.id ? perId[r.id].properties : null, $("#scheda"), false);
       if (r.id) { seleziona(r.id, false); t = titolo(perId[r.id].properties) + " – " + t; }
-    } else if (r.vista === "elenco") t = "Elenco – " + t;
-    else if (r.vista === "metodo") t = "Metodo e fonti – " + t;
+    } else if (r.vista === "mappa") t = "Mappa – " + t;
+    else if (r.vista === "metodo") t = "Come lavoriamo – " + t;
     else if (r.vista === "esempio") {
       t = "Scheda di esempio – " + t;
       if (!$("#scheda-esempio").firstChild) { disegnaScheda(ESEMPIO, $("#scheda-esempio"), true); avvia3d(); }
@@ -114,6 +112,10 @@
     if (r.vista !== "esempio") ferma3d(); else riprendi3d();
     document.title = t;
     if (r.vista === "mappa" && mappa) setTimeout(function () { mappa.resize(); }, 0);
+    if (dopo) {
+      var el = document.getElementById(dopo); dopo = null; primaVista = false;
+      if (el) { setTimeout(function () { el.scrollIntoView({ block: "start" }); try { el.focus({ preventScroll: true }); } catch (e) {} }, 0); return; }
+    }
     if (!primaVista) {
       window.scrollTo(0, 0);
       var h1 = $('.vista:not([hidden]) h1');
@@ -127,9 +129,9 @@
      Pagina unica: tessere e caratteri incorporati (gzip + base64), serviti con il protocollo "incorporato://".
      Versione normale: file in sito/dati/osm/. Le tessere z14 ci sono solo attorno agli spazi: dove mancano
      il protocollo risponde 404 e MapLibre ingrandisce la tessera z13. */
-  var B = { // colori della base (stile.md, sezione «Base OpenStreetMap»)
-    terra: C.terra, mare: C.mare, verde: "#E1E6D6", industria: "#ECE9E4", costruito: "#E4E0D7",
-    costruitoBordo: "#D6D1C6", bordoStrada: "#D3CEC4", ferrovia: "#8F97B0", etichetta: C.testo2
+  var B = { // base scura, in tono con il portale
+    terra: "#141416", mare: "#0e1820", verde: "#151c17", industria: "#19191c", costruito: "#1f1f23",
+    costruitoBordo: "#2a2a30", bordoStrada: "#101012", strada: "#2c2c32", ferrovia: "#4b4f5c", etichetta: "#8b8b94"
   };
   function b64(s) {
     var bin = atob(s), u = new Uint8Array(bin.length);
@@ -191,7 +193,7 @@
     STRADE.forEach(function (s) {
       L.push({ id: "strade-" + s[0], type: "line", source: "osm", "source-layer": "transportation", minzoom: s[3],
         filter: ["all", cls(s[1]), ["!=", ["get", "brunnel"], "tunnel"]],
-        layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": C.bianco, "line-width": z(s[2]) } });
+        layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": B.strada, "line-width": z(s[2]) } });
     });
     L.push(
       { id: "ferrovia", type: "line", source: "osm", "source-layer": "transportation",
@@ -201,9 +203,9 @@
         filter: ["all", cls(["rail"]), ["!=", ["get", "brunnel"], "tunnel"], ["!", ["has", "service"]]],
         paint: { "line-color": B.ferrovia, "line-width": 5, "line-dasharray": [0.15, 2.5] } },
       // particelle degli spazi (catasto)
-      { id: "edifici", type: "fill", source: "base", minzoom: 14, paint: { "fill-color": C.chiuso, "fill-opacity": 0.35 } },
-      { id: "edifici-bordo", type: "line", source: "base", minzoom: 14, paint: { "line-color": C.blu, "line-width": 1 } },
-      { id: "edificio-sel", type: "line", source: "base", filter: ["==", ["get", "id"], ""], paint: { "line-color": C.rosso, "line-width": 2.5 } },
+      { id: "edifici", type: "fill", source: "base", minzoom: 14, paint: { "fill-color": C.acc, "fill-opacity": 0.14 } },
+      { id: "edifici-bordo", type: "line", source: "base", minzoom: 14, paint: { "line-color": C.acc, "line-width": 1, "line-opacity": 0.7 } },
+      { id: "edificio-sel", type: "line", source: "base", filter: ["==", ["get", "id"], ""], paint: { "line-color": C.ink, "line-width": 2.5 } },
       // etichette
       { id: "nomi-acqua", type: "symbol", source: "osm", "source-layer": "water_name",
         layout: { "text-field": nome, "text-font": ["Noto Sans Italic"], "text-size": 13, "symbol-placement": "point" },
@@ -212,12 +214,12 @@
         filter: cls(["motorway", "trunk", "primary", "secondary", "tertiary", "minor", "service"]),
         layout: { "text-field": nome, "text-font": ["Noto Sans Regular"], "symbol-placement": "line",
           "text-size": ["interpolate", ["linear"], ["zoom"], 14, 10.5, 17, 13], "text-max-angle": 30, "text-padding": 4 },
-        paint: { "text-color": B.etichetta, "text-halo-color": C.bianco, "text-halo-width": 1.5 } },
+        paint: { "text-color": B.etichetta, "text-halo-color": B.terra, "text-halo-width": 1.5 } },
       { id: "nomi-luoghi", type: "symbol", source: "osm", "source-layer": "place",
         filter: cls(["suburb", "quarter", "neighbourhood", "village", "hamlet", "town", "city"]),
         layout: { "text-field": ["upcase", nome], "text-font": ["Noto Sans Bold"], "text-letter-spacing": 0.12,
           "text-size": ["match", ["get", "class"], ["city", "town"], 15, 12], "text-max-width": 8, "text-padding": 8 },
-        paint: { "text-color": C.blu, "text-halo-color": C.bianco, "text-halo-width": 2 } }
+        paint: { "text-color": C.ink2, "text-halo-color": B.terra, "text-halo-width": 2 } }
     );
     return {
       version: 8,
@@ -231,32 +233,53 @@
     };
   }
 
-  /* simboli degli stati disegnati su canvas (per il livello dei punti): stesse forme della legenda */
-  function icona(stato) {
-    var k = 2, S = 26, c = document.createElement("canvas");
-    c.width = c.height = S * k;
-    var g = c.getContext("2d"), h = S / 2, r = h - 3;
-    g.scale(k, k);
-    g.lineJoin = "miter"; g.lineWidth = 2; g.strokeStyle = C.bianco;
-    function chiudi(col) { g.closePath(); g.fillStyle = col; g.fill(); g.stroke(); }
-    g.beginPath();
-    if (stato === "in_uso") { g.arc(h, h, r, 0, 6.2832); chiudi(C.blu); }
-    else if (stato === "chiuso") { g.rect(h - r + 1, h - r + 1, 2 * r - 2, 2 * r - 2); chiudi(C.chiuso); }
-    else if (stato === "abbandonato") { g.moveTo(h, 2.5); g.lineTo(S - 2.5, S - 4); g.lineTo(2.5, S - 4); chiudi(C.rosso); }
-    else if (stato === "rudere") { g.moveTo(h, 2); g.lineTo(S - 2, h); g.lineTo(h, S - 2); g.lineTo(2, h); chiudi(C.rudere); }
-    else {
-      g.arc(h, h, r - 1, 0, 6.2832); g.fillStyle = "rgba(255,255,255,.9)"; g.fill(); g.lineWidth = 5; g.stroke();
-      g.beginPath(); g.arc(h, h, r - 1, 0, 6.2832); g.setLineDash([3.4, 2.3]); g.lineWidth = 2.5; g.strokeStyle = C.verificare; g.stroke();
+  /* quadratini disegnati su canvas per il livello dei punti: stesse forme di simbolo() */
+  function tela(S) { var k = 2, c = document.createElement("canvas"); c.width = c.height = S * k; var g = c.getContext("2d"); g.scale(k, k); return { g: g, S: S, k: k }; }
+  function quadro(g, x, y, w, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + w, r); g.arcTo(x + w, y + w, x, y + w, r); g.arcTo(x, y + w, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+  function icona(stato, segn) {
+    var t = tela(22), g = t.g;
+    if (stato === "da_verificare") {
+      quadro(g, 3.5, 3.5, 15, 3); g.fillStyle = C.bg; g.fill(); g.lineWidth = 3; g.strokeStyle = C.acc; g.stroke();
+      if (segn) { quadro(g, 8, 8, 6, 1); g.fillStyle = C.acc; g.fill(); }
+    } else {
+      quadro(g, 2.5, 2.5, 17, 3); g.fillStyle = stato === "in_uso" ? C.ink2 : C.acc; g.fill(); g.lineWidth = 1.5; g.strokeStyle = C.bg; g.stroke();
+      g.strokeStyle = C.bg; g.lineWidth = 2.2; g.beginPath();
+      if (stato === "abbandonato") { g.moveTo(7.5, 7.5); g.lineTo(14.5, 14.5); g.moveTo(14.5, 7.5); g.lineTo(7.5, 14.5); }
+      if (stato === "rudere") { g.moveTo(6.5, 15.5); g.lineTo(15.5, 6.5); }
+      g.stroke();
     }
-    return g.getImageData(0, 0, S * k, S * k);
+    return g.getImageData(0, 0, t.S * t.k, t.S * t.k);
+  }
+  function iconaGruppo(S) {
+    var t = tela(S), g = t.g; quadro(g, 2, 2, S - 4, 6); g.fillStyle = C.sup; g.fill(); g.lineWidth = 2.5; g.strokeStyle = C.acc; g.stroke();
+    return g.getImageData(0, 0, t.S * t.k, t.S * t.k);
+  }
+  function iconaSel() {
+    var t = tela(36), g = t.g; quadro(g, 3, 3, 30, 6); g.lineWidth = 3; g.strokeStyle = C.ink; g.stroke();
+    return g.getImageData(0, 0, t.S * t.k, t.S * t.k);
+  }
+  var GRUPPI_ON = [["", "Tutti"], ["segnalati", "Chiusi o probabile abbandono"], ["in_uso", "Probabilmente in uso"],
+    ["da_capire", "Da capire"], ["non_cercati", "Non ancora cercati"]];
+  function gruppoOn(p, gr) {
+    var i = p.online && p.online.indicazione;
+    if (gr === "segnalati") return segnalato(p);
+    if (gr === "in_uso") return i === "in_uso";
+    if (gr === "da_capire") return i === "da_capire" || i === "riconvertito" || i === "in_lavori";
+    if (gr === "non_cercati") return !p.online;
+    return true;
+  }
+  function pagliaio(p) {
+    return (p.id + " " + titolo(p) + " " + via(p) + " " + zona(p) + " " + (p.quartiere || "") + " " +
+      ((p.online && p.online.nome_probabile) || "") + " " + etichetta(TIPI, p.tipo_bene)).toLowerCase();
   }
   function visibile(p) {
-    if (filtroStato[p.stato] === false) return false;
-    return (p.tipi || []).some(function (t) { return filtroTipo[t] !== false; });
+    if (filtroT && (p.tipi || []).indexOf(filtroT) < 0) return false;
+    if (!gruppoOn(p, filtroO)) return false;
+    return !testo || pagliaio(p).indexOf(testo) >= 0;
   }
   function puntiFiltrati() {
     return { type: "FeatureCollection", features: edifici.filter(function (f) { return visibile(f.properties); }).map(function (f) {
-      return { type: "Feature", geometry: f.geometry, properties: { id: f.properties.id, stato: f.properties.stato } };
+      return { type: "Feature", geometry: f.geometry, properties: { id: f.properties.id, stato: f.properties.stato, s: segnalato(f.properties) ? 1 : 0 } };
     }) };
   }
   function limitiEdifici() {
@@ -271,7 +294,7 @@
   }
   function erroreMappa() {
     var box = $("#mappa-box");
-    box.innerHTML = '<p class="mappa-errore">La mappa interattiva non si è caricata in questo browser. Tutti gli spazi sono nella pagina&nbsp;<a href="#elenco">Elenco</a>.</p>';
+    box.innerHTML = '<p class="mappa-errore">La mappa interattiva non si è caricata in questo browser. Tutti gli spazi sono nell\'elenco qui a fianco.</p>';
   }
   function creaMappa() {
     attendiLibreria(function (ok) {
@@ -301,22 +324,25 @@
       mappa.touchZoomRotate.disableRotation();
       mappa.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
       mappa.addControl(new maplibregl.AttributionControl({
-        customAttribution: "Particelle: © Agenzia delle Entrate, CC BY 4.0"
+        compact: true, customAttribution: "Particelle: © Agenzia delle Entrate, CC BY 4.0"
       }), "bottom-right");
       mappa.on("error", function (e) { if (window.console) console.warn("Mappa:", e && e.error && e.error.message); });
       mappa.on("load", function () {
-        STATI.forEach(function (s) { mappa.addImage("st-" + s[0], icona(s[0]), { pixelRatio: 2 }); });
+        STATI.forEach(function (s) {
+          mappa.addImage("st-" + s[0], icona(s[0], false), { pixelRatio: 2 });
+          mappa.addImage("st-" + s[0] + "-s", icona(s[0], true), { pixelRatio: 2 });
+        });
+        [28, 34, 42].forEach(function (S, i) { mappa.addImage("gr-" + i, iconaGruppo(S), { pixelRatio: 2 }); });
+        mappa.addImage("sel", iconaSel(), { pixelRatio: 2 });
         mappa.addSource("punti", { type: "geojson", data: puntiFiltrati(), cluster: true, clusterRadius: 36, clusterMaxZoom: 15 });
-        mappa.addLayer({ id: "gruppi", type: "circle", source: "punti", filter: ["has", "point_count"],
-          paint: { "circle-color": C.blu, "circle-stroke-color": C.bianco, "circle-stroke-width": 2,
-            "circle-radius": ["step", ["get", "point_count"], 14, 10, 18, 40, 23] } });
-        mappa.addLayer({ id: "gruppi-n", type: "symbol", source: "punti", filter: ["has", "point_count"],
-          layout: { "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 13, "text-allow-overlap": true },
-          paint: { "text-color": C.bianco } });
-        mappa.addLayer({ id: "punto-sel", type: "circle", source: "punti", filter: ["==", ["get", "id"], ""],
-          paint: { "circle-radius": 16, "circle-color": C.bianco, "circle-opacity": 0.6, "circle-stroke-color": C.rosso, "circle-stroke-width": 3 } });
+        mappa.addLayer({ id: "gruppi", type: "symbol", source: "punti", filter: ["has", "point_count"],
+          layout: { "icon-image": ["step", ["get", "point_count"], "gr-0", 10, "gr-1", 40, "gr-2"], "icon-allow-overlap": true,
+            "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 13, "text-allow-overlap": true },
+          paint: { "text-color": C.ink } });
+        mappa.addLayer({ id: "punto-sel", type: "symbol", source: "punti", filter: ["==", ["get", "id"], ""],
+          layout: { "icon-image": "sel", "icon-allow-overlap": true } });
         mappa.addLayer({ id: "punti", type: "symbol", source: "punti", filter: ["!", ["has", "point_count"]],
-          layout: { "icon-image": ["concat", "st-", ["get", "stato"]], "icon-allow-overlap": true } });
+          layout: { "icon-image": ["concat", "st-", ["get", "stato"], ["case", ["==", ["get", "s"], 1], "-s", ""]], "icon-allow-overlap": true } });
         mappaPronta = true;
         if (selezionato) evidenzia(selezionato);
       });
@@ -357,77 +383,109 @@
       mappa.resize();
       mappa.jumpTo({ center: perId[id].geometry.coordinates, zoom: 16.5 });
       seleziona(id, false);
-      $("#mappa-box").scrollIntoView({ block: "start" });
+      if (window.innerWidth < 860) $("#mappa-box").scrollIntoView({ block: "start" });
     }, 60);
   }
 
   function rigaVia(p) {
-    if (!via(p)) return "Via: " + vuoto("da completare dopo il sopralluogo");
-    return "Vicino a <strong>" + esc(via(p)) + "</strong>" + (zona(p) ? ", zona " + esc(zona(p)) : "") + ' <span class="nota">(da OpenStreetMap, da verificare)</span>';
+    if (!via(p)) return vuoto("via da completare dopo il sopralluogo");
+    return "Vicino a " + esc(via(p)) + (zona(p) ? ", zona " + esc(zona(p)) : "") + ' <span class="nota">(da OpenStreetMap)</span>';
   }
   function disegnaSintesi(id, daMappa) {
     var p = perId[id].properties, box = $("#sintesi");
+    box.hidden = false;
     box.innerHTML =
-      etichettaStato(p.stato) +
+      etichettaStato(p.stato, segnalato(p)) +
       "<h2>" + esc(titolo(p)) + "</h2>" +
-      "<p>" + esc(descrLocali(p)) + "</p>" +
-      "<p>" + rigaVia(p) + "</p>" +
+      "<p>" + esc(descrLocali(p)) + " · " + rigaVia(p) + "</p>" +
       (p.online && p.online.indicazione ? '<p class="indicazione">Online: <strong>' + esc(INDICAZIONI[p.online.indicazione] || "") + "</strong></p>" : "") +
-      '<div class="azioni"><a class="bottone" href="#edificio-' + esc(p.id) + '">Apri la scheda</a></div>';
-    if (daMappa && window.innerWidth < 900) {
-      box.scrollIntoView({ behavior: riduciMoto ? "auto" : "smooth", block: "nearest" });
-    }
+      '<a class="bottone" href="#edificio-' + esc(p.id) + '">Apri la scheda</a>';
+    $$("#lista a[aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
+    var voce = $('#lista a[href="#edificio-' + id + '"]'); if (voce) voce.setAttribute("aria-current", "true");
+    if (daMappa && window.innerWidth < 860) box.scrollIntoView({ behavior: riduciMoto ? "auto" : "smooth", block: "nearest" });
   }
 
-  /* ---------- filtri ---------- */
+  /* ---------- filtri, elenco a fianco della mappa ---------- */
+  function chips(sel, voci, attivo, cb) {
+    var box = $(sel);
+    box.innerHTML = voci.map(function (v) {
+      return '<button type="button" data-v="' + esc(v[0]) + '" aria-pressed="' + (v[0] === attivo) + '">' + esc(v[1]) +
+        (v[2] != null ? '<span class="n">' + v[2] + "</span>" : "") + "</button>";
+    }).join("");
+    box.onclick = function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      $$("button", box).forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      cb(b.getAttribute("data-v"));
+    };
+  }
   function disegnaFiltri() {
-    var cs = {}, ct = {};
-    edifici.forEach(function (f) {
-      var p = f.properties;
-      cs[p.stato] = (cs[p.stato] || 0) + 1;
-      (p.tipi || []).forEach(function (t) { ct[t] = (ct[t] || 0) + 1; });
-    });
-    $("#filtro-stato").innerHTML = STATI.map(function (s) {
-      filtroStato[s[0]] = true;
-      return '<label class="opzione"><input type="checkbox" checked id="fs-' + s[0] + '" data-filtro="stato" value="' + s[0] + '">' +
-        simbolo(s[0], 18) + "<span>" + esc(s[1]) + ' <span class="n">(' + (cs[s[0]] || 0) + ")</span></span></label>";
-    }).join("");
-    $("#filtro-tipo").innerHTML = TIPI.filter(function (t) { return ct[t[0]]; }).map(function (t) {
-      filtroTipo[t[0]] = true;
-      return '<label class="opzione"><input type="checkbox" checked id="ft-' + t[0] + '" data-filtro="tipo" value="' + t[0] + '">' +
-        "<span>" + esc(t[1]) + ' <span class="n">(' + ct[t[0]] + ")</span></span></label>";
-    }).join("");
-    $$("[data-filtro]").forEach(function (cb) {
-      cb.addEventListener("change", function () {
-        (cb.getAttribute("data-filtro") === "stato" ? filtroStato : filtroTipo)[cb.value] = cb.checked;
-        applicaFiltri();
-      });
-    });
+    var ct = {};
+    edifici.forEach(function (f) { (f.properties.tipi || []).forEach(function (t) { ct[t] = (ct[t] || 0) + 1; }); });
+    chips("#filtro-online", GRUPPI_ON.map(function (g) {
+      return [g[0], g[1], g[0] ? edifici.filter(function (f) { return gruppoOn(f.properties, g[0]); }).length : null];
+    }), filtroO, function (v) { filtroO = v; applicaFiltri(); });
+    chips("#filtro-tipo", [["", "Tutti", null]].concat(TIPI.filter(function (t) { return ct[t[0]]; }).map(function (t) { return [t[0], t[1], ct[t[0]]]; })),
+      filtroT, function (v) { filtroT = v; applicaFiltri(); });
+    var c = $("#cerca");
+    c.addEventListener("input", function () { testo = c.value.trim().toLowerCase(); applicaFiltri(); });
   }
   function applicaFiltri() {
-    var n = edifici.filter(function (f) { return visibile(f.properties); }).length;
+    var vis = edifici.filter(function (f) { return visibile(f.properties); });
     if (mappaPronta) mappa.getSource("punti").setData(puntiFiltrati());
-    $("#conteggio").textContent = "Spazi mostrati: " + n + " di " + edifici.length;
+    $("#conteggio").textContent = vis.length === edifici.length ? edifici.length + " immobili" : vis.length + " immobili su " + edifici.length;
+    disegnaLista(vis);
+  }
+  function disegnaLista(vis) {
+    $("#lista").innerHTML = vis.length ? vis.map(function (f) {
+      var p = f.properties, on = p.online && p.online.indicazione && p.online.indicazione !== "nessuna_info";
+      return '<li><a href="#edificio-' + esc(p.id) + '"><span class="cod' + (segnalato(p) ? " pieno" : "") + '">' + esc(p.id) + "</span><span><b>" + esc(titolo(p)) +
+        '</b><span class="meta">' + esc(descrLocali(p)) + (zona(p) ? " · zona " + esc(zona(p)) : "") +
+        (on ? " · online: " + esc((INDICAZIONI[p.online.indicazione] || "").toLowerCase()) : "") + "</span></span></a></li>";
+    }).join("") : '<li class="altri nota">Nessuno spazio con questi filtri.</li>';
   }
 
-  function disegnaLegenda(sel) {
-    $(sel).innerHTML = STATI.map(function (s) { return "<li>" + simbolo(s[0], 20) + "<span>" + esc(s[1]) + "</span></li>"; }).join("");
+  var LEG = [["da_verificare", false, "Da verificare"], ["da_verificare", true, "Da verificare; online: chiuso o probabile abbandono"],
+    ["in_uso", false, "Visto sul posto: in uso"], ["chiuso", false, "Visto sul posto: chiuso"],
+    ["abbandonato", false, "Visto sul posto: abbandonato"], ["rudere", false, "Visto sul posto: rudere"]];
+  function disegnaLegenda() {
+    var n = function (l) { return edifici.filter(function (f) { return f.properties.stato === l[0] && segnalato(f.properties) === l[1]; }).length; };
+    $("#legenda").innerHTML = LEG.slice(0, 2).map(function (l) { return "<div>" + simbolo(l[0], 16, l[1]) + "<span>" + esc(l[2]) + " · " + n(l) + "</span></div>"; }).join("") +
+      '<p class="nota">Dopo il sopralluogo il quadratino si riempie: in uso, chiuso, abbandonato, rudere.</p>';
+    $("#legenda-metodo").innerHTML = LEG.map(function (l) { return "<li>" + simbolo(l[0], 20, l[1]) + "<span>" + esc(l[2]) + " (" + n(l) + ")</span></li>"; }).join("");
   }
 
-  /* ---------- elenco (per zona) ---------- */
-  function disegnaElenco() {
-    var gruppi = {}, ordine = [];
-    edifici.forEach(function (f) {
-      var z = zona(f.properties) || "Zona non indicata";
-      if (!gruppi[z]) { gruppi[z] = []; ordine.push(z); }
-      gruppi[z].push(f.properties);
+  /* ---------- pagina iniziale ---------- */
+  var ICO = { negozi: '<path d="M4 9h16l-1-4H5zM5 9v10h14V9M10 19v-5h4v5"/>', scuole: '<path d="M3 9l9-5 9 5-9 5zM7 11v5c3 2 7 2 10 0v-5"/>',
+    uffici: '<path d="M6 3h12v18H6zM9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/>', ruderi: '<path d="M4 20h16M6 20V9l4-3v14M14 20v-7l4 2v5"/>',
+    industriali: '<path d="M3 20V10l5 3V10l5 3V6h3v14zM3 20h18"/>', magazzini: '<path d="M3 9l9-5 9 5v11H3zM7 20v-7h10v7M7 16h10"/>',
+    laboratori: '<path d="M9 3h6M10 3v6l-5 10h14l-5-10V3"/>', sport: '<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/>',
+    altro: '<path d="M5 5h6v6H5zM13 5h6v6h-6zM5 13h6v6H5zM13 13h6v6h-6z"/>' };
+  function disegnaInizio() {
+    // costellazione: gli immobili nella loro posizione (proiezione semplice, nord in alto)
+    var lo0 = 180, lo1 = -180, la0 = 90, la1 = -90;
+    edifici.forEach(function (f) { var c = f.geometry.coordinates; lo0 = Math.min(lo0, c[0]); lo1 = Math.max(lo1, c[0]); la0 = Math.min(la0, c[1]); la1 = Math.max(la1, c[1]); });
+    var cs = Math.cos((la0 + la1) / 2 * Math.PI / 180), sc = Math.min(960 / ((lo1 - lo0) * cs), 1080 / (la1 - la0));
+    $("#costellazione").innerHTML = edifici.map(function (f, i) {
+      var c = f.geometry.coordinates, x = 20 + (c[0] - lo0) * cs * sc, y = 20 + (la1 - c[1]) * sc, s = segnalato(f.properties);
+      return '<rect x="' + (x - 7).toFixed(1) + '" y="' + (y - 7).toFixed(1) + '" width="14" height="14" rx="2.5" style="--k:' + i + '" fill="' +
+        (s || f.properties.data_sopralluogo ? C.acc : C.bg) + '" stroke="' + C.acc + '" stroke-width="2.5"' + (s ? "" : ' opacity=".8"') + "/>";
+    }).join("");
+    $("#quadri").innerHTML = edifici.map(function (f) {
+      var p = f.properties; return "<i" + (p.data_sopralluogo ? ' class="v"' : p.online ? ' class="c"' : "") + "></i>";
+    }).join("");
+    var n = (meta.numeri || {}).per_tipo || {};
+    $("#tipi").innerHTML = TIPI.filter(function (t) { return n[t[0]]; }).map(function (t) {
+      return '<a class="tipo" href="#mappa" data-tipo="' + t[0] + '"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' +
+        (ICO[t[0]] || ICO.altro) + '</svg></span><span><b>' + esc(t[1]) + '</b><span class="sub">locali</span></span><span class="num">' + numIt(n[t[0]]) + "</span></a>";
+    }).join("");
+    var ord = { alta: 0, media: 1, bassa: 2 };
+    var seg = edifici.filter(function (f) { return segnalato(f.properties); }).sort(function (a, b) {
+      var x = ord[a.properties.online.certezza], y = ord[b.properties.online.certezza]; return (x == null ? 3 : x) - (y == null ? 3 : y);
     });
-    $("#elenco").innerHTML = ordine.map(function (z) {
-      return "<h2>" + esc(z) + ' <span class="n">(' + gruppi[z].length + ')</span></h2><ul class="elenco">' + gruppi[z].map(function (p) {
-        return '<li><a href="#edificio-' + esc(p.id) + '">' + simbolo(p.stato, 20) +
-          '<span><span class="titolo">' + esc(titolo(p)) + '</span><span class="meta">' +
-          esc(etichetta(STATI, p.stato)) + (p.online && p.online.indicazione && p.online.indicazione !== "nessuna_info" ? " · online: " + esc((INDICAZIONI[p.online.indicazione] || "").toLowerCase()) : "") + " · " + esc(descrLocali(p)) + " · ID " + esc(p.id) + "</span></span></a></li>";
-      }).join("") + "</ul>";
+    $("#segnalati").innerHTML = seg.map(function (f) {
+      var p = f.properties, o = p.online;
+      return '<a href="#edificio-' + esc(p.id) + '"><span class="cod pieno">' + esc(p.id) + "</span><div><b>" + esc(titolo(p)) + "</b><span>" +
+        esc(INDICAZIONI[o.indicazione]) + (o.certezza ? ", certezza " + esc(o.certezza) : "") + (zona(p) ? " · zona " + esc(zona(p)) : "") + '</span></div><span class="freccia">›</span></a>';
     }).join("");
   }
 
@@ -441,52 +499,59 @@
     return '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(testo || url) + "</a>";
   }
 
+  function pianta(id) {
+    var f = null;
+    (base && base.features || []).forEach(function (b) { if (b.properties.id === id) f = b; });
+    if (!f) return "";
+    var g = f.geometry, anelli = g.type === "Polygon" ? g.coordinates : [].concat.apply([], g.coordinates);
+    var pts = [].concat.apply([], anelli), x0 = 180, x1 = -180, y0 = 90, y1 = -90;
+    pts.forEach(function (c) { x0 = Math.min(x0, c[0]); x1 = Math.max(x1, c[0]); y0 = Math.min(y0, c[1]); y1 = Math.max(y1, c[1]); });
+    var cs = Math.cos((y0 + y1) / 2 * Math.PI / 180), w = Math.max((x1 - x0) * cs, 1e-6), hh = Math.max(y1 - y0, 1e-6), sc = Math.min(360 / w, 220 / hh);
+    var ox = 200 - w * sc / 2, oy = 130 - hh * sc / 2;
+    function P(c) { return (ox + (c[0] - x0) * cs * sc).toFixed(1) + "," + (oy + (y1 - c[1]) * sc).toFixed(1); }
+    var c = perId[id].geometry.coordinates, q = P(c).split(","), griglia = "";
+    for (var i = 0; i <= 400; i += 40) griglia += '<line x1="' + i + '" y1="0" x2="' + i + '" y2="260" stroke="#1d1d20"/>';
+    for (i = 0; i <= 260; i += 40) griglia += '<line x1="0" y1="' + i + '" x2="400" y2="' + i + '" stroke="#1d1d20"/>';
+    var a = perId[id].properties.area_particella_m2;
+    return '<svg viewBox="0 0 400 260" role="img" aria-label="Contorno della particella ' + esc(id) + '">' + griglia +
+      anelli.map(function (r) { return '<polygon points="' + r.map(P).join(" ") + '" fill="' + C.accSoft + '" stroke="' + C.acc + '" stroke-width="2.5"/>'; }).join("") +
+      '<rect x="' + (q[0] - 7) + '" y="' + (q[1] - 7) + '" width="14" height="14" rx="2.5" fill="none" stroke="' + C.acc + '" stroke-width="2.5"/>' +
+      '<text x="392" y="252" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="' + C.ink3 + '">' + (a ? "≈ " + numIt(a) + " m² · " : "") + "N ↑</text></svg>";
+  }
+
   function disegnaScheda(p, box, es) {
     if (!p) {
-      box.innerHTML = '<div class="gutter"><h1 tabindex="-1">Scheda non trovata</h1><p>Non c\'è uno spazio con questo identificativo. Torna alla <a href="#mappa">mappa</a> o all\'<a href="#elenco">elenco</a>.</p></div>';
+      box.innerHTML = '<div class="g"><div class="w testo"><h1 tabindex="-1">Scheda non trovata</h1><p>Non c\'è uno spazio con questo identificativo. Torna alla <a href="#mappa">mappa</a>.</p></div></div>';
       return;
     }
     var h = [], x = es ? "e-" : ""; // prefisso degli id nella scheda di esempio
     var pericolo = p.stato === "chiuso" || p.stato === "abbandonato" || p.stato === "rudere";
     var marca = es ? ' <span class="tag-esempio">esempio</span>' : "";
+    var on = p.online || null;
 
-    h.push('<nav class="scheda-nav gutter" aria-label="Navigazione"><a href="#mappa">← Torna alla mappa</a>' +
-      (es ? "" : '<button type="button" class="collegamento" data-mostra="' + esc(p.id) + '">Vedi sulla mappa</button>') +
-      '<a href="#elenco">Elenco degli spazi</a></nav>');
-    h.push('<div class="gutter scheda-corpo">');
+    h.push('<div class="g"><div class="w scheda-g"><div>');
+    h.push('<a class="indietro" href="#mappa">← Mappa</a>' + (es ? "" : '<button type="button" class="indietro" data-mostra="' + esc(p.id) + '">Vedi sulla mappa</button>'));
+    h.push('<p class="meta-s"><b>' + esc(p.id) + "</b> · foglio " + esc(p.foglio) + ", particella " + esc(p.particella) +
+      (p.quartiere ? " · " + esc(p.quartiere) : zona(p) ? " · zona " + esc(zona(p)) : "") + "</p>");
+    h.push('<h1 tabindex="-1">' + esc(titolo(p)) + marca + "</h1>");
+    var sintesi;
+    if (p.data_sopralluogo) sintesi = "Visto sul posto il " + esc(dataIt(p.data_sopralluogo)) + ": " + esc(etichetta(STATI, p.stato).toLowerCase()) + ".";
+    else if (on && on.indicazione && on.indicazione !== "nessuna_info")
+      sintesi = "Non ancora visto sul posto. Secondo le fonti online: " + esc((INDICAZIONI[on.indicazione] || "").toLowerCase()) + (on.certezza ? " (certezza " + esc(on.certezza) + ")" : "") + ".";
+    else sintesi = "Non ancora visto sul posto. Sappiamo che è del Comune e dove si trova sul catasto; non sappiamo se è in uso.";
+    h.push('<div class="richiamo"><p>' + sintesi + "</p>" + (!p.data_sopralluogo && on ? '<span class="nota">Le indicazioni online non sono verifiche: le fonti sono qui sotto.</span>' : "") + "</div>");
+    if (pericolo) h.push('<div class="pericolo" role="note"><p><strong>Attenzione:</strong> spazio ' + esc(etichetta(STATI, p.stato).toLowerCase()) +
+      ". Può essere pericoloso: non entrare e non avvicinarti. Questa scheda serve a conoscere il bene, non a visitarlo.</p></div>");
 
-    // 1. Foto
+    // Foto
     var foto = p.foto || [];
     if (foto.length) {
       h.push('<div class="foto-griglia' + (es ? " foto-esempio" : "") + '">' + foto.map(function (f) {
         var img = f.svg ? f.svg : '<img src="' + esc(typeof f === "string" ? f : (f.file || f.url || "")) + '" alt="' + esc(f.descrizione || "Foto del sopralluogo") + '" loading="lazy">';
         return "<figure>" + img + "<figcaption>" + esc(f.descrizione ? f.descrizione + " · " : "") + esc(dataIt(f.data || p.data_sopralluogo)) + "</figcaption></figure>";
       }).join("") + "</div>");
-    } else {
-      h.push('<div class="foto-vuota" role="img" aria-label="Nessuna foto"><p>Nessuna foto: <strong>da completare dopo il sopralluogo</strong>.</p></div>');
     }
-
-    // 2. Stato e identità
-    h.push('<div class="identita">' + etichettaStato(p.stato) +
-      ' <span class="nota">' + (p.data_sopralluogo ? "verificato sul posto il " + esc(dataIt(p.data_sopralluogo)) : "non ancora verificato sul posto") + "</span>" +
-      '<h1 tabindex="-1">' + esc(titolo(p)) + "</h1>" +
-      '<dl class="dati">' +
-      riga("Nome", p.nome ? esc(p.nome) : vuoto("non ancora noto – " + DA_COMPLETARE)) +
-      riga("Indirizzo", p.indirizzo ? esc(p.indirizzo) : vuoto()) +
-      riga("Via più vicina", via(p) ? esc(via(p)) + ' <span class="nota">(da OpenStreetMap, a circa ' + esc(String(p.via_vicina.distanza_m)) + " m dalla particella: non è l'indirizzo, da verificare)</span>" : vuoto("nessuna strada con nome entro 60 m")) +
-      riga("Zona", zona(p) ? esc(zona(p)) + ' <span class="nota">(indicativa, da OpenStreetMap)</span>' : vuoto()) +
-      "</dl>" +
-      (pericolo ? '<div class="pericolo" role="note"><p><strong>Attenzione:</strong> spazio ' + esc(etichetta(STATI, p.stato).toLowerCase()) +
-        ". Può essere pericoloso: non entrare e non avvicinarti. Questa scheda serve a conoscere il bene, non a visitarlo.</p></div>" : "") +
-      "</div>");
-
-    // 3. Menu rapido
     var conIdee = es || (p.idee_riuso || []).length > 0, con3d = es || !!p.modello_3d;
-    var voci = [["dati", "Dati"], ["online", "Cercato online"], ["storia", "Storia"], ["costi", "Costi"]]
-      .concat(conIdee ? [["idee", "Idee di riuso"]] : [], con3d ? [["3d", "3D"]] : [], [["fonti", "Fonti"], ["segnala", "Segnala un errore"]]);
-    h.push('<nav class="menu-rapido" aria-label="Sezioni della scheda">' + voci.map(function (v) {
-      return '<button type="button" data-vai="h-' + x + v[0] + '">' + esc(v[1]) + "</button>";
-    }).join("") + "</nav>");
 
     // 4. Dati
     var u = p.locali || [];
@@ -496,7 +561,7 @@
     var altro = [];
     if (p.n_abitazioni) altro.push(p.n_abitazioni + (p.n_abitazioni === 1 ? " abitazione" : " abitazioni"));
     if (p.n_pertinenze) altro.push(p.n_pertinenze + (p.n_pertinenze === 1 ? " pertinenza" : " pertinenze") + " (cantine, autorimesse, aree)");
-    h.push(sezione(x + "dati", "Dati dello spazio",
+    h.push(sezione(x + "dati", "Che posto è",
       '<dl class="dati">' +
       riga("Proprietà", "Comune di Taranto: il bene compare nell'elenco dei beni immobili comunali 2024") +
       riga("Locali non residenziali", esc(descrLocali(p))) +
@@ -574,7 +639,18 @@
       '<button type="button" class="bottone secondario" data-messaggio="m-' + x + 'segnala" aria-expanded="false" aria-controls="m-' + x + 'segnala">Segnala un errore</button>' +
       '<p class="messaggio" id="m-' + x + 'segnala" hidden>Il modulo per le segnalazioni non è ancora attivo: arriverà in una prossima versione del sito. Quando ci sarà, indica l\'ID della scheda (' + esc(p.id) + ").</p>"));
 
-    h.push("</div>");
+    h.push("</div><aside>");
+    var pi = pianta(p.id);
+    if (pi) h.push('<section class="sez pianta"><h2>Sul catasto</h2>' + pi + '<p class="nota">Contorno della particella (Agenzia delle Entrate, CC BY 4.0). Il quadratino è il punto usato sulla mappa.</p></section>');
+    var passi = [[true, "Nell'elenco del Comune", "elenco beni immobili 2024"], [true, "Trovato sul catasto", "posizione e contorno"],
+      [!!on, "Cercato online", on ? (on.note || []).length + " indicazioni con fonte" : "atti, scuole, notizie"],
+      [!!p.data_sopralluogo, "Visto sul posto", p.data_sopralluogo ? dataIt(p.data_sopralluogo) : "stato, dall'esterno"],
+      [foto.length > 0, "Foto", "senza persone né targhe"], [(p.storia || []).length > 0, "Storia", "archivio e accesso agli atti"],
+      [p.stima && p.stima.min_eur != null, "Stima dei costi", "con un tecnico"]];
+    h.push('<section class="sez"><h2>A che punto è</h2><ul class="tracc">' + passi.map(function (s) {
+      return "<li" + (s[0] ? ' class="si"' : "") + "><i>" + (s[0] ? "✓" : "") + "</i><div><b>" + esc(s[1]) + "</b><span>" + esc(s[2]) + "</span></div></li>";
+    }).join("") + "</ul></section>");
+    h.push("</aside></div></div>");
     box.innerHTML = h.join("");
   }
 
@@ -646,7 +722,7 @@
       try { r = new T.WebGLRenderer({ antialias: true }); } catch (e) { att.textContent = "Questo browser non può mostrare il modello 3D."; return; }
       att.remove();
       r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      r.setClearColor(C.mare);
+      r.setClearColor("#101012");
       box.insertBefore(r.domElement, box.firstChild);
       r.domElement.setAttribute("role", "img");
       r.domElement.setAttribute("aria-label", "Modello 3D schematico dell'edificio di esempio");
@@ -738,8 +814,17 @@
 
   /* ---------- eventi delegati ---------- */
   document.addEventListener("click", function (ev) {
-    var t = ev.target.closest ? ev.target.closest("[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d]") : null;
+    var t = ev.target.closest ? ev.target.closest("[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d],[data-vai-dopo],[data-tipo],[data-zona]") : null;
     if (!t) return;
+    if (t.hasAttribute("data-vai-dopo")) { dopo = t.getAttribute("data-vai-dopo"); return; }
+    if (t.hasAttribute("data-tipo") || t.hasAttribute("data-zona")) {
+      filtroT = t.getAttribute("data-tipo") || ""; filtroO = "";
+      testo = t.hasAttribute("data-zona") ? "tamburi" : ""; $("#cerca").value = testo;
+      $$("#filtro-tipo button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === filtroT)); });
+      $$("#filtro-online button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === "")); });
+      applicaFiltri();
+      return;
+    }
     if (t.hasAttribute("data-salta")) {
       ev.preventDefault();
       var h1 = $('.vista:not([hidden]) h1') || $("#contenuto");
@@ -774,10 +859,9 @@
     edifici.forEach(function (f) { perId[f.properties.id] = f; });
     $$('[data-meta="generato"]').forEach(function (s) { s.textContent = dataIt(meta.generato) || "–"; });
     $$("[data-num]").forEach(function (s) { var v = (meta.numeri || {})[s.getAttribute("data-num")]; s.textContent = v == null ? "–" : numIt(v); });
-    disegnaLegenda("#legenda");
-    disegnaLegenda("#legenda-metodo");
+    disegnaLegenda();
     disegnaFiltri();
-    disegnaElenco();
+    disegnaInizio();
     tabellaTipi();
     applicaFiltri();
     window.addEventListener("hashchange", vai);

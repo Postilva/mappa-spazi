@@ -1,6 +1,6 @@
-# Sito di prova – Spazi pubblici di Taranto
+# Sito di prova – Vuoti a rendere
 
-Stato al 10/11/2026: **versione di prova**, tutti i dati «da verificare» (nessun sopralluogo). Stile A «Istituzionale chiaro» (hub: `progetti/mappa-spazi/stile.md`): solo i colori e i font approvati o proposti lì.
+Stato al 10/11/2026: **versione di prova**, tutti i dati «da verificare» (nessun sopralluogo). Dal 23/11/2026 nello **stile del portale Postilva** (come il sito delle bonifiche): fondo scuro, Space Grotesk e IBM Plex Mono, colore Tufo `#e0b56a` e quadratini come segno (hub: `progetti/mappa-spazi/2026-11-23_proposta-struttura-portale.md`). Lo stile A chiaro è superato.
 
 Cosa mostra: i **locali non residenziali** del Comune di Taranto (elenco beni immobili 2024) in tutta la città. Le abitazioni non sono pubblicate. La regola di selezione è in `scripts/tipi.py`.
 
@@ -30,7 +30,7 @@ Dopo una modifica a mano alle schede `dati/edifici/*.json` basta l'ultimo comand
 | `dist/pagina-claude.html` | **File unico** per la pagina claude.ai: frammento senza doctype/html/head/body, CSS, JS, dati e tessere incorporati |
 | `index.html`, `assets/` | Versione normale per un futuro hosting: dati letti con `fetch` da `dati/` (serve un server http) |
 
-Pagine (hash): `#mappa` (home), `#elenco`, `#esempio`, `#metodo`, `#edificio-<foglio>-<particella>`.
+Pagine (hash): `#inizio` (home), `#mappa` (con filtri ed elenco a fianco), `#esempio`, `#metodo`, `#edificio-<foglio>-<particella>`.
 
 ## Scelte tecniche
 
