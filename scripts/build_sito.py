@@ -166,6 +166,8 @@ def main():
     leggi = lambda n: open(os.path.join(SRC, n), encoding="utf-8").read()
     corpo, css, js = leggi("corpo.html"), leggi("app.css"), leggi("app.js")
     corpo = corpo.replace("__LOGO__", leggi("logo.svg").strip())
+    foto = base64.b64encode(open(os.path.join(SRC, "img/apertura.jpg"), "rb").read()).decode()
+    css = css + "\n:root { --foto-apertura: url(data:image/jpeg;base64," + foto + "); }\n"
     css_ml = leggi(f"vendor/maplibre-gl-{MAPLIBRE}.css")
     generato = max((f["properties"].get("ultima_modifica") or "" for f in feats), default="")
     import datetime

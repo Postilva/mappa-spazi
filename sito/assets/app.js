@@ -506,7 +506,7 @@
     var lo0 = 180, lo1 = -180, la0 = 90, la1 = -90;
     edifici.forEach(function (f) { var c = f.geometry.coordinates; lo0 = Math.min(lo0, c[0]); lo1 = Math.max(lo1, c[0]); la0 = Math.min(la0, c[1]); la1 = Math.max(la1, c[1]); });
     var cs = Math.cos((la0 + la1) / 2 * Math.PI / 180), sc = Math.min(960 / ((lo1 - lo0) * cs), 1080 / (la1 - la0));
-    $("#costellazione").innerHTML = edifici.map(function (f, i) {
+    if ($("#costellazione")) $("#costellazione").innerHTML = edifici.map(function (f, i) {
       var c = f.geometry.coordinates, x = 20 + (c[0] - lo0) * cs * sc, y = 20 + (la1 - c[1]) * sc, s = segnalato(f.properties);
       return '<rect x="' + (x - 7).toFixed(1) + '" y="' + (y - 7).toFixed(1) + '" width="14" height="14" rx="2.5" style="--k:' + i + '" fill="' +
         (s || f.properties.data_sopralluogo ? C.acc : C.bg) + '" stroke="' + C.acc + '" stroke-width="2.5"' + (s ? "" : ' opacity=".8"') + "/>";
