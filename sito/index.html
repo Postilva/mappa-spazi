@@ -26,7 +26,6 @@
   <nav class="menu gutter" aria-label="Sezioni del sito">
     <a href="#mappa" data-nav="mappa">Mappa</a>
     <a href="#elenco" data-nav="elenco">Elenco</a>
-    <a href="#cerco-spazio" data-nav="cerco-spazio">Cerco uno spazio</a>
     <a href="#esempio" data-nav="esempio">Scheda di esempio</a>
     <a href="#metodo" data-nav="metodo">Metodo e fonti</a>
   </nav>
@@ -42,9 +41,9 @@
 <!-- MAPPA (home) -->
 <section class="vista" data-vista="mappa" aria-labelledby="t-mappa">
   <div class="gutter intro">
-    <h1 id="t-mappa" tabindex="-1">Gli spazi del Comune, per chi vuole far partire qualcosa</h1>
-    <p>Su questa mappa ci sono <strong><span data-num="locali"></span> locali non residenziali del Comune di Taranto</strong> in <span data-num="in_mappa"></span> immobili: negozi, laboratori, magazzini, uffici, scuole, capannoni. Nell'elenco del Comune ce ne sono altri, non ancora localizzati. La mappa li mette in fila, uno per uno, per capire quali sono chiusi e a chi potrebbero servire.</p>
-    <p class="azioni-intro"><a class="bottone" href="#cerco-spazio">Cerco uno spazio</a> <a class="bottone secondario" href="#esempio">Guarda una scheda di esempio</a></p>
+    <h1 id="t-mappa" tabindex="-1">Gli spazi del Comune di Taranto, uno per uno</h1>
+    <p>Su questa mappa ci sono <strong><span data-num="locali"></span> locali non residenziali del Comune di Taranto</strong> in <span data-num="in_mappa"></span> immobili: negozi, laboratori, magazzini, uffici, scuole, capannoni. Nell'elenco del Comune ce ne sono altri, non ancora localizzati. È un censimento: li mettiamo in fila, uno per uno, per capire dove sono, in che stato sono e quali sono chiusi.</p>
+    <p class="azioni-intro"><a class="bottone secondario" href="#esempio">Guarda una scheda di esempio</a></p>
   </div>
   <div class="mappa-griglia">
     <div class="mappa-col">
@@ -94,99 +93,6 @@
   <p class="nota">Non sono in elenco le abitazioni comunali e <span data-num="da_localizzare"></span> particelle non ancora localizzate sulla cartografia catastale: vedi <a href="#metodo">Metodo e fonti</a>.</p>
 </section>
 
-<!-- CERCO UNO SPAZIO -->
-<section class="vista gutter testo" data-vista="cerco-spazio" aria-labelledby="t-cerco" hidden>
-  <h1 id="t-cerco" tabindex="-1">Cerco uno spazio</h1>
-  <p>Stai avviando un'attività a Taranto e ti serve un posto? Dicci cosa cerchi. Più richieste raccogliamo, più è forte la domanda che portiamo al Comune: «ci sono persone pronte a riaprire questi spazi».</p>
-
-  <div class="pericolo" role="note"><p><strong>Postilva non assegna spazi.</strong> Gli immobili sono del Comune di Taranto, che decide con una procedura pubblica. Noi raccogliamo l'interesse, verifichiamo gli spazi e portiamo al Comune proposte concrete. Compilare il modulo non dà alcun diritto su uno spazio.</p></div>
-
-  <h2>Come funziona</h2>
-  <ol class="passi">
-    <li><strong>Ci dici cosa cerchi.</strong> Con il modulo qui sotto: non è vincolante.</li>
-    <li><strong>Ti richiamiamo.</strong> Una breve chiacchierata per capire bene il tuo progetto.</li>
-    <li><strong>Cerchiamo lo spazio adatto</strong> tra quelli che abbiamo già visitato e verificato.</li>
-    <li><strong>Portiamo la proposta al Comune:</strong> lo spazio, il progetto e una stima di massima dei costi per riaprirlo.</li>
-    <li><strong>Decide il Comune,</strong> con un avviso o un'altra procedura pubblica aperta a tutti.</li>
-  </ol>
-  <p class="nota">I criteri (chi può candidarsi e con quali priorità) non sono ancora stati decisi: li definirà il tavolo «Quartieri, Spazi e Mare» di Postilva e saranno pubblicati qui prima di aprire il modulo.</p>
-
-  <h2>Il modulo</h2>
-  <div class="bozza" role="note"><p><strong>Bozza: il modulo non è ancora attivo.</strong> Puoi provarlo, ma non salva e non invia nulla. Lo attiveremo dopo aver definito i criteri e l'informativa sulla privacy.</p></div>
-  <form id="modulo-spazio" class="modulo" novalidate>
-    <fieldset>
-      <legend>Chi sei</legend>
-      <div class="opzioni colonna">
-        <label class="opzione"><input type="radio" name="chi" id="chi-nuova" value="Nuova impresa (non ancora avviata o nata da meno di 3 anni)"> <span>Nuova impresa (da avviare o nata da meno di 3 anni)</span></label>
-        <label class="opzione"><input type="radio" name="chi" id="chi-esistente" value="Impresa già attiva"> <span>Impresa già attiva</span></label>
-        <label class="opzione"><input type="radio" name="chi" id="chi-coop" value="Cooperativa"> <span>Cooperativa</span></label>
-        <label class="opzione"><input type="radio" name="chi" id="chi-ets" value="Associazione o altro ente non profit"> <span>Associazione o altro ente non profit</span></label>
-        <label class="opzione"><input type="radio" name="chi" id="chi-gruppo" value="Gruppo informale"> <span>Gruppo informale</span></label>
-      </div>
-    </fieldset>
-    <div class="campo">
-      <label for="m-attivita">Che attività vuoi fare?</label>
-      <textarea id="m-attivita" name="attivita" rows="3" placeholder="Per esempio: laboratorio di falegnameria con vendita, forno di quartiere, officina di riparazione biciclette"></textarea>
-    </div>
-    <div class="campo-riga">
-      <div class="campo">
-        <label for="m-mq">Di quanti metri quadri hai bisogno?</label>
-        <select id="m-mq" name="mq">
-          <option value="">Scegli</option>
-          <option>Fino a 50 m²</option><option>Da 50 a 150 m²</option><option>Da 150 a 500 m²</option><option>Più di 500 m²</option><option>Non lo so ancora</option>
-        </select>
-      </div>
-      <div class="campo">
-        <label for="m-persone">Quante persone ci lavorerebbero?</label>
-        <select id="m-persone" name="persone">
-          <option value="">Scegli</option>
-          <option>Solo io</option><option>Da 2 a 5</option><option>Da 6 a 15</option><option>Più di 15</option>
-        </select>
-      </div>
-    </div>
-    <fieldset>
-      <legend>Cosa ti serve</legend>
-      <div class="opzioni">
-        <label class="opzione"><input type="checkbox" name="req" id="req-terra" value="piano terra"> <span>Piano terra</span></label>
-        <label class="opzione"><input type="checkbox" name="req" id="req-vetrina" value="vetrina su strada"> <span>Vetrina su strada</span></label>
-        <label class="opzione"><input type="checkbox" name="req" id="req-carico" value="carico e scarico"> <span>Carico e scarico</span></label>
-        <label class="opzione"><input type="checkbox" name="req" id="req-esterno" value="spazio all'aperto"> <span>Spazio all'aperto</span></label>
-        <label class="opzione"><input type="checkbox" name="req" id="req-accessibile" value="accesso senza barriere"> <span>Accesso senza barriere</span></label>
-      </div>
-    </fieldset>
-    <div class="campo-riga">
-      <div class="campo">
-        <label for="m-zona">In quale zona?</label>
-        <select id="m-zona" name="zona"><option value="">Qualsiasi zona</option></select>
-      </div>
-      <div class="campo">
-        <label for="m-tempi">Quando vorresti partire?</label>
-        <select id="m-tempi" name="tempi">
-          <option value="">Scegli</option>
-          <option>Entro 6 mesi</option><option>Entro un anno</option><option>Più avanti</option>
-        </select>
-      </div>
-    </div>
-    <div class="campo">
-      <label for="m-spazi">Hai già visto uno spazio sulla mappa? <span class="nota">(facoltativo)</span></label>
-      <input type="text" id="m-spazi" name="spazi" placeholder="Scrivi l'ID della scheda, per esempio 254-312">
-    </div>
-    <fieldset>
-      <legend>Come ti ricontattiamo</legend>
-      <div class="campo-riga">
-        <div class="campo"><label for="m-nome">Nome e cognome</label><input type="text" id="m-nome" name="nome" autocomplete="name"></div>
-        <div class="campo"><label for="m-contatto">Email o telefono</label><input type="text" id="m-contatto" name="contatto" autocomplete="email"></div>
-      </div>
-      <p class="nota">Quando il modulo sarà attivo, qui ci saranno l'informativa sulla privacy e la richiesta di consenso. Nomi e contatti non saranno mai pubblicati: sul sito compariranno solo numeri.</p>
-    </fieldset>
-    <button type="submit" class="bottone">Prova l'invio</button>
-    <div id="modulo-esito" class="messaggio" role="status" aria-live="polite" tabindex="-1" hidden></div>
-  </form>
-
-  <h2>Cosa si vedrà sul sito</h2>
-  <p>Solo numeri: quante persone sono interessate a uno spazio, quante richieste ci sono per tipo di attività e per zona. Oggi le richieste raccolte sono <strong>zero</strong>, perché il modulo non è attivo.</p>
-</section>
-
 <!-- METODO E FONTI -->
 <section class="vista gutter testo" data-vista="metodo" aria-labelledby="t-metodo" hidden>
   <h1 id="t-metodo" tabindex="-1">Metodo e fonti</h1>
@@ -197,6 +103,7 @@
     <li><strong>Elenco degli immobili.</strong> Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative, <em>Elenco beni immobili – anno 2024</em>, pubblicato in Amministrazione Trasparente il 29/05/2024 (<a href="https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721" target="_blank" rel="noopener">scheda della pubblicazione</a>). L'elenco riporta identificativo, foglio, particella, subalterno e categoria catastale di ogni unità. <strong>Non contiene indirizzi, nomi né l'uso attuale.</strong></li>
     <li><strong>Posizione.</strong> Agenzia delle Entrate, <em>Cartografia catastale</em>, servizio WFS INSPIRE, licenza CC BY 4.0, consultato il 10/11/2026. Per ogni foglio e particella dell'elenco si è preso il poligono della particella; il simbolo sulla mappa è il <strong>baricentro della particella</strong>, che è evidenziata in azzurro.</li>
     <li><strong>Via e zona.</strong> Ricavate in automatico da OpenStreetMap: la via è la strada con nome più vicina alla particella (entro 60 metri), la zona è il quartiere o la località più vicina. <strong>Non sono l'indirizzo</strong> e possono essere sbagliate: servono solo a orientarsi finché non c'è il sopralluogo.</li>
+    <li><strong>Cercato online.</strong> Prima dei sopralluoghi cerchiamo cosa si sa già di ogni spazio: cosa segna OpenStreetMap dentro la particella, l'anagrafe delle scuole statali del Ministero dell'Istruzione (a.s. 2026/27), notizie e atti pubblici. Ogni indicazione ha la sua fonte nella scheda. <strong>Non sono dati verificati</strong>: lo stato resta «da verificare» fino al sopralluogo. Finora cercati online: <span data-num="cercati_online"></span> spazi.</li>
     <li><strong>Mappa di base.</strong> © OpenStreetMap contributors, licenza <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">ODbL</a>; tessere vettoriali OpenFreeMap (schema OpenMapTiles) del 1/11/2026, incorporate nella pagina.</li>
   </ol>
 
@@ -251,7 +158,7 @@
 </footer>
 </div>
 
-<script>window.MAPPA_DATI_URL={"edifici": "dati/edifici.geojson", "base": "dati/base.geojson", "meta": {"generato": "2026-11-10", "maplibre": "4.7.1", "titolo": "Spazi pubblici di Taranto", "tipi": [["negozi", "Negozi e botteghe"], ["laboratori", "Laboratori"], ["magazzini", "Magazzini e depositi"], ["uffici", "Uffici"], ["scuole", "Scuole"], ["industriali", "Opifici e capannoni"], ["sport", "Impianti sportivi"], ["ruderi", "Ruderi (unità collabenti)"], ["altro", "Altro"]], "numeri": {"particelle_elenco": 539, "localizzate": 488, "da_localizzare": 51, "in_mappa": 203, "locali": 340, "solo_abitazioni": 285, "con_via": 201, "verificati": 0, "per_tipo": {"negozi": 87, "laboratori": 8, "magazzini": 22, "uffici": 40, "scuole": 61, "industriali": 29, "sport": 6, "ruderi": 35, "altro": 52}}, "fonti": [[{"titolo": "Elenco beni immobili – anno 2024", "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative", "data": "2024-05-29", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721", "uso": "identificativi, foglio, particella, subalterni e categorie catastali"}, {"titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)", "ente": "Agenzia delle Entrate", "data": "2026-11-10", "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php", "licenza": "CC BY 4.0", "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"}, {"titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)", "ente": "© OpenStreetMap contributors", "data": "2026-11-01", "url": "https://www.openstreetmap.org/copyright", "licenza": "ODbL", "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"}]], "osm": {"zoom": [10, 14], "bbox": [17.14055, 40.37122, 17.33371, 40.5502], "attribuzione": "© OpenStreetMap contributors (ODbL) · OpenFreeMap · OpenMapTiles"}}, "osm": "dati/osm/"};</script>
+<script>window.MAPPA_DATI_URL={"edifici": "dati/edifici.geojson", "base": "dati/base.geojson", "meta": {"generato": "2026-11-10", "maplibre": "4.7.1", "titolo": "Spazi pubblici di Taranto", "tipi": [["negozi", "Negozi e botteghe"], ["laboratori", "Laboratori"], ["magazzini", "Magazzini e depositi"], ["uffici", "Uffici"], ["scuole", "Scuole"], ["industriali", "Opifici e capannoni"], ["sport", "Impianti sportivi"], ["ruderi", "Ruderi (unità collabenti)"], ["altro", "Altro"]], "numeri": {"particelle_elenco": 539, "localizzate": 488, "da_localizzare": 51, "in_mappa": 203, "locali": 340, "solo_abitazioni": 285, "con_via": 201, "verificati": 0, "per_tipo": {"negozi": 87, "laboratori": 8, "magazzini": 22, "uffici": 40, "scuole": 61, "industriali": 29, "sport": 6, "ruderi": 35, "altro": 52}, "cercati_online": 113, "per_indicazione": {"in_uso": 52, "da_capire": 24, "nessuna_info": 14, "solo_osm": 8, "chiuso": 3, "riconvertito": 1, "probabile_abbandono": 11}}, "fonti": [[{"titolo": "Elenco beni immobili – anno 2024", "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative", "data": "2024-05-29", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721", "uso": "identificativi, foglio, particella, subalterni e categorie catastali"}, {"titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)", "ente": "Agenzia delle Entrate", "data": "2026-11-10", "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php", "licenza": "CC BY 4.0", "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"}, {"titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)", "ente": "© OpenStreetMap contributors", "data": "2026-11-01", "url": "https://www.openstreetmap.org/copyright", "licenza": "ODbL", "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"}]], "osm": {"zoom": [10, 14], "bbox": [17.14055, 40.37122, 17.33371, 40.5502], "attribuzione": "© OpenStreetMap contributors (ODbL) · OpenFreeMap · OpenMapTiles"}}, "osm": "dati/osm/"};</script>
 <script src="assets/app.js"></script>
 </body>
 </html>

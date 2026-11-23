@@ -172,31 +172,13 @@ summary:not(.maplibregl-ctrl-attrib-button) { cursor: pointer; min-height: 44px;
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
 
-/* --- piattaforma: apertura, elenco per zona, modulo, scheda di esempio --- */
+/* --- apertura, elenco per zona, scheda di esempio --- */
 .azioni-intro { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 16px; }
 #elenco h2 { font-size: 20px; margin-top: 24px; }
 #elenco h2 .n, .n { font-family: var(--f-testo); font-size: 14px; color: var(--testo-2); text-transform: none; letter-spacing: 0; }
 .collegamento { background: none; border: 0; padding: 0; min-height: 44px; color: var(--blu); font: 600 16px/1.2 var(--f-testo); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .forchetta { font-family: var(--f-titoli); font-size: 26px; line-height: 1.15; margin: 8px 0; text-transform: uppercase; }
 .linea-tempo li.chiusura { border-left: 3px solid var(--rosso); margin-left: -2px; }
-.passi { padding-left: 22px; }
-.passi li { margin-bottom: 8px; padding-left: 4px; }
-.passi li::marker { font-family: var(--f-titoli); font-size: 18px; }
-.bozza { border: 2px dashed var(--bordo-forte); background: var(--fondo-costi); padding: 10px 14px; margin: 12px 0; }
-.bozza p { margin: 0; }
-.modulo { max-width: 720px; display: flex; flex-direction: column; gap: 14px; margin: 16px 0 8px; }
-.modulo fieldset { border: 1px solid var(--bordo-forte); margin: 0; padding: 8px 14px 12px; min-width: 0; }
-.modulo legend { font-weight: 700; padding: 0 6px; }
-.opzioni.colonna { flex-direction: column; }
-.campo { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.campo-riga > .campo { flex: 1 1 220px; }
-.campo label { font-weight: 600; }
-.campo-riga { display: flex; flex-wrap: wrap; gap: 14px; }
-.campo input[type="text"], .campo select, .campo textarea { font: 16px/1.4 var(--f-testo); color: var(--blu); background: var(--bianco); border: 1px solid var(--testo-2); border-radius: 0; padding: 10px; min-height: 44px; width: 100%; }
-.campo textarea { resize: vertical; }
-.campo ::placeholder { color: var(--testo-2); opacity: 1; }
-.modulo .bottone { align-self: flex-start; }
-.modulo .messaggio:focus { outline: 3px solid var(--blu); outline-offset: 2px; }
 .esempio-avviso { background: var(--blu); color: var(--bianco); max-width: none; }
 .esempio-avviso p { max-width: var(--max); margin: 0 auto; padding: 12px 0; }
 .tag-esempio { font: 600 12px/1 var(--f-testo); text-transform: uppercase; letter-spacing: .06em; border: 1px solid var(--testo-2); color: var(--testo-2); padding: 2px 6px; vertical-align: middle; }
@@ -208,3 +190,6 @@ summary:not(.maplibregl-ctrl-attrib-button) { cursor: pointer; min-height: 44px;
 .tre-d-attesa { position: absolute; inset: 0; margin: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px; }
 .tre-d-etichetta { position: absolute; left: 0; top: 0; background: var(--rosso); color: var(--bianco); font-family: var(--f-titoli); text-transform: uppercase; letter-spacing: .06em; font-size: 15px; padding: 6px 12px; }
 caption { text-align: left; font-weight: 700; padding: 8px 0 4px; }
+.indicazione { margin: 4px 0 8px; }
+.online-note { padding-left: 20px; }
+.online-note li { margin-bottom: 8px; }

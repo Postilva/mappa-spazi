@@ -1,6 +1,6 @@
 /* Spazi pubblici di Taranto – JS vanilla, nessun framework.
    Dati: window.MAPPA_DATI (pagina unica claude.ai) oppure window.MAPPA_DATI_URL (versione normale).
-   Navigazione: #mappa, #elenco, #cerco-spazio, #esempio, #metodo, #edificio-<foglio>-<particella>. */
+   Navigazione: #mappa, #elenco, #esempio, #metodo, #edificio-<foglio>-<particella>. */
 (function () {
   "use strict";
 
@@ -17,7 +17,7 @@
   var riduciMoto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var edifici = [], perId = {}, base = null, meta = {}, osm = null;
-  var mappa = null, mappaPronta = false, selezionato = null, primaVista = true, spazioDaModulo = null;
+  var mappa = null, mappaPronta = false, selezionato = null, primaVista = true;
   var filtroStato = {}, filtroTipo = {};
 
   function $(s, r) { return (r || document).querySelector(s); }
@@ -65,8 +65,11 @@
   /* ---------- testi delle schede ---------- */
   function via(p) { return p.via_vicina && p.via_vicina.nome ? p.via_vicina.nome : ""; }
   function zona(p) { return p.zona && p.zona.nome ? p.zona.nome : ""; }
+  var INDICAZIONI = { in_uso: "Probabilmente in uso", probabile_abbandono: "Probabile abbandono", chiuso: "Probabilmente chiuso",
+    riconvertito: "Probabilmente usato per altro", in_lavori: "Probabilmente in lavori", da_capire: "Da capire", nessuna_info: "Nessuna notizia online" };
   function titolo(p) {
     if (p.nome) return p.nome;
+    if (p.online && p.online.nome_probabile) return p.online.nome_probabile;
     var t = etichetta(TIPI, p.tipo_bene);
     if (via(p)) return t + " · " + via(p);
     return t + " · foglio " + p.foglio + ", particella " + p.particella;
@@ -82,7 +85,7 @@
   function nLocali(p) { return p.n_locali === 1 ? "1 locale" : p.n_locali + " locali"; }
 
   /* ---------- router ---------- */
-  var VISTE = ["mappa", "elenco", "cerco-spazio", "esempio", "metodo"];
+  var VISTE = ["mappa", "elenco", "esempio", "metodo"];
   function rotta() {
     var h = (location.hash || "").replace(/^#/, "");
     var m = /^edificio-([0-9a-z]+-[0-9a-z]+)$/i.exec(h);
@@ -104,14 +107,7 @@
       if (r.id) { seleziona(r.id, false); t = titolo(perId[r.id].properties) + " – " + t; }
     } else if (r.vista === "elenco") t = "Elenco – " + t;
     else if (r.vista === "metodo") t = "Metodo e fonti – " + t;
-    else if (r.vista === "cerco-spazio") {
-      t = "Cerco uno spazio – " + t;
-      if (spazioDaModulo) {
-        var campo = $("#m-spazi");
-        if (campo.value.split(/[\s,;]+/).indexOf(spazioDaModulo) < 0) campo.value = (campo.value ? campo.value + ", " : "") + spazioDaModulo;
-        spazioDaModulo = null;
-      }
-    } else if (r.vista === "esempio") {
+    else if (r.vista === "esempio") {
       t = "Scheda di esempio – " + t;
       if (!$("#scheda-esempio").firstChild) { disegnaScheda(ESEMPIO, $("#scheda-esempio"), true); avvia3d(); }
     }
@@ -376,8 +372,8 @@
       "<h2>" + esc(titolo(p)) + "</h2>" +
       "<p>" + esc(descrLocali(p)) + "</p>" +
       "<p>" + rigaVia(p) + "</p>" +
-      '<div class="azioni"><a class="bottone" href="#edificio-' + esc(p.id) + '">Apri la scheda</a>' +
-      '<button type="button" class="bottone secondario" data-interesse="' + esc(p.id) + '">Mi interessa</button></div>';
+      (p.online && p.online.indicazione ? '<p class="indicazione">Online: <strong>' + esc(INDICAZIONI[p.online.indicazione] || "") + "</strong></p>" : "") +
+      '<div class="azioni"><a class="bottone" href="#edificio-' + esc(p.id) + '">Apri la scheda</a></div>';
     if (daMappa && window.innerWidth < 900) {
       box.scrollIntoView({ behavior: riduciMoto ? "auto" : "smooth", block: "nearest" });
     }
@@ -430,13 +426,9 @@
       return "<h2>" + esc(z) + ' <span class="n">(' + gruppi[z].length + ')</span></h2><ul class="elenco">' + gruppi[z].map(function (p) {
         return '<li><a href="#edificio-' + esc(p.id) + '">' + simbolo(p.stato, 20) +
           '<span><span class="titolo">' + esc(titolo(p)) + '</span><span class="meta">' +
-          esc(etichetta(STATI, p.stato)) + " · " + esc(descrLocali(p)) + " · ID " + esc(p.id) + "</span></span></a></li>";
+          esc(etichetta(STATI, p.stato)) + (p.online && p.online.indicazione && p.online.indicazione !== "nessuna_info" ? " · online: " + esc((INDICAZIONI[p.online.indicazione] || "").toLowerCase()) : "") + " · " + esc(descrLocali(p)) + " · ID " + esc(p.id) + "</span></span></a></li>";
       }).join("") + "</ul>";
     }).join("");
-    var sel = $("#m-zona");
-    ordine.filter(function (z) { return z !== "Zona non indicata"; }).forEach(function (z) {
-      var o = document.createElement("option"); o.textContent = z; sel.appendChild(o);
-    });
   }
 
   /* ---------- scheda (vera o di esempio) ---------- */
@@ -489,7 +481,9 @@
       "</div>");
 
     // 3. Menu rapido
-    var voci = [["dati", "Dati"], ["storia", "Storia"], ["costi", "Costi"], ["interesse", "Ti interessa?"], ["idee", "Idee di riuso"], ["3d", "3D"], ["fonti", "Fonti"], ["segnala", "Segnala un errore"]];
+    var conIdee = es || (p.idee_riuso || []).length > 0, con3d = es || !!p.modello_3d;
+    var voci = [["dati", "Dati"], ["online", "Cercato online"], ["storia", "Storia"], ["costi", "Costi"]]
+      .concat(conIdee ? [["idee", "Idee di riuso"]] : [], con3d ? [["3d", "3D"]] : [], [["fonti", "Fonti"], ["segnala", "Segnala un errore"]]);
     h.push('<nav class="menu-rapido" aria-label="Sezioni della scheda">' + voci.map(function (v) {
       return '<button type="button" data-vai="h-' + x + v[0] + '">' + esc(v[1]) + "</button>";
     }).join("") + "</nav>");
@@ -516,6 +510,18 @@
       "</dl>" + tab +
       '<p class="fonte">Fonte: Comune di Taranto, elenco beni immobili 2024 (identificativi e categorie); Agenzia delle Entrate, cartografia catastale, CC BY 4.0 (posizione e area). Dettagli nella sezione Fonti.</p>'));
 
+    // 4b. Cercato online
+    var on = p.online;
+    h.push(sezione(x + "online", "Cercato online", on ?
+      (on.indicazione ? '<p class="indicazione"><strong>' + esc(INDICAZIONI[on.indicazione] || on.indicazione) + "</strong>" +
+        (on.certezza ? ' <span class="nota">(certezza ' + esc(on.certezza) + ")</span>" : "") + "</p>" : "") +
+      (on.nome_probabile && !p.nome ? "<p>Nome probabile: <strong>" + esc(on.nome_probabile) + "</strong></p>" : "") +
+      (on.note && on.note.length ? '<ul class="online-note">' + on.note.map(function (n) {
+        return "<li>" + esc(n.testo) + ' <span class="fonte">Fonte: ' + (n.url ? link(n.url, n.fonte) : esc(n.fonte || "")) + (n.data ? ", " + esc(dataIt(n.data)) : "") + "</span></li>";
+      }).join("") + "</ul>" : "<p>" + vuoto("Online non abbiamo trovato nulla su questo spazio.") + "</p>") +
+      '<p class="nota">Sono indicazioni trovate online prima del sopralluogo, non dati verificati: lo stato resta «da verificare» finché non andiamo a vedere.</p>' :
+      "<p>" + vuoto("Non ancora cercato online.") + "</p>"));
+
     // 5. Storia
     var st = (p.storia || []).filter(function (s) { return s && s.testo; });
     h.push(sezione(x + "storia", "La sua storia", st.length ?
@@ -536,23 +542,16 @@
     h.push(sezione(x + "costi", "Quanto costa riaprirlo", costi +
       "<p><strong>Stima parametrica di massima, non perizia.</strong> <a href=\"#metodo\">Come si fanno le stime</a></p>", "costi"));
 
-    // 7. Interesse (candidature)
-    h.push(sezione(x + "interesse", "Ti interessa questo spazio?",
-      (es ? '<p class="forchetta">3 persone interessate' + marca + "</p><p>2 nuove imprese e 1 associazione hanno indicato questo spazio. Nomi e contatti non sono pubblici.</p>" :
-        "<p>Persone interessate finora: <strong>nessuna</strong> <span class=\"nota\">(il modulo non è ancora attivo)</span>.</p>") +
-      "<p>Se cerchi un posto per avviare un'attività, diccelo: Postilva non assegna spazi, ma porta al Comune le richieste raccolte.</p>" +
-      (es ? '<a class="bottone" href="#cerco-spazio">Cerco uno spazio</a>' : '<button type="button" class="bottone" data-interesse="' + esc(p.id) + '">Mi interessa questo spazio</button>')));
-
-    // 8. Idee di riuso
+    // 7. Idee di riuso
     var idee = p.idee_riuso || [];
-    h.push(sezione(x + "idee", "Idee di riuso dal quartiere",
+    if (conIdee) h.push(sezione(x + "idee", "Idee di riuso dal quartiere",
       (idee.length ? "<ul>" + idee.map(function (i) { return "<li>" + esc(typeof i === "string" ? i : i.testo) + "</li>"; }).join("") + "</ul>" :
         "<p>" + vuoto("Nessuna idea raccolta finora: le idee arriveranno da incontri e segnalazioni, pubblicate dopo verifica.") + "</p>") +
       '<button type="button" class="bottone secondario" data-messaggio="m-' + x + 'idea" aria-expanded="false" aria-controls="m-' + x + 'idea">Proponi un\'idea</button>' +
       '<p class="messaggio" id="m-' + x + 'idea" hidden>Il modulo per proporre idee di riuso non è ancora attivo: arriverà in una prossima versione del sito. Le proposte saranno pubblicate solo dopo una verifica.</p>'));
 
-    // 9. Modello 3D
-    h.push(sezione(x + "3d", "Modello 3D", es ?
+    // 8. Modello 3D
+    if (con3d) h.push(sezione(x + "3d", "Modello 3D", es ?
       '<div class="tre-d"><div class="tre-d-scelta" role="group" aria-label="Versione del modello">' +
       '<button type="button" class="bottone" id="tre-d-oggi" data-3d="oggi" aria-pressed="true">Com\'è oggi</button>' +
       '<button type="button" class="bottone secondario" id="tre-d-riuso" data-3d="riuso" aria-pressed="false">Come potrebbe essere</button></div>' +
@@ -561,7 +560,7 @@
       (p.modello_3d ? "<p>" + link(p.modello_3d, "Apri il modello 3D") + "</p><p><strong>Ipotesi di riuso</strong>: la parte «come potrebbe essere» è un'ipotesi, non un progetto.</p>" :
         "<p>" + vuoto("Nessun modello 3D per ora.") + ' <a href="#esempio">Guarda com\'è nella scheda di esempio</a>.</p>')));
 
-    // 10. Fonti
+    // 9. Fonti
     var fonti = p.fonti || (meta.fonti || [])[p.fonti_rif] || [];
     h.push(sezione(x + "fonti", "Fonti", '<ul class="fonti-lista">' + fonti.map(function (f) {
       return "<li><strong>" + esc(f.titolo) + "</strong> – " + esc(f.ente) + (f.data ? ", " + esc(dataIt(f.data)) : "") +
@@ -569,7 +568,7 @@
         (f.url ? "<br>" + link(f.url, f.url) : "") + "</li>";
     }).join("") + "</ul>"));
 
-    // 11. Segnala un errore
+    // 10. Segnala un errore
     h.push(sezione(x + "segnala", "Segnala un errore",
       "<p>ID della scheda: <strong>" + esc(p.id) + "</strong> · ultima modifica: <strong>" + esc(dataIt(p.ultima_modifica)) + "</strong></p>" +
       '<button type="button" class="bottone secondario" data-messaggio="m-' + x + 'segnala" aria-expanded="false" aria-controls="m-' + x + 'segnala">Segnala un errore</button>' +
@@ -737,31 +736,9 @@
   function ferma3d() { if (tre) tre.ferma(); }
   function riprendi3d() { if (tre) tre.riprendi(); }
 
-  /* ---------- modulo «Cerco uno spazio» (bozza: non salva e non invia) ---------- */
-  function inviaModulo(ev) {
-    ev.preventDefault();
-    var f = ev.target, esito = $("#modulo-esito"), manca = [];
-    var chi = (f.querySelector('input[name="chi"]:checked') || {}).value;
-    var req = $$('input[name="req"]:checked', f).map(function (i) { return i.value; });
-    if (!chi) manca.push("chi sei");
-    if (!f.attivita.value.trim()) manca.push("che attività vuoi fare");
-    if (!f.contatto.value.trim()) manca.push("un'email o un telefono");
-    if (manca.length) {
-      esito.innerHTML = "<p><strong>Manca qualcosa:</strong> " + esc(manca.join(", ")) + ".</p>";
-    } else {
-      var righe = [["Chi sei", chi], ["Attività", f.attivita.value.trim()], ["Metri quadri", f.mq.value || "non indicato"],
-        ["Persone", f.persone.value || "non indicato"], ["Cosa ti serve", req.join(", ") || "nessun requisito"],
-        ["Zona", f.zona.value || "qualsiasi"], ["Tempi", f.tempi.value || "non indicato"], ["Spazi indicati", f.spazi.value.trim() || "nessuno"]];
-      esito.innerHTML = "<p><strong>Bozza: non abbiamo salvato né inviato nulla.</strong> Quando il modulo sarà attivo, a Postilva arriverà questo:</p><dl class=\"dati\">" +
-        righe.map(function (r) { return riga(r[0], esc(r[1])); }).join("") + riga("Contatto", "nome ed email o telefono <span class=\"nota\">(mai pubblicati)</span>") + "</dl>";
-    }
-    esito.hidden = false;
-    esito.focus();
-  }
-
   /* ---------- eventi delegati ---------- */
   document.addEventListener("click", function (ev) {
-    var t = ev.target.closest ? ev.target.closest("[data-vai],[data-messaggio],[data-salta],[data-interesse],[data-mostra],[data-3d]") : null;
+    var t = ev.target.closest ? ev.target.closest("[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d]") : null;
     if (!t) return;
     if (t.hasAttribute("data-salta")) {
       ev.preventDefault();
@@ -774,7 +751,6 @@
       if (el) { el.scrollIntoView({ behavior: riduciMoto ? "auto" : "smooth", block: "start" }); try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); } }
       return;
     }
-    if (t.hasAttribute("data-interesse")) { spazioDaModulo = t.getAttribute("data-interesse"); location.hash = "#cerco-spazio"; return; }
     if (t.hasAttribute("data-mostra")) return mostraSullaMappa(t.getAttribute("data-mostra"));
     if (t.hasAttribute("data-3d")) { if (tre) tre.scegli(t.getAttribute("data-3d")); return; }
     var m = document.getElementById(t.getAttribute("data-messaggio"));
@@ -804,7 +780,6 @@
     disegnaElenco();
     tabellaTipi();
     applicaFiltri();
-    $("#modulo-spazio").addEventListener("submit", inviaModulo);
     window.addEventListener("hashchange", vai);
     vai();
     creaMappa();

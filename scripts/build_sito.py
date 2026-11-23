@@ -86,6 +86,27 @@ def edifici():
     return out, fonti, st
 
 
+def ricerca_online(feats):
+    """Unisce alle schede quello che si è trovato online prima dei sopralluoghi (dati/ricerca/*.json).
+    automatico.json (OpenStreetMap, anagrafe scuole) per primo; poi gli altri file in ordine di nome:
+    nome_probabile, indicazione e certezza li decide l'ultimo che li indica; le note si sommano."""
+    cart = os.path.join(RADICE, "dati/ricerca")
+    nomi = sorted(glob.glob(os.path.join(cart, "*.json")), key=lambda f: (os.path.basename(f) != "automatico.json", f))
+    tutto = {}
+    for fn in nomi:
+        for pid, v in json.load(open(fn, encoding="utf-8")).items():
+            t = tutto.setdefault(pid, {"note": []})
+            for k in ("nome_probabile", "indicazione", "certezza"):
+                if v.get(k):
+                    t[k] = v[k]
+            t["note"] = [n for n in v.get("note", []) if n.get("testo")] + t["note"]
+    for f in feats:
+        o = tutto.get(f["properties"]["id"])
+        if o:
+            f["properties"]["online"] = o
+    return Counter(o.get("indicazione", "solo_osm") for pid, o in tutto.items() if any(pid == f["properties"]["id"] for f in feats))
+
+
 def osm_incorporato():
     """Tessere (compresse gzip) e caratteri OSM in base64, per la pagina unica."""
     cart = os.path.join(SITO, "dati/osm")
@@ -108,6 +129,7 @@ def osm_incorporato():
 
 def main():
     feats, fonti, st = edifici()
+    per_indicazione = ricerca_online(feats)
     ids = {f["properties"]["id"] for f in feats}
     pol = json.load(open(os.path.join(RADICE, "dati/citta/poligoni.geojson")))["features"]
     base = [{"type": "Feature", "properties": {"livello": "edificio", "id": f["properties"]["id"]},
@@ -126,6 +148,8 @@ def main():
         "con_via": sum(1 for f in feats if f["properties"].get("via_vicina")),
         "verificati": sum(1 for f in feats if f["properties"].get("data_sopralluogo")),
         "per_tipo": {k: per_tipo.get(k, 0) for k, _ in tipi.TIPI},
+        "cercati_online": sum(1 for f in feats if f["properties"].get("online")),
+        "per_indicazione": dict(per_indicazione),
     }
 
     os.makedirs(os.path.join(SITO, "dati"), exist_ok=True)

@@ -1,0 +1,971 @@
+{
+ "319-4664": {
+  "nome_probabile": "nido comunale «Del Vasto» / infanzia «Via Scesa Vasto» (IC Galilei)",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Il nido d'infanzia comunale «Del Vasto» (Scesa Vasto, massimo 26 bambini) è aperto alle iscrizioni per il 2026/27.",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "Nell'anagrafe edilizia c'è anche l'infanzia statale «Via Scesa Vasto» (IC Galilei) in via Scesa Vasto 9.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "OSM segna «Asilo nido comunale “Del Vasto”» dentro la particella.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "243-1081": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Su viale Virgilio ci sono due licei attivi: Liceo artistico «V. Calò» (viale Virgilio 97) e Liceo «Aristosseno» (viale Virgilio 15). La particella è a circa 40 m da viale Virgilio, ma non sappiamo se è uno dei due.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "Sul viale Virgilio c'è anche il «villino Petraro», ex asilo nido comunale abbandonato da circa vent'anni (incrocio con via Umbria, a circa 400 m da questa particella secondo OSM): difficilmente è questa particella, ma va escluso al sopralluogo.",
+    "fonte": "Antenna Sud, «Taranto, la ex scuola abbandonata da 20 anni preoccupa»",
+    "url": "https://www.antennasud.com/taranto-la-ex-scuola-abbandonata-da-20-anni-preoccupa/",
+    "data": "2026-07-01"
+   }
+  ]
+ },
+ "300-581": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": []
+ },
+ "298-360": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Nessun plesso statale attivo nel 2026/27 risulta in via Lama: i plessi di Lama sono in via Ciclamini, a oltre 1,5 km. Non abbiamo trovato notizie su una scuola chiusa in via Lama.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   }
+  ]
+ },
+ "300-1336": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Nessun plesso statale attivo nel 2026/27 risulta in via Lama: i plessi di Lama sono in via Ciclamini. Non abbiamo trovato notizie su questo immobile.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   }
+  ]
+ },
+ "145-189": {
+  "nome_probabile": "infanzia «Madre Teresa di Calcutta» (IC Sandro Pertini) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'infanzia «Madre Teresa di Calcutta» 1 e 2 (IC Pertini) è registrata in corso Buozzi 117/A, padiglioni A, B e C, Q.re Paolo VI.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "Le due scuole dell'infanzia Madre Teresa di Calcutta sono attive nel 2026/27 (indirizzo «III lotto II comprensorio»).",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe scuole statali a.s. 2026/27 (open data)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+    "data": "2026"
+   },
+   {
+    "testo": "La via più vicina secondo OSM è «Corso Bruno Buozzi – Plesso 1° Maggio» (44 m). Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "145-412": {
+  "nome_probabile": "plesso IC «Pirandello» o IC «Sandro Pertini», via Pastore – ipotesi",
+  "indicazione": "in_uso",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "In via Pastore ci sono due sedi attive: IC «Sandro Pertini» (via Pastore 3, edificio 14) e IC «L. Pirandello» (via Giulio Pastore snc).",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "OSM segna una scuola (senza nome) dentro la particella, a circa 100 m da via Giulio Pastore. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   },
+   {
+    "testo": "Il plesso Pirandello di via Pastore ha subito sei raid vandalici tra il 2016 e il 2017; nel 2017 lezioni sospese e spostate a doppio turno nel plesso Falcone.",
+    "fonte": "La Tecnica della Scuola, «Legalità, Mattarella avvierà l'anno nella scuola di Taranto colpita più volte dai vandali»",
+    "url": "https://www.tecnicadellascuola.it/legalita-mattarella-avviera-l-anno-nella-scuola-di-taranto-colpita-piu-volte-dai-vandali",
+    "data": "2017-05-02"
+   }
+  ]
+ },
+ "145-645": {
+  "nome_probabile": "plesso IC «Sandro Pertini» o IC «Pirandello», via Pastore – ipotesi",
+  "indicazione": "in_uso",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "In via Pastore ci sono due sedi attive: IC «Sandro Pertini» (via Pastore 3, edificio 14) e IC «L. Pirandello» (via Giulio Pastore snc).",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "OSM segna una scuola (senza nome) dentro la particella, a circa 80 m da via Giulio Pastore. Probabilmente è una delle due sedi. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   },
+   {
+    "testo": "Nel 2025 il Comune ha rifatto l'impermeabilizzazione del tetto sopra uffici e palestra dell'IC Pertini e ha sistemato infissi e pensilina d'ingresso.",
+    "fonte": "Oltre il Fatto, «Manutenzione nelle scuole comunali: interventi in corso e programmazione continua»",
+    "url": "https://www.oltreilfatto.it/2025/10/manutenzione-nelle-scuole-comunali-interventi-in-corso-e-programmazione-continua/",
+    "data": "2025-10-30"
+   }
+  ]
+ },
+ "145-208": {
+  "nome_probabile": "asilo nido comunale «Pastore» (Paolo VI) – probabile",
+  "indicazione": "da_capire",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Il Comune ha riqualificato e messo in sicurezza l'asilo nido di via Pastore con fondi PNRR (Missione 4, inv. 1.1) e un mutuo CDP: 1.708.130 euro in totale.",
+    "fonte": "Comune di Taranto, «Asilo nido Paolo VI via Pastore – Riqualificazione funzionale e messa in sicurezza»",
+    "url": "https://www.comune.taranto.it/it/attuazione-misure-pnrr/1052",
+    "data": "2025"
+   },
+   {
+    "testo": "A ottobre 2025 la Giunta ha istituito il decimo nido comunale, a Paolo VI (25 posti), con apertura annunciata entro fine 2025.",
+    "fonte": "TarantoToday, «A Paolo VI il decimo asilo nido di Taranto, apertura entro fine anno»",
+    "url": "https://www.tarantotoday.it/attualita/taranto-nuovo-asilo-nido-comunale-apertura-entro-fine-anno-04-10-2025.html",
+    "data": "2025-10-04"
+   },
+   {
+    "testo": "Per problemi di bilancio i nidi «Pastore» e «Monaco» vengono affidati per ora a privati in concessione.",
+    "fonte": "Corriere di Taranto, «Asili nido di Paolo VI e Talsano ai privati (per ora)»",
+    "url": "https://www.corriereditaranto.it/2026/03/01/asili-nido-di-paolo-vi-e-talsano-ai-privati-per-ora/",
+    "data": "2026-03-01"
+   },
+   {
+    "testo": "Il nido Pastore non compare tra i 9 nidi a gestione comunale dell'avviso 2026/27, quindi non sappiamo se è già aperto.",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "OSM segna un asilo dentro la particella, che è a circa 40 m da via Giulio Pastore. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "145-386": {
+  "nome_probabile": "primaria «Suor Piercelestina Vendramini» (IC Pertini) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La primaria «Suor Piercelestina Vendramini» è attiva nel 2026/27; nell'anagrafe edilizia è in «via Brodolini – v. Miglio».",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 125 m da piazza Brodolini. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "144-351": {
+  "nome_probabile": "plesso «G. Falcone» / infanzia «F. Morvillo» (IC Pirandello) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La primaria «G. Falcone» (TAEE803012) e l'infanzia «F. Morvillo» (TAAA80301R) dell'IC Pirandello sono attive nel 2026/27 in via XXV Aprile.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe scuole statali a.s. 2026/27 (open data)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+    "data": "2026"
+   },
+   {
+    "testo": "Nell'anagrafe edilizia la Morvillo è in «via XXV Aprile – Morvillo, snc» e la Falcone in «I comprensorio ed. 13, Q.re Paolo VI».",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 110 m da viale Venticinque Aprile: probabilmente è questo plesso. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   },
+   {
+    "testo": "Nel 2017 il plesso Falcone ha subito raid vandalici (estintori svuotati) ed è stato chiuso per tre giorni per la sanificazione.",
+    "fonte": "Buonasera24, «Tornano i vandali e la scuola di Paolo VI resta chiusa»",
+    "url": "https://www.buonasera24.it/news/cronaca/46290/tornano-i-vandali-e-la-scuola-di-paolo-vi-resta-chiusa.html",
+    "data": "2017-03-07"
+   }
+  ]
+ },
+ "145-475": {
+  "nome_probabile": "primaria «Papa Wojtyla» (IC Pertini) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La primaria «Papa Wojtyla» è attiva nel 2026/27 in viale del Lavoro, Q.re Paolo VI.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe scuole statali a.s. 2026/27 (open data)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+    "data": "2026"
+   },
+   {
+    "testo": "La particella è a circa 55 m da viale del Lavoro. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "144-474": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Nell'anagrafe edilizia la secondaria «Pirandello» (IC Pirandello) risulta anche in un edificio di «via Ungaretti – IV Novembre, snc». La particella è a circa 150 m da viale Quattro Novembre: potrebbe essere quell'edificio, ma è una deduzione.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "A gennaio 2025 la palestra della scuola Pirandello di Paolo VI risultava ancora inagibile, con lavori in ritardo.",
+    "fonte": "TarantoToday, «Palestra Pirandello a Paolo VI, Battista (Lega): “Urgente restituirla agli studenti”»",
+    "url": "https://www.tarantotoday.it/politica/taranto-palestra-pirandello-ritardi-lavori-22-01-2025.html",
+    "data": "2025-01-22"
+   }
+  ]
+ },
+ "144-475": {
+  "nome_probabile": "ex scuola media «Giuseppe Ungaretti» (ipotesi)",
+  "indicazione": "probabile_abbandono",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'ex scuola «Ungaretti» e l'ex mercato coperto di Paolo VI sono dismessi e inagibili e si trovano su viale della Repubblica; la scuola è inagibile dal 2014 (917 m² costruiti, 2.439 m² scoperti).",
+    "fonte": "Quotidiano di Puglia, «Casa dello studente nell'isola e area verde a Paolo VI: i progetti per Taranto»",
+    "url": "https://www.quotidianodipuglia.it/taranto/progetti_pnrr_taranto_fondi_isola_e_paolo_vi-6246929.html",
+    "data": "2021-10-10"
+   },
+   {
+    "testo": "Nel novembre 2014 un'ordinanza del sindaco ha chiuso il plesso; nel 2015 l'edificio in disuso è stato saccheggiato (infissi, tubi antincendio) e c'è stato un principio d'incendio.",
+    "fonte": "Buonasera24, «Ennesimo raid a Paolo VI, devastata l'ex scuola Pirandello»",
+    "url": "https://www.buonasera24.it/news/cronaca/29832/ennesimo-raid-a-paolo-vi-devastata-lex-scuola-pirandello.html",
+    "data": "2015-06-27"
+   },
+   {
+    "testo": "Un cittadino segnala che la vecchia scuola Ungaretti è ridotta «come una discarica».",
+    "fonte": "Antenna Sud, «Taranto, Q.re Paolo VI: l'ex scuola Ungaretti come una discarica»",
+    "url": "https://www.antennasud.com/taranto-q-re-paolo-vi-lex-scuola-ungaretti-come-una-discarica/",
+    "data": "2025-01-11"
+   },
+   {
+    "testo": "Nel 2021 il Comune ha cercato con un avviso esplorativo (n. 5 del 09/02/2021, programma PINQuA) soggetti interessati al riuso dell'ex plesso «Ungaretti» e dell'ex mercato coperto.",
+    "fonte": "CSV Taranto, «Rigenerazione urbana a Paolo VI – Avviso esplorativo»",
+    "url": "https://www.csvtaranto.org/rigenerazione-urbana-a-paolo-vi-avviso-esplorativo/",
+    "data": "2021-02-12"
+   },
+   {
+    "testo": "Il progetto PINQuA «RInaTA Paolo VI» descritto nel 2024 riguarda l'ex mercato coperto di viale della Repubblica (asilo nido h24, spazi per associazioni, arena); l'articolo non parla dell'ex Ungaretti.",
+    "fonte": "Gazzetta del Mezzogiorno, «Taranto: orti, asilo ed ex mercato, così rinascerà il quartiere Paolo VI»",
+    "url": "https://www.lagazzettadelmezzogiorno.it/news/taranto/1604925/taranto-orti-asilo-ed-ex-mercato-cosi-rinascera-il-quartiere-paolo-vi.html",
+    "data": "2024-12-11"
+   },
+   {
+    "testo": "Che sia proprio questa particella è una deduzione: è su viale della Repubblica ed è accanto alla particella 144-476 (categoria E/4, 9.215 m², forse l'ex mercato). Anche la 144-480 è su viale della Repubblica.",
+    "fonte": "Elenco beni immobili 2024 del Comune di Taranto + OpenStreetMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11"
+   }
+  ]
+ },
+ "144-480": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Particella B/5 su viale della Repubblica, come l'ex scuola Ungaretti (dismessa dal 2014): potrebbe essere quella o una sua parte. Nell'Elenco ha 0 abitazioni; OSM non segna nulla dentro.",
+    "fonte": "Quotidiano di Puglia, «Casa dello studente nell'isola e area verde a Paolo VI: i progetti per Taranto»",
+    "url": "https://www.quotidianodipuglia.it/taranto/progetti_pnrr_taranto_fondi_isola_e_paolo_vi-6246929.html",
+    "data": "2021-10-10"
+   },
+   {
+    "testo": "Nell'anagrafe edilizia la secondaria «Pirandello» risulta anche in un edificio di «via Ungaretti – IV Novembre»: da capire a quale particella corrisponde.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   }
+  ]
+ },
+ "258-388": {
+  "nome_probabile": "secondaria «V. Martellotta» (corso Annibale) e/o infanzia «Papa Giovanni Paolo II» (via Ancona) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La secondaria «V. Martellotta» è registrata in corso Annibale snc; l'infanzia «Papa Giovanni Paolo II» (IC Volta) in via Ancona snc.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "OSM segna «Istituto Comprensivo “Vincenzo Martellotta”» con campi da basket e pallavolo dentro la particella (35.000 m²), che è a circa 70 m da corso Annibale e 40 m da via Ancona.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "254-1234": {
+  "nome_probabile": "sede di Economia dell'Università di Bari (Dipartimento Jonico)",
+  "indicazione": "riconvertito",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La sede di Economia del Dipartimento Jonico (UniBa) è in via Lago Maggiore angolo via Ancona.",
+    "fonte": "Università di Bari, Dipartimento Jonico, pagina «Strutture»",
+    "url": "https://www.uniba.it/en/research/departments/ionian-department-of-mediterranean-legal-and-economic-systems-society-environment-cultures/department/facilities",
+    "data": "2026"
+   },
+   {
+    "testo": "OSM segna «Università degli studi di Bari» dentro la particella, a circa 60 m da via Lago Maggiore. Al catasto è ancora B/5 (scuola): probabilmente l'edificio è passato all'università. Non abbiamo trovato atti di concessione.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "254-992": {
+  "nome_probabile": "IPSIA «Archimede» (via Lago di Misurina 2) e/o nido comunale «Fantasia» – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Nell'anagrafe edilizia l'IPSIA «Archimede» (IISS Archimede) è registrato in via Lago di Misurina 2.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "Il nido comunale «Fantasia» (via Lago di Viverone; nel 2021 «via Lago di Misurina») è aperto alle iscrizioni per il 2026/27.",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "OSM segna «I.I.S.S. Mario Costa» dentro la particella, che è a circa 50 m da via Lago di Misurina e 60 m da via Lago di Viverone. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "254-873": {
+  "nome_probabile": "IISS «Liside – F.S. Cabrini», sede di via Lago di San Giuliano – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Nell'anagrafe edilizia l'istituto professionale «Liside – F.S. Cabrini» ha un edificio in via Lago di San Giuliano, snc.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 35 m da via Lago di San Giuliano. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "265-592": {
+  "nome_probabile": "infanzia «Giovanbattista Tedesco» o sede IC «Martellotta» – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'infanzia «G. Tedesco» (IC Martellotta) è in via Lago di Pergusa snc; la sede centrale dell'IC Martellotta è in via Scoglio del Tonno 4.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 40 m da via Lago di Pergusa e 75 m da via Scoglio del Tonno. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "280-632": {
+  "nome_probabile": "infanzia «Via Dentice» (IC Frascolla) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'infanzia statale «Via Dentice» (IC Frascolla) è attiva nel 2026/27; l'edificio è registrato in via Dentice snc.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "Nel 2021 in via Dentice c'era anche la secondaria «Dentice» dell'IC Frascolla, che non compare più nell'anagrafe 2026/27: forse una parte dell'edificio non è più usata per la secondaria.",
+    "fonte": "Comune di Taranto, delibera di Giunta: DPPS e Allegato tecnico «Descrizione del sistema scolastico ed educativo» (DGR 566/2021)",
+    "url": "https://www.studioinpuglia.regione.puglia.it/bs/upload/sh1/DPPS%20TA_Taranto.pdf",
+    "data": "2021-07-21"
+   },
+   {
+    "testo": "La particella è a circa 80 m da via Dentice. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "254-291": {
+  "nome_probabile": "IC «V. Alfieri» (corso Italia angolo via Campania) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'IC «V. Alfieri» e la sua secondaria sono registrati in corso Italia angolo via Campania.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 90 m da corso Italia e 70 m da via Campania. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "246-9368": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Particella B/5 su piazzale Fellini, a circa 55 m da via Venezia. Potrebbe far parte del complesso dell'IC Volta (via Venezia 75), ma non abbiamo trovato conferme. OSM dentro non segna nulla.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "243-380": {
+  "nome_probabile": "Liceo scientifico «Galileo Ferraris» (via Abruzzo 13)",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Il Liceo «Galileo Ferraris» è attivo nel 2026/27 in via Abruzzo 13 (un altro edificio è in via Mascherpa 10/A).",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "OSM segna «Liceo Scientifico Galileo Ferraris» dentro la particella. È una scuola superiore: va chiarito perché è nell'Elenco del Comune (proprietà o uso).",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "244-982": {
+  "nome_probabile": "IC «C.G. Viola» (via Zara 35) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'IC «C.G. Viola» (primaria e infanzia «Zara») è registrato in via Zara 35.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 55 m da via Zara. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "246-595": {
+  "nome_probabile": "nido comunale «Bruno Ciari»",
+  "indicazione": "in_uso",
+  "certezza": "alta",
+  "note": [
+   {
+    "testo": "Il nido comunale «Bruno Ciari» (via Cagliari) è aperto alle iscrizioni per il 2026/27.",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "OSM segna «Asilo comunale “Bruno Ciari”» dentro la particella, che è a circa 45 m da via Cagliari.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "254-666": {
+  "nome_probabile": "IC «Renato Moro» (via Umbria 261) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'IC «R. Moro» (primaria e direzione) è attivo nel 2026/27 in via Umbria 261.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe scuole statali a.s. 2026/27 (open data)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+    "data": "2026"
+   },
+   {
+    "testo": "OSM segna «Istituto Comprensivo “Renato Moro”» a circa 25 m dal centro della particella, che è a circa 40 m da via Umbria. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "246-783": {
+  "nome_probabile": "nido comunale «Arcobaleno» – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Il nido comunale «Arcobaleno» (via Fratelli Rosselli) è aperto alle iscrizioni per il 2026/27.",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "La particella è a circa 30 m da via Fratelli Rosselli. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "244-936": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Il plesso attivo più vicino per via è l'IC «Europa – Alighieri» in via Pio XII 3, ma la particella è a circa 180 m da via Pio XII e 90 m da via Generale Messina. Non c'è un abbinamento chiaro.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   }
+  ]
+ },
+ "244-17": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Su via Dante ci sono due plessi attivi: IC «Europa – Alighieri» (via Dante 139) e «Acanfora» (via Dante 95, nello stesso edificio del Liceo Battaglini e del Liceo «Vittorino da Feltre»).",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 50 m da via Icco e 60 m da via Dante; OSM non segna nulla dentro (la scuola «Acanfora» è segnata a circa 280 m). Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "254-664": {
+  "nome_probabile": "nido comunale «Magigabo» (ex «Magicondo») – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Il nido comunale di via Lago d'Arvo («Magigabo») è aperto alle iscrizioni per il 2026/27; nel 2021 si chiamava «Magicondo».",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "La particella è a circa 40 m da via Lago d'Arvo. OSM dentro segna solo uno «Studio massaggi», forse un locale vicino. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "246-9338": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Nel 2021 in via Pisa 23 c'era un asilo nido privato («Girotondo», 12 posti). Non sappiamo se usa questo immobile del Comune.",
+    "fonte": "Comune di Taranto, delibera di Giunta: DPPS e Allegato tecnico «Descrizione del sistema scolastico ed educativo» (DGR 566/2021)",
+    "url": "https://www.studioinpuglia.regione.puglia.it/bs/upload/sh1/DPPS%20TA_Taranto.pdf",
+    "data": "2021-07-21"
+   },
+   {
+    "testo": "La particella è a circa 35 m da via Pisa; OSM dentro non segna nulla.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "244-18": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Su via Dante ci sono due plessi attivi: IC «Europa – Alighieri» (via Dante 139) e «Acanfora» (via Dante 95).",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella (5.600 m²) è a circa 45 m da via Rintone e 100 m da via Dante; OSM non segna nulla dentro (la scuola «Acanfora» e il Liceo Archita succursale sono segnati a circa 220 m). Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "243-390": {
+  "nome_probabile": "secondaria «C. Colombo» (IC Carrieri-Colombo, via Medaglie d'Oro 117) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La secondaria «C. Colombo» è registrata in via Medaglie d'Oro 117.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "OSM segna «Scuola Secondaria di Primo Grado Colombo» dentro la particella, a circa 75 m da via Medaglie d'Oro.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "246-318": {
+  "nome_probabile": "IC «A. Volta» (via Venezia 75) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'IC «A. Volta» e la secondaria «Volta» sono attivi nel 2026/27 in via Venezia 75.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe scuole statali a.s. 2026/27 (open data)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+    "data": "2026"
+   },
+   {
+    "testo": "La particella (16.700 m²) è a circa 70 m da via Venezia. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "243-389": {
+  "nome_probabile": "",
+  "indicazione": "da_capire",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Il nido comunale «Zero Tre» è in via Abruzzo e la particella è a circa 40 m da via Abruzzo: potrebbe essere quel nido. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "Ipotesi da verificare: il «villino Petraro», ex asilo nido comunale all'incrocio tra viale Virgilio e via Umbria, è un rudere abbandonato da circa vent'anni. Nel 2005 il Comune l'ha incluso in una cessione di beni alla Soget, ma la proprietà resta «da definire». Non sappiamo se è questa particella (circa 220 m dall'incrocio secondo OSM).",
+    "fonte": "Buonasera24, «Il villino degli... errori»",
+    "url": "https://www.buonasera24.it/news/cronaca/47326/il-villino-degli-errori.html",
+    "data": "2017-09-06"
+   },
+   {
+    "testo": "Nel 2026 il villino Petraro è descritto come un'ex scuola ancora abbandonata da vent'anni sul viale Virgilio.",
+    "fonte": "Antenna Sud, «Taranto, la ex scuola abbandonata da 20 anni preoccupa»",
+    "url": "https://www.antennasud.com/taranto-la-ex-scuola-abbandonata-da-20-anni-preoccupa/",
+    "data": "2026-07-01"
+   }
+  ]
+ },
+ "253-567": {
+  "nome_probabile": "infanzia «Tommaso Fiore» (IC Alfieri) e/o nido comunale «Baby Club» – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'infanzia statale «Tommaso Fiore» (IC Alfieri) è attiva nel 2026/27 in via delle Cheradi 6.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe scuole statali a.s. 2026/27 (open data)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+    "data": "2026"
+   },
+   {
+    "testo": "Il nido comunale «Baby Club» (via delle Cheradi) è aperto alle iscrizioni per il 2026/27.",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "OSM segna un asilo «Grillo Parlante» dentro la particella, che ha due unità B/5 ed è a circa 30 m da via Cheradi. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "244-1139": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": []
+ },
+ "307-115": {
+  "nome_probabile": "plesso «Monaco» (IC Sciascia, viale Europa) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "L'infanzia «Monaco» (IC Sciascia) è attiva nel 2026/27 in viale Europa 50.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe scuole statali a.s. 2026/27 (open data)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/?area=Scuole",
+    "data": "2026"
+   },
+   {
+    "testo": "Dal 2023 il plesso Monaco è in lavori per diventare un «polo innovativo dell'infanzia» (circa 2,3 milioni tra PNRR e mutuo CDP; 100 posti di infanzia).",
+    "fonte": "TRM, «Taranto, edilizia scolastica: 3,2 milioni per il plesso Monaco»",
+    "url": "https://www.trmtv.it/attualita/cronacheurbane/2023_11_07/400826.html",
+    "data": "2023-11-07"
+   },
+   {
+    "testo": "Nel 2026 il nido del plesso «Monaco» viene affidato per ora a privati in concessione.",
+    "fonte": "Corriere di Taranto, «Asili nido di Paolo VI e Talsano ai privati (per ora)»",
+    "url": "https://www.corriereditaranto.it/2026/03/01/asili-nido-di-paolo-vi-e-talsano-ai-privati-per-ora/",
+    "data": "2026-03-01"
+   },
+   {
+    "testo": "La particella è a circa 65 m da viale Europa. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "303-759": {
+  "nome_probabile": "",
+  "indicazione": "nessuna_info",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Particella con unità C/1 e B/5 in via Carlo Cacace: non abbiamo trovato scuole attive né notizie su questa via.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "307-1020": {
+  "nome_probabile": "edificio «Mazzaraso» (IC Frascolla, via Cellini 33) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La primaria «Mazzaraso» e l'infanzia «Edificio Mazzaraso» sono attive nel 2026/27; l'edificio è registrato in via Cellini 33.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "Nel 2026 il Comune ha annunciato lavori per rimuovere le barriere architettoniche anche nel plesso Frascolla di via Mazzaraso a Talsano: il plesso è quindi in uso.",
+    "fonte": "Oltre il Fatto, «Rimozione barriere architettoniche nelle scuole»",
+    "url": "https://www.oltreilfatto.it/2026/02/rimozione-barriere-architettoniche-nelle-scuole/",
+    "data": "2026-02"
+   },
+   {
+    "testo": "La particella è a circa 50 m da via Benvenuto Cellini. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "284-544": {
+  "nome_probabile": "secondaria «Sciascia», sede ex «Ugo Foscolo» (via Brunelleschi 20) – oppure ex ITIS «Falanto»",
+  "indicazione": "in_uso",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Nel 2024/25 la secondaria «L. Sciascia» usa l'edificio di via Brunelleschi 20; l'ITI «Falanto» (IISS Archimede) è registrato in via Filippo Brunelleschi snc.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "Nel 2021 l'edificio di via Brunelleschi 20 ospitava la secondaria «Ugo Foscolo» dell'IC De Amicis.",
+    "fonte": "Comune di Taranto, delibera di Giunta: DPPS e Allegato tecnico «Descrizione del sistema scolastico ed educativo» (DGR 566/2021)",
+    "url": "https://www.studioinpuglia.regione.puglia.it/bs/upload/sh1/DPPS%20TA_Taranto.pdf",
+    "data": "2021-07-21"
+   },
+   {
+    "testo": "Nel 2021 l'ex ITIS «Falanto» di Talsano era descritto come abbandonato e devastato dai vandali (topi, calcinacci, ingressi abusivi). La lettera è indirizzata alla Provincia, competente per le superiori.",
+    "fonte": "Corriere di Puglia e Lucania, «Taranto – Ex scuola itis Falanto (Talsano) abbandonata e casa dei vandali»",
+    "url": "https://www.corrierepl.it/2021/09/09/taranto-ex-scuola-itis-falanto-talsano-abbandonata-e-casa-dei-vandali/",
+    "data": "2021-09-09"
+   },
+   {
+    "testo": "OSM segna una scuola (senza nome) dentro la particella, a circa 55 m da via Brunelleschi. Bisogna capire al sopralluogo se è l'edificio attivo (Sciascia) o l'ex Falanto abbandonato.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "306-961": {
+  "nome_probabile": "primaria «Tintoretto» (IC Sciascia) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La primaria «Tintoretto» (IC Sciascia) è attiva nel 2026/27 in via Tintoretto snc.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 50 m da via Tintoretto e 65 m da via Martini. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "300-616": {
+  "nome_probabile": "IC «G. Salvemini» / plesso «Tramontone» (via Gregorio VII) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Sono attivi nel 2026/27: la secondaria «G. Salvemini» (via Gregorio VII 2) e la primaria e l'infanzia «Tramontone» (via Gregorio VII snc).",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella (14.000 m², con un campo polivalente segnato su OSM) è a circa 80 m da via Gregorio VII. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "300-551": {
+  "nome_probabile": "IC «G. Salvemini» / plesso «Tramontone» (via Gregorio VII) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "Sono attivi nel 2026/27: la secondaria «G. Salvemini» (via Gregorio VII 2), la primaria e l'infanzia «Tramontone» (via Gregorio VII snc) e l'infanzia «Tramontone/A» (via Salvo D'Acquisto snc).",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella è a circa 60 m da via Gregorio VII e 80 m da via Salvo D'Acquisto. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "306-1552": {
+  "nome_probabile": "sede IC «L. Sciascia» (via Martini 2-4) – probabile",
+  "indicazione": "in_uso",
+  "certezza": "media",
+  "note": [
+   {
+    "testo": "La sede dell'IC «L. Sciascia» (primaria e secondaria) è attiva nel 2026/27 in via Arturo Martini 2-4.",
+    "fonte": "Ministero dell'Istruzione e del Merito, Anagrafe edilizia scolastica a.s. 2024/25, indirizzi degli edifici (EDIANAGRAFESTA)",
+    "url": "https://dati.istruzione.it/opendata/opendata/catalogo/elements1/EDIANAGRAFESTA202120242520250806.csv",
+    "data": "2025-08-06"
+   },
+   {
+    "testo": "La particella (11.500 m²) è a circa 90 m da via Arturo Martini. Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ },
+ "309-759": {
+  "nome_probabile": "nido comunale «Madonna di Fatima» (Talsano) – ipotesi",
+  "indicazione": "in_uso",
+  "certezza": "bassa",
+  "note": [
+   {
+    "testo": "Il nido comunale «Madonna di Fatima» (via Madonna di Fatima, Talsano) è aperto alle iscrizioni per il 2026/27.",
+    "fonte": "Comune di Taranto, Avviso iscrizioni anno educativo 2026/2027 nei nidi d'infanzia comunali",
+    "url": "https://taranto-api.municipiumapp.it/s3/7152/allegati/avviso-iscrizione-nidi-d-infanzia-2026-2027.pdf",
+    "data": "2026"
+   },
+   {
+    "testo": "La particella è a circa 80 m dalla chiesa «Nostra Signora di Fatima». Deduzione nostra (distanza dalla via misurata su OpenStreetMap): da verificare al sopralluogo.",
+    "fonte": "OpenStreetMap (contributori, ODbL), tessere OpenFreeMap",
+    "url": "https://www.openstreetmap.org/",
+    "data": "2026-11-01"
+   }
+  ]
+ }
+}
