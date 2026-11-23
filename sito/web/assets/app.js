@@ -732,8 +732,8 @@
     if (conIdee) h.push(sezione(x + "idee", "Idee di riuso dal quartiere",
       (idee.length ? "<ul>" + idee.map(function (i) { return "<li>" + esc(typeof i === "string" ? i : i.testo) + "</li>"; }).join("") + "</ul>" :
         "<p>" + vuoto("Nessuna idea raccolta finora: le idee arriveranno da incontri e segnalazioni, pubblicate dopo verifica.") + "</p>") +
-      '<button type="button" class="bottone secondario" data-messaggio="m-' + x + 'idea" aria-expanded="false" aria-controls="m-' + x + 'idea">Proponi un\'idea</button>' +
-      '<p class="messaggio" id="m-' + x + 'idea" hidden>Il modulo per proporre idee di riuso non è ancora attivo: arriverà in una prossima versione del sito. Le proposte saranno pubblicate solo dopo una verifica.</p>'));
+      (es ? "" : '<a class="bottone secondario" ' + linkScrivici(p.id) + ">Proponi un'idea per questo edificio</a>") +
+      '<p class="nota">Le idee raccolte saranno pubblicate qui solo dopo una verifica.</p>'));
 
     // 8. Modello 3D
     if (con3d) h.push(sezione(x + "3d", "Modello 3D", es ?
