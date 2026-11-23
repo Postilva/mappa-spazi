@@ -67,3 +67,7 @@ Prima volta (Antonio):
 
 Per aggiornare: `python3 scripts/build_sito.py`, commit e push su `main`: Vercel ripubblica da solo. I push sugli altri rami creano anteprime, non toccano il sito pubblico.
 
+## Contatti e modulo «Scrivici»
+
+`dati/contatti.json`: `email`, `pec`, `modulo` (link del modulo Google) e `modulo_campo_scheda` (il codice `entry.NNNN` della domanda «Codice della scheda»). Finché `modulo` è vuoto, «Scrivici» e «Segnala un errore» aprono una mail all'indirizzo `email` (con il codice della scheda nell'oggetto). Quando c'è il modulo, aprono il modulo, con il codice della scheda già compilato; la pagina privacy aggiunge da sola la frase su Google Moduli. Dopo ogni modifica: `python3 scripts/build_sito.py`.
+

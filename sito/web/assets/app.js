@@ -587,6 +587,32 @@
     return '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(testo || url) + "</a>";
   }
 
+  /* ---------- contatti (dati/contatti.json): modulo se c'è, altrimenti email ---------- */
+  function contatti() { return meta.contatti || {}; }
+  function linkScrivici(id) {
+    var c = contatti();
+    if (c.modulo) {
+      var u = c.modulo + (id && c.modulo_campo_scheda ? (c.modulo.indexOf("?") < 0 ? "?" : "&") + "usp=pp_url&" + c.modulo_campo_scheda + "=" + encodeURIComponent(id) : "");
+      return 'href="' + esc(u) + '" target="_blank" rel="noopener"';
+    }
+    if (c.email) return 'href="mailto:' + esc(c.email) + (id ? "?subject=" + encodeURIComponent("Patrimonio comune, scheda " + id) : "") + '"';
+    return 'href="#privacy"';
+  }
+  function disegnaContatti() {
+    var c = contatti();
+    $$('[data-contatto="testo"]').forEach(function (el) {
+      el.innerHTML = (c.modulo ? 'con il <a href="' + esc(c.modulo) + '" target="_blank" rel="noopener">modulo «Scrivici»</a>, oppure ' : "") +
+        (c.email ? 'a <a href="mailto:' + esc(c.email) + '">' + esc(c.email) + "</a>" : "") +
+        (c.pec ? " (posta certificata: " + esc(c.pec) + ")" : "");
+    });
+    $$('[data-contatto="nota-modulo"]').forEach(function (el) {
+      el.innerHTML = c.modulo ? 'Il modulo «Scrivici» è un modulo di Google (Google Moduli): quello che scrivi passa da Google e arriva all\'associazione. Nome ed email sono facoltativi e servono solo a risponderti. <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener">Informativa di Google</a>.' : "";
+    });
+    $$('[data-contatto="scrivici"]').forEach(function (a) {
+      if (c.modulo) { a.setAttribute("href", c.modulo); a.setAttribute("target", "_blank"); a.setAttribute("rel", "noopener"); a.removeAttribute("data-vai-dopo"); }
+    });
+  }
+
   function pianta(id) {
     var f = null;
     (base && base.features || []).forEach(function (b) { if (b.properties.id === id) f = b; });
@@ -730,8 +756,8 @@
     // 10. Segnala un errore
     h.push(sezione(x + "segnala", "Segnala un errore",
       "<p>ID della scheda: <strong>" + esc(p.id) + "</strong> · ultima modifica: <strong>" + esc(dataIt(p.ultima_modifica)) + "</strong></p>" +
-      '<button type="button" class="bottone secondario" data-messaggio="m-' + x + 'segnala" aria-expanded="false" aria-controls="m-' + x + 'segnala">Segnala un errore</button>' +
-      '<p class="messaggio" id="m-' + x + 'segnala" hidden>Il modulo per le segnalazioni non è ancora attivo: arriverà in una prossima versione del sito. Quando ci sarà, indica l\'ID della scheda (' + esc(p.id) + ").</p>"));
+      (es ? "" : '<a class="bottone secondario" ' + linkScrivici(p.id) + ">Segnala un errore o raccontaci questo edificio</a>") +
+      '<p class="nota">Ci arriva il codice ' + esc(p.id) + ': non serve altro. Le segnalazioni servono a correggere la scheda e non vengono pubblicate.</p>'));
 
     h.push("</div><aside>");
     var pi = pianta(p.id);
@@ -958,6 +984,7 @@
     disegnaInizio();
     disegnaUsi();
     disegnaNotizie();
+    disegnaContatti();
     tabellaTipi();
     applicaFiltri();
     window.addEventListener("hashchange", vai);
