@@ -233,6 +233,8 @@ def main():
     generato = max(generato, datetime.date.today().isoformat())  # anche la ricerca online aggiorna i dati
     osm = osm_incorporato()
     meta = {"generato": generato, "maplibre": MAPLIBRE, "titolo": TITOLO, "tipi": tipi.TIPI, "numeri": numeri, "fonti": fonti}
+    p_contatti = os.path.join(RADICE, "dati/contatti.json")  # email, PEC e modulo «Scrivici»
+    meta["contatti"] = json.load(open(p_contatti, encoding="utf-8")) if os.path.exists(p_contatti) else {}
     p_notizie = os.path.join(RADICE, "dati/notizie.json")  # notizie della fascia in home, la prima è la più recente
     meta["notizie"] = json.load(open(p_notizie, encoding="utf-8")) if os.path.exists(p_notizie) else []
     if osm:
