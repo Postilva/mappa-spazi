@@ -159,13 +159,15 @@ def web_sito(corpo, css, js, meta, testa):
     open(os.path.join(WEB, "assets/app.css"), "w", encoding="utf-8").write(css)
     open(os.path.join(WEB, "assets/app.js"), "w", encoding="utf-8").write(js)
     open(os.path.join(WEB, "favicon.svg"), "w", encoding="utf-8").write(FAVICON)
-    url = {"edifici": "dati/edifici.geojson", "base": "dati/base.geojson", "meta": meta, "osm": "dati/osm/"}
+    import hashlib
+    versione = hashlib.sha1((css + js).encode("utf-8")).hexdigest()[:10]  # cambia a ogni modifica: il browser riscarica
+    url = {"edifici": "dati/edifici.geojson?v=" + versione, "base": "dati/base.geojson?v=" + versione, "meta": meta, "osm": "dati/osm/"}
     pagina = ('<!doctype html>\n<html lang="it">\n<head>\n<meta charset="utf-8">\n'
               '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' + testa +
-              '<link rel="stylesheet" href="assets/vendor/maplibre-gl.css">\n<link rel="stylesheet" href="assets/app.css">\n'
+              '<link rel="stylesheet" href="assets/vendor/maplibre-gl.css">\n<link rel="stylesheet" href="assets/app.css?v=' + versione + '">\n'
               '<script src="assets/vendor/maplibre-gl.js"></script>\n</head>\n<body>\n' + corpo + '\n'
               '<script>window.THREE_URL="assets/vendor/three.min.js";window.MAPPA_DATI_URL=' + json.dumps(url, ensure_ascii=False).replace("</", "<\\/") + ';</script>\n'
-              '<script src="assets/app.js"></script>\n</body>\n</html>\n')
+              '<script src="assets/app.js?v=' + versione + '"></script>\n</body>\n</html>\n')
     open(os.path.join(WEB, "index.html"), "w", encoding="utf-8").write(pagina)
     open(os.path.join(WEB, "404.html"), "w", encoding="utf-8").write(pagina)
     open(os.path.join(WEB, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
@@ -175,7 +177,9 @@ def web_sito(corpo, css, js, meta, testa):
         f'  <url><loc>{URL_SITO}/</loc><lastmod>{oggi}</lastmod></url>\n</urlset>\n')
     json.dump({"cleanUrls": True, "headers": [
         {"source": "/dati/osm/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=604800"}]},
-        {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600"}]},
+        {"source": "/assets/(vendor|fonts)/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=604800"}]},
+        {"source": "/(.*)\\.(html|js|css|json|geojson)", "headers": [{"key": "Cache-Control", "value": "public, max-age=0, must-revalidate"}]},
+        {"source": "/", "headers": [{"key": "Cache-Control", "value": "public, max-age=0, must-revalidate"}]},
         {"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"},
                                         {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]}]},
               open(os.path.join(WEB, "vercel.json"), "w"), indent=1)

@@ -11,11 +11,29 @@
    ]
   },
   {
-   "source": "/assets/(.*)",
+   "source": "/assets/(vendor|fonts)/(.*)",
    "headers": [
     {
      "key": "Cache-Control",
-     "value": "public, max-age=3600"
+     "value": "public, max-age=604800"
+    }
+   ]
+  },
+  {
+   "source": "/(.*)\\.(html|js|css|json|geojson)",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=0, must-revalidate"
+    }
+   ]
+  },
+  {
+   "source": "/",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=0, must-revalidate"
     }
    ]
   },
