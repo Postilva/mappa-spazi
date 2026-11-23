@@ -179,11 +179,6 @@ def web_sito(corpo, css, js, meta, testa):
         {"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"},
                                         {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]}]},
               open(os.path.join(WEB, "vercel.json"), "w"), indent=1)
-    open(os.path.join(WEB, "LEGGIMI.md"), "w", encoding="utf-8").write(
-        "# Patrimonio comune – sito pubblicato\n\nQuesto repository contiene **solo il sito costruito** di https://patrimonio.postilva.it "
-        "(Vercel lo pubblica a ogni push). Non si modifica qui: i sorgenti sono nel repository privato `Postilva/mappa-spazi` "
-        "(`python3 scripts/build_sito.py` scrive `sito/web/`, che si copia qui).\n\n"
-        "Un progetto dell'associazione Postilva (Taranto). Contenuti CC BY 4.0, salvo i materiali di terzi elencati nella pagina «Privacy e crediti».\n")
 
 
 def main():

@@ -28,7 +28,7 @@ Dopo una modifica a mano alle schede `dati/edifici/*.json` basta l'ultimo comand
 | `dati/base.geojson` | Poligoni catastali delle particelle in mappa |
 | `dati/osm/` | Base OpenStreetMap: tessere vettoriali OpenFreeMap (schema OpenMapTiles), zoom 10–13 su tutta l'area e zoom 14 solo attorno agli spazi; caratteri Noto Sans per le etichette; `fonte.json` con versione e attribuzione. © OpenStreetMap contributors, ODbL |
 | `dist/pagina-claude.html` | **File unico** per la pagina claude.ai: frammento senza doctype/html/head/body, CSS, JS, dati e tessere incorporati |
-| `index.html`, `assets/` | Versione normale per un futuro hosting: dati letti con `fetch` da `dati/` (serve un server http) |
+| `web/` | **Versione per patrimonio.postilva.it** (Vercel pubblica questa cartella): pagine, stile, librerie e caratteri sul nostro server, dati letti con `fetch` da `web/dati/` |
 
 Pagine (hash): `#inizio` (home), `#mappa` (con filtri ed elenco a fianco), `#esempio`, `#metodo`, `#edificio-<foglio>-<particella>`.
 
@@ -57,14 +57,13 @@ Le notizie della fascia stanno in `dati/notizie.json`, **la prima è la più rec
 
 ## Pubblicare su patrimonio.postilva.it
 
-`python3 scripts/build_sito.py` scrive anche **`sito/web/`**: la versione per il dominio, con file separati e tutto servito dal nostro server (MapLibre, three.js e caratteri sono in `sito/src/vendor/`, scaricati il 23/11/2026; nessuna richiesta a Google o ad altri). Contiene `index.html`, `404.html` (stessa pagina), `vercel.json`, `robots.txt`, `sitemap.xml`, `favicon.svg`, `img/anteprima.jpg` (anteprima dei link). `sito/web/` non si salva qui (`.gitignore`): si copia nel repository **pubblico** `Postilva/patrimonio-comune`, che contiene solo il sito pronto.
+`python3 scripts/build_sito.py` scrive anche **`sito/web/`**: la versione per il dominio, con file separati e tutto servito dal nostro server (MapLibre, three.js e caratteri sono in `sito/src/vendor/`, scaricati il 23/11/2026; nessuna richiesta a Google o ad altri). Contiene `index.html`, `404.html` (stessa pagina), `vercel.json`, `robots.txt`, `sitemap.xml`, `favicon.svg`, `img/anteprima.jpg` (anteprima dei link). Dal 23/11/2026 il repository è **pubblico** e Vercel pubblica direttamente `sito/web/` (Root Directory del progetto Vercel = `sito/web`), dal ramo `main`.
 
-Prima volta (Antonio, come per postilva.it e bonifiche.postilva.it):
-1. GitHub: creare il repository pubblico vuoto `Postilva/patrimonio-comune`.
-2. Claude ci copia `sito/web/` e fa push.
-3. Vercel: **Add New → Project →** importa `Postilva/patrimonio-comune`, nessuna impostazione di build → **Deploy**. Poi **Settings → Domains** → aggiungere `patrimonio.postilva.it`.
-4. Hostinger, hPanel → **Domini → postilva.it → DNS**: aggiungere il record che indica Vercel (di solito **CNAME**, nome `patrimonio`, valore `cname.vercel-dns.com`). Il certificato https lo fa Vercel.
-5. Google Search Console, proprietà di dominio postilva.it (esiste già): inviare `https://patrimonio.postilva.it/sitemap.xml`.
+Prima volta (Antonio):
+1. Vercel: **Add New → Project →** importa `Postilva/mappa-spazi`; in **Root Directory** scegliere `sito/web`; Framework Preset **Other**, nessun comando di build → **Deploy**.
+2. **Settings → Domains** → aggiungere `patrimonio.postilva.it`.
+3. Hostinger, hPanel → **Domini → postilva.it → DNS**: aggiungere il record che indica Vercel (di solito **CNAME**, nome `patrimonio`, valore `cname.vercel-dns.com`). Il certificato https lo fa Vercel.
+4. Google Search Console, proprietà di dominio postilva.it (esiste già): inviare `https://patrimonio.postilva.it/sitemap.xml`.
 
-Per aggiornare: `python3 scripts/build_sito.py`, copiare `sito/web/` nel repository pubblico, push: Vercel ripubblica da solo.
+Per aggiornare: `python3 scripts/build_sito.py`, commit e push su `main`: Vercel ripubblica da solo. I push sugli altri rami creano anteprime, non toccano il sito pubblico.
 

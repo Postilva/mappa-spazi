@@ -1,0 +1,14 @@
+{
+ "tessere": "https://tiles.openfreemap.org/planet/20261101_080013_pt/{z}/{x}/{y}.pbf",
+ "zoom": [
+  10,
+  14
+ ],
+ "bbox": [
+  17.14055,
+  40.37122,
+  17.33371,
+  40.5502
+ ],
+ "attribuzione": "\u00a9 OpenStreetMap contributors (ODbL) \u00b7 OpenFreeMap \u00b7 OpenMapTiles"
+}

@@ -100,7 +100,7 @@
   function nLocali(p) { return p.n_locali === 1 ? "1 locale" : p.n_locali + " locali"; }
 
   /* ---------- router ---------- */
-  var VISTE = ["inizio", "mappa", "esempio", "metodo"];
+  var VISTE = ["inizio", "mappa", "esempio", "metodo", "privacy"];
   function rotta() {
     var h = (location.hash || "").replace(/^#/, "");
     var m = /^edificio-([0-9a-z]+-[0-9a-z]+)$/i.exec(h);
@@ -123,6 +123,7 @@
       if (r.id) { seleziona(r.id, false); t = titolo(perId[r.id].properties) + " – " + t; }
     } else if (r.vista === "mappa") t = "Mappa – " + t;
     else if (r.vista === "metodo") t = "Come lavoriamo – " + t;
+    else if (r.vista === "privacy") t = "Privacy e crediti – " + t;
     else if (r.vista === "esempio") {
       t = "Scheda di esempio – " + t;
       if (!$("#scheda-esempio").firstChild) { disegnaScheda(ESEMPIO, $("#scheda-esempio"), true); avvia3d(); }
@@ -800,7 +801,7 @@
   function caricaThree(cb) {
     if (window.THREE) return cb(true);
     var sc = document.createElement("script");
-    sc.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+    sc.src = window.THREE_URL || "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
     sc.onload = function () { cb(!!window.THREE); };
     sc.onerror = function () { cb(false); };
     document.head.appendChild(sc);

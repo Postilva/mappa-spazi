@@ -10,4 +10,3 @@ __pycache__/
 
 # il sito generato va versionato (pagina unica per claude.ai)
 !sito/dist/
-sito/web/
