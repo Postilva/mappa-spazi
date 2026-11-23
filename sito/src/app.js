@@ -476,7 +476,7 @@
   function applicaFiltri() {
     var vis = edifici.filter(function (f) { return visibile(f.properties); });
     if (mappaPronta) mappa.getSource("punti").setData(puntiFiltrati());
-    $("#conteggio").textContent = vis.length === edifici.length ? edifici.length + " immobili" : vis.length + " immobili su " + edifici.length;
+    $("#conteggio").textContent = vis.length === edifici.length ? edifici.length + " edifici" : vis.length + " edifici su " + edifici.length;
     disegnaLista(vis);
   }
   function disegnaLista(vis) {
@@ -490,13 +490,47 @@
 
   function contaUso(u) { return edifici.filter(function (f) { return uso(f.properties) === u; }).length; }
   function disegnaLegenda() {
-    $("#legenda").innerHTML = USI.map(function (u) { return "<div>" + simbolo(u[0], 15, false) + "<span>" + esc(u[1]) + " · " + contaUso(u[0]) + "</span></div>"; }).join("") +
+    if ($("#legenda")) $("#legenda").innerHTML = USI.map(function (u) { return "<div>" + simbolo(u[0], 15, false) + "<span>" + esc(u[1]) + " · " + contaUso(u[0]) + "</span></div>"; }).join("") +
       '<p class="nota">Bordo: uso secondo le fonti. Pieno: visto sul posto.</p>';
     $("#legenda-metodo").innerHTML = USI.map(function (u) {
       return "<li>" + simbolo(u[0], 20, false) + "<span><b>" + esc(u[1]) + "</b> (" + contaUso(u[0]) + "): " + esc(u[3]) + "</span></li>";
     }).join("") + "<li>" + simbolo("in_uso", 20, true) + "<span>Quadratino pieno: uso <b>visto sul posto</b> (" +
       edifici.filter(function (f) { return f.properties.data_sopralluogo; }).length + ").</span></li>";
   }
+  /* ---------- notizie in primo piano (dati/notizie.json): fascia a scorrimento ---------- */
+  function riempi(t) { // {chiave} = meta.numeri, {uso:chiave} = edifici con quell'uso
+    return String(t || "").replace(/\{(uso:)?([a-z_]+)\}/g, function (m, u, k) {
+      var v = u ? contaUso(k) : (meta.numeri || {})[k]; return v == null ? m : numIt(v);
+    });
+  }
+  function disegnaNotizie() {
+    var N = meta.notizie || [], box = $("#notizie");
+    if (!box) return;
+    if (!N.length) { $(".fascia").hidden = true; return; }
+    box.innerHTML = N.map(function (n, i) {
+      var p = n.pulsante || {}, attr = p.filtro_uso ? ' data-online="' + esc(p.filtro_uso) + '"' : p.zona ? ' data-zona="' + esc(p.zona) + '"' : "";
+      return '<article class="notizia" id="notizia-' + i + '" aria-roledescription="notizia" aria-label="' + (i + 1) + " di " + N.length + '">' +
+        '<p class="kicker">' + esc(n.etichetta || "") + (n.data ? " · " + esc(dataIt(n.data)) : "") + "</p>" +
+        "<h2>" + riempi(n.titolo) + "</h2>" + (n.testo ? "<p>" + esc(riempi(n.testo)) + "</p>" : "") +
+        '<div class="azioni-pp">' + (p.testo ? '<a class="bottone" href="' + esc(p.href || "#mappa") + '"' + attr + "><span>" + esc(riempi(p.testo)) + "</span></a>" : "") +
+        (n.link ? '<a class="link-fonte" href="' + esc(n.link.url) + '" target="_blank" rel="noopener">' + esc(n.link.testo) + " ›</a>" : "") + "</div>" +
+        (n.nota ? '<p class="nota">' + esc(riempi(n.nota)) + "</p>" : "") + "</article>";
+    }).join("");
+    var pt = $("#notizie-puntini");
+    pt.innerHTML = N.map(function (n, i) { return '<button type="button" data-n="' + i + '" aria-label="Notizia ' + (i + 1) + '"></button>'; }).join("");
+    var att = 0;
+    function segna() { $$("button", pt).forEach(function (b, i) { b.setAttribute("aria-current", i === att ? "true" : "false"); }); $("#notizia-prima").disabled = att === 0; $("#notizia-dopo").disabled = att === N.length - 1; }
+    function vaiA(i) { att = Math.max(0, Math.min(N.length - 1, i)); box.scrollTo({ left: box.clientWidth * att, behavior: riduciMoto ? "auto" : "smooth" }); segna(); }
+    pt.onclick = function (e) { var b = e.target.closest("button"); if (b) vaiA(+b.getAttribute("data-n")); };
+    $("#notizia-prima").onclick = function () { vaiA(att - 1); };
+    $("#notizia-dopo").onclick = function () { vaiA(att + 1); };
+    box.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") { vaiA(att + 1); e.preventDefault(); } if (e.key === "ArrowLeft") { vaiA(att - 1); e.preventDefault(); } });
+    var t0 = null;
+    box.addEventListener("scroll", function () { clearTimeout(t0); t0 = setTimeout(function () { var i = Math.round(box.scrollLeft / Math.max(1, box.clientWidth)); if (i !== att) { att = i; segna(); } }, 80); });
+    if (N.length < 2) $(".notizie-nav").hidden = true;
+    segna();
+  }
+
   function disegnaUsi() { // barra degli usi in home
     var tot = edifici.length, box = $("#usi");
     if (!box) return;
@@ -922,6 +956,7 @@
     disegnaFiltri();
     disegnaInizio();
     disegnaUsi();
+    disegnaNotizie();
     tabellaTipi();
     applicaFiltri();
     window.addEventListener("hashchange", vai);

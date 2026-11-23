@@ -50,3 +50,8 @@ Playwright (Chromium) con la pagina unica avvolta in uno scheletro minimo e una 
 - Lontano dagli spazi la mappa ha meno dettaglio (zoom 13 ingrandito).
 - La pagina unica pesa alcuni MB per via delle tessere incorporate.
 - Serve un browser recente (WebGL, `DecompressionStream`): altrimenti compare un messaggio che rimanda all'Elenco.
+
+## Notizie in home (fascia a scorrimento)
+
+Le notizie della fascia stanno in `dati/notizie.json`, **la prima è la più recente**. Per aggiungerne una (per esempio dopo un sopralluogo) si copia un blocco e si cambia il testo, poi `python3 scripts/build_sito.py`. Campi: `data` (AAAA-MM-GG), `etichetta`, `titolo` (si può usare `<em>` per la parte colorata), `testo`, `pulsante` (`testo` e uno tra `filtro_uso` = piano | rudere | chiuso | in_uso | da_capire | non_noto, `zona` = tamburi, `href`), `link` (`testo`, `url`), `nota`. Nei testi `{chiave}` mette un numero calcolato (es. `{nel_piano}`, `{tamburi}`, `{cercati_online}`) e `{uso:in_uso}` il numero di edifici con quell'uso.
+

@@ -25,7 +25,7 @@
 
 <!-- barra dello strumento -->
 <div class="barra g"><div class="w">
-  <a class="marchio" href="#inizio"><span class="q" aria-hidden="true"></span>Patrimonio <em>comune</em></a>
+  <a class="marchio" href="#inizio" aria-label="Patrimonio comune, pagina iniziale"><svg class="marchio-segno" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7.5 12 2.5l9 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="4" y="9" width="4" height="4" rx=".8"/><rect x="10" y="9" width="4" height="4" rx=".8"/><rect x="16" y="9" width="4" height="4" rx=".8"/><rect x="4" y="15" width="4" height="4" rx=".8" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="10.6" y="15" width="2.8" height="6.5" rx=".6"/><rect x="16" y="15" width="4" height="4" rx=".8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 21.5h19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="nome">Patrimonio <em>comune</em></span></a>
   <nav aria-label="Sezioni del sito">
     <a href="#inizio" data-nav="inizio">Inizio</a>
     <a href="#mappa" data-nav="mappa">Mappa</a>
@@ -47,18 +47,14 @@
     </div>
   </div></div>
 
-  <div class="fascia g"><div class="w">
-    <div class="primo-piano">
-      <p class="kicker">In primo piano · Piano delle alienazioni 2026-2028</p>
-      <h2>Il Comune vuole vendere <em><span data-num="piano_alienazioni"></span> beni</em> e darne in affitto altri <span data-num="piano_valorizzazioni"></span>.</h2>
-      <p>Lo ha deciso il Consiglio comunale il 17 marzo 2026, nel Documento unico di programmazione. Tra questi ci sono due ex scuole del Paolo VI (in vendita nel 2028), l'ex Gerontocomio di via delle Ceramiche (1.248.000 €) e 63 locali in Città vecchia da dare in affitto. L'asta dell'ex mercato di via Plinio è stata revocata ad agosto.</p>
-      <div class="azioni-pp">
-        <a class="bottone scuro" href="#mappa" data-online="piano"><span>Vedi sulla mappa i <span data-num="nel_piano"></span> edifici del piano</span></a>
-        <a class="link-fonte" href="https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-ap/-/papca/display/5250181" target="_blank" rel="noopener">La delibera n. 30/2026 ›</a>
-      </div>
-      <p class="nota">Gli altri beni del piano sono appartamenti, box e locali che non sono sulla mappa. Gli edifici del piano non sono per forza vuoti: il piano dice che il Comune non li ritiene necessari alle sue funzioni.</p>
+  <section class="fascia g" aria-roledescription="carosello" aria-label="Notizie del censimento"><div class="w">
+    <div class="notizie" id="notizie" tabindex="0"></div>
+    <div class="notizie-nav">
+      <button type="button" class="freccia-n" id="notizia-prima" aria-label="Notizia precedente">‹</button>
+      <div class="puntini" id="notizie-puntini" role="group" aria-label="Scegli la notizia"></div>
+      <button type="button" class="freccia-n" id="notizia-dopo" aria-label="Notizia successiva">›</button>
     </div>
-  </div></div>
+  </div></section>
 
   <div class="g"><div class="w">
     <p class="etichetta">Il censimento</p>
@@ -120,7 +116,7 @@
   <div class="mappa-v">
     <aside class="lato" aria-label="Filtri ed elenco degli spazi">
       <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
-      <p class="nota">Tocca un quadratino per vedere lo spazio; i numeri raggruppano spazi vicini.</p>
+      <p class="nota">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini. Colore: uso conosciuto. Solo bordo: secondo le fonti; pieno: visto sul posto.</p>
       <p class="sotto-et">Uso conosciuto</p>
       <div class="chips" id="filtro-online" role="group" aria-label="Uso conosciuto"></div>
       <p class="sotto-et">Tipo di locale</p>
@@ -133,7 +129,6 @@
       <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli spazi. Alternativa testuale: l'elenco a fianco">
         <p class="mappa-attesa">Caricamento della mappa…</p>
       </div>
-      <div class="leg" id="legenda"></div>
     </div>
   </div>
 </section>
@@ -208,7 +203,7 @@
   <p>Patrimonio comune, il censimento degli edifici del Comune di Taranto. A cura di <a href="https://www.postilva.it/" target="_blank" rel="noopener">Postilva</a>, tavolo Quartieri, Spazi e Mare · Versione di prova, dati al <span data-meta="generato"></span></p>
 </div></footer>
 
-<script>window.MAPPA_DATI_URL={"edifici": "dati/edifici.geojson", "base": "dati/base.geojson", "meta": {"generato": "2026-11-23", "maplibre": "4.7.1", "titolo": "Patrimonio comune", "tipi": [["negozi", "Negozi e botteghe"], ["laboratori", "Laboratori"], ["magazzini", "Magazzini e depositi"], ["uffici", "Uffici"], ["scuole", "Scuole"], ["industriali", "Opifici e capannoni"], ["sport", "Impianti sportivi"], ["ruderi", "Ruderi (unità collabenti)"], ["altro", "Altro"]], "numeri": {"particelle_elenco": 539, "localizzate": 488, "da_localizzare": 51, "in_mappa": 203, "locali": 340, "solo_abitazioni": 285, "con_via": 201, "verificati": 0, "per_tipo": {"negozi": 87, "laboratori": 8, "magazzini": 22, "uffici": 40, "scuole": 61, "industriali": 29, "sport": 6, "ruderi": 35, "altro": 52}, "cercati_online": 113, "tamburi": 15, "nel_piano": 16, "piano_alienazioni": 82, "piano_valorizzazioni": 82, "resto": 188, "per_indicazione": {"in_uso": 52, "da_capire": 24, "nessuna_info": 14, "solo_osm": 8, "chiuso": 3, "riconvertito": 1, "probabile_abbandono": 11}}, "fonti": [[{"titolo": "Elenco beni immobili – anno 2024", "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative", "data": "2024-05-29", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721", "uso": "identificativi, foglio, particella, subalterni e categorie catastali"}, {"titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)", "ente": "Agenzia delle Entrate", "data": "2026-11-10", "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php", "licenza": "CC BY 4.0", "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"}, {"titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)", "ente": "© OpenStreetMap contributors", "data": "2026-11-01", "url": "https://www.openstreetmap.org/copyright", "licenza": "ODbL", "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"}]], "osm": {"zoom": [10, 14], "bbox": [17.14055, 40.37122, 17.33371, 40.5502], "attribuzione": "© OpenStreetMap contributors (ODbL) · OpenFreeMap · OpenMapTiles"}}, "osm": "dati/osm/"};</script>
+<script>window.MAPPA_DATI_URL={"edifici": "dati/edifici.geojson", "base": "dati/base.geojson", "meta": {"generato": "2026-11-23", "maplibre": "4.7.1", "titolo": "Patrimonio comune", "tipi": [["negozi", "Negozi e botteghe"], ["laboratori", "Laboratori"], ["magazzini", "Magazzini e depositi"], ["uffici", "Uffici"], ["scuole", "Scuole"], ["industriali", "Opifici e capannoni"], ["sport", "Impianti sportivi"], ["ruderi", "Ruderi (unità collabenti)"], ["altro", "Altro"]], "numeri": {"particelle_elenco": 539, "localizzate": 488, "da_localizzare": 51, "in_mappa": 203, "locali": 340, "solo_abitazioni": 285, "con_via": 201, "verificati": 0, "per_tipo": {"negozi": 87, "laboratori": 8, "magazzini": 22, "uffici": 40, "scuole": 61, "industriali": 29, "sport": 6, "ruderi": 35, "altro": 52}, "cercati_online": 113, "tamburi": 15, "nel_piano": 16, "piano_alienazioni": 82, "piano_valorizzazioni": 82, "resto": 188, "per_indicazione": {"in_uso": 52, "da_capire": 24, "nessuna_info": 14, "solo_osm": 8, "chiuso": 3, "riconvertito": 1, "probabile_abbandono": 11}}, "fonti": [[{"titolo": "Elenco beni immobili – anno 2024", "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative", "data": "2024-05-29", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721", "uso": "identificativi, foglio, particella, subalterni e categorie catastali"}, {"titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)", "ente": "Agenzia delle Entrate", "data": "2026-11-10", "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php", "licenza": "CC BY 4.0", "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"}, {"titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)", "ente": "© OpenStreetMap contributors", "data": "2026-11-01", "url": "https://www.openstreetmap.org/copyright", "licenza": "ODbL", "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"}]], "notizie": [{"data": "2026-11-23", "etichetta": "In primo piano · Piano delle alienazioni 2026-2028", "titolo": "Il Comune vuole vendere <em>{piano_alienazioni} beni</em> e darne in affitto altri {piano_valorizzazioni}.", "testo": "Lo ha deciso il Consiglio comunale il 17 marzo 2026, nel Documento unico di programmazione. Tra questi ci sono due ex scuole del Paolo VI (in vendita nel 2028), l'ex Gerontocomio di via delle Ceramiche (1.248.000 €) e 63 locali in Città vecchia da dare in affitto. L'asta dell'ex mercato di via Plinio è stata revocata ad agosto.", "pulsante": {"testo": "Vedi sulla mappa i {nel_piano} edifici del piano", "filtro_uso": "piano"}, "link": {"testo": "La delibera n. 30/2026", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-ap/-/papca/display/5250181"}, "nota": "Gli altri beni del piano sono appartamenti, box e locali che non sono sulla mappa. Gli edifici del piano non sono per forza vuoti: il piano dice che il Comune non li ritiene necessari alle sue funzioni."}, {"data": "2026-11-23", "etichetta": "Il censimento · Ricerca nelle fonti", "titolo": "Abbiamo cercato <em>{cercati_online} edifici su {in_mappa}</em> negli atti e nelle notizie.", "testo": "Prima di andare sul posto guardiamo cosa si sa già: il piano delle alienazioni del Comune, l'anagrafe delle scuole, il catasto, le notizie locali. Per {uso:in_uso} edifici le fonti dicono che sono in uso, per {uso:non_noto} non sappiamo ancora niente. Ogni indicazione ha la sua fonte nella scheda.", "pulsante": {"testo": "Vedi gli edifici di cui non sappiamo niente", "filtro_uso": "non_noto"}, "nota": "Le indicazioni delle fonti non sono verifiche: diventano certe solo con il sopralluogo."}, {"data": "2026-11-19", "etichetta": "In programma · Sopralluoghi", "titolo": "Si parte dai Tamburi: <em>{tamburi} edifici</em> da andare a vedere.", "testo": "Il tavolo Quartieri, Spazi e Mare ha in programma i primi sopralluoghi ai Tamburi. Si guarda solo dall'esterno: com'è l'edificio, se è aperto, che uso ha. Le foto, senza persone né targhe, arriveranno nelle schede.", "pulsante": {"testo": "Vedi gli edifici dei Tamburi", "zona": "tamburi"}, "nota": "Qui pubblicheremo le notizie di ogni sopralluogo."}], "osm": {"zoom": [10, 14], "bbox": [17.14055, 40.37122, 17.33371, 40.5502], "attribuzione": "© OpenStreetMap contributors (ODbL) · OpenFreeMap · OpenMapTiles"}}, "osm": "dati/osm/"};</script>
 <script src="assets/app.js"></script>
 </body>
 </html>

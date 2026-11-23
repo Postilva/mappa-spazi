@@ -9,7 +9,7 @@
 
 <!-- barra dello strumento -->
 <div class="barra g"><div class="w">
-  <a class="marchio" href="#inizio"><span class="q" aria-hidden="true"></span>Patrimonio <em>comune</em></a>
+  <a class="marchio" href="#inizio" aria-label="Patrimonio comune, pagina iniziale"><svg class="marchio-segno" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7.5 12 2.5l9 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="4" y="9" width="4" height="4" rx=".8"/><rect x="10" y="9" width="4" height="4" rx=".8"/><rect x="16" y="9" width="4" height="4" rx=".8"/><rect x="4" y="15" width="4" height="4" rx=".8" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="10.6" y="15" width="2.8" height="6.5" rx=".6"/><rect x="16" y="15" width="4" height="4" rx=".8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 21.5h19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="nome">Patrimonio <em>comune</em></span></a>
   <nav aria-label="Sezioni del sito">
     <a href="#inizio" data-nav="inizio">Inizio</a>
     <a href="#mappa" data-nav="mappa">Mappa</a>
@@ -31,18 +31,14 @@
     </div>
   </div></div>
 
-  <div class="fascia g"><div class="w">
-    <div class="primo-piano">
-      <p class="kicker">In primo piano · Piano delle alienazioni 2026-2028</p>
-      <h2>Il Comune vuole vendere <em><span data-num="piano_alienazioni"></span> beni</em> e darne in affitto altri <span data-num="piano_valorizzazioni"></span>.</h2>
-      <p>Lo ha deciso il Consiglio comunale il 17 marzo 2026, nel Documento unico di programmazione. Tra questi ci sono due ex scuole del Paolo VI (in vendita nel 2028), l'ex Gerontocomio di via delle Ceramiche (1.248.000 €) e 63 locali in Città vecchia da dare in affitto. L'asta dell'ex mercato di via Plinio è stata revocata ad agosto.</p>
-      <div class="azioni-pp">
-        <a class="bottone scuro" href="#mappa" data-online="piano"><span>Vedi sulla mappa i <span data-num="nel_piano"></span> edifici del piano</span></a>
-        <a class="link-fonte" href="https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-ap/-/papca/display/5250181" target="_blank" rel="noopener">La delibera n. 30/2026 ›</a>
-      </div>
-      <p class="nota">Gli altri beni del piano sono appartamenti, box e locali che non sono sulla mappa. Gli edifici del piano non sono per forza vuoti: il piano dice che il Comune non li ritiene necessari alle sue funzioni.</p>
+  <section class="fascia g" aria-roledescription="carosello" aria-label="Notizie del censimento"><div class="w">
+    <div class="notizie" id="notizie" tabindex="0"></div>
+    <div class="notizie-nav">
+      <button type="button" class="freccia-n" id="notizia-prima" aria-label="Notizia precedente">‹</button>
+      <div class="puntini" id="notizie-puntini" role="group" aria-label="Scegli la notizia"></div>
+      <button type="button" class="freccia-n" id="notizia-dopo" aria-label="Notizia successiva">›</button>
     </div>
-  </div></div>
+  </div></section>
 
   <div class="g"><div class="w">
     <p class="etichetta">Il censimento</p>
@@ -104,7 +100,7 @@
   <div class="mappa-v">
     <aside class="lato" aria-label="Filtri ed elenco degli spazi">
       <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
-      <p class="nota">Tocca un quadratino per vedere lo spazio; i numeri raggruppano spazi vicini.</p>
+      <p class="nota">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini. Colore: uso conosciuto. Solo bordo: secondo le fonti; pieno: visto sul posto.</p>
       <p class="sotto-et">Uso conosciuto</p>
       <div class="chips" id="filtro-online" role="group" aria-label="Uso conosciuto"></div>
       <p class="sotto-et">Tipo di locale</p>
@@ -117,7 +113,6 @@
       <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli spazi. Alternativa testuale: l'elenco a fianco">
         <p class="mappa-attesa">Caricamento della mappa…</p>
       </div>
-      <div class="leg" id="legenda"></div>
     </div>
   </div>
 </section>

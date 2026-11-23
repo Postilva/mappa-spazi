@@ -43,9 +43,10 @@ h1, h2, h3 { text-wrap: balance; }
 /* barra dello strumento */
 .barra { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(11, 11, 12, .94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .barra .w { display: flex; align-items: center; gap: 12px; min-height: 56px; }
-.marchio { font-weight: 700; text-decoration: none; font-size: 17px; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-.marchio .q { width: 12px; height: 12px; border: 2px solid var(--acc); border-radius: 2px; }
-.marchio em { font-style: normal; color: var(--acc); }
+.marchio { text-decoration: none; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.marchio-segno { width: 28px; height: 28px; color: var(--acc); fill: var(--acc); flex: none; }
+.marchio .nome { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.marchio em { font-style: normal; font-weight: 500; color: var(--acc); }
 .barra nav { margin-left: auto; display: flex; gap: 2px; }
 .barra nav a { text-decoration: none; color: var(--ink-2); font-weight: 500; font-size: 15px; padding: 8px 13px; border-radius: 999px; min-height: 40px; display: flex; align-items: center; }
 .barra nav a[aria-current] { background: var(--surface-2); color: var(--ink); }
@@ -234,8 +235,9 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .maplibregl-ctrl-group { background: var(--surface); box-shadow: 0 0 0 1px var(--line) !important; border-radius: 10px; }
 .maplibregl-ctrl-group button + button { border-top: 1px solid var(--line); }
 .maplibregl-ctrl button .maplibregl-ctrl-icon { filter: invert(1); }
-.maplibregl-ctrl-attrib { background: rgba(11, 11, 12, .8) !important; color: var(--ink-3); }
-.maplibregl-ctrl-attrib a { color: var(--ink-2); }
+.maplibregl-ctrl-attrib, .maplibregl-ctrl-attrib.maplibregl-compact-show { background: rgba(21, 21, 23, .96) !important; color: var(--ink-2) !important; border-radius: 12px !important; }
+.maplibregl-ctrl-attrib-inner, .maplibregl-ctrl-attrib-inner * { color: var(--ink-2) !important; }
+.maplibregl-ctrl-attrib a { color: var(--ink) !important; }
 .maplibregl-ctrl-attrib-button { filter: invert(1); }
 .maplibregl-cooperative-gesture-screen { background: rgba(11, 11, 12, .7); color: var(--ink); }
 
@@ -256,11 +258,12 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
   .striscia .tavolo { display: none; }
   .barra .w { gap: 6px; }
   .barra nav a { padding: 8px 9px; font-size: 14px; }
-  .marchio { font-size: 14px; gap: 6px; }
-  .marchio .q { width: 10px; height: 10px; }
+  .marchio { gap: 7px; }
+  .marchio .nome { font-size: 15px; }
+  .marchio-segno { width: 22px; height: 22px; }
 }
 @media (max-width: 380px) {
-  .marchio { font-size: 14px; }
+  .marchio .nome { font-size: 14px; }
   .barra nav a { padding: 8px 7px; font-size: 13px; }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -291,20 +294,28 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 
 .righe .cod, .lista .cod { align-self: flex-start; }
 
-/* in primo piano: fascia a tutta larghezza, come sul sito dell'associazione */
-.fascia { background: var(--acc); color: var(--on-acc); margin-top: 0; }
-.fascia .w { padding-block: 40px 44px; }
-.primo-piano .kicker { color: rgba(17, 17, 17, .72); margin: 0 0 12px; font-size: 12px; }
-.primo-piano h2 { font-size: clamp(26px, 3.8vw, 40px); line-height: 1.1; margin: 0 0 14px; font-weight: 600; max-width: 22em; }
-.primo-piano h2 em { font-style: normal; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
-.primo-piano p { color: rgba(17, 17, 17, .85); max-width: 46em; margin: 0 0 20px; font-size: 17px; }
-.primo-piano .nota { color: rgba(17, 17, 17, .7); font-size: 13px; margin: 16px 0 0; }
+/* fascia delle notizie: a tutta larghezza, a scorrimento */
+.fascia { background: #2b2417; border-top: 1px solid #4a3d22; border-bottom: 1px solid #4a3d22; }
+.fascia .w { padding-block: 34px 22px; }
+.notizie { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; }
+.notizie::-webkit-scrollbar { display: none; }
+.notizie:focus-visible { outline: 2px solid var(--acc); outline-offset: 6px; border-radius: 6px; }
+.notizia { flex: 0 0 100%; scroll-snap-align: start; min-width: 0; padding-right: 8px; }
+.notizia .kicker { color: var(--acc); margin: 0 0 10px; font-size: 12px; }
+.notizia h2 { font-size: clamp(24px, 3.6vw, 38px); line-height: 1.12; margin: 0 0 12px; font-weight: 600; max-width: 24em; }
+.notizia h2 em { font-style: normal; color: var(--acc); }
+.notizia p { color: var(--ink-2); max-width: 46em; margin: 0 0 18px; font-size: 16px; }
+.notizia .nota { color: var(--ink-3); font-size: 13px; margin: 14px 0 0; }
 .azioni-pp { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; }
-.bottone.scuro { background: var(--bg); color: var(--ink); }
-.bottone.scuro:hover { color: var(--acc); filter: none; }
-.fascia .link-fonte { color: var(--on-acc); font-size: 15px; font-weight: 500; }
-.fascia .link-fonte:hover { color: var(--on-acc); text-decoration-thickness: 2px; }
-.fascia :focus-visible { outline-color: var(--bg); }
+.link-fonte { color: var(--ink-2); font-size: 15px; }
+.notizie-nav { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+.freccia-n { width: 40px; height: 40px; border-radius: 999px; border: 1px solid #4a3d22; background: transparent; color: var(--ink); font-size: 22px; line-height: 1; cursor: pointer; }
+.freccia-n:disabled { opacity: .3; cursor: default; }
+.freccia-n:not(:disabled):hover { border-color: var(--acc); color: var(--acc); }
+.puntini { display: flex; gap: 6px; }
+.puntini button { width: 22px; height: 22px; border: 0; background: none; padding: 6px; cursor: pointer; }
+.puntini button::before { content: ""; display: block; width: 10px; height: 10px; border-radius: 2px; border: 2px solid var(--acc); }
+.puntini button[aria-current="true"]::before { background: var(--acc); }
 
 /* edifici fuori dalla mappa */
 .fuori-mappa { margin-top: 10px; display: flex; gap: 18px; align-items: center; border: 1px dashed var(--line); border-radius: var(--r); padding: 16px 20px; }
