@@ -343,3 +343,11 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 /* link lunghi (URL) che vanno a capo; dati in colonna su telefono */
 .sez a, .fonti-lista a, .online-note a { overflow-wrap: anywhere; word-break: break-word; }
 @media (max-width: 600px) { .dati { grid-template-columns: minmax(0, 1fr); gap: 0; } .dati dt { margin-top: 8px; } }
+
+/* niente evidenziazioni del browser sul titolo e sui link toccati; selezione nei colori del sito */
+html { -webkit-tap-highlight-color: transparent; }
+::selection { background: rgba(224, 181, 106, .35); color: var(--ink); }
+.marchio:hover, .marchio:active { color: inherit; }
+.marchio:hover .nome { opacity: .85; }
+h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
+.marchio { -webkit-user-select: none; user-select: none; }
