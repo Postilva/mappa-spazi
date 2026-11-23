@@ -55,3 +55,16 @@ Playwright (Chromium) con la pagina unica avvolta in uno scheletro minimo e una 
 
 Le notizie della fascia stanno in `dati/notizie.json`, **la prima è la più recente**. Per aggiungerne una (per esempio dopo un sopralluogo) si copia un blocco e si cambia il testo, poi `python3 scripts/build_sito.py`. Campi: `data` (AAAA-MM-GG), `etichetta`, `titolo` (si può usare `<em>` per la parte colorata), `testo`, `pulsante` (`testo` e uno tra `filtro_uso` = piano | rudere | chiuso | in_uso | da_capire | non_noto, `zona` = tamburi, `href`), `link` (`testo`, `url`), `nota`. Nei testi `{chiave}` mette un numero calcolato (es. `{nel_piano}`, `{tamburi}`, `{cercati_online}`) e `{uso:in_uso}` il numero di edifici con quell'uso.
 
+## Pubblicare su patrimonio.postilva.it
+
+`python3 scripts/build_sito.py` scrive anche **`sito/web/`**: la versione per il dominio, con file separati e tutto servito dal nostro server (MapLibre, three.js e caratteri sono in `sito/src/vendor/`, scaricati il 23/11/2026; nessuna richiesta a Google o ad altri). Contiene `index.html`, `404.html` (stessa pagina), `vercel.json`, `robots.txt`, `sitemap.xml`, `favicon.svg`, `img/anteprima.jpg` (anteprima dei link). `sito/web/` non si salva qui (`.gitignore`): si copia nel repository **pubblico** `Postilva/patrimonio-comune`, che contiene solo il sito pronto.
+
+Prima volta (Antonio, come per postilva.it e bonifiche.postilva.it):
+1. GitHub: creare il repository pubblico vuoto `Postilva/patrimonio-comune`.
+2. Claude ci copia `sito/web/` e fa push.
+3. Vercel: **Add New → Project →** importa `Postilva/patrimonio-comune`, nessuna impostazione di build → **Deploy**. Poi **Settings → Domains** → aggiungere `patrimonio.postilva.it`.
+4. Hostinger, hPanel → **Domini → postilva.it → DNS**: aggiungere il record che indica Vercel (di solito **CNAME**, nome `patrimonio`, valore `cname.vercel-dns.com`). Il certificato https lo fa Vercel.
+5. Google Search Console, proprietà di dominio postilva.it (esiste già): inviare `https://patrimonio.postilva.it/sitemap.xml`.
+
+Per aggiornare: `python3 scripts/build_sito.py`, copiare `sito/web/` nel repository pubblico, push: Vercel ripubblica da solo.
+

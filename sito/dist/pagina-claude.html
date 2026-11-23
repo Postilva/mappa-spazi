@@ -457,7 +457,8 @@ h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
       <a href="#metodo" data-vai-dopo="m-fuori"><span class="ic">?</span><div><b>Cosa non è sulla mappa</b><span>Le case, le particelle non trovate, i beni di altri enti</span></div><span class="freccia">›</span></a>
       <a href="#esempio"><span class="ic">□</span><div><b>Com'è fatta una scheda completa</b><span>Un esempio inventato: foto, storia, costi, idee di riuso, 3D</span></div><span class="freccia">›</span></a>
       <a href="#metodo" data-vai-dopo="m-fonti"><span class="ic">[1]</span><div><b>Fonti e licenze</b><span>Comune di Taranto, Agenzia delle Entrate, Ministero dell'Istruzione, OpenStreetMap</span></div><span class="freccia">›</span></a>
-      <a href="https://www.postilva.it/" target="_blank" rel="noopener"><span class="ic">@</span><div><b>Scrivici</b><span>Conosci uno di questi spazi? Un errore da segnalare?</span></div><span class="freccia">›</span></a>
+      <a href="#privacy" data-vai-dopo="scrivici"><span class="ic">@</span><div><b>Scrivici</b><span>Conosci uno di questi edifici? Un errore da segnalare?</span></div><span class="freccia">›</span></a>
+      <a href="#privacy"><span class="ic">©</span><div><b>Privacy e crediti</b><span>Niente cookie né statistiche; crediti; come riusare i contenuti</span></div><span class="freccia">›</span></a>
     </div>
   </div></div>
 </section>
@@ -547,11 +548,47 @@ h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
   </ul>
 </div></section>
 
+<!-- PRIVACY E CREDITI -->
+<section class="vista g" data-vista="privacy" aria-labelledby="t-privacy" hidden><div class="w testo">
+  <p class="kicker">Il progetto</p>
+  <h1 id="t-privacy" tabindex="-1">Privacy, crediti e licenze</h1>
+  <p class="sotto">Questo sito non usa cookie, non conta le visite e non ti chiede dati per leggerlo. Qui sotto chi vede la tua visita, chi ha fatto le cose che usiamo e come riusare i nostri contenuti.</p>
+
+  <h2>Cosa raccogliamo</h2>
+  <p>Niente: nessun cookie, nessuna statistica delle visite, nessuna pubblicità, nessun pulsante dei social network. Il sito non salva niente sul tuo telefono o computer.</p>
+
+  <h2>Chi vede la tua visita</h2>
+  <ul>
+    <li><strong>Vercel</strong>, che ospita il sito: come ogni server riceve i dati tecnici di ogni richiesta (indirizzo IP, pagina, tipo di browser) per far funzionare e proteggere il servizio. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Informativa di Vercel</a>.</li>
+    <li>Mappa di base, caratteri e librerie stanno sul nostro server: aprendo il sito non fai richieste a Google né ad altri, a parte Vercel.</li>
+    <li>I link alle fonti portano ai siti degli enti e delle testate: da lì valgono le loro regole.</li>
+  </ul>
+
+  <h2 id="scrivici" tabindex="-1">Se ci scrivi</h2>
+  <p>Il sito è un progetto dell'associazione Postilva, con sede a Taranto, codice fiscale 90294300737, che è titolare del trattamento dei dati che ci mandi. Per segnalare un errore, raccontarci un edificio o chiedere quali tuoi dati abbiamo, per farli correggere o cancellare, scrivi a <strong>postilva@pec.it</strong> (posta certificata) oppure dalla pagina <a href="https://www.postilva.it/" target="_blank" rel="noopener">Partecipa di postilva.it</a>. I messaggi servono a correggere e completare le schede e non vengono pubblicati. Puoi anche fare reclamo al Garante per la protezione dei dati personali.</p>
+
+  <h2>Persone e foto</h2>
+  <p>Nelle schede non ci sono dati di persone: solo edifici, con le fonti pubbliche. Le foto dei sopralluoghi saranno fatte solo dall'esterno, senza persone riconoscibili né targhe. Gli edifici con soli alloggi non sono sulla mappa e non vengono fotografati. Se in una foto o in una scheda c'è qualcosa che ti riguarda e pensi non debba esserci, scrivici e lo togliamo.</p>
+
+  <h2>Riusare i contenuti</h2>
+  <p>Testi, schede e tabelle di questo sito si possono copiare, ripubblicare e modificare, anche per scopi commerciali, con la licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener">Creative Commons Attribuzione 4.0 (CC BY 4.0)</a>: basta citare «Patrimonio comune – Postilva» con il link al sito e dire se li hai modificati. Non vale per le cose non nostre, elencate qui sotto: documenti degli enti, foto, mappe e caratteri hanno le loro licenze.</p>
+
+  <h2>Crediti</h2>
+  <ul class="attribuzioni">
+    <li>Dati: Comune di Taranto (elenco beni immobili 2024, DUP 2026-2028); © Agenzia delle Entrate – Cartografia catastale, CC BY 4.0; Ministero dell'Istruzione e del Merito (open data). Dettagli in <a href="#metodo">Come lavoriamo</a>.</li>
+    <li>Mappa di base: © OpenStreetMap contributors, licenza ODbL; tessere OpenFreeMap / OpenMapTiles. Caratteri della mappa: Noto Sans (licenza SIL OFL 1.1).</li>
+    <li>Foto in apertura: il Palazzo di Città, 2022 · Bernard Gagnon, Wikimedia Commons, CC0.</li>
+    <li>Mappa interattiva: MapLibre GL JS 4.7.1, licenza BSD a 3 clausole. Modello 3D della scheda di esempio: three.js, licenza MIT.</li>
+    <li>Caratteri: Space Grotesk (The Space Grotesk Project Authors), IBM Plex Mono (IBM) e Anton (Vernon Adams), licenza SIL OFL 1.1.</li>
+  </ul>
+  <p class="nota">Ultimo aggiornamento: <span data-meta="generato"></span>.</p>
+</div></section>
+
 </main>
 
 <footer class="piede g"><div class="w">
   <p>Ogni dato viene da una fonte pubblica: Comune di Taranto (elenco beni immobili 2024, DUP 2026-2028), Agenzia delle Entrate (cartografia catastale, CC BY 4.0), Ministero dell'Istruzione, OpenStreetMap (ODbL). Zona e via sono indicative finché non c'è il sopralluogo. <a href="#metodo">Come lavoriamo</a></p>
-  <p>Patrimonio comune, il censimento degli edifici del Comune di Taranto. A cura di <a href="https://www.postilva.it/" target="_blank" rel="noopener">Postilva</a>, tavolo Quartieri, Spazi e Mare · Versione di prova, dati al <span data-meta="generato"></span></p>
+  <p>Patrimonio comune, il censimento degli edifici del Comune di Taranto. A cura di <a href="https://www.postilva.it/" target="_blank" rel="noopener">Postilva</a>, tavolo Quartieri, Spazi e Mare · Versione di prova, dati al <span data-meta="generato"></span> · <a href="#privacy">Privacy e crediti</a></p>
 </div></footer>
 
 <script>
@@ -660,7 +697,7 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
   function nLocali(p) { return p.n_locali === 1 ? "1 locale" : p.n_locali + " locali"; }
 
   /* ---------- router ---------- */
-  var VISTE = ["inizio", "mappa", "esempio", "metodo"];
+  var VISTE = ["inizio", "mappa", "esempio", "metodo", "privacy"];
   function rotta() {
     var h = (location.hash || "").replace(/^#/, "");
     var m = /^edificio-([0-9a-z]+-[0-9a-z]+)$/i.exec(h);
@@ -683,6 +720,7 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
       if (r.id) { seleziona(r.id, false); t = titolo(perId[r.id].properties) + " – " + t; }
     } else if (r.vista === "mappa") t = "Mappa – " + t;
     else if (r.vista === "metodo") t = "Come lavoriamo – " + t;
+    else if (r.vista === "privacy") t = "Privacy e crediti – " + t;
     else if (r.vista === "esempio") {
       t = "Scheda di esempio – " + t;
       if (!$("#scheda-esempio").firstChild) { disegnaScheda(ESEMPIO, $("#scheda-esempio"), true); avvia3d(); }
@@ -1360,7 +1398,7 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
   function caricaThree(cb) {
     if (window.THREE) return cb(true);
     var sc = document.createElement("script");
-    sc.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+    sc.src = window.THREE_URL || "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
     sc.onload = function () { cb(!!window.THREE); };
     sc.onerror = function () { cb(false); };
     document.head.appendChild(sc);

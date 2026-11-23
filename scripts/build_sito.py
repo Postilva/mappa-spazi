@@ -33,6 +33,8 @@ MAPLIBRE_JS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/ma
 MAPLIBRE_CSS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.css"
 FONT = "https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
 TITOLO = "Patrimonio comune"
+URL_SITO = "https://patrimonio.postilva.it"
+WEB = os.path.join(SITO, "web")  # cartella da pubblicare sul dominio (si copia nel repository pubblico)
 DEC = 6  # decimali delle coordinate (~0,1 m)
 
 
@@ -129,6 +131,61 @@ def osm_incorporato():
             "attribuzione": fonte["attribuzione"]}
 
 
+FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#0b0b0c"/>'
+           '<path d="M4 8 12 3.5 20 8" fill="none" stroke="#e0b56a" stroke-width="1.8" stroke-linejoin="round"/><g fill="#e0b56a">'
+           '<rect x="5" y="10" width="3.6" height="3.6" rx=".7"/><rect x="10.2" y="10" width="3.6" height="3.6" rx=".7"/><rect x="15.4" y="10" width="3.6" height="3.6" rx=".7"/>'
+           '<rect x="5" y="15.4" width="3.6" height="3.6" rx=".7"/><rect x="10.7" y="15.4" width="2.6" height="5.2" rx=".5"/><rect x="15.4" y="15.4" width="3.6" height="3.6" rx=".7"/></g></svg>')
+
+
+def web_sito(corpo, css, js, meta, testa):
+    """Scrive sito/web/: la versione per patrimonio.postilva.it (Vercel). Nessuna richiesta a server esterni."""
+    import shutil
+    if os.path.isdir(WEB):
+        shutil.rmtree(WEB)
+    for d in ("assets/fonts", "assets/vendor", "img", "dati"):
+        os.makedirs(os.path.join(WEB, d), exist_ok=True)
+    V = os.path.join(SRC, "vendor")
+    shutil.copy(os.path.join(V, f"maplibre-gl-{MAPLIBRE}.js"), os.path.join(WEB, "assets/vendor/maplibre-gl.js"))
+    shutil.copy(os.path.join(V, f"maplibre-gl-{MAPLIBRE}.css"), os.path.join(WEB, "assets/vendor/maplibre-gl.css"))
+    shutil.copy(os.path.join(V, "three-r128.min.js"), os.path.join(WEB, "assets/vendor/three.min.js"))
+    for fn in glob.glob(os.path.join(V, "fonts/*.woff2")):
+        shutil.copy(fn, os.path.join(WEB, "assets/fonts", os.path.basename(fn)))
+    shutil.copy(os.path.join(V, "fonts/fonts.css"), os.path.join(WEB, "assets/fonts.css"))
+    for fn in glob.glob(os.path.join(SRC, "img/*")):
+        shutil.copy(fn, os.path.join(WEB, "img", os.path.basename(fn)))
+    for fn in ("edifici.geojson", "base.geojson"):
+        shutil.copy(os.path.join(SITO, "dati", fn), os.path.join(WEB, "dati", fn))
+    shutil.copytree(os.path.join(SITO, "dati/osm"), os.path.join(WEB, "dati/osm"))
+    open(os.path.join(WEB, "assets/app.css"), "w", encoding="utf-8").write(css)
+    open(os.path.join(WEB, "assets/app.js"), "w", encoding="utf-8").write(js)
+    open(os.path.join(WEB, "favicon.svg"), "w", encoding="utf-8").write(FAVICON)
+    url = {"edifici": "dati/edifici.geojson", "base": "dati/base.geojson", "meta": meta, "osm": "dati/osm/"}
+    pagina = ('<!doctype html>\n<html lang="it">\n<head>\n<meta charset="utf-8">\n'
+              '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' + testa +
+              '<link rel="stylesheet" href="assets/vendor/maplibre-gl.css">\n<link rel="stylesheet" href="assets/app.css">\n'
+              '<script src="assets/vendor/maplibre-gl.js"></script>\n</head>\n<body>\n' + corpo + '\n'
+              '<script>window.THREE_URL="assets/vendor/three.min.js";window.MAPPA_DATI_URL=' + json.dumps(url, ensure_ascii=False).replace("</", "<\\/") + ';</script>\n'
+              '<script src="assets/app.js"></script>\n</body>\n</html>\n')
+    open(os.path.join(WEB, "index.html"), "w", encoding="utf-8").write(pagina)
+    open(os.path.join(WEB, "404.html"), "w", encoding="utf-8").write(pagina)
+    open(os.path.join(WEB, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
+    oggi = meta.get("generato") or ""
+    open(os.path.join(WEB, "sitemap.xml"), "w").write(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f'  <url><loc>{URL_SITO}/</loc><lastmod>{oggi}</lastmod></url>\n</urlset>\n')
+    json.dump({"cleanUrls": True, "headers": [
+        {"source": "/dati/osm/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=604800"}]},
+        {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=3600"}]},
+        {"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"},
+                                        {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}]}]},
+              open(os.path.join(WEB, "vercel.json"), "w"), indent=1)
+    open(os.path.join(WEB, "LEGGIMI.md"), "w", encoding="utf-8").write(
+        "# Patrimonio comune – sito pubblicato\n\nQuesto repository contiene **solo il sito costruito** di https://patrimonio.postilva.it "
+        "(Vercel lo pubblica a ogni push). Non si modifica qui: i sorgenti sono nel repository privato `Postilva/mappa-spazi` "
+        "(`python3 scripts/build_sito.py` scrive `sito/web/`, che si copia qui).\n\n"
+        "Un progetto dell'associazione Postilva (Taranto). Contenuti CC BY 4.0, salvo i materiali di terzi elencati nella pagina «Privacy e crediti».\n")
+
+
 def main():
     feats, fonti, st = edifici()
     per_indicazione = ricerca_online(feats)
@@ -173,6 +230,7 @@ def main():
     corpo, css, js = leggi("corpo.html"), leggi("app.css"), leggi("app.js")
     corpo = corpo.replace("__LOGO__", leggi("logo.svg").strip())
     foto = base64.b64encode(open(os.path.join(SRC, "img/apertura.jpg"), "rb").read()).decode()
+    css_web = css + "\n:root { --foto-apertura: url(../img/apertura.jpg); }\n"
     css = css + "\n:root { --foto-apertura: url(data:image/jpeg;base64," + foto + "); }\n"
     css_ml = leggi(f"vendor/maplibre-gl-{MAPLIBRE}.css")
     generato = max((f["properties"].get("ultima_modifica") or "" for f in feats), default="")
@@ -192,6 +250,17 @@ def main():
              f'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
              f'<link rel="stylesheet" href="{FONT}">\n')
 
+    testa_web = (f'<title>{TITOLO} – il censimento degli edifici del Comune di Taranto</title>\n'
+                 f'<meta name="description" content="Il patrimonio del Comune di Taranto, edificio per edificio: mappa, schede e fonti. Un progetto di Postilva.">\n'
+                 f'<link rel="canonical" href="{URL_SITO}/">\n'
+                 f'<meta property="og:type" content="website">\n<meta property="og:title" content="{TITOLO}">\n'
+                 f'<meta property="og:description" content="Il patrimonio del Comune di Taranto, edificio per edificio. Un progetto di Postilva.">\n'
+                 f'<meta property="og:image" content="{URL_SITO}/img/anteprima.jpg">\n<meta property="og:url" content="{URL_SITO}/">\n'
+                 f'<meta name="twitter:card" content="summary_large_image">\n'
+                 f'<meta name="theme-color" content="#0b0b0c">\n'
+                 f'<link rel="icon" href="favicon.svg" type="image/svg+xml">\n'
+                 f'<link rel="stylesheet" href="assets/fonts.css">\n')
+
     # 1) file unico per claude.ai (frammento, tutto incorporato)
     dati_js = ("window.MAPPA_DATI=" + json.dumps({"edifici": gj_edifici, "base": gj_base, "meta": meta, "osm": osm},
                                                   ensure_ascii=False, separators=(",", ":")) + ";")
@@ -201,19 +270,8 @@ def main():
     os.makedirs(os.path.join(SITO, "dist"), exist_ok=True)
     open(os.path.join(SITO, "dist/pagina-claude.html"), "w", encoding="utf-8").write(pagina)
 
-    # 2) versione normale (documento completo, file collegati)
-    os.makedirs(os.path.join(SITO, "assets"), exist_ok=True)
-    open(os.path.join(SITO, "assets/app.css"), "w", encoding="utf-8").write(css)
-    open(os.path.join(SITO, "assets/app.js"), "w", encoding="utf-8").write(js)
-    url = {"edifici": "dati/edifici.geojson", "base": "dati/base.geojson", "meta": meta, "osm": "dati/osm/"}
-    indice = ('<!doctype html>\n<html lang="it">\n<head>\n<meta charset="utf-8">\n'
-              '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-              + testa +
-              f'<link rel="stylesheet" href="{MAPLIBRE_CSS}">\n<link rel="stylesheet" href="assets/app.css">\n'
-              f'<script src="{MAPLIBRE_JS}"></script>\n</head>\n<body>\n{corpo}\n'
-              f'<script>window.MAPPA_DATI_URL={json.dumps(url, ensure_ascii=False)};</script>\n'
-              '<script src="assets/app.js"></script>\n</body>\n</html>\n')
-    open(os.path.join(SITO, "index.html"), "w", encoding="utf-8").write(indice)
+    # 2) versione per il dominio (patrimonio.postilva.it): file separati, tutto servito dal nostro server
+    web_sito(corpo, css_web, js, meta, testa_web)
 
     kb = lambda s: len(s.encode("utf-8")) / 1024
     print(f"in mappa: {len(feats)} particelle, {st['locali']} locali · solo abitazioni (non pubblicate): {st['solo_abitazioni']} · "
