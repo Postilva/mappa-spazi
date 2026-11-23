@@ -32,7 +32,7 @@ MAPLIBRE = "4.7.1"
 MAPLIBRE_JS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.js"
 MAPLIBRE_CSS = f"https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/{MAPLIBRE}/maplibre-gl.css"
 FONT = "https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-TITOLO = "Vuoti a rendere"
+TITOLO = "Patrimonio comune"
 DEC = 6  # decimali delle coordinate (~0,1 m)
 
 
@@ -100,6 +100,8 @@ def ricerca_online(feats):
                 if v.get(k):
                     t[k] = v[k]
             t["note"] = [n for n in v.get("note", []) if n.get("testo")] + t["note"]
+            if "piano-alienazioni" in os.path.basename(fn):
+                t["piano"] = True
     for f in feats:
         o = tutto.get(f["properties"]["id"])
         if o:
@@ -150,6 +152,10 @@ def main():
         "per_tipo": {k: per_tipo.get(k, 0) for k, _ in tipi.TIPI},
         "cercati_online": sum(1 for f in feats if f["properties"].get("online")),
         "tamburi": sum(1 for f in feats if f["properties"].get("quartiere") == "Tamburi"),
+        "nel_piano": sum(1 for f in feats if (f["properties"].get("online") or {}).get("piano")),
+        # piano delle alienazioni e valorizzazioni 2026-2028 (DUP, delibera di Consiglio n. 30/2026): voci contate dall'hub,
+        # progetti/mappa-spazi/ricerca/2026-11-23_piano-alienazioni-2026-2028.csv
+        "piano_alienazioni": 82, "piano_valorizzazioni": 82,
         "resto": sum(1 for f in feats if f["properties"].get("quartiere") != "Tamburi"),
         "per_indicazione": dict(per_indicazione),
     }
@@ -179,7 +185,7 @@ def main():
 
     testa = (f'<title>{TITOLO}</title>\n'
              f'<meta name="claude:viewport-fit-sides" content="cover">\n'
-             f'<meta name="description" content="Vuoti a rendere: il censimento degli spazi del Comune di Taranto, uno per uno. Versione di prova, dati da verificare. Un progetto di Postilva.">\n'
+             f'<meta name="description" content="Patrimonio comune: il censimento degli edifici del Comune di Taranto, edificio per edificio. Versione di prova, dati da verificare. Un progetto di Postilva.">\n'
              f'<link rel="preconnect" href="https://fonts.googleapis.com">\n'
              f'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
              f'<link rel="stylesheet" href="{FONT}">\n')

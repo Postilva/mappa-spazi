@@ -1,4 +1,4 @@
-/* Vuoti a rendere – il censimento degli spazi del Comune di Taranto. JS vanilla, nessun framework.
+/* Patrimonio comune – il censimento degli edifici del Comune di Taranto. JS vanilla, nessun framework.
    Dati: window.MAPPA_DATI (pagina unica claude.ai) oppure window.MAPPA_DATI_URL (versione normale).
    Navigazione: #inizio, #mappa, #esempio, #metodo, #edificio-<foglio>-<particella>.
    Segno dello strumento: il quadratino (un immobile). Vuoto = da verificare; con il centro pieno = secondo le
@@ -99,7 +99,7 @@
       var attivo = a.getAttribute("data-nav") === r.vista;
       if (attivo) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
-    var t = meta.titolo || "Vuoti a rendere";
+    var t = meta.titolo || "Patrimonio comune";
     if (r.vista === "scheda") {
       disegnaScheda(r.id ? perId[r.id].properties : null, $("#scheda"), false);
       if (r.id) { seleziona(r.id, false); t = titolo(perId[r.id].properties) + " – " + t; }
@@ -258,11 +258,12 @@
     var t = tela(36), g = t.g; quadro(g, 3, 3, 30, 6); g.lineWidth = 3; g.strokeStyle = C.ink; g.stroke();
     return g.getImageData(0, 0, t.S * t.k, t.S * t.k);
   }
-  var GRUPPI_ON = [["", "Tutti"], ["segnalati", "Chiusi o probabile abbandono"], ["in_uso", "Probabilmente in uso"],
+  var GRUPPI_ON = [["", "Tutti"], ["piano", "Nel piano delle alienazioni"], ["segnalati", "Chiusi o probabile abbandono"], ["in_uso", "Probabilmente in uso"],
     ["da_capire", "Da capire"], ["non_cercati", "Non ancora cercati"]];
   function gruppoOn(p, gr) {
     var i = p.online && p.online.indicazione;
     if (gr === "segnalati") return segnalato(p);
+    if (gr === "piano") return !!(p.online && p.online.piano);
     if (gr === "in_uso") return i === "in_uso";
     if (gr === "da_capire") return i === "da_capire" || i === "riconvertito" || i === "in_lavori";
     if (gr === "non_cercati") return !p.online;
@@ -860,14 +861,14 @@
 
   /* ---------- eventi delegati ---------- */
   document.addEventListener("click", function (ev) {
-    var t = ev.target.closest ? ev.target.closest("[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d],[data-vai-dopo],[data-tipo],[data-zona]") : null;
+    var t = ev.target.closest ? ev.target.closest("[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d],[data-vai-dopo],[data-tipo],[data-zona],[data-online]") : null;
     if (!t) return;
     if (t.hasAttribute("data-vai-dopo")) { dopo = t.getAttribute("data-vai-dopo"); return; }
-    if (t.hasAttribute("data-tipo") || t.hasAttribute("data-zona")) {
-      filtroT = t.getAttribute("data-tipo") || ""; filtroO = "";
+    if (t.hasAttribute("data-tipo") || t.hasAttribute("data-zona") || t.hasAttribute("data-online")) {
+      filtroT = t.getAttribute("data-tipo") || ""; filtroO = t.getAttribute("data-online") || "";
       testo = t.hasAttribute("data-zona") ? "tamburi" : ""; $("#cerca").value = testo;
       $$("#filtro-tipo button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === filtroT)); });
-      $$("#filtro-online button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === "")); });
+      $$("#filtro-online button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === filtroO)); });
       applicaFiltri();
       return;
     }

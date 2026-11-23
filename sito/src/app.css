@@ -65,7 +65,7 @@ h1, h2, h3 { text-wrap: balance; }
 .pannello { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
 
 /* apertura */
-.apertura { position: relative; background-color: var(--bg); background-image: linear-gradient(90deg, rgba(11,11,12,.94) 0%, rgba(11,11,12,.8) 42%, rgba(11,11,12,.35) 75%, rgba(11,11,12,.25) 100%), linear-gradient(0deg, var(--bg) 0%, rgba(11,11,12,0) 30%), var(--foto-apertura); background-size: cover; background-position: center 40%; }
+.apertura { position: relative; background-color: var(--bg); background-image: linear-gradient(90deg, rgba(11,11,12,.95) 0%, rgba(11,11,12,.85) 40%, rgba(11,11,12,.45) 72%, rgba(11,11,12,.35) 100%), linear-gradient(0deg, var(--bg) 0%, rgba(11,11,12,0) 30%), var(--foto-apertura); background-size: cover; background-position: center 30%; }
 .apertura .w { padding-block: 96px 64px; min-height: 520px; display: flex; align-items: flex-end; }
 .apertura-testo { max-width: 640px; }
 .credito { font: 11px/1.5 var(--f-mono); color: var(--ink-3); margin: 14px 0 0; }
@@ -256,7 +256,8 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
   .striscia .tavolo { display: none; }
   .barra .w { gap: 6px; }
   .barra nav a { padding: 8px 9px; font-size: 14px; }
-  .marchio { font-size: 15px; }
+  .marchio { font-size: 14px; gap: 6px; }
+  .marchio .q { width: 10px; height: 10px; }
 }
 @media (max-width: 380px) {
   .marchio { font-size: 14px; }
@@ -289,3 +290,19 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 860px) { .galleria-vuota { gap: 6px; } .foto-segnaposto svg { width: 22px; height: 22px; } }
 
 .righe .cod, .lista .cod { align-self: flex-start; }
+
+/* in primo piano */
+.primo-piano { margin-top: 8px; background: var(--acc-soft); border: 1px solid var(--acc); border-radius: var(--r); padding: 24px; }
+.primo-piano h2 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.12; margin: 0 0 12px; font-weight: 600; max-width: 24em; }
+.primo-piano h2 em { font-style: normal; color: var(--acc); }
+.primo-piano p { color: var(--ink-2); max-width: 46em; margin: 0 0 16px; }
+.primo-piano .nota { margin: 14px 0 0; }
+.azioni-pp { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.link-fonte { color: var(--ink-2); font-size: 15px; }
+
+/* edifici fuori dalla mappa */
+.fuori-mappa { margin-top: 10px; display: flex; gap: 18px; align-items: center; border: 1px dashed var(--line); border-radius: var(--r); padding: 16px 20px; }
+.fuori-mappa .n { font-size: 40px; font-weight: 600; line-height: 1; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.fuori-mappa b { display: block; }
+.fuori-mappa p { margin: 4px 0 0; color: var(--ink-2); font-size: 14px; }
+

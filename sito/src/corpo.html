@@ -9,7 +9,7 @@
 
 <!-- barra dello strumento -->
 <div class="barra g"><div class="w">
-  <a class="marchio" href="#inizio"><span class="q" aria-hidden="true"></span>Vuoti <em>a rendere</em></a>
+  <a class="marchio" href="#inizio"><span class="q" aria-hidden="true"></span>Patrimonio <em>comune</em></a>
   <nav aria-label="Sezioni del sito">
     <a href="#inizio" data-nav="inizio">Inizio</a>
     <a href="#mappa" data-nav="mappa">Mappa</a>
@@ -21,13 +21,26 @@
 
 <!-- INIZIO -->
 <section class="vista" data-vista="inizio" aria-labelledby="t-inizio">
-  <div class="apertura g" role="img" aria-label="Foto: case abbandonate in via di Mezzo, Città Vecchia di Taranto"><div class="w">
+  <div class="apertura g" role="img" aria-label="Foto: il Palazzo di Città di Taranto, sede del Comune"><div class="w">
     <div class="apertura-testo">
-      <p class="kicker">Taranto · il censimento degli spazi del Comune · dati al <span data-meta="generato"></span></p>
-      <h1 id="t-inizio" tabindex="-1"><span data-num="locali"></span> locali del Comune. <em>Quali sono abbandonati?</em></h1>
-      <p class="sotto">Molti sono di sicuro in uso, come le scuole e gli uffici. Altri potrebbero essere chiusi da anni. L'elenco del Comune non lo dice: li mettiamo in fila uno per uno, cerchiamo cosa si sa già e andiamo a vederli.</p>
+      <p class="kicker">Taranto · il censimento degli edifici del Comune · dati al <span data-meta="generato"></span></p>
+      <h1 id="t-inizio" tabindex="-1">Il patrimonio del Comune, <em>edificio per edificio.</em></h1>
+      <p class="sotto">Nell'elenco ufficiale ci sono <span data-num="particelle_elenco"></span> particelle con edifici: scuole, uffici, negozi, magazzini, impianti sportivi, ruderi, case popolari. Le mettiamo sulla mappa una per una, con le fonti, e andiamo a vedere come sono usate.</p>
       <a class="bottone" href="#mappa">Apri la mappa</a>
-      <p class="credito">Foto: case abbandonate in via di Mezzo, Città Vecchia, 2015 · Jeanne Griffin, <a href="https://commons.wikimedia.org/wiki/File:Houses_Via_di_mezzo_Taranto_13-10-2015.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
+      <p class="credito">Foto: il Palazzo di Città, sede del Comune, 2022 · Bernard Gagnon, <a href="https://commons.wikimedia.org/wiki/File:Palazzo_di_citt%C3%A0,_Taranto.jpg" target="_blank" rel="noopener">CC0</a></p>
+    </div>
+  </div></div>
+
+  <div class="g"><div class="w">
+    <p class="etichetta">In primo piano · Piano delle alienazioni 2026-2028</p>
+    <div class="primo-piano">
+      <h2>Il Comune vuole vendere <em><span data-num="piano_alienazioni"></span> beni</em> e darne in affitto altri <span data-num="piano_valorizzazioni"></span>.</h2>
+      <p>Lo ha deciso il Consiglio comunale il 17 marzo 2026, nel Documento unico di programmazione. Tra questi ci sono due ex scuole del Paolo VI (in vendita nel 2028), l'ex Gerontocomio di via delle Ceramiche (1.248.000 €) e 63 locali in Città vecchia da dare in affitto. L'asta dell'ex mercato di via Plinio è stata revocata ad agosto.</p>
+      <div class="azioni-pp">
+        <a class="bottone" href="#mappa" data-online="piano"><span>Vedi sulla mappa i <span data-num="nel_piano"></span> edifici del piano</span></a>
+        <a class="link-fonte" href="https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-ap/-/papca/display/5250181" target="_blank" rel="noopener">La delibera n. 30/2026 ›</a>
+      </div>
+      <p class="nota">Gli altri beni del piano sono appartamenti, box e locali che non sono sulla mappa. Gli edifici del piano non sono per forza vuoti: il piano dice che il Comune non li ritiene necessari alle sue funzioni.</p>
     </div>
   </div></div>
 
@@ -39,7 +52,7 @@
           <h2>Visti sul posto: <em><span data-num="verificati"></span> su <span data-num="in_mappa"></span></em>. Si parte dai Tamburi.</h2>
         </div>
         <div>
-          <p>Ogni spazio passa per cinque passaggi. I primi quattro si fanno a tavolino, con dati pubblici; l'ultimo si fa a piedi, dall'esterno. Solo dopo il sopralluogo uno spazio è «verificato».</p>
+          <p>Ogni edificio passa per cinque passaggi. I primi quattro si fanno a tavolino, con dati pubblici; l'ultimo si fa a piedi, dall'esterno. Solo dopo il sopralluogo un edificio è «verificato».</p>
         </div>
       </div>
       <ol class="passi">
@@ -58,6 +71,12 @@
     <p class="etichetta">Cosa c'è nell'elenco</p>
     <div class="griglia" id="tipi"></div>
     <p class="nota piccola">Il tipo viene dalla categoria catastale: dice com'è registrato il locale, non come si usa oggi.</p>
+
+    <div class="fuori-mappa">
+      <div class="n" data-num="solo_abitazioni"></div>
+      <div><b>edifici con soli alloggi, per lo più case popolari</b>
+      <p>Sono anche loro del Comune, ma non li mettiamo sulla mappa e non li fotografiamo: ci vivono delle persone. Restano nei numeri del censimento.</p></div>
+    </div>
 
     <p class="etichetta">Dove si parte</p>
     <div class="quartiere">
@@ -114,7 +133,7 @@
 <section class="vista g" data-vista="metodo" aria-labelledby="t-metodo" hidden><div class="w testo">
   <p class="kicker">Il progetto</p>
   <h1 id="t-metodo" tabindex="-1">Come lavoriamo</h1>
-  <p class="sotto">Vuoti a rendere mette in fila dati pubblici sui locali non residenziali del Comune di Taranto, per capire quali sono chiusi o abbandonati. Nessuno spazio è stato ancora visto sul posto: tutto è «da verificare».</p>
+  <p class="sotto">Patrimonio comune mette in fila dati pubblici sugli edifici del Comune di Taranto, per sapere cosa possiede il Comune, dov'è e come è usato. Nessun edificio è stato ancora visto sul posto: tutto è «da verificare».</p>
 
   <h2 id="m-fonti" tabindex="-1">Da dove vengono i dati</h2>
   <ol>
@@ -157,7 +176,7 @@
     <li>© Agenzia delle Entrate – Cartografia catastale, <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener">CC BY 4.0</a>. Elaborazione Postilva.</li>
     <li>Ministero dell'Istruzione e del Merito – Anagrafe scuole statali e anagrafe dell'edilizia scolastica (open data).</li>
     <li>OpenStreetMap – © OpenStreetMap contributors, <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">ODbL</a>; tessere OpenFreeMap / OpenMapTiles.</li>
-    <li>Foto in apertura: case abbandonate in via di Mezzo, Città Vecchia, 2015 · Jeanne Griffin, Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.it" target="_blank" rel="noopener">CC BY-SA 4.0</a> (ridimensionata e scurita).</li>
+    <li>Foto in apertura: il Palazzo di Città, 2022 · Bernard Gagnon, Wikimedia Commons, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.it" target="_blank" rel="noopener">CC0</a>.</li>
     <li>Mappa realizzata con <a href="https://maplibre.org/" target="_blank" rel="noopener">MapLibre GL JS</a> (licenza BSD-3).</li>
   </ul>
 </div></section>
@@ -166,5 +185,5 @@
 
 <footer class="piede g"><div class="w">
   <p>Ogni dato viene da una fonte pubblica: Comune di Taranto (elenco beni immobili 2024, DUP 2026-2028), Agenzia delle Entrate (cartografia catastale, CC BY 4.0), Ministero dell'Istruzione, OpenStreetMap (ODbL). Zona e via sono indicative finché non c'è il sopralluogo. <a href="#metodo">Come lavoriamo</a></p>
-  <p>Vuoti a rendere, il censimento degli spazi del Comune di Taranto. A cura di <a href="https://www.postilva.it/" target="_blank" rel="noopener">Postilva</a>, tavolo Quartieri, Spazi e Mare · Versione di prova, dati al <span data-meta="generato"></span></p>
+  <p>Patrimonio comune, il censimento degli edifici del Comune di Taranto. A cura di <a href="https://www.postilva.it/" target="_blank" rel="noopener">Postilva</a>, tavolo Quartieri, Spazi e Mare · Versione di prova, dati al <span data-meta="generato"></span></p>
 </div></footer>
