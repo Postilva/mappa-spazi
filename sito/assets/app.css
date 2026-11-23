@@ -152,7 +152,7 @@ h1, h2, h3 { text-wrap: balance; }
 .campo-mappa { position: relative; background: #121214; min-width: 0; }
 .mappa-box { position: absolute; inset: 0; }
 .mappa-attesa, .mappa-errore { padding: 24px; color: var(--ink-2); }
-.leg { position: absolute; right: 12px; bottom: 30px; background: rgba(21, 21, 23, .95); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font-size: 13px; max-width: 270px; z-index: 2; }
+.leg { position: absolute; left: 12px; top: 12px; background: rgba(21, 21, 23, .95); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font-size: 13px; max-width: 270px; z-index: 2; }
 .leg div { display: flex; gap: 8px; align-items: center; margin: 4px 0; }
 .leg svg { flex: none; }
 .leg .nota { margin: 8px 0 0; }
@@ -244,7 +244,8 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
   .mappa-v { grid-template-columns: minmax(0, 1fr); height: auto; min-height: 0; }
   .campo-mappa { height: 62vh; min-height: 380px; order: -1; }
   .lato { border-right: 0; overflow: visible; }
-  .leg { right: 8px; bottom: 26px; max-width: 220px; padding: 8px 10px; font-size: 12px; }
+  .leg { left: 8px; top: 8px; max-width: 210px; padding: 6px 9px; font-size: 11.5px; line-height: 1.3; }
+  .leg div { margin: 2px 0; }
   .leg .nota { display: none; }
   .striscia .tavolo { display: none; }
   .barra .w { gap: 6px; }

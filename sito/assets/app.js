@@ -111,7 +111,7 @@
     }
     if (r.vista !== "esempio") ferma3d(); else riprendi3d();
     document.title = t;
-    if (r.vista === "mappa" && mappa) setTimeout(function () { mappa.resize(); }, 0);
+    if (r.vista === "mappa" && mappa) setTimeout(function () { if (!vistaFatta && !selezionato) inquadraTutti(); else mappa.resize(); }, 0);
     if (dopo) {
       var el = document.getElementById(dopo); dopo = null; primaVista = false;
       if (el) { setTimeout(function () { el.scrollIntoView({ block: "start" }); try { el.focus({ preventScroll: true }); } catch (e) {} }, 0); return; }
@@ -288,10 +288,20 @@
     var q = function (v, t) { return v[Math.min(v.length - 1, Math.max(0, Math.round(t * (v.length - 1))))]; };
     return [[q(xs, 0.12), q(ys, 0.12)], [q(xs, 0.88), q(ys, 0.88)]];
   }
+  var vistaFatta = false;
+  function margini() { var w = window.innerWidth; return w < 860 ? { top: 70, bottom: 30, left: 24, right: 24 } : { top: 40, bottom: 40, left: 40, right: 40 }; }
+  function inquadraTutti() { // tutti gli immobili nello schermo; va fatto quando la mappa è visibile e ha le sue dimensioni
+    if (!mappa) return;
+    mappa.resize();
+    var c = mappa.getContainer();
+    if (!c.clientWidth || !c.clientHeight) return;
+    mappa.fitBounds(limitiEdifici(), { padding: margini(), duration: 0 });
+    vistaFatta = true;
+  }
   function limitiEdifici() {
     var x0 = 180, y0 = 90, x1 = -180, y1 = -90;
     edifici.forEach(function (f) { var c = f.geometry.coordinates; x0 = Math.min(x0, c[0]); x1 = Math.max(x1, c[0]); y0 = Math.min(y0, c[1]); y1 = Math.max(y1, c[1]); });
-    return [[x0 - 0.003, y0 - 0.003], [x1 + 0.003, y1 + 0.003]];
+    return [[x0 - 0.002, y0 - 0.002], [x1 + 0.002, y1 + 0.002]];
   }
   function attendiLibreria(cb, n) {
     if (window.maplibregl) return cb(true);
@@ -310,9 +320,9 @@
       try {
         mappa = new maplibregl.Map({
           container: box, style: stileMappa(),
-          bounds: limitiCitta(),
-          fitBoundsOptions: { padding: 20 },
-          maxBounds: [[b[0], b[1]], [b[2], b[3]]],
+          bounds: limitiEdifici(),
+          fitBoundsOptions: { padding: margini() },
+          maxBounds: [[b[0] - 0.25, b[1] - 0.12], [b[2] + 0.25, b[3] + 0.12]], // largo: su schermi larghi tutti gli immobili devono entrare
           minZoom: 10, maxZoom: 19, dragRotate: false, pitchWithRotate: false, touchPitch: false,
           cooperativeGestures: !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches), attributionControl: false, fadeDuration: 0,
           locale: {
@@ -350,6 +360,9 @@
         mappa.addLayer({ id: "punti", type: "symbol", source: "punti", filter: ["!", ["has", "point_count"]],
           layout: { "icon-image": ["concat", "st-", ["get", "stato"], ["case", ["==", ["get", "s"], 1], "-s", ""]], "icon-allow-overlap": true } });
         mappaPronta = true;
+        var att = document.querySelector(".maplibregl-ctrl-attrib"); // attribuzioni chiuse nel pulsante «i»
+        if (att) att.classList.remove("maplibregl-compact-show");
+        if (!vistaFatta && !selezionato && !$('[data-vista="mappa"]').hidden) inquadraTutti();
         if (selezionato) evidenzia(selezionato);
       });
       function sotto(pt) {
