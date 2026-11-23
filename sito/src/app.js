@@ -282,6 +282,12 @@
       return { type: "Feature", geometry: f.geometry, properties: { id: f.properties.id, stato: f.properties.stato, s: segnalato(f.properties) ? 1 : 0 } };
     }) };
   }
+  function limitiCitta() { // il 76% centrale dei punti: la vista parte sulla città, non sui punti isolati
+    var xs = edifici.map(function (f) { return f.geometry.coordinates[0]; }).sort(function (a, b) { return a - b; });
+    var ys = edifici.map(function (f) { return f.geometry.coordinates[1]; }).sort(function (a, b) { return a - b; });
+    var q = function (v, t) { return v[Math.min(v.length - 1, Math.max(0, Math.round(t * (v.length - 1))))]; };
+    return [[q(xs, 0.12), q(ys, 0.12)], [q(xs, 0.88), q(ys, 0.88)]];
+  }
   function limitiEdifici() {
     var x0 = 180, y0 = 90, x1 = -180, y1 = -90;
     edifici.forEach(function (f) { var c = f.geometry.coordinates; x0 = Math.min(x0, c[0]); x1 = Math.max(x1, c[0]); y0 = Math.min(y0, c[1]); y1 = Math.max(y1, c[1]); });
@@ -304,11 +310,11 @@
       try {
         mappa = new maplibregl.Map({
           container: box, style: stileMappa(),
-          bounds: limitiEdifici(),
-          fitBoundsOptions: { padding: 30 },
+          bounds: limitiCitta(),
+          fitBoundsOptions: { padding: 20 },
           maxBounds: [[b[0], b[1]], [b[2], b[3]]],
           minZoom: 10, maxZoom: 19, dragRotate: false, pitchWithRotate: false, touchPitch: false,
-          cooperativeGestures: true, attributionControl: false, fadeDuration: 0,
+          cooperativeGestures: !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches), attributionControl: false, fadeDuration: 0,
           locale: {
             "CooperativeGesturesHandler.WindowsHelpText": "Usa Ctrl + rotella per ingrandire la mappa",
             "CooperativeGesturesHandler.MacHelpText": "Usa ⌘ + rotella per ingrandire la mappa",
@@ -370,10 +376,27 @@
     mappa.setFilter("punto-sel", ["==", ["get", "id"], id]);
     mappa.setFilter("edificio-sel", ["==", ["get", "id"], id]);
   }
-  function seleziona(id, daMappa) {
+  var popup = null;
+  function seleziona(id, conPopup) {
     selezionato = id;
     evidenzia(id);
-    disegnaSintesi(id, daMappa);
+    disegnaSintesi(id);
+    if (conPopup && mappa) apriPopup(id);
+  }
+  function chiudiPopup() { if (popup) { var x = popup; popup = null; x.remove(); } }
+  function apriPopup(id) {
+    var p = perId[id].properties;
+    chiudiPopup();
+    popup = new maplibregl.Popup({ closeButton: true, closeOnClick: true, maxWidth: "300px", offset: 14, className: "popup-spazio" })
+      .setLngLat(perId[id].geometry.coordinates)
+      .setHTML(etichettaStato(p.stato, segnalato(p)) +
+        "<h3>" + esc(titolo(p)) + "</h3>" +
+        '<p class="pm">' + esc(p.id) + " · " + esc(descrLocali(p)) + (zona(p) ? " · zona " + esc(zona(p)) : "") + "</p>" +
+        (p.online && p.online.indicazione && p.online.indicazione !== "nessuna_info" ?
+          '<p class="indicazione">Online: <strong>' + esc(INDICAZIONI[p.online.indicazione] || "") + "</strong></p>" : "") +
+        '<a class="bottone" href="#edificio-' + esc(p.id) + '">Apri la scheda</a>')
+      .addTo(mappa);
+    popup.on("close", function () { if (selezionato === id) { selezionato = null; evidenzia(""); disegnaSintesi(null); } });
   }
   function mostraSullaMappa(id) {
     selezionato = id;
@@ -382,7 +405,7 @@
       if (!mappa) return;
       mappa.resize();
       mappa.jumpTo({ center: perId[id].geometry.coordinates, zoom: 16.5 });
-      seleziona(id, false);
+      seleziona(id, true);
       if (window.innerWidth < 860) $("#mappa-box").scrollIntoView({ block: "start" });
     }, 60);
   }
@@ -391,18 +414,10 @@
     if (!via(p)) return vuoto("via da completare dopo il sopralluogo");
     return "Vicino a " + esc(via(p)) + (zona(p) ? ", zona " + esc(zona(p)) : "") + ' <span class="nota">(da OpenStreetMap)</span>';
   }
-  function disegnaSintesi(id, daMappa) {
-    var p = perId[id].properties, box = $("#sintesi");
-    box.hidden = false;
-    box.innerHTML =
-      etichettaStato(p.stato, segnalato(p)) +
-      "<h2>" + esc(titolo(p)) + "</h2>" +
-      "<p>" + esc(descrLocali(p)) + " · " + rigaVia(p) + "</p>" +
-      (p.online && p.online.indicazione ? '<p class="indicazione">Online: <strong>' + esc(INDICAZIONI[p.online.indicazione] || "") + "</strong></p>" : "") +
-      '<a class="bottone" href="#edificio-' + esc(p.id) + '">Apri la scheda</a>';
+  function disegnaSintesi(id) { // segna nell'elenco a fianco lo spazio scelto sulla mappa
     $$("#lista a[aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
-    var voce = $('#lista a[href="#edificio-' + id + '"]'); if (voce) voce.setAttribute("aria-current", "true");
-    if (daMappa && window.innerWidth < 860) box.scrollIntoView({ behavior: riduciMoto ? "auto" : "smooth", block: "nearest" });
+    var voce = id && $('#lista a[href="#edificio-' + id + '"]');
+    if (voce) { voce.setAttribute("aria-current", "true"); if (window.innerWidth >= 860) voce.scrollIntoView({ block: "nearest" }); }
   }
 
   /* ---------- filtri, elenco a fianco della mappa ---------- */
@@ -482,7 +497,7 @@
     var seg = edifici.filter(function (f) { return segnalato(f.properties); }).sort(function (a, b) {
       var x = ord[a.properties.online.certezza], y = ord[b.properties.online.certezza]; return (x == null ? 3 : x) - (y == null ? 3 : y);
     });
-    $("#segnalati").innerHTML = seg.map(function (f) {
+    if ($("#segnalati")) $("#segnalati").innerHTML = seg.map(function (f) {
       var p = f.properties, o = p.online;
       return '<a href="#edificio-' + esc(p.id) + '"><span class="cod pieno">' + esc(p.id) + "</span><div><b>" + esc(titolo(p)) + "</b><span>" +
         esc(INDICAZIONI[o.indicazione]) + (o.certezza ? ", certezza " + esc(o.certezza) : "") + (zona(p) ? " · zona " + esc(zona(p)) : "") + '</span></div><span class="freccia">›</span></a>';
@@ -550,6 +565,11 @@
         var img = f.svg ? f.svg : '<img src="' + esc(typeof f === "string" ? f : (f.file || f.url || "")) + '" alt="' + esc(f.descrizione || "Foto del sopralluogo") + '" loading="lazy">';
         return "<figure>" + img + "<figcaption>" + esc(f.descrizione ? f.descrizione + " · " : "") + esc(dataIt(f.data || p.data_sopralluogo)) + "</figcaption></figure>";
       }).join("") + "</div>");
+    } else {
+      h.push('<div class="galleria-vuota" role="img" aria-label="Nessuna foto per ora: arriveranno con il sopralluogo">' +
+        ["Facciata", "Ingresso", "Intorno"].map(function (t) {
+          return '<div class="foto-segnaposto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>' + t + "</span></div>";
+        }).join("") + '<p class="nota">Le foto arriveranno con il sopralluogo, solo dall\'esterno e senza persone né targhe.</p></div>');
     }
     var conIdee = es || (p.idee_riuso || []).length > 0, con3d = es || !!p.modello_3d;
 

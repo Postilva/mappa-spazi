@@ -259,3 +259,26 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
   .costellazione rect { animation: compare .5s ease-out both; animation-delay: calc(var(--k) * 3ms); }
   @keyframes compare { from { opacity: .15; } to { opacity: 1; } }
 }
+
+/* galleria segnaposto (nessuna foto ancora) */
+.galleria-vuota { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
+.foto-segnaposto { aspect-ratio: 4 / 3; border: 1.5px dashed var(--acc); border-radius: 12px; background: var(--surface); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--acc); min-width: 0; }
+.foto-segnaposto svg { width: 28px; height: 28px; opacity: .8; }
+.foto-segnaposto span { font: 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.galleria-vuota .nota { grid-column: 1 / -1; margin: 2px 0 0; }
+
+/* popup della mappa */
+.popup-spazio .maplibregl-popup-content { background: var(--surface); color: var(--ink); border: 1px solid var(--acc); border-radius: 14px; padding: 14px 16px 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, .5); font: 14px/1.45 var(--f-body); }
+.popup-spazio h3 { font-size: 17px; margin: 6px 0 4px; padding-right: 18px; }
+.popup-spazio .pm { margin: 0 0 6px; color: var(--ink-2); font-size: 13px; }
+.popup-spazio .indicazione { margin: 0 0 8px; }
+.popup-spazio .bottone { min-height: 40px; padding: 8px 14px; font-size: 14px; }
+.popup-spazio .maplibregl-popup-close-button { color: var(--ink-2); font-size: 20px; width: 30px; height: 30px; right: 4px; top: 4px; }
+.popup-spazio .maplibregl-popup-close-button:hover { background: var(--surface-2); color: var(--ink); border-radius: 8px; }
+.popup-spazio.maplibregl-popup-anchor-top .maplibregl-popup-tip, .popup-spazio.maplibregl-popup-anchor-top-left .maplibregl-popup-tip, .popup-spazio.maplibregl-popup-anchor-top-right .maplibregl-popup-tip { border-bottom-color: var(--acc); }
+.popup-spazio.maplibregl-popup-anchor-bottom .maplibregl-popup-tip, .popup-spazio.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip, .popup-spazio.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip { border-top-color: var(--acc); }
+.popup-spazio.maplibregl-popup-anchor-left .maplibregl-popup-tip { border-right-color: var(--acc); }
+.popup-spazio.maplibregl-popup-anchor-right .maplibregl-popup-tip { border-left-color: var(--acc); }
+@media (max-width: 860px) { .galleria-vuota { gap: 6px; } .foto-segnaposto svg { width: 22px; height: 22px; } }
+
+.righe .cod, .lista .cod { align-self: flex-start; }
