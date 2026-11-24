@@ -1,0 +1,65 @@
+{
+ "319-63651": {
+  "foto_commons": [],
+  "voci_wikipedia": [],
+  "articoli": [
+   {
+    "url": "https://www.leggimenu.it/menu/chaletrosadeiventi/",
+    "fonte": "Leggimenu, Bar / Caffetteria Chalet Rosa dei Venti - Menu digitale",
+    "immagine": "https://www.leggimenu.it/menu/uploads/impostazioni/7dpk3f2h7lp1/885235702654130eed19983.13913851.png",
+    "letto": true
+   },
+   {
+    "url": "https://www.tripadvisor.com/Restaurant_Review-g187878-d17838183-Reviews-Chalet_Rosa_dei_Venti-Taranto_Province_of_Taranto_Puglia.html",
+    "fonte": "Tripadvisor, Chalet Rosa dei Venti",
+    "immagine": null,
+    "letto": false,
+    "errore": "HTTP Error 403: Forbidden"
+   }
+  ]
+ },
+ "319-4611": {
+  "foto_commons": [],
+  "voci_wikipedia": [
+   {
+    "titolo": "Palazzo Delli Ponti",
+    "distanza_m": 8,
+    "url": "https://it.wikipedia.org/wiki/Palazzo_Delli_Ponti"
+   },
+   {
+    "titolo": "Palazzo Gennarini",
+    "distanza_m": 31,
+    "url": "https://it.wikipedia.org/wiki/Palazzo_Gennarini"
+   },
+   {
+    "titolo": "Palazzo Galeota",
+    "distanza_m": 36,
+    "url": "https://it.wikipedia.org/wiki/Palazzo_Galeota"
+   },
+   {
+    "titolo": "Chiesa di San Michele (Taranto)",
+    "distanza_m": 98,
+    "url": "https://it.wikipedia.org/wiki/Chiesa_di_San_Michele_%28Taranto%29"
+   },
+   {
+    "titolo": "Palazzo Calò",
+    "distanza_m": 110,
+    "url": "https://it.wikipedia.org/wiki/Palazzo_Cal%C3%B2"
+   }
+  ],
+  "articoli": [
+   {
+    "url": "https://www.corriereditaranto.it/2022/05/29/postierla-immacolata-ecco-il-gata/",
+    "fonte": "Corriere di Taranto, «Postierla Immacolata: ecco il Gata»",
+    "immagine": "https://www.corriereditaranto.it/wp-content/uploads/2026/11/progettogpug3.png",
+    "letto": true
+   },
+   {
+    "url": "https://www.artribune.com/mostre-evento-arte/urka-conflitto/",
+    "fonte": "Artribune, «Urka – Conflitto» (scheda mostra)",
+    "immagine": "https://www.artribune.com/wp-content/uploads/2025/03/mediterraneo-a3-849x1200-1.jpg",
+    "letto": true
+   }
+  ]
+ }
+}
