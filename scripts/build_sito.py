@@ -137,6 +137,69 @@ FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect wi
            '<rect x="5" y="15.4" width="3.6" height="3.6" rx=".7"/><rect x="10.7" y="15.4" width="2.6" height="5.2" rx=".5"/><rect x="15.4" y="15.4" width="3.6" height="3.6" rx=".7"/></g></svg>')
 
 
+def icone(cart):
+    """Icone PNG e ICO dal segno dello strumento (lo stesso di FAVICON), per Google (multipli di 48 px) e per i telefoni.
+    Serve Pillow; se manca, restano le icone già presenti in sito/src/icone/."""
+    dest = os.path.join(SRC, "icone")
+    try:
+        from PIL import Image, ImageDraw
+    except ImportError:
+        print("ATTENZIONE: Pillow assente, uso le icone già in sito/src/icone/", file=sys.stderr)
+    else:
+        os.makedirs(dest, exist_ok=True)
+        K = 32  # disegno a 24 x 32 = 768 px, poi riduco
+        im = Image.new("RGBA", (24 * K, 24 * K), (0, 0, 0, 0))
+        d = ImageDraw.Draw(im)
+        q = lambda *v: [int(round(x * K)) for x in v]
+        d.rounded_rectangle(q(0, 0, 24, 24), radius=5 * K, fill="#0b0b0c")
+        d.line([tuple(q(4, 8)), tuple(q(12, 3.5)), tuple(q(20, 8))], fill="#e0b56a", width=int(1.8 * K), joint="curve")
+        for x, y, w, h, r in ((5, 10, 3.6, 3.6, .7), (10.2, 10, 3.6, 3.6, .7), (15.4, 10, 3.6, 3.6, .7),
+                              (5, 15.4, 3.6, 3.6, .7), (10.7, 15.4, 2.6, 5.2, .5), (15.4, 15.4, 3.6, 3.6, .7)):
+            d.rounded_rectangle(q(x, y, x + w, y + h), radius=int(r * K), fill="#e0b56a")
+        for nome, px in (("icona-48.png", 48), ("icona-96.png", 96), ("icona-192.png", 192), ("apple-touch-icon.png", 180)):
+            out = im.resize((px, px), Image.LANCZOS)
+            if nome.startswith("apple"):  # iOS non vuole trasparenze
+                fondo = Image.new("RGB", (px, px), "#0b0b0c"); fondo.paste(out, mask=out.split()[3]); out = fondo
+            out.save(os.path.join(dest, nome), optimize=True)
+        im.resize((48, 48), Image.LANCZOS).save(os.path.join(dest, "favicon.ico"), sizes=[(16, 16), (32, 32), (48, 48)])
+    import shutil
+    for fn in glob.glob(os.path.join(dest, "*")):
+        shutil.copy(fn, os.path.join(cart, os.path.basename(fn)))
+
+
+PAGINA_404 = """<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pagina non trovata – Patrimonio comune</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/fonts.css">
+<style>
+body { background: #0b0b0c; color: #f4f4f5; font: 17px/1.55 "Space Grotesk", "Segoe UI", system-ui, sans-serif; margin: 0; min-height: 100vh; display: grid; place-items: center; }
+main { max-width: 34em; padding: 32px 20px; }
+p.k { font: 12px "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .12em; text-transform: uppercase; color: #a1a1aa; margin: 0; }
+h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.08; margin: 12px 0; font-weight: 600; }
+h1 em { font-style: normal; color: #e0b56a; }
+p { color: #a1a1aa; margin: 0 0 22px; }
+a.b { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 22px; border-radius: 14px; background: #e0b56a; color: #111; font-weight: 600; text-decoration: none; margin: 0 8px 8px 0; }
+a.b.s { background: none; color: #f4f4f5; border: 1px solid #27272a; }
+a:focus-visible { outline: 2px solid #e0b56a; outline-offset: 3px; }
+</style>
+</head>
+<body>
+<main>
+<p class="k">Patrimonio comune · errore 404</p>
+<h1>Questa pagina <em>non c'è.</em></h1>
+<p>L'indirizzo è sbagliato o la pagina è stata spostata. Il censimento degli edifici del Comune di Taranto è qui:</p>
+<a class="b" href="/#mappa">Apri la mappa</a><a class="b s" href="/">Pagina iniziale</a>
+</main>
+</body>
+</html>
+"""
+
+
 def web_sito(corpo, css, js, meta, testa):
     """Scrive sito/web/: la versione per patrimonio.postilva.it (Vercel). Nessuna richiesta a server esterni."""
     import shutil
@@ -169,7 +232,8 @@ def web_sito(corpo, css, js, meta, testa):
               '<script>window.THREE_URL="assets/vendor/three.min.js";window.MAPPA_DATI_URL=' + json.dumps(url, ensure_ascii=False).replace("</", "<\\/") + ';</script>\n'
               '<script src="assets/app.js?v=' + versione + '"></script>\n</body>\n</html>\n')
     open(os.path.join(WEB, "index.html"), "w", encoding="utf-8").write(pagina)
-    open(os.path.join(WEB, "404.html"), "w", encoding="utf-8").write(pagina)
+    open(os.path.join(WEB, "404.html"), "w", encoding="utf-8").write(PAGINA_404)  # pagina d'errore vera, non la home
+    icone(WEB)
     open(os.path.join(WEB, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n")
     oggi = meta.get("generato") or ""
     open(os.path.join(WEB, "sitemap.xml"), "w").write(
@@ -260,6 +324,14 @@ def main():
                  f'<meta name="twitter:card" content="summary_large_image">\n'
                  f'<meta name="theme-color" content="#0b0b0c">\n'
                  f'<link rel="icon" href="favicon.svg" type="image/svg+xml">\n'
+                 f'<link rel="icon" href="icona-48.png" sizes="48x48" type="image/png">\n'
+                 f'<link rel="icon" href="icona-192.png" sizes="192x192" type="image/png">\n'
+                 f'<link rel="apple-touch-icon" href="apple-touch-icon.png">\n'
+                 # nome del sito per Google (come su bonifiche.postilva.it)
+                 + '<script type="application/ld+json">' + json.dumps({
+                     "@context": "https://schema.org", "@type": "WebSite", "name": TITOLO, "alternateName": "Patrimonio comune – Postilva",
+                     "url": URL_SITO + "/", "inLanguage": "it",
+                     "publisher": {"@type": "Organization", "name": "Postilva", "url": "https://www.postilva.it/"}}, ensure_ascii=False) + '</script>\n' +
                  f'<link rel="stylesheet" href="assets/fonts.css">\n')
 
     # 1) file unico per claude.ai (frammento, tutto incorporato)

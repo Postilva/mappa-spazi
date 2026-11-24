@@ -295,7 +295,8 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .righe .cod, .lista .cod { align-self: flex-start; }
 
 /* fascia delle notizie: a tutta larghezza, a scorrimento */
-.fascia { background: #2b2417; border-top: 1px solid #4a3d22; border-bottom: 1px solid #4a3d22; }
+/* fondo Tufo più leggero (Antonio, 24/11/2026): 8% sul fondo del sito, prima circa 15% */
+.fascia { background: rgba(224, 181, 106, .08); border-top: 1px solid rgba(224, 181, 106, .2); border-bottom: 1px solid rgba(224, 181, 106, .2); }
 .fascia .w { padding-block: 34px 22px; }
 .notizie { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; }
 .notizie::-webkit-scrollbar { display: none; }
@@ -309,11 +310,11 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .azioni-pp { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; }
 .link-fonte { color: var(--ink-2); font-size: 15px; }
 .notizie-nav { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
-.freccia-n { width: 40px; height: 40px; border-radius: 999px; border: 1px solid #4a3d22; background: transparent; color: var(--ink); font-size: 22px; line-height: 1; cursor: pointer; }
+.freccia-n { width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(224, 181, 106, .3); background: transparent; color: var(--ink); font-size: 22px; line-height: 1; cursor: pointer; }
 .freccia-n:disabled { opacity: .3; cursor: default; }
 .freccia-n:not(:disabled):hover { border-color: var(--acc); color: var(--acc); }
-.puntini { display: flex; gap: 6px; }
-.puntini button { width: 22px; height: 22px; border: 0; background: none; padding: 6px; cursor: pointer; }
+.puntini { display: flex; gap: 0; }
+.puntini button { width: 32px; height: 40px; border: 0; background: none; padding: 14px 10px; cursor: pointer; }
 .puntini button::before { content: ""; display: block; width: 10px; height: 10px; border-radius: 2px; border: 2px solid var(--acc); }
 .puntini button[aria-current="true"]::before { background: var(--acc); }
 
@@ -356,3 +357,27 @@ h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
 .firma:hover, .firma:focus, .firma:active { color: var(--ink); }
 .firma:hover small { color: #ef3b3d; }
 .striscia .tavolo:hover { color: var(--ink-2); }
+
+/* --- 24/11/2026: elenco a blocchi, filtri richiudibili sul telefono, «Cosa manca ancora», aree di tocco --- */
+.lista .altri .bottone { width: 100%; justify-content: center; min-height: 44px; font-size: 15px; }
+.lato > .cerca { margin-bottom: 4px; }
+.apri-filtri { display: none; }
+.manca { list-style: none; margin: 0 0 10px; padding: 0; }
+.manca li { display: flex; gap: 12px; align-items: flex-start; padding: 9px 0; border-top: 1px solid var(--line); }
+.manca li:first-child { border-top: 0; padding-top: 2px; }
+.manca i { width: 18px; height: 18px; border-radius: 4px; border: 2px dashed var(--acc); flex: none; margin-top: 3px; opacity: .8; }
+.manca b { display: block; font-size: 15px; }
+.manca span { font-size: 14px; color: var(--ink-2); }
+.piede a, .credito a { display: inline-block; padding-block: 6px; }
+.popup-spazio .maplibregl-popup-close-button { width: 40px; height: 40px; right: 0; top: 0; }
+.popup-spazio h3 { padding-right: 26px; }
+@media (max-width: 860px) {
+  .campo-mappa { height: 56vh; }
+  .apri-filtri { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 10px; min-height: 44px; padding: 8px 16px; font: 500 15px var(--f-body); color: var(--ink); background: var(--surface-2); border: 1px solid transparent; border-radius: 999px; cursor: pointer; }
+  .apri-filtri.attivo { border-color: var(--acc); }
+  .apri-filtri i { font-style: normal; color: var(--ink-2); }
+  .apri-filtri[aria-expanded="true"] i { transform: rotate(180deg); }
+  .filtri { display: none; }
+  .filtri.aperto { display: block; }
+  .chips button { min-height: 40px; }
+}

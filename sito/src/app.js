@@ -120,7 +120,7 @@
     var t = meta.titolo || "Patrimonio comune";
     if (r.vista === "scheda") {
       disegnaScheda(r.id ? perId[r.id].properties : null, $("#scheda"), false);
-      if (r.id) { seleziona(r.id, false); t = titolo(perId[r.id].properties) + " – " + t; }
+      if (r.id) { seleziona(r.id, false); t = titolo(perId[r.id].properties) + " – " + t; } else t = "Scheda non trovata – " + t;
     } else if (r.vista === "mappa") t = "Mappa – " + t;
     else if (r.vista === "metodo") t = "Come lavoriamo – " + t;
     else if (r.vista === "privacy") t = "Privacy e crediti – " + t;
@@ -261,8 +261,8 @@
     else { quadro(g, 3.5, 3.5, 15, 3); g.fillStyle = C.bg; g.fill(); g.lineWidth = 3.2; g.strokeStyle = c; g.stroke(); }
     return g.getImageData(0, 0, t.S * t.k, t.S * t.k);
   }
-  function iconaGruppo(S) {
-    var t = tela(S), g = t.g; quadro(g, 2, 2, S - 4, 6); g.fillStyle = C.sup2; g.fill(); g.lineWidth = 2; g.strokeStyle = C.ink2; g.stroke();
+  function iconaGruppo(S, u) { // bordo nel colore dell'uso più frequente nel gruppo
+    var t = tela(S), g = t.g; quadro(g, 2, 2, S - 4, 6); g.fillStyle = C.sup2; g.fill(); g.lineWidth = 2.4; g.strokeStyle = u === "non_noto" ? C.ink3 : coloreUso(u); g.stroke();
     return g.getImageData(0, 0, t.S * t.k, t.S * t.k);
   }
   function iconaSel() {
@@ -270,14 +270,28 @@
     return g.getImageData(0, 0, t.S * t.k, t.S * t.k);
   }
   function gruppoOn(p, gr) { return !gr || uso(p) === gr; }
+  /* ricerca: senza maiuscole né accenti; ogni parola deve comparire; «scuola» trova anche «scuole» */
+  function norma(t) {
+    t = String(t || "").toLowerCase();
+    if (t.normalize) t = t.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return t;
+  }
+  function parole(t) {
+    return norma(t).split(/[^a-z0-9°-]+/).filter(Boolean).map(function (w) { return w.length >= 4 ? w.replace(/[aeiou]$/, "") : w; });
+  }
+  var pagliai = {};
   function pagliaio(p) {
-    return (p.id + " " + titolo(p) + " " + via(p) + " " + zona(p) + " " + (p.quartiere || "") + " " +
-      ((p.online && p.online.nome_probabile) || "") + " " + etichetta(TIPI, p.tipo_bene)).toLowerCase();
+    if (pagliai[p.id] == null) pagliai[p.id] = norma(p.id + " " + titolo(p) + " " + via(p) + " " + zona(p) + " " + (p.quartiere || "") + " " +
+      ((p.online && p.online.nome_probabile) || "") + " " + (p.tipi || []).map(function (t) { return etichetta(TIPI, t) + " " + (UNO[t] || ""); }).join(" ") +
+      " " + nomeUso(uso(p)));
+    return pagliai[p.id];
   }
   function visibile(p) {
     if (filtroT && (p.tipi || []).indexOf(filtroT) < 0) return false;
     if (!gruppoOn(p, filtroO)) return false;
-    return !testo || pagliaio(p).indexOf(testo) >= 0;
+    if (!testo) return true;
+    var pg = pagliaio(p);
+    return parole(testo).every(function (w) { return pg.indexOf(w) >= 0; });
   }
   function puntiFiltrati() {
     return { type: "FeatureCollection", features: edifici.filter(function (f) { return visibile(f.properties); }).map(function (f) {
@@ -325,7 +339,7 @@
   }
   function erroreMappa() {
     var box = $("#mappa-box");
-    box.innerHTML = '<p class="mappa-errore">La mappa interattiva non si è caricata in questo browser. Tutti gli spazi sono nell\'elenco qui a fianco.</p>';
+    box.innerHTML = '<p class="mappa-errore">La mappa interattiva non si è caricata in questo browser. Tutti gli edifici sono nell\'elenco.</p>';
   }
   function creaMappa() {
     attendiLibreria(function (ok) {
@@ -363,11 +377,19 @@
           mappa.addImage("u-" + u[0], icona(u[0], false), { pixelRatio: 2 });
           mappa.addImage("u-" + u[0] + "-v", icona(u[0], true), { pixelRatio: 2 });
         });
-        [28, 34, 42].forEach(function (S, i) { mappa.addImage("gr-" + i, iconaGruppo(S), { pixelRatio: 2 }); });
+        var contaGruppo = {}, prevalente = ["case"];
+        USI.forEach(function (u) {
+          contaGruppo["n_" + u[0]] = ["+", ["case", ["==", ["get", "u"], u[0]], 1, 0]];
+          [28, 34, 42].forEach(function (S, i) { mappa.addImage("gr-" + i + "-" + u[0], iconaGruppo(S, u[0]), { pixelRatio: 2 }); });
+        });
+        USI.slice(0, -1).forEach(function (u) { // a parità vince il primo nell'ordine di USI
+          prevalente.push(["all"].concat(USI.filter(function (v) { return v[0] !== u[0]; }).map(function (v) { return [">=", ["get", "n_" + u[0]], ["get", "n_" + v[0]]]; })), u[0]);
+        });
+        prevalente.push(USI[USI.length - 1][0]);
         mappa.addImage("sel", iconaSel(), { pixelRatio: 2 });
-        mappa.addSource("punti", { type: "geojson", data: puntiFiltrati(), cluster: true, clusterRadius: 36, clusterMaxZoom: 15 });
+        mappa.addSource("punti", { type: "geojson", data: puntiFiltrati(), cluster: true, clusterRadius: 36, clusterMaxZoom: 15, clusterProperties: contaGruppo });
         mappa.addLayer({ id: "gruppi", type: "symbol", source: "punti", filter: ["has", "point_count"],
-          layout: { "icon-image": ["step", ["get", "point_count"], "gr-0", 10, "gr-1", 40, "gr-2"], "icon-allow-overlap": true,
+          layout: { "icon-image": ["concat", ["step", ["get", "point_count"], "gr-0-", 10, "gr-1-", 40, "gr-2-"], prevalente], "icon-allow-overlap": true,
             "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 13, "text-allow-overlap": true },
           paint: { "text-color": C.ink } });
         mappa.addLayer({ id: "punto-sel", type: "symbol", source: "punti", filter: ["==", ["get", "id"], ""],
@@ -425,7 +447,7 @@
           '<p class="indicazione">Online: <strong>' + esc(INDICAZIONI[p.online.indicazione] || "") + "</strong></p>" : "") +
         '<a class="bottone" href="#edificio-' + esc(p.id) + '">Apri la scheda</a>')
       .addTo(mappa);
-    popup.on("close", function () { if (selezionato === id) { selezionato = null; evidenzia(""); disegnaSintesi(null); } });
+    popup.on("close", function () { if (selezionato === id) { selezionato = null; evidenzia(""); disegnaSintesi(null); cimaElenco(); } });
   }
   function mostraSullaMappa(id) {
     selezionato = id;
@@ -445,6 +467,9 @@
   }
   function disegnaSintesi(id) { // segna nell'elenco a fianco lo spazio scelto sulla mappa
     $$("#lista a[aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
+    if (id) { // se la voce è oltre il blocco mostrato, allunga l'elenco fino a lei
+      for (var i = 0; i < visibili.length; i++) if (visibili[i].properties.id === id) { if (i >= limite) { limite = Math.ceil((i + 1) / PASSO) * PASSO; disegnaLista(); } break; }
+    }
     var voce = id && $('#lista a[href="#edificio-' + id + '"]');
     if (voce) { voce.setAttribute("aria-current", "true"); if (window.innerWidth >= 860) voce.scrollIntoView({ block: "nearest" }); }
   }
@@ -472,21 +497,43 @@
     chips("#filtro-tipo", [["", "Tutti", null]].concat(TIPI.filter(function (t) { return ct[t[0]]; }).map(function (t) { return [t[0], t[1], ct[t[0]]]; })),
       filtroT, function (v) { filtroT = v; applicaFiltri(); });
     var c = $("#cerca");
-    c.addEventListener("input", function () { testo = c.value.trim().toLowerCase(); applicaFiltri(); });
+    c.addEventListener("input", function () { testo = c.value.trim(); applicaFiltri(); });
   }
   function applicaFiltri() {
     var vis = edifici.filter(function (f) { return visibile(f.properties); });
     if (mappaPronta) mappa.getSource("punti").setData(puntiFiltrati());
-    $("#conteggio").textContent = vis.length === edifici.length ? edifici.length + " edifici" : vis.length + " edifici su " + edifici.length;
+    $("#conteggio").textContent = vis.length === edifici.length ? edifici.length + " edifici" : vis.length + (vis.length === 1 ? " edificio su " : " edifici su ") + edifici.length;
+    limite = PASSO;
     disegnaLista(vis);
+    segnaFiltri();
+    disegnaSintesi(selezionato);
   }
+  var PASSO = 30, limite = PASSO, visibili = [];
   function disegnaLista(vis) {
-    $("#lista").innerHTML = vis.length ? vis.map(function (f) {
+    if (vis) visibili = vis; else vis = visibili;
+    $("#lista").innerHTML = vis.length ? vis.slice(0, limite).map(function (f) {
       var p = f.properties, on = p.online && p.online.indicazione && p.online.indicazione !== "nessuna_info";
       var u = uso(p);
       return '<li><a href="#edificio-' + esc(p.id) + '"><span class="cod" style="border-color:' + coloreUso(u) + ';color:' + coloreUso(u) + '">' + esc(p.id) + "</span><span><b>" + esc(titolo(p)) +
         '</b><span class="meta">' + esc(nomeUso(u)) + " · " + esc(descrLocali(p)) + (zona(p) ? " · zona " + esc(zona(p)) : "") + "</span></span></a></li>";
-    }).join("") : '<li class="altri nota">Nessuno spazio con questi filtri.</li>';
+    }).join("") + (vis.length > limite ? '<li class="altri"><button type="button" class="bottone secondario" data-altri>Mostra altri ' +
+      Math.min(PASSO, vis.length - limite) + " (" + (vis.length - limite) + " rimasti)</button></li>" : "")
+      : '<li class="altri nota">Nessun edificio con questi filtri. <button type="button" class="collegamento" data-azzera>Togli i filtri</button></li>';
+  }
+  function azzeraFiltri() {
+    filtroT = ""; filtroO = ""; testo = ""; $("#cerca").value = "";
+    $$("#filtro-tipo button, #filtro-online button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === "")); });
+    applicaFiltri();
+  }
+  function segnaFiltri() { // sul telefono i filtri stanno in un pannello: il pulsante dice quanti sono attivi
+    var b = $("#apri-filtri"); if (!b) return;
+    var n = (filtroT ? 1 : 0) + (filtroO ? 1 : 0);
+    b.querySelector("span").textContent = n ? "Filtri · " + n + (n === 1 ? " attivo" : " attivi") : "Filtri";
+    b.classList.toggle("attivo", n > 0);
+  }
+  function cimaElenco() { // l'elenco torna all'inizio
+    limite = PASSO; disegnaLista();
+    var l = $(".lato"); if (l) l.scrollTop = 0;
   }
 
   function contaUso(u) { return edifici.filter(function (f) { return uso(f.properties) === u; }).length; }
@@ -635,19 +682,18 @@
 
   function disegnaScheda(p, box, es) {
     if (!p) {
-      box.innerHTML = '<div class="g"><div class="w testo"><h1 tabindex="-1">Scheda non trovata</h1><p>Non c\'è uno spazio con questo identificativo. Torna alla <a href="#mappa">mappa</a>.</p></div></div>';
+      box.innerHTML = '<div class="g"><div class="w testo"><h1 tabindex="-1">Scheda non trovata</h1><p>Non c\'è un edificio con questo codice: controlla l\'indirizzo, oppure cercalo sulla <a href="#mappa">mappa</a>.</p></div></div>';
       return;
     }
     var h = [], x = es ? "e-" : ""; // prefisso degli id nella scheda di esempio
     var pericolo = p.stato === "chiuso" || p.stato === "abbandonato" || p.stato === "rudere";
-    var marca = es ? ' <span class="tag-esempio">esempio</span>' : "";
     var on = p.online || null;
 
     h.push('<div class="g"><div class="w scheda-g"><div>');
     h.push('<a class="indietro" href="#mappa">← Mappa</a>' + (es ? "" : '<button type="button" class="indietro" data-mostra="' + esc(p.id) + '">Vedi sulla mappa</button>'));
     h.push('<p class="meta-s"><b>' + esc(p.id) + "</b> · foglio " + esc(p.foglio) + ", particella " + esc(p.particella) +
       (p.quartiere ? " · " + esc(p.quartiere) : zona(p) ? " · zona " + esc(zona(p)) : "") + "</p>");
-    h.push('<h1 tabindex="-1">' + esc(titolo(p)) + marca + "</h1>");
+    h.push('<h1 tabindex="-1">' + esc(titolo(p)) + "</h1>");
     if (!es) h.push('<p class="uso-scheda">' + etichettaUso(p) + "</p>");
     var sintesi;
     if (p.data_sopralluogo) sintesi = "Visto sul posto il " + esc(dataIt(p.data_sopralluogo)) + ": " + esc(etichetta(STATI, p.stato).toLowerCase()) + ".";
@@ -655,23 +701,29 @@
       sintesi = "Non ancora visto sul posto. Secondo le fonti online: " + esc((INDICAZIONI[on.indicazione] || "").toLowerCase()) + (on.certezza ? " (certezza " + esc(on.certezza) + ")" : "") + ".";
     else sintesi = "Non ancora visto sul posto. Sappiamo che è del Comune e dove si trova sul catasto; non sappiamo se è in uso.";
     h.push('<div class="richiamo"><p>' + sintesi + "</p>" + (!p.data_sopralluogo && on ? '<span class="nota">Le indicazioni online non sono verifiche: le fonti sono qui sotto.</span>' : "") + "</div>");
-    if (pericolo) h.push('<div class="pericolo" role="note"><p><strong>Attenzione:</strong> spazio ' + esc(etichetta(STATI, p.stato).toLowerCase()) +
+    if (pericolo) h.push('<div class="pericolo" role="note"><p><strong>Attenzione:</strong> edificio ' + esc(etichetta(STATI, p.stato).toLowerCase()) +
       ". Può essere pericoloso: non entrare e non avvicinarti. Questa scheda serve a conoscere il bene, non a visitarlo.</p></div>");
 
-    // Foto
+    // Foto (solo se ci sono: quelle che mancano sono in «Cosa manca ancora»)
     var foto = p.foto || [];
     if (foto.length) {
       h.push('<div class="foto-griglia' + (es ? " foto-esempio" : "") + '">' + foto.map(function (f) {
         var img = f.svg ? f.svg : '<img src="' + esc(typeof f === "string" ? f : (f.file || f.url || "")) + '" alt="' + esc(f.descrizione || "Foto del sopralluogo") + '" loading="lazy">';
         return "<figure>" + img + "<figcaption>" + esc(f.descrizione ? f.descrizione + " · " : "") + esc(dataIt(f.data || p.data_sopralluogo)) + "</figcaption></figure>";
       }).join("") + "</div>");
-    } else {
-      h.push('<div class="galleria-vuota" role="img" aria-label="Nessuna foto per ora: arriveranno con il sopralluogo">' +
-        ["Facciata", "Ingresso", "Intorno"].map(function (t) {
-          return '<div class="foto-segnaposto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>' + t + "</span></div>";
-        }).join("") + '<p class="nota">Le foto arriveranno con il sopralluogo, solo dall\'esterno e senza persone né targhe.</p></div>');
     }
     var conIdee = es || (p.idee_riuso || []).length > 0, con3d = es || !!p.modello_3d;
+
+    // 4b. Cercato online
+    if (on || !es) h.push(sezione(x + "online", "Cercato online", on ?
+      (on.indicazione ? '<p class="indicazione"><strong>' + esc(INDICAZIONI[on.indicazione] || on.indicazione) + "</strong>" +
+        (on.certezza ? ' <span class="nota">(certezza ' + esc(on.certezza) + ")</span>" : "") + "</p>" : "") +
+      (on.nome_probabile && !p.nome ? "<p>Nome probabile: <strong>" + esc(on.nome_probabile) + "</strong></p>" : "") +
+      (on.note && on.note.length ? '<ul class="online-note">' + on.note.map(function (n) {
+        return "<li>" + esc(n.testo) + ' <span class="fonte">Fonte: ' + (n.url ? link(n.url, n.fonte) : esc(n.fonte || "")) + (n.data ? ", " + esc(dataIt(n.data)) : "") + "</span></li>";
+      }).join("") + "</ul>" : "<p>" + vuoto("Online non abbiamo trovato nulla su questo edificio.") + "</p>") +
+      '<p class="nota">Sono indicazioni trovate online prima del sopralluogo, non dati verificati: lo stato resta «da verificare» finché non andiamo a vedere.</p>' :
+      "<p>" + vuoto("Non ancora cercato online.") + "</p>"));
 
     // 4. Dati
     var u = p.locali || [];
@@ -695,37 +747,33 @@
       "</dl>" + tab +
       '<p class="fonte">Fonte: Comune di Taranto, elenco beni immobili 2024 (identificativi e categorie); Agenzia delle Entrate, cartografia catastale, CC BY 4.0 (posizione e area). Dettagli nella sezione Fonti.</p>'));
 
-    // 4b. Cercato online
-    var on = p.online;
-    h.push(sezione(x + "online", "Cercato online", on ?
-      (on.indicazione ? '<p class="indicazione"><strong>' + esc(INDICAZIONI[on.indicazione] || on.indicazione) + "</strong>" +
-        (on.certezza ? ' <span class="nota">(certezza ' + esc(on.certezza) + ")</span>" : "") + "</p>" : "") +
-      (on.nome_probabile && !p.nome ? "<p>Nome probabile: <strong>" + esc(on.nome_probabile) + "</strong></p>" : "") +
-      (on.note && on.note.length ? '<ul class="online-note">' + on.note.map(function (n) {
-        return "<li>" + esc(n.testo) + ' <span class="fonte">Fonte: ' + (n.url ? link(n.url, n.fonte) : esc(n.fonte || "")) + (n.data ? ", " + esc(dataIt(n.data)) : "") + "</span></li>";
-      }).join("") + "</ul>" : "<p>" + vuoto("Online non abbiamo trovato nulla su questo spazio.") + "</p>") +
-      '<p class="nota">Sono indicazioni trovate online prima del sopralluogo, non dati verificati: lo stato resta «da verificare» finché non andiamo a vedere.</p>' :
-      "<p>" + vuoto("Non ancora cercato online.") + "</p>"));
-
     // 5. Storia
     var st = (p.storia || []).filter(function (s) { return s && s.testo; });
-    h.push(sezione(x + "storia", "La sua storia", st.length ?
+    if (st.length) h.push(sezione(x + "storia", "La sua storia",
       '<ol class="linea-tempo">' + st.map(function (s) {
         return '<li' + (s.chiusura ? ' class="chiusura"' : "") + "><strong>" + esc(dataIt(s.data)) + "</strong> – " + esc(s.testo) + (s.fonte ? ' <span class="fonte">Fonte: ' + esc(s.fonte) + "</span>" : "") + "</li>";
-      }).join("") + "</ol>" :
-      "<p>" + vuoto("Da completare con la ricerca d'archivio e l'accesso agli atti: ogni passaggio della storia avrà la sua fonte.") + "</p>"));
+      }).join("") + "</ol>"));
 
     // 6. Costi
     var sm = p.stima || {};
-    var costi = (sm.min_eur != null && sm.max_eur != null) ?
+    var conStima = sm.min_eur != null && sm.max_eur != null;
+    var costi = conStima ?
       '<p class="forchetta">Tra ' + esc(numIt(sm.min_eur)) + " € e " + esc(numIt(sm.max_eur)) + " €</p>" +
       "<p>Livello di stima <strong>" + esc(String(sm.livello || "–")) + " su 3</strong>" + (sm.livello_descr ? " (" + esc(sm.livello_descr) + ")" : "") + "</p>" +
       (sm.voci ? '<div class="tabella-box"><table><thead><tr><th scope="col">Voce</th><th scope="col">Stima</th></tr></thead><tbody>' + sm.voci.map(function (v) {
         return "<tr><td>" + esc(v[0]) + "</td><td>" + esc(v[1]) + "</td></tr>"; }).join("") + "</tbody></table></div>" : "") +
       "<p>Prezzario usato: " + (sm.prezzario ? esc(sm.prezzario) : vuoto("da indicare")) + "</p>" :
       "<p>" + vuoto("Stima non ancora disponibile: da completare dopo il sopralluogo e la valutazione di un tecnico.") + "</p>";
-    h.push(sezione(x + "costi", "Quanto costa riaprirlo", costi +
+    if (conStima) h.push(sezione(x + "costi", "Quanto costa riaprirlo", costi +
       "<p><strong>Stima parametrica di massima, non perizia.</strong> <a href=\"#metodo\">Come si fanno le stime</a></p>", "costi"));
+    var manca = [];
+    if (!p.data_sopralluogo) manca.push(["Il sopralluogo", "andiamo a vedere dall'esterno com'è e se è usato: solo allora la scheda è «verificata»."]);
+    if (!foto.length) manca.push(["Le foto", "facciata, ingresso e intorno, solo dall'esterno e senza persone né targhe."]);
+    if (!st.length) manca.push(["La storia", "dalla ricerca d'archivio e dall'accesso agli atti: ogni passaggio con la sua fonte."]);
+    if (!conStima) manca.push(["La stima dei costi per riaprirlo", 'dopo il sopralluogo, con un tecnico: una stima di massima, non una perizia. <a href="#metodo">Come si fanno le stime</a>']);
+    if (manca.length) h.push(sezione(x + "manca", "Cosa manca ancora", '<ul class="manca">' + manca.map(function (m) {
+      return "<li><i></i><div><b>" + esc(m[0]) + "</b><span>" + m[1] + "</span></div></li>"; }).join("") + "</ul>" +
+      (es ? "" : '<p class="nota">Lo conosci? <a ' + linkScrivici(p.id) + ">Raccontaci questo edificio</a>.</p>")));
 
     // 7. Idee di riuso
     var idee = p.idee_riuso || [];
@@ -763,7 +811,7 @@
     var pi = pianta(p.id);
     if (pi) h.push('<section class="sez pianta"><h2>Sul catasto</h2>' + pi + '<p class="nota">Contorno della particella (Agenzia delle Entrate, CC BY 4.0). Il quadratino è il punto usato sulla mappa.</p></section>');
     var passi = [[true, "Nell'elenco del Comune", "elenco beni immobili 2024"], [true, "Trovato sul catasto", "posizione e contorno"],
-      [!!on, "Cercato online", on ? (on.note || []).length + " indicazioni con fonte" : "atti, scuole, notizie"],
+      [!!on, "Cercato online", on ? ((on.note || []).length === 1 ? "1 indicazione con fonte" : (on.note || []).length + " indicazioni con fonte") : "atti, scuole, notizie"],
       [!!p.data_sopralluogo, "Visto sul posto", p.data_sopralluogo ? dataIt(p.data_sopralluogo) : "stato, dall'esterno"],
       [foto.length > 0, "Foto", "senza persone né targhe"], [(p.storia || []).length > 0, "Storia", "archivio e accesso agli atti"],
       [p.stima && p.stima.min_eur != null, "Stima dei costi", "con un tecnico"]];
@@ -934,8 +982,19 @@
 
   /* ---------- eventi delegati ---------- */
   document.addEventListener("click", function (ev) {
-    var t = ev.target.closest ? ev.target.closest("[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d],[data-vai-dopo],[data-tipo],[data-zona],[data-online]") : null;
+    var t = ev.target.closest ? ev.target.closest("[data-altri],[data-azzera],[data-filtri],[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d],[data-vai-dopo],[data-tipo],[data-zona],[data-online]") : null;
     if (!t) return;
+    if (t.hasAttribute("data-altri")) {
+      var primaNuova = limite; limite += PASSO; disegnaLista();
+      var a = $$("#lista a")[primaNuova]; if (a) { try { a.focus({ preventScroll: true }); } catch (e) {} }
+      return;
+    }
+    if (t.hasAttribute("data-azzera")) return azzeraFiltri();
+    if (t.hasAttribute("data-filtri")) {
+      var corpoF = $("#filtri"), aperto = corpoF.classList.toggle("aperto");
+      t.setAttribute("aria-expanded", String(aperto));
+      return;
+    }
     if (t.hasAttribute("data-vai-dopo")) { dopo = t.getAttribute("data-vai-dopo"); return; }
     if (t.hasAttribute("data-tipo") || t.hasAttribute("data-zona") || t.hasAttribute("data-online")) {
       filtroT = t.getAttribute("data-tipo") || ""; filtroO = t.getAttribute("data-online") || "";

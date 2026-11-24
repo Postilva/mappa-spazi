@@ -71,3 +71,17 @@ Per aggiornare: `python3 scripts/build_sito.py`, commit e push su `main`: Vercel
 
 `dati/contatti.json`: `email`, `pec`, `modulo` (link del modulo Google) e `modulo_campo_scheda` (il codice `entry.NNNN` della domanda «Codice della scheda»). Finché `modulo` è vuoto, «Scrivici» e «Segnala un errore» aprono una mail all'indirizzo `email` (con il codice della scheda nell'oggetto). Quando c'è il modulo, aprono il modulo, con il codice della scheda già compilato; la pagina privacy aggiunge da sola la frase su Google Moduli. Dopo ogni modifica: `python3 scripts/build_sito.py`.
 
+
+## Modifiche del 24/11/2026 (controllo dei difetti, UI e UX)
+
+- **Ricerca**: senza maiuscole né accenti, parola per parola; «scuola» trova anche «scuole» (prima 7 risultati su 55 scuole).
+- **Elenco a blocchi di 30** con «Mostra altri»; «Togli i filtri» quando non c'è nessun risultato. Quando si chiude il popup di un edificio, l'elenco torna in cima (Antonio).
+- **Telefono**: i filtri stanno in un pannello «Filtri» richiudibile; la pagina della mappa non è più lunga 25 schermate.
+- **Gruppi sulla mappa** con il bordo nel colore dell'uso più frequente (`clusterProperties`); a parità vince l'ordine di `USI`.
+- **Scheda**: «Cercato online» subito sotto il titolo; foto, storia e costi mancanti in un solo riquadro «Cosa manca ancora».
+- **Fascia delle notizie** con il fondo Tufo più leggero (8% invece di circa 15%: Antonio).
+- **`404.html` è una pagina d'errore vera** (prima era una copia della home).
+- **Icone** PNG da 48, 96, 192 px, `apple-touch-icon.png` e `favicon.ico`, disegnate da `build_sito.py` con Pillow e tenute in `sito/src/icone/`; **dati strutturati** con il nome del sito per Google.
+- «Partecipa» porta a postilva.it/partecipa/. Testi: «edificio» al posto di «spazio», singolari corretti.
+
+Non fatto: una pagina vera per ogni scheda (oggi sono indirizzi con `#`, che Google non indicizza).

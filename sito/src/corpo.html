@@ -4,7 +4,7 @@
 <header class="striscia g"><div class="w">
   <a class="firma" href="https://www.postilva.it/" target="_blank" rel="noopener">__LOGO__<span><small>PER TARANTO</small><b>POSTILVA</b></span></a>
   <span class="tavolo">Un progetto del tavolo Quartieri, Spazi e Mare</span>
-  <a class="partecipa" href="https://www.postilva.it/" target="_blank" rel="noopener">Partecipa ›</a>
+  <a class="partecipa" href="https://www.postilva.it/partecipa/" target="_blank" rel="noopener">Partecipa ›</a>
 </div></header>
 
 <!-- barra dello strumento -->
@@ -99,19 +99,22 @@
 <!-- MAPPA -->
 <section class="vista" data-vista="mappa" aria-labelledby="t-mappa" hidden>
   <div class="mappa-v">
-    <aside class="lato" aria-label="Filtri ed elenco degli spazi">
+    <aside class="lato" aria-label="Filtri ed elenco degli edifici">
       <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
-      <p class="nota">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini. Colore: uso conosciuto. Solo bordo: secondo le fonti; pieno: visto sul posto.</p>
-      <p class="sotto-et">Uso conosciuto</p>
-      <div class="chips" id="filtro-online" role="group" aria-label="Uso conosciuto"></div>
-      <p class="sotto-et">Tipo di locale</p>
-      <div class="chips" id="filtro-tipo" role="group" aria-label="Tipo di locale"></div>
+      <p class="nota">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini, con il colore dell'uso più frequente. Colore: uso conosciuto. Solo bordo: secondo le fonti; pieno: visto sul posto.</p>
       <label for="cerca" class="sotto-et">Cerca</label>
       <input id="cerca" class="cerca" type="search" placeholder="Via, zona, nome o codice (es. 203-18)" autocomplete="off">
+      <button type="button" class="apri-filtri" id="apri-filtri" data-filtri aria-expanded="false" aria-controls="filtri"><span>Filtri</span><i aria-hidden="true">▾</i></button>
+      <div class="filtri" id="filtri">
+        <p class="sotto-et">Uso conosciuto</p>
+        <div class="chips" id="filtro-online" role="group" aria-label="Uso conosciuto"></div>
+        <p class="sotto-et">Tipo di locale</p>
+        <div class="chips" id="filtro-tipo" role="group" aria-label="Tipo di locale"></div>
+      </div>
       <ul class="lista" id="lista"></ul>
     </aside>
     <div class="campo-mappa">
-      <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli spazi. Alternativa testuale: l'elenco a fianco">
+      <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli edifici. Alternativa testuale: l'elenco">
         <p class="mappa-attesa">Caricamento della mappa…</p>
       </div>
     </div>
