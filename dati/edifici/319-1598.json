@@ -32,7 +32,17 @@
   "stato": "da_verificare",
   "data_sopralluogo": null,
   "autori": [],
-  "foto": [],
+  "foto": [
+    {
+      "file": "img/foto-319-1598.jpg",
+      "descrizione": "Palazzo Pantaleo, sede del Museo etnografico «Alfredo Majorano»",
+      "data": "2015-11-29",
+      "autore": "PierTaras",
+      "licenza": "CC BY-SA 4.0",
+      "pagina": "https://commons.wikimedia.org/wiki/File:Museo-palazzo-pantaleo.jpg",
+      "origine": "online"
+    }
+  ],
   "storia": [],
   "stima": {
     "livello": null,
@@ -68,5 +78,5 @@
       "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"
     }
   ],
-  "ultima_modifica": "2026-11-10"
+  "ultima_modifica": "2026-11-24"
 }

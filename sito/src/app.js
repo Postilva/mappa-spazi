@@ -709,8 +709,12 @@
     var foto = p.foto || [];
     if (foto.length) {
       h.push('<div class="foto-griglia' + (es ? " foto-esempio" : "") + '">' + foto.map(function (f) {
-        var img = f.svg ? f.svg : '<img src="' + esc(typeof f === "string" ? f : (f.file || f.url || "")) + '" alt="' + esc(f.descrizione || "Foto del sopralluogo") + '" loading="lazy">';
-        return "<figure>" + img + "<figcaption>" + esc(f.descrizione ? f.descrizione + " · " : "") + esc(dataIt(f.data || p.data_sopralluogo)) + "</figcaption></figure>";
+        var src = typeof f === "string" ? f : (f.file || f.url || "");
+        if (window.MAPPA_DATI && !/^https?:/.test(src)) src = "https://patrimonio.postilva.it/" + src; // pagina unica: le foto stanno sul sito
+        var img = f.svg ? f.svg : '<img src="' + esc(src) + '" alt="' + esc(f.descrizione || "Foto del sopralluogo") + '" loading="lazy">';
+        var cred = f.autore ? "<br>Foto: " + (f.pagina ? link(f.pagina, f.autore) : esc(f.autore)) + (f.licenza ? ", " + esc(f.licenza) : "") +
+          (f.origine === "online" ? " · trovata online, non è del sopralluogo" : "") : "";
+        return "<figure>" + img + "<figcaption>" + esc(f.descrizione ? f.descrizione + " · " : "") + esc(dataIt(f.data || p.data_sopralluogo)) + cred + "</figcaption></figure>";
       }).join("") + "</div>");
     }
     var conIdee = es || (p.idee_riuso || []).length > 0, con3d = es || !!p.modello_3d;
@@ -770,7 +774,8 @@
       "<p><strong>Stima parametrica di massima, non perizia.</strong> <a href=\"#metodo\">Come si fanno le stime</a></p>", "costi"));
     var manca = [];
     if (!p.data_sopralluogo) manca.push(["Il sopralluogo", "andiamo a vedere dall'esterno com'è e se è usato: solo allora la scheda è «verificata»."]);
-    if (!foto.length) manca.push(["Le foto", "facciata, ingresso e intorno, solo dall'esterno e senza persone né targhe."]);
+    var fotoNostre = foto.filter(function (f) { return f.origine !== "online"; });
+    if (!fotoNostre.length) manca.push([foto.length ? "Le foto del sopralluogo" : "Le foto", "facciata, ingresso e intorno, solo dall'esterno e senza persone né targhe."]);
     if (!st.length) manca.push(["La storia", "dalla ricerca d'archivio e dall'accesso agli atti: ogni passaggio con la sua fonte."]);
     if (!conStima) manca.push(["La stima dei costi per riaprirlo", 'dopo il sopralluogo, con un tecnico: una stima di massima, non una perizia. <a href="#metodo">Come si fanno le stime</a>']);
     if (manca.length) h.push(sezione(x + "manca", "Cosa manca ancora", '<ul class="manca">' + manca.map(function (m) {
@@ -816,7 +821,7 @@
     var passi = [[true, "Nell'elenco del Comune", "elenco beni immobili 2024"], [true, "Trovato sul catasto", "posizione e contorno"],
       [!!on, "Cercato online", on ? ((on.note || []).length === 1 ? "1 indicazione con fonte" : (on.note || []).length + " indicazioni con fonte") : "atti, scuole, notizie"],
       [!!p.data_sopralluogo, "Visto sul posto", p.data_sopralluogo ? dataIt(p.data_sopralluogo) : "stato, dall'esterno"],
-      [foto.length > 0, "Foto", "senza persone né targhe"], [(p.storia || []).length > 0, "Storia", "archivio e accesso agli atti"],
+      [foto.filter(function (f) { return f.origine !== "online"; }).length > 0, "Foto del sopralluogo", "senza persone né targhe"], [(p.storia || []).length > 0, "Storia", "archivio e accesso agli atti"],
       [p.stima && p.stima.min_eur != null, "Stima dei costi", "con un tecnico"]];
     h.push('<section class="sez"><h2>A che punto è</h2><ul class="tracc">' + passi.map(function (s) {
       return "<li" + (s[0] ? ' class="si"' : "") + "><i>" + (s[0] ? "✓" : "") + "</i><div><b>" + esc(s[1]) + "</b><span>" + esc(s[2]) + "</span></div></li>";
