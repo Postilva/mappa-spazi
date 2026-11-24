@@ -660,9 +660,10 @@
     });
   }
 
-  function pianta(id) {
+  function pianta(id, pe) { // pe: scheda con un contorno suo (la scheda di esempio)
     var f = null;
-    (base && base.features || []).forEach(function (b) { if (b.properties.id === id) f = b; });
+    if (pe && pe.contorno) f = { geometry: { type: "Polygon", coordinates: [pe.contorno] } };
+    else (base && base.features || []).forEach(function (b) { if (b.properties.id === id) f = b; });
     if (!f) return "";
     var g = f.geometry, anelli = g.type === "Polygon" ? g.coordinates : [].concat.apply([], g.coordinates);
     var pts = [].concat.apply([], anelli), x0 = 180, x1 = -180, y0 = 90, y1 = -90;
@@ -670,10 +671,10 @@
     var cs = Math.cos((y0 + y1) / 2 * Math.PI / 180), w = Math.max((x1 - x0) * cs, 1e-6), hh = Math.max(y1 - y0, 1e-6), sc = Math.min(360 / w, 220 / hh);
     var ox = 200 - w * sc / 2, oy = 130 - hh * sc / 2;
     function P(c) { return (ox + (c[0] - x0) * cs * sc).toFixed(1) + "," + (oy + (y1 - c[1]) * sc).toFixed(1); }
-    var c = perId[id].geometry.coordinates, q = P(c).split(","), griglia = "";
+    var c = pe && pe.contorno ? [pe.lon, pe.lat] : perId[id].geometry.coordinates, q = P(c).split(","), griglia = "";
     for (var i = 0; i <= 400; i += 40) griglia += '<line x1="' + i + '" y1="0" x2="' + i + '" y2="260" stroke="#1d1d20"/>';
     for (i = 0; i <= 260; i += 40) griglia += '<line x1="0" y1="' + i + '" x2="400" y2="' + i + '" stroke="#1d1d20"/>';
-    var a = perId[id].properties.area_particella_m2;
+    var a = (pe && pe.contorno ? pe : perId[id].properties).area_particella_m2;
     return '<svg viewBox="0 0 400 260" role="img" aria-label="Contorno della particella ' + esc(id) + '">' + griglia +
       anelli.map(function (r) { return '<polygon points="' + r.map(P).join(" ") + '" fill="' + C.accSoft + '" stroke="' + C.acc + '" stroke-width="2.5"/>'; }).join("") +
       '<rect x="' + (q[0] - 7) + '" y="' + (q[1] - 7) + '" width="14" height="14" rx="2.5" fill="none" stroke="' + C.acc + '" stroke-width="2.5"/>' +
@@ -694,7 +695,7 @@
     h.push('<p class="meta-s"><b>' + esc(p.id) + "</b> · foglio " + esc(p.foglio) + ", particella " + esc(p.particella) +
       (p.quartiere ? " · " + esc(p.quartiere) : zona(p) ? " · zona " + esc(zona(p)) : "") + "</p>");
     h.push('<h1 tabindex="-1">' + esc(titolo(p)) + "</h1>");
-    if (!es) h.push('<p class="uso-scheda">' + etichettaUso(p) + "</p>");
+    h.push('<p class="uso-scheda">' + etichettaUso(p) + "</p>");
     var sintesi;
     if (p.data_sopralluogo) sintesi = "Visto sul posto il " + esc(dataIt(p.data_sopralluogo)) + ": " + esc(etichetta(STATI, p.stato).toLowerCase()) + ".";
     else if (on && on.indicazione && on.indicazione !== "nessuna_info")
@@ -722,7 +723,8 @@
       (on.note && on.note.length ? '<ul class="online-note">' + on.note.map(function (n) {
         return "<li>" + esc(n.testo) + ' <span class="fonte">Fonte: ' + (n.url ? link(n.url, n.fonte) : esc(n.fonte || "")) + (n.data ? ", " + esc(dataIt(n.data)) : "") + "</span></li>";
       }).join("") + "</ul>" : "<p>" + vuoto("Online non abbiamo trovato nulla su questo edificio.") + "</p>") +
-      '<p class="nota">Sono indicazioni trovate online prima del sopralluogo, non dati verificati: lo stato resta «da verificare» finché non andiamo a vedere.</p>' :
+      '<p class="nota">' + (p.data_sopralluogo ? "Sono le indicazioni trovate online prima del sopralluogo: quello che abbiamo visto sul posto è in cima alla scheda." :
+        "Sono indicazioni trovate online prima del sopralluogo, non dati verificati: lo stato resta «da verificare» finché non andiamo a vedere.") + "</p>" :
       "<p>" + vuoto("Non ancora cercato online.") + "</p>"));
 
     // 4. Dati
@@ -804,12 +806,13 @@
     // 10. Segnala un errore
     h.push(sezione(x + "segnala", "Segnala un errore",
       "<p>ID della scheda: <strong>" + esc(p.id) + "</strong> · ultima modifica: <strong>" + esc(dataIt(p.ultima_modifica)) + "</strong></p>" +
-      (es ? "" : '<a class="bottone secondario" ' + linkScrivici(p.id) + ">Segnala un errore o raccontaci questo edificio</a>") +
-      '<p class="nota">Ci arriva il codice ' + esc(p.id) + ': non serve altro. Le segnalazioni servono a correggere la scheda e non vengono pubblicate.</p>'));
+      (es ? '<p class="nota">Nelle schede vere qui c\'è il pulsante per segnalare un errore o raccontarci l\'edificio: ci arriva il codice della scheda, non serve altro.</p>' :
+        '<a class="bottone secondario" ' + linkScrivici(p.id) + ">Segnala un errore o raccontaci questo edificio</a>" +
+        '<p class="nota">Ci arriva il codice ' + esc(p.id) + ': non serve altro. Le segnalazioni servono a correggere la scheda e non vengono pubblicate.</p>')));
 
     h.push("</div><aside>");
-    var pi = pianta(p.id);
-    if (pi) h.push('<section class="sez pianta"><h2>Sul catasto</h2>' + pi + '<p class="nota">Contorno della particella (Agenzia delle Entrate, CC BY 4.0). Il quadratino è il punto usato sulla mappa.</p></section>');
+    var pi = pianta(p.id, es ? p : null);
+    if (pi) h.push('<section class="sez pianta"><h2>Sul catasto</h2>' + pi + '<p class="nota">' + (es ? "Contorno inventato per l'esempio. Nelle schede vere è quello della particella sul catasto." : "Contorno della particella (Agenzia delle Entrate, CC BY 4.0). Il quadratino è il punto usato sulla mappa.") + "</p></section>");
     var passi = [[true, "Nell'elenco del Comune", "elenco beni immobili 2024"], [true, "Trovato sul catasto", "posizione e contorno"],
       [!!on, "Cercato online", on ? ((on.note || []).length === 1 ? "1 indicazione con fonte" : (on.note || []).length + " indicazioni con fonte") : "atti, scuole, notizie"],
       [!!p.data_sopralluogo, "Visto sul posto", p.data_sopralluogo ? dataIt(p.data_sopralluogo) : "stato, dall'esterno"],
@@ -848,7 +851,12 @@
       { subalterno: "4", categoria: "C02", categoria_descrizione: "Magazzini e locali di deposito", id: "esempio-4", tipo: "magazzini" }
     ],
     n_locali: 4, n_abitazioni: 0, n_pertinenze: 0, superficie_m2: 620, area_particella_m2: 910, lat: 40.4762, lon: 17.2297,
-    uso_originario: "mercato rionale coperto, 14 banchi",
+    uso_originario: "mercato rionale coperto, 14 banchi", uso_verificato: "chiuso",
+    contorno: [[17.22948, 40.47606], [17.22996, 40.47612], [17.22992, 40.47634], [17.22944, 40.47628], [17.22948, 40.47606]],
+    online: { indicazione: "chiuso", certezza: "media", note: [
+      { testo: "Nell'anagrafe dei mercati comunali il mercato risulta «sospeso» dal 2009.", fonte: "elenco dei mercati del Comune (esempio)", data: "2026-10-02" },
+      { testo: "Un articolo racconta la raccolta di firme del quartiere per riaprirlo.", fonte: "testata locale (esempio)", data: "2024-05-14" }
+    ] },
     foto: [
       { svg: disegnoFoto("fronte"), descrizione: "Facciata sulla strada", data: "2027-01-16" },
       { svg: disegnoFoto("interno"), descrizione: "Navata centrale, vista dall'ingresso", data: "2027-01-16" },
@@ -907,7 +915,7 @@
         m.position.set(x, 6, -10); g.add(m); return m;
       }
       var suolo = new T.Mesh(new T.CircleGeometry(40, 48), mat(B.costruito)); suolo.rotation.x = -Math.PI / 2; scena.add(suolo);
-      cubo(scena, 46, 0.06, 7, 0, 0, 15.5, C.bianco); // strada
+      cubo(scena, 46, 0.06, 7, 0, 0, 15.5, B.ferrovia); // strada
       // com'è oggi: muri grigi, aperture murate, un tetto mancante
       var oggi = new T.Group();
       cubo(oggi, 32, 6, 20, 0, 0, 0, C.bordoForte);

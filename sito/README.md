@@ -85,3 +85,4 @@ Per aggiornare: `python3 scripts/build_sito.py`, commit e push su `main`: Vercel
 - «Partecipa» porta a postilva.it/partecipa/. Testi: «edificio» al posto di «spazio», singolari corretti.
 
 Non fatto: una pagina vera per ogni scheda (oggi sono indirizzi con `#`, che Google non indicizza).
+- **Scheda di esempio completata** (24/11, Antonio): etichetta dell'uso «visto sul posto», «Cercato online» con due indicazioni inventate, contorno inventato in «Sul catasto», spazio tra avviso e disegni, storia senza doppia numerazione, strada del modello 3D non più bianca, «Segnala un errore» con una frase adatta all'esempio.

@@ -384,3 +384,11 @@ h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
   .filtri.aperto { display: block; }
   .chips button { min-height: 40px; }
 }
+
+/* scheda: respiro tra avviso e foto; foto di esempio più grandi */
+.pericolo { margin-bottom: 10px; }
+.foto-griglia { margin-top: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.linea-tempo { list-style: none; padding-left: 0; }
+.linea-tempo li { padding-left: 14px; border-left: 2px solid var(--line); }
+.linea-tempo li.chiusura { border-left-color: var(--acc); }
+@media (max-width: 600px) { .foto-griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
