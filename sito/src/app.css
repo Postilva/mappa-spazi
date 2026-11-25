@@ -153,6 +153,7 @@ body.in-mappa .barra .w { max-width: none; }
 .lista { list-style: none; margin: 16px -18px 0; padding: 0; border-top: 1px solid var(--line); }
 .lista li a { display: flex; gap: 12px; padding: 12px 18px; text-decoration: none; }
 .lista li a:hover, .lista li a[aria-current] { background: var(--surface-2); color: var(--ink); }
+.lista li a[aria-current] { box-shadow: inset 3px 0 0 var(--acc); } /* l'edificio appena visto, tornando indietro dalla scheda */
 .lista b { display: block; font-size: 15px; font-weight: 600; }
 .lista span.meta { display: block; color: var(--ink-2); font-size: 13px; }
 .lista .altri { padding: 12px 18px; }

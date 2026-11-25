@@ -163,6 +163,7 @@ body.in-mappa .barra .w { max-width: none; }
 .lista { list-style: none; margin: 16px -18px 0; padding: 0; border-top: 1px solid var(--line); }
 .lista li a { display: flex; gap: 12px; padding: 12px 18px; text-decoration: none; }
 .lista li a:hover, .lista li a[aria-current] { background: var(--surface-2); color: var(--ink); }
+.lista li a[aria-current] { box-shadow: inset 3px 0 0 var(--acc); } /* l'edificio appena visto, tornando indietro dalla scheda */
 .lista b { display: block; font-size: 15px; font-weight: 600; }
 .lista span.meta { display: block; color: var(--ink-2); font-size: 13px; }
 .lista .altri { padding: 12px 18px; }
@@ -738,16 +739,99 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
 
   /* ---------- router ---------- */
   var VISTE = ["inizio", "mappa", "esempio", "metodo", "privacy"];
-  function rotta() {
-    var h = (location.hash || "").replace(/^#/, "");
+  function rotta(hash) {
+    var h = (hash == null ? location.hash : hash || "").replace(/^#/, "");
+    var par = {}, i = h.indexOf("?");
+    if (i >= 0) { // #mappa?tipo=scuole&uso=in_uso&q=tamburi&z=15.2&c=17.23,40.47
+      h.slice(i + 1).split("&").forEach(function (kv) {
+        var j = kv.indexOf("="); if (j > 0) { try { par[kv.slice(0, j)] = decodeURIComponent(kv.slice(j + 1)); } catch (e) {} }
+      });
+      h = h.slice(0, i);
+    }
     var m = /^edificio-([0-9a-z]+-[0-9a-z]+)$/i.exec(h);
-    if (m) return { vista: "scheda", id: m[1] };
-    if (VISTE.indexOf(h) >= 0) return { vista: h };
-    if (h === "elenco") return { vista: "mappa" };
-    return { vista: "inizio" };
+    if (m) return { vista: "scheda", id: m[1], par: par };
+    if (VISTE.indexOf(h) >= 0) return { vista: h, par: par };
+    if (h === "elenco") return { vista: "mappa", par: par };
+    return { vista: "inizio", par: par };
   }
+
+  /* ---------- torna indietro (Antonio, 25/11/2026) ----------
+     Ogni passo nella cronologia del browser ricorda da dove si veniva (state.da) e dove si era
+     nella pagina (state.y, e per la mappa: scorrimento dell'elenco, quanti ne erano aperti).
+     Filtri e inquadratura della mappa stanno nell'indirizzo (#mappa?…), aggiornato con
+     replaceState: ricaricare o condividere il link mostra la stessa mappa, e il tasto
+     indietro non ripercorre i filtri uno per uno. «#mappa» senza parametri = mappa pulita. */
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  var correnteHash = null, timerSalva = null, mossa = false, vistaDaURL = null;
+  function num(v, d) { return Math.round(v * Math.pow(10, d)) / Math.pow(10, d); }
+  function hashMappa() {
+    var q = [];
+    if (filtroT) q.push("tipo=" + encodeURIComponent(filtroT));
+    if (filtroO) q.push("uso=" + encodeURIComponent(filtroO));
+    if (testo) q.push("q=" + encodeURIComponent(testo));
+    if (mossa && mappa) { var c = mappa.getCenter(); q.push("z=" + num(mappa.getZoom(), 2), "c=" + num(c.lng, 5) + "," + num(c.lat, 5)); }
+    return "#mappa" + (q.length ? "?" + q.join("&") : "");
+  }
+  function salvaStato(subito) {
+    clearTimeout(timerSalva);
+    if (!subito) { timerSalva = setTimeout(function () { salvaStato(true); }, 250); return; }
+    if (correnteHash === null) return; // la pagina non è ancora partita
+    if (location.hash.split("?")[0] !== correnteHash.split("?")[0]) return; // si è già cambiato pagina
+    var s = {}, v = history.state || {};
+    for (var k in v) s[k] = v[k];
+    s.pc = 1; s.y = Math.round(window.scrollY || 0);
+    var lato = $(".lato");
+    var hash = location.hash;
+    if (rotta().vista === "mappa") {
+      s.lt = lato ? lato.scrollTop : 0; s.lim = limite;
+      hash = hashMappa();
+      var nav = $('[data-nav="mappa"]'); if (nav) nav.setAttribute("href", hash); // «Mappa» nel menu torna alla mappa com'era
+    }
+    correnteHash = hash;
+    try { history.replaceState(s, "", location.pathname + location.search + hash); } catch (e) {}
+  }
+  function applicaStatoMappa(par) {
+    var nT = par.tipo || "", nO = par.uso || "", nQ = par.q || "";
+    if (nT !== filtroT || nO !== filtroO || nQ !== testo) {
+      filtroT = nT; filtroO = nO; testo = nQ; $("#cerca").value = testo;
+      $$("#filtro-tipo button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === filtroT)); });
+      $$("#filtro-online button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === filtroO)); });
+      applicaFiltri();
+    }
+    var c = (par.c || "").split(","), z = parseFloat(par.z), lng = parseFloat(c[0]), lat = parseFloat(c[1]);
+    if (isFinite(z) && isFinite(lng) && isFinite(lat)) {
+      var ora = mappa && mossa ? mappa.getCenter() : null;
+      if (!ora || num(ora.lng, 5) !== lng || num(ora.lat, 5) !== lat || num(mappa.getZoom(), 2) !== z) vistaDaURL = { center: [lng, lat], zoom: z };
+    } else if (mossa) { mossa = false; vistaFatta = false; selezionato = null; chiudiPopup(); evidenzia(""); disegnaSintesi(null); } // mappa pulita: torna a mostrare tutto
+  }
+  function applicaVista() {
+    if (!mappa || !vistaDaURL) return;
+    mappa.resize();
+    if (!vistaFatta) inquadraTutti();
+    var v = vistaDaURL; vistaDaURL = null;
+    mappa.jumpTo(v, { utente: true });
+    mossa = true;
+  }
+  var NOMI_VISTE = { inizio: "Inizio", mappa: "Mappa", metodo: "Come lavoriamo", privacy: "Privacy", esempio: "Scheda di esempio" };
+  function etichettaIndietro() { // dove porta «← …» nella scheda
+    var s = history.state;
+    if (!s || s.da == null) return { href: "#mappa", testo: "Mappa", storia: false };
+    var r = rotta(s.da);
+    return { href: s.da, testo: r.vista === "scheda" ? "Scheda " + r.id : NOMI_VISTE[r.vista] || "Indietro", storia: true };
+  }
+  window.addEventListener("scroll", function () { salvaStato(); }, { passive: true });
+  document.addEventListener("click", function () { salvaStato(true); }, true); // prima che un link cambi pagina
+  window.addEventListener("pagehide", function () { salvaStato(true); });
+
   function vai() {
+    clearTimeout(timerSalva);
     var r = rotta();
+    var st = history.state, nuovo = !(st && st.pc);
+    if (nuovo) { // un passo nuovo nella cronologia: ricorda da dove si arriva
+      st = { pc: 1, da: correnteHash };
+      try { history.replaceState(st, "", location.href); } catch (e) {}
+    }
+    if (r.vista === "mappa") applicaStatoMappa(r.par);
     if (r.vista === "scheda" && !perId[r.id]) r = { vista: "scheda", id: null };
     $$(".vista").forEach(function (s) { s.hidden = s.getAttribute("data-vista") !== r.vista; });
     document.body.classList.toggle("in-mappa", r.vista === "mappa"); // mappa a tutto schermo
@@ -765,17 +849,30 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
     else if (r.vista === "esempio") {
       t = "Scheda di esempio – " + t;
       if (!$("#scheda-esempio").firstChild) { disegnaScheda(ESEMPIO, $("#scheda-esempio"), true); avvia3d(); }
+      var ie = $("#scheda-esempio a.indietro"), ind = etichettaIndietro();
+      if (ie) { ie.setAttribute("href", ind.href); ie.textContent = "← " + ind.testo; if (ind.storia) ie.setAttribute("data-indietro", ""); else ie.removeAttribute("data-indietro"); }
     }
     if (r.vista !== "esempio") ferma3d(); else riprendi3d();
     document.title = t;
-    if (r.vista === "mappa" && mappa) setTimeout(function () { if (!vistaFatta && !selezionato) inquadraTutti(); else mappa.resize(); }, 0);
+    correnteHash = location.hash;
+    if (r.vista === "mappa") {
+      var nav = $('[data-nav="mappa"]'); if (nav) nav.setAttribute("href", location.hash || "#mappa");
+      if (mappa) setTimeout(function () { if (vistaDaURL) applicaVista(); else if (!vistaFatta && !selezionato) inquadraTutti(); else mappa.resize(); }, 0);
+    }
     if (dopo) {
       var el = document.getElementById(dopo); dopo = null; primaVista = false;
       if (el) { setTimeout(function () { el.scrollIntoView({ block: "start" }); try { el.focus({ preventScroll: true }); } catch (e) {} }, 0); return; }
     }
-    if (!primaVista) {
+    var h1 = $('.vista:not([hidden]) h1');
+    if (!nuovo && st.y != null) { // si torna su una pagina già vista: dove si era
+      if (r.vista === "mappa" && st.lim > limite) { limite = st.lim; disegnaLista(); disegnaSintesi(selezionato); }
+      setTimeout(function () {
+        window.scrollTo(0, st.y);
+        var lato = $(".lato"); if (lato && r.vista === "mappa") lato.scrollTop = st.lt || 0;
+        if (h1 && !primaVista) { try { h1.focus({ preventScroll: true }); } catch (e) {} }
+      }, 0);
+    } else if (!primaVista) {
       window.scrollTo(0, 0);
-      var h1 = $('.vista:not([hidden]) h1');
       if (h1) { try { h1.focus({ preventScroll: true }); } catch (e) { h1.focus(); } }
     }
     primaVista = false;
@@ -1038,7 +1135,7 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
         mappaPronta = true;
         var att = document.querySelector(".maplibregl-ctrl-attrib"); // attribuzioni chiuse nel pulsante «i»
         if (att) att.classList.remove("maplibregl-compact-show");
-        if (!vistaFatta && !selezionato && !$('[data-vista="mappa"]').hidden) inquadraTutti();
+        if (!$('[data-vista="mappa"]').hidden) { if (vistaDaURL) applicaVista(); else if (!vistaFatta && !selezionato) inquadraTutti(); }
         if (selezionato) evidenzia(selezionato);
       });
       function sotto(pt) {
@@ -1052,8 +1149,12 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
         if (singolo) return seleziona(singolo.properties.id, true);
         var g = ff[0];
         mappa.getSource("punti").getClusterExpansionZoom(g.properties.cluster_id).then(function (zz) {
-          mappa.easeTo({ center: g.geometry.coordinates, zoom: Math.min(zz + 0.3, 18), duration: riduciMoto ? 0 : 400 });
+          mappa.easeTo({ center: g.geometry.coordinates, zoom: Math.min(zz + 0.3, 18), duration: riduciMoto ? 0 : 400 }, { utente: true });
         });
+      });
+      mappa.on("moveend", function (e) {
+        if (e.originalEvent || e.utente) mossa = true;
+        if (mossa && rotta().vista === "mappa") salvaStato();
       });
       mappa.on("mousemove", function (e) {
         if (mappaPronta) mappa.getCanvas().style.cursor = sotto(e.point).length ? "pointer" : "";
@@ -1089,11 +1190,10 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
   }
   function mostraSullaMappa(id) {
     selezionato = id;
-    location.hash = "#mappa";
+    var c = perId[id].geometry.coordinates;
+    location.hash = "#mappa?z=16.5&c=" + num(c[0], 5) + "," + num(c[1], 5);
     setTimeout(function () {
       if (!mappa) return;
-      mappa.resize();
-      mappa.jumpTo({ center: perId[id].geometry.coordinates, zoom: 16.5 });
       seleziona(id, true);
       if (window.innerWidth < 860) $("#mappa-box").scrollIntoView({ block: "start" });
     }, 60);
@@ -1145,6 +1245,7 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
     disegnaLista(vis);
     segnaFiltri();
     disegnaSintesi(selezionato);
+    if (rotta().vista === "mappa") salvaStato();
   }
   var PASSO = 30, limite = PASSO, visibili = [];
   function disegnaLista(vis) {
@@ -1329,7 +1430,8 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
     var on = p.online || null;
 
     h.push('<div class="g"><div class="w scheda-g"><div>');
-    h.push('<a class="indietro" href="#mappa">← Mappa</a>' + (es ? "" : '<button type="button" class="indietro" data-mostra="' + esc(p.id) + '">Vedi sulla mappa</button>'));
+    var ind = etichettaIndietro();
+    h.push('<a class="indietro" href="' + esc(ind.href) + '"' + (ind.storia ? " data-indietro" : "") + ">← " + esc(ind.testo) + "</a>" + (es ? "" : '<button type="button" class="indietro" data-mostra="' + esc(p.id) + '">Vedi sulla mappa</button>'));
     h.push('<p class="meta-s"><b>' + esc(p.id) + "</b> · foglio " + esc(p.foglio) + ", particella " + esc(p.particella) +
       (p.quartiere ? " · " + esc(p.quartiere) : zona(p) ? " · zona " + esc(zona(p)) : "") + "</p>");
     h.push('<h1 tabindex="-1">' + esc(titolo(p)) + "</h1>");
@@ -1633,7 +1735,7 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
 
   /* ---------- eventi delegati ---------- */
   document.addEventListener("click", function (ev) {
-    var t = ev.target.closest ? ev.target.closest("[data-altri],[data-azzera],[data-filtri],[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d],[data-vai-dopo],[data-tipo],[data-zona],[data-online]") : null;
+    var t = ev.target.closest ? ev.target.closest("[data-altri],[data-azzera],[data-filtri],[data-vai],[data-messaggio],[data-salta],[data-mostra],[data-3d],[data-vai-dopo],[data-tipo],[data-zona],[data-online],[data-indietro]") : null;
     if (!t) return;
     if (t.hasAttribute("data-altri")) {
       var primaNuova = limite; limite += PASSO; disegnaLista();
@@ -1648,11 +1750,16 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
     }
     if (t.hasAttribute("data-vai-dopo")) { dopo = t.getAttribute("data-vai-dopo"); return; }
     if (t.hasAttribute("data-tipo") || t.hasAttribute("data-zona") || t.hasAttribute("data-online")) {
-      filtroT = t.getAttribute("data-tipo") || ""; filtroO = t.getAttribute("data-online") || "";
-      testo = t.hasAttribute("data-zona") ? "tamburi" : ""; $("#cerca").value = testo;
-      $$("#filtro-tipo button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === filtroT)); });
-      $$("#filtro-online button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === filtroO)); });
-      applicaFiltri();
+      ev.preventDefault();
+      var q = [];
+      if (t.getAttribute("data-tipo")) q.push("tipo=" + encodeURIComponent(t.getAttribute("data-tipo")));
+      if (t.getAttribute("data-online")) q.push("uso=" + encodeURIComponent(t.getAttribute("data-online")));
+      if (t.hasAttribute("data-zona")) q.push("q=tamburi");
+      location.hash = "#mappa" + (q.length ? "?" + q.join("&") : "");
+      return;
+    }
+    if (t.hasAttribute("data-indietro")) { // «← …» nella scheda: come il tasto indietro del browser
+      if (history.state && history.state.da != null) { ev.preventDefault(); history.back(); }
       return;
     }
     if (t.hasAttribute("data-salta")) {
@@ -1700,6 +1807,7 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
     window.addEventListener("hashchange", vai);
     vai();
     creaMappa();
+    var lato = $(".lato"); if (lato) lato.addEventListener("scroll", function () { salvaStato(); }, { passive: true });
   }
 
   function carica() {

@@ -32,6 +32,8 @@ Dopo una modifica a mano alle schede `dati/edifici/*.json` basta l'ultimo comand
 
 Pagine (hash): `#inizio` (home), `#mappa` (con filtri ed elenco a fianco), `#esempio`, `#metodo`, `#edificio-<foglio>-<particella>`.
 
+**Indirizzo della mappa e torna indietro (25/11/2026, Antonio).** Filtri e inquadratura stanno nell'indirizzo: `#mappa?tipo=scuole&uso=in_uso&q=tamburi&z=15.2&c=17.23,40.47` (aggiornato con `replaceState`, quindi il tasto indietro non ripercorre i filtri uno per uno). `#mappa` senza parametri è la mappa pulita («Apri la mappa»); «Mappa» nel menu riporta alla mappa com'era. Ogni passo della cronologia ricorda da dove si arriva e dove si era nella pagina (`history.state`: `da`, `y`, scorrimento e lunghezza dell'elenco): tornando indietro si ritrova il punto. Nella scheda il pulsante «← …» dice dove porta (Mappa, Inizio, …) e fa come il tasto indietro; per chi arriva da fuori porta alla mappa. Codice: `rotta`, `salvaStato`, `applicaStatoMappa` in `src/app.js`.
+
 ## Scelte tecniche
 
 - **Mappa di base incorporata.** La pagina claude.ai non può caricare tessere da server esterni (CSP): tessere e caratteri sono nella pagina, compressi (gzip + base64), e MapLibre li legge con il protocollo `incorporato://` (`maplibregl.addProtocol`, decompressione con `DecompressionStream`). Dove la tessera di zoom 14 non c'è, il protocollo risponde 404 e MapLibre ingrandisce quella di zoom 13.
