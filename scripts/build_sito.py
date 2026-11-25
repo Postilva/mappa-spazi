@@ -131,10 +131,14 @@ def osm_incorporato():
             "attribuzione": fonte["attribuzione"]}
 
 
-FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#0b0b0c"/>'
-           '<path d="M4 8 12 3.5 20 8" fill="none" stroke="#e0b56a" stroke-width="1.8" stroke-linejoin="round"/><g fill="#e0b56a">'
-           '<rect x="5" y="10" width="3.6" height="3.6" rx=".7"/><rect x="10.2" y="10" width="3.6" height="3.6" rx=".7"/><rect x="15.4" y="10" width="3.6" height="3.6" rx=".7"/>'
-           '<rect x="5" y="15.4" width="3.6" height="3.6" rx=".7"/><rect x="10.7" y="15.4" width="2.6" height="5.2" rx=".5"/><rect x="15.4" y="15.4" width="3.6" height="3.6" rx=".7"/></g></svg>')
+# Logo «Il palazzo di tufo» (proposta C, scelta da Antonio il 25/11/2026): edificio basso di tufo con porta ad arco,
+# una finestra piena e una vuota (da verificare), su una linea di terra. Stessa famiglia dell'icona delle bonifiche.
+# Sta solo nelle icone (favicon, telefono), non nella barra del sito. Hub: progetti/mappa-spazi/2026-11-25_piano-allineamento-bonifiche.md
+FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0b0b0c"/>'
+           '<rect x="12" y="16" width="40" height="34" rx="2" fill="#e0b56a"/><rect x="10" y="13" width="44" height="5" rx="1.5" fill="#e0b56a"/>'
+           '<rect x="17" y="23" width="9" height="9" rx="1.5" fill="#f4f4f5"/>'
+           '<rect x="38" y="23" width="9" height="9" rx="1.5" fill="none" stroke="#0b0b0c" stroke-width="2.5"/>'
+           '<path d="M27 50V41a5 5 0 0 1 10 0v9z" fill="#0b0b0c"/><rect x="8" y="50" width="48" height="4" rx="2" fill="#52525b"/></svg>')
 
 
 def icone(cart):
@@ -147,15 +151,19 @@ def icone(cart):
         print("ATTENZIONE: Pillow assente, uso le icone già in sito/src/icone/", file=sys.stderr)
     else:
         os.makedirs(dest, exist_ok=True)
-        K = 32  # disegno a 24 x 32 = 768 px, poi riduco
-        im = Image.new("RGBA", (24 * K, 24 * K), (0, 0, 0, 0))
+        K = 12  # disegno a 64 x 12 = 768 px, poi riduco (stesse misure di FAVICON)
+        im = Image.new("RGBA", (64 * K, 64 * K), (0, 0, 0, 0))
         d = ImageDraw.Draw(im)
         q = lambda *v: [int(round(x * K)) for x in v]
-        d.rounded_rectangle(q(0, 0, 24, 24), radius=5 * K, fill="#0b0b0c")
-        d.line([tuple(q(4, 8)), tuple(q(12, 3.5)), tuple(q(20, 8))], fill="#e0b56a", width=int(1.8 * K), joint="curve")
-        for x, y, w, h, r in ((5, 10, 3.6, 3.6, .7), (10.2, 10, 3.6, 3.6, .7), (15.4, 10, 3.6, 3.6, .7),
-                              (5, 15.4, 3.6, 3.6, .7), (10.7, 15.4, 2.6, 5.2, .5), (15.4, 15.4, 3.6, 3.6, .7)):
-            d.rounded_rectangle(q(x, y, x + w, y + h), radius=int(r * K), fill="#e0b56a")
+        T, B, W, G = "#e0b56a", "#0b0b0c", "#f4f4f5", "#52525b"
+        d.rounded_rectangle(q(0, 0, 64, 64), radius=14 * K, fill=B)
+        d.rounded_rectangle(q(12, 16, 52, 50), radius=2 * K, fill=T)              # facciata
+        d.rounded_rectangle(q(10, 13, 54, 18), radius=int(1.5 * K), fill=T)       # cornicione
+        d.rounded_rectangle(q(17, 23, 26, 32), radius=int(1.5 * K), fill=W)       # finestra piena
+        d.rounded_rectangle(q(36.75, 21.75, 48.25, 33.25), radius=int(2.75 * K), outline=B, width=int(2.5 * K))  # finestra vuota
+        d.rectangle(q(27, 41, 37, 50), fill=B)                                    # porta ad arco
+        d.ellipse(q(27, 36, 37, 46), fill=B)
+        d.rounded_rectangle(q(8, 50, 56, 54), radius=2 * K, fill=G)               # linea di terra
         for nome, px in (("icona-48.png", 48), ("icona-96.png", 96), ("icona-192.png", 192), ("apple-touch-icon.png", 180)):
             out = im.resize((px, px), Image.LANCZOS)
             if nome.startswith("apple"):  # iOS non vuole trasparenze

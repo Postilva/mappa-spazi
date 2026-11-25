@@ -113,6 +113,7 @@
     var r = rotta();
     if (r.vista === "scheda" && !perId[r.id]) r = { vista: "scheda", id: null };
     $$(".vista").forEach(function (s) { s.hidden = s.getAttribute("data-vista") !== r.vista; });
+    document.body.classList.toggle("in-mappa", r.vista === "mappa"); // mappa a tutto schermo
     $$("[data-nav]").forEach(function (a) {
       var attivo = a.getAttribute("data-nav") === r.vista;
       if (attivo) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");

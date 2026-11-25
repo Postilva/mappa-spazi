@@ -30,26 +30,26 @@ h1, h2, h3 { text-wrap: balance; }
 
 /* striscia Postilva */
 .striscia { border-bottom: 1px solid var(--line); }
-.striscia .w { display: flex; align-items: center; gap: 14px; min-height: 52px; }
-.firma { display: flex; align-items: center; gap: 6px; text-decoration: none; }
-.logo { width: 40px; height: 40px; color: var(--ink); margin: -6px -4px; flex: none; }
-.firma span { display: flex; flex-direction: column; line-height: .95; }
-.firma small { font: 9px var(--f-firma); letter-spacing: .06em; color: #ef3b3d; }
-.firma b { font: 400 19px var(--f-firma); letter-spacing: .01em; }
-.striscia .tavolo { font: 12px var(--f-mono); color: var(--ink-2); }
-.partecipa { margin-left: auto; background: var(--rosso); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 999px; padding: 7px 14px; white-space: nowrap; }
-.partecipa:hover { color: #fff; filter: brightness(1.1); }
+/* misure della striscia .pv-* di bonifiche.postilva.it (25/11/2026): uguale nei due siti */
+.striscia .w { display: flex; align-items: center; gap: 12px; height: 51px; }
+.firma { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); }
+.logo { height: 26px; width: auto; color: var(--ink); flex: none; }
+.firma span { display: block; }
+.firma small { display: block; white-space: nowrap; font: 700 .58rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--rosso); margin-bottom: 3px; }
+.firma b { display: block; font: 400 1.15rem/1 var(--f-firma); letter-spacing: .01em; }
+.striscia .tavolo { font: 500 .68rem/1.25 var(--f-mono); color: var(--ink-2); }
+.partecipa { margin-left: auto; flex: none; background: var(--rosso); color: #fff; text-decoration: none; font: 600 .88rem/1 var(--f-body); border-radius: 999px; padding: 9px 14px; white-space: nowrap; }
+.partecipa:hover { color: #fff; background: #ef3b3d; }
 
 /* barra dello strumento */
 .barra { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(11, 11, 12, .94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .barra .w { display: flex; align-items: center; gap: 12px; min-height: 56px; }
-.marchio { text-decoration: none; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
-.marchio-segno { width: 28px; height: 28px; color: var(--acc); fill: var(--acc); flex: none; }
-.marchio .nome { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
-.marchio em { font-style: normal; font-weight: 500; color: var(--acc); }
-.barra nav { margin-left: auto; display: flex; gap: 2px; }
-.barra nav a { text-decoration: none; color: var(--ink-2); font-weight: 500; font-size: 15px; padding: 8px 13px; border-radius: 999px; min-height: 40px; display: flex; align-items: center; }
-.barra nav a[aria-current] { background: var(--surface-2); color: var(--ink); }
+.marchio { text-decoration: none; display: flex; align-items: center; white-space: nowrap; }
+.marchio .nome { font: 700 1.05rem/1 var(--f-body); letter-spacing: -.02em; }
+.marchio em { font-style: normal; color: var(--acc); }
+.barra nav { margin-left: auto; display: flex; gap: 4px; }
+.barra nav a { text-decoration: none; color: var(--ink-2); font: 600 .9rem/1 var(--f-body); padding: 10px 14px; border-radius: 999px; min-height: 40px; display: flex; align-items: center; }
+.barra nav a[aria-current] { background: rgba(255, 255, 255, .12); color: var(--ink); }
 
 /* elementi comuni */
 .kicker { font: 12px/1.5 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
@@ -66,14 +66,17 @@ h1, h2, h3 { text-wrap: balance; }
 .pannello { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
 
 /* apertura */
-.apertura { position: relative; background-color: var(--bg); background-image: linear-gradient(90deg, rgba(11,11,12,.95) 0%, rgba(11,11,12,.85) 40%, rgba(11,11,12,.45) 72%, rgba(11,11,12,.35) 100%), linear-gradient(0deg, var(--bg) 0%, rgba(11,11,12,0) 30%), var(--foto-apertura); background-size: cover; background-position: center 30%; }
-.apertura .w { padding-block: 96px 64px; min-height: 520px; display: flex; align-items: flex-end; }
-.apertura-testo { max-width: 640px; }
-.credito { font: 11px/1.5 var(--f-mono); color: var(--ink-3); margin: 14px 0 0; }
+/* come .hero di bonifiche.postilva.it (25/11/2026): testo ancorato in basso, titolo grande */
+.apertura { position: relative; background-color: var(--bg); background-image: linear-gradient(90deg, rgba(11,11,12,.8) 0%, rgba(11,11,12,.55) 45%, rgba(11,11,12,.1) 80%), linear-gradient(180deg, rgba(11,11,12,.45), rgba(11,11,12,.2) 30%, rgba(11,11,12,.92) 78%, var(--bg)), var(--foto-apertura); /* la foto del Palazzo è più chiara di quella delle bonifiche: si scurisce anche da sinistra */ background-size: cover; background-position: center 30%; }
+.apertura .w { padding-block: 24px 18px; min-height: min(78vh, 640px); min-height: min(78svh, 640px); display: flex; align-items: flex-end; }
+.apertura-testo { width: 100%; display: grid; gap: 10px; justify-items: start; }
+.apertura .kicker { font: 500 .7rem/1.3 var(--f-mono); letter-spacing: .08em; }
+.apertura .bottone { margin-top: 8px; font-weight: 700; }
+.credito { font: 500 .64rem/1.35 var(--f-mono); color: var(--ink-3); margin: 0; }
 .credito a { color: var(--ink-2); }
-.apertura h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.03; letter-spacing: -.025em; margin: 14px 0 16px; font-weight: 600; }
+.apertura h1 { font: 700 clamp(2.7rem, 12.5vw, 5.2rem)/.95 var(--f-body); letter-spacing: -.04em; max-width: 13ch; margin: 0; }
 .apertura h1 em, .censimento h2 em { font-style: normal; color: var(--acc); }
-.sotto { color: var(--ink-2); font-size: 18px; max-width: 36em; margin: 0 0 22px; }
+.sotto { color: var(--ink-2); font-size: .95rem; line-height: 1.5; max-width: 46ch; margin: 0; }
 .costellazione { margin: 18px 0 0; max-width: 210px; }
 .costellazione svg { width: 100%; height: auto; display: block; max-height: 230px; }
 .costellazione figcaption { font: 11px/1.5 var(--f-mono); color: var(--ink-3); margin-top: 6px; }
@@ -133,7 +136,10 @@ h1, h2, h3 { text-wrap: balance; }
 .righe .cod.pieno, .lista .cod.pieno { background: var(--acc); color: var(--on-acc); }
 
 /* mappa */
-.mappa-v { display: grid; grid-template-columns: 380px minmax(0, 1fr); height: calc(100vh - 110px); height: calc(100dvh - 110px); min-height: 560px; }
+.mappa-v { display: grid; grid-template-columns: 380px minmax(0, 1fr); height: calc(100vh - 57px); height: calc(100dvh - 57px); min-height: 480px; }
+/* mappa a tutto schermo come in bonifiche.postilva.it (Antonio, 25/11/2026); pannello e legenda restano come sono */
+body.in-mappa .striscia { display: none; }
+body.in-mappa .barra .w { max-width: none; }
 .lato { background: var(--surface); border-right: 1px solid var(--line); overflow: auto; padding: 18px; }
 .lato h1 { margin: 0 0 2px; font-size: 22px; font-weight: 600; }
 .lato > .nota { margin: 0 0 12px; }
@@ -244,8 +250,9 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 860px) {
   .apertura .w, .censimento .intro, .scheda-g { grid-template-columns: minmax(0, 1fr); }
   .costellazione { max-width: 220px; }
-  .apertura { background-image: linear-gradient(0deg, rgba(11,11,12,.97) 0%, rgba(11,11,12,.82) 55%, rgba(11,11,12,.45) 100%), var(--foto-apertura); background-position: 40% 30%; }
-  .apertura .w { padding-block: 120px 36px; min-height: 0; }
+  .apertura { background-image: linear-gradient(180deg, rgba(11,11,12,.5), rgba(11,11,12,.55) 35%, rgba(11,11,12,.95) 75%, var(--bg)), var(--foto-apertura); background-position: 40% 30%; }
+  .apertura-testo { justify-items: stretch; }
+  .apertura .bottone { justify-content: center; }
   .passi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .passo .seg b { display: none; }
   .griglia, .quartiere { grid-template-columns: minmax(0, 1fr); }
@@ -255,17 +262,11 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
   .leg { left: 8px; top: 8px; max-width: 210px; padding: 6px 9px; font-size: 11.5px; line-height: 1.3; }
   .leg div { margin: 2px 0; }
   .leg .nota { display: none; }
-  .striscia .tavolo { display: none; }
   .barra .w { gap: 6px; }
-  .barra nav a { padding: 8px 9px; font-size: 14px; }
-  .marchio { gap: 7px; }
-  .marchio .nome { font-size: 15px; }
-  .marchio-segno { width: 22px; height: 22px; }
 }
-@media (max-width: 380px) {
-  .marchio .nome { font-size: 14px; }
-  .barra nav a { padding: 8px 7px; font-size: 13px; }
-}
+@media (max-width: 420px) { .barra nav { gap: 0; } .barra nav a { padding: 10px 10px; } }
+@media (max-width: 359px) { .striscia .tavolo { display: none; } }
+@media (min-width: 861px) { body.in-mappa .piede { display: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .costellazione rect { animation: compare .5s ease-out both; animation-delay: calc(var(--k) * 3ms); }
   @keyframes compare { from { opacity: .15; } to { opacity: 1; } }

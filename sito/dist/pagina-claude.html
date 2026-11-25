@@ -40,26 +40,26 @@ h1, h2, h3 { text-wrap: balance; }
 
 /* striscia Postilva */
 .striscia { border-bottom: 1px solid var(--line); }
-.striscia .w { display: flex; align-items: center; gap: 14px; min-height: 52px; }
-.firma { display: flex; align-items: center; gap: 6px; text-decoration: none; }
-.logo { width: 40px; height: 40px; color: var(--ink); margin: -6px -4px; flex: none; }
-.firma span { display: flex; flex-direction: column; line-height: .95; }
-.firma small { font: 9px var(--f-firma); letter-spacing: .06em; color: #ef3b3d; }
-.firma b { font: 400 19px var(--f-firma); letter-spacing: .01em; }
-.striscia .tavolo { font: 12px var(--f-mono); color: var(--ink-2); }
-.partecipa { margin-left: auto; background: var(--rosso); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 999px; padding: 7px 14px; white-space: nowrap; }
-.partecipa:hover { color: #fff; filter: brightness(1.1); }
+/* misure della striscia .pv-* di bonifiche.postilva.it (25/11/2026): uguale nei due siti */
+.striscia .w { display: flex; align-items: center; gap: 12px; height: 51px; }
+.firma { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); }
+.logo { height: 26px; width: auto; color: var(--ink); flex: none; }
+.firma span { display: block; }
+.firma small { display: block; white-space: nowrap; font: 700 .58rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--rosso); margin-bottom: 3px; }
+.firma b { display: block; font: 400 1.15rem/1 var(--f-firma); letter-spacing: .01em; }
+.striscia .tavolo { font: 500 .68rem/1.25 var(--f-mono); color: var(--ink-2); }
+.partecipa { margin-left: auto; flex: none; background: var(--rosso); color: #fff; text-decoration: none; font: 600 .88rem/1 var(--f-body); border-radius: 999px; padding: 9px 14px; white-space: nowrap; }
+.partecipa:hover { color: #fff; background: #ef3b3d; }
 
 /* barra dello strumento */
 .barra { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(11, 11, 12, .94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .barra .w { display: flex; align-items: center; gap: 12px; min-height: 56px; }
-.marchio { text-decoration: none; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
-.marchio-segno { width: 28px; height: 28px; color: var(--acc); fill: var(--acc); flex: none; }
-.marchio .nome { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
-.marchio em { font-style: normal; font-weight: 500; color: var(--acc); }
-.barra nav { margin-left: auto; display: flex; gap: 2px; }
-.barra nav a { text-decoration: none; color: var(--ink-2); font-weight: 500; font-size: 15px; padding: 8px 13px; border-radius: 999px; min-height: 40px; display: flex; align-items: center; }
-.barra nav a[aria-current] { background: var(--surface-2); color: var(--ink); }
+.marchio { text-decoration: none; display: flex; align-items: center; white-space: nowrap; }
+.marchio .nome { font: 700 1.05rem/1 var(--f-body); letter-spacing: -.02em; }
+.marchio em { font-style: normal; color: var(--acc); }
+.barra nav { margin-left: auto; display: flex; gap: 4px; }
+.barra nav a { text-decoration: none; color: var(--ink-2); font: 600 .9rem/1 var(--f-body); padding: 10px 14px; border-radius: 999px; min-height: 40px; display: flex; align-items: center; }
+.barra nav a[aria-current] { background: rgba(255, 255, 255, .12); color: var(--ink); }
 
 /* elementi comuni */
 .kicker { font: 12px/1.5 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
@@ -76,14 +76,17 @@ h1, h2, h3 { text-wrap: balance; }
 .pannello { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
 
 /* apertura */
-.apertura { position: relative; background-color: var(--bg); background-image: linear-gradient(90deg, rgba(11,11,12,.95) 0%, rgba(11,11,12,.85) 40%, rgba(11,11,12,.45) 72%, rgba(11,11,12,.35) 100%), linear-gradient(0deg, var(--bg) 0%, rgba(11,11,12,0) 30%), var(--foto-apertura); background-size: cover; background-position: center 30%; }
-.apertura .w { padding-block: 96px 64px; min-height: 520px; display: flex; align-items: flex-end; }
-.apertura-testo { max-width: 640px; }
-.credito { font: 11px/1.5 var(--f-mono); color: var(--ink-3); margin: 14px 0 0; }
+/* come .hero di bonifiche.postilva.it (25/11/2026): testo ancorato in basso, titolo grande */
+.apertura { position: relative; background-color: var(--bg); background-image: linear-gradient(90deg, rgba(11,11,12,.8) 0%, rgba(11,11,12,.55) 45%, rgba(11,11,12,.1) 80%), linear-gradient(180deg, rgba(11,11,12,.45), rgba(11,11,12,.2) 30%, rgba(11,11,12,.92) 78%, var(--bg)), var(--foto-apertura); /* la foto del Palazzo è più chiara di quella delle bonifiche: si scurisce anche da sinistra */ background-size: cover; background-position: center 30%; }
+.apertura .w { padding-block: 24px 18px; min-height: min(78vh, 640px); min-height: min(78svh, 640px); display: flex; align-items: flex-end; }
+.apertura-testo { width: 100%; display: grid; gap: 10px; justify-items: start; }
+.apertura .kicker { font: 500 .7rem/1.3 var(--f-mono); letter-spacing: .08em; }
+.apertura .bottone { margin-top: 8px; font-weight: 700; }
+.credito { font: 500 .64rem/1.35 var(--f-mono); color: var(--ink-3); margin: 0; }
 .credito a { color: var(--ink-2); }
-.apertura h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.03; letter-spacing: -.025em; margin: 14px 0 16px; font-weight: 600; }
+.apertura h1 { font: 700 clamp(2.7rem, 12.5vw, 5.2rem)/.95 var(--f-body); letter-spacing: -.04em; max-width: 13ch; margin: 0; }
 .apertura h1 em, .censimento h2 em { font-style: normal; color: var(--acc); }
-.sotto { color: var(--ink-2); font-size: 18px; max-width: 36em; margin: 0 0 22px; }
+.sotto { color: var(--ink-2); font-size: .95rem; line-height: 1.5; max-width: 46ch; margin: 0; }
 .costellazione { margin: 18px 0 0; max-width: 210px; }
 .costellazione svg { width: 100%; height: auto; display: block; max-height: 230px; }
 .costellazione figcaption { font: 11px/1.5 var(--f-mono); color: var(--ink-3); margin-top: 6px; }
@@ -143,7 +146,10 @@ h1, h2, h3 { text-wrap: balance; }
 .righe .cod.pieno, .lista .cod.pieno { background: var(--acc); color: var(--on-acc); }
 
 /* mappa */
-.mappa-v { display: grid; grid-template-columns: 380px minmax(0, 1fr); height: calc(100vh - 110px); height: calc(100dvh - 110px); min-height: 560px; }
+.mappa-v { display: grid; grid-template-columns: 380px minmax(0, 1fr); height: calc(100vh - 57px); height: calc(100dvh - 57px); min-height: 480px; }
+/* mappa a tutto schermo come in bonifiche.postilva.it (Antonio, 25/11/2026); pannello e legenda restano come sono */
+body.in-mappa .striscia { display: none; }
+body.in-mappa .barra .w { max-width: none; }
 .lato { background: var(--surface); border-right: 1px solid var(--line); overflow: auto; padding: 18px; }
 .lato h1 { margin: 0 0 2px; font-size: 22px; font-weight: 600; }
 .lato > .nota { margin: 0 0 12px; }
@@ -254,8 +260,9 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 860px) {
   .apertura .w, .censimento .intro, .scheda-g { grid-template-columns: minmax(0, 1fr); }
   .costellazione { max-width: 220px; }
-  .apertura { background-image: linear-gradient(0deg, rgba(11,11,12,.97) 0%, rgba(11,11,12,.82) 55%, rgba(11,11,12,.45) 100%), var(--foto-apertura); background-position: 40% 30%; }
-  .apertura .w { padding-block: 120px 36px; min-height: 0; }
+  .apertura { background-image: linear-gradient(180deg, rgba(11,11,12,.5), rgba(11,11,12,.55) 35%, rgba(11,11,12,.95) 75%, var(--bg)), var(--foto-apertura); background-position: 40% 30%; }
+  .apertura-testo { justify-items: stretch; }
+  .apertura .bottone { justify-content: center; }
   .passi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .passo .seg b { display: none; }
   .griglia, .quartiere { grid-template-columns: minmax(0, 1fr); }
@@ -265,17 +272,11 @@ td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
   .leg { left: 8px; top: 8px; max-width: 210px; padding: 6px 9px; font-size: 11.5px; line-height: 1.3; }
   .leg div { margin: 2px 0; }
   .leg .nota { display: none; }
-  .striscia .tavolo { display: none; }
   .barra .w { gap: 6px; }
-  .barra nav a { padding: 8px 9px; font-size: 14px; }
-  .marchio { gap: 7px; }
-  .marchio .nome { font-size: 15px; }
-  .marchio-segno { width: 22px; height: 22px; }
 }
-@media (max-width: 380px) {
-  .marchio .nome { font-size: 14px; }
-  .barra nav a { padding: 8px 7px; font-size: 13px; }
-}
+@media (max-width: 420px) { .barra nav { gap: 0; } .barra nav a { padding: 10px 10px; } }
+@media (max-width: 359px) { .striscia .tavolo { display: none; } }
+@media (min-width: 861px) { body.in-mappa .piede { display: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .costellazione rect { animation: compare .5s ease-out both; animation-delay: calc(var(--k) * 3ms); }
   @keyframes compare { from { opacity: .15; } to { opacity: 1; } }
@@ -413,14 +414,14 @@ h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
 
 <!-- striscia Postilva: comune a tutti gli strumenti del portale -->
 <header class="striscia g"><div class="w">
-  <a class="firma" href="https://www.postilva.it/" target="_blank" rel="noopener"><svg class="logo" aria-hidden="true" focusable="false" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.000000 1024.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"> <path d="M5156 7928 c-30 -45 -84 -174 -100 -238 -23 -92 -31 -267 -17 -375 14 -100 55 -234 101 -324 16 -33 30 -68 30 -77 0 -9 -21 -40 -48 -68 -26 -28 -62 -69 -80 -91 l-33 -40 7 65 c7 71 -7 211 -31 305 -8 33 -40 111 -71 174 -48 98 -68 126 -139 198 -45 45 -88 83 -96 83 -36 0 -74 -269 -58 -412 21 -184 82 -343 196 -506 60 -86 65 -98 55 -121 -5 -14 -28 -69 -50 -121 -57 -133 -75 -236 -70 -377 l4 -114 -185 183 c-379 373 -472 463 -479 466 -4 1 -25 -15 -45 -36 l-38 -38 468 -465 c338 -335 483 -485 521 -540 l52 -77 -39 -83 c-32 -68 -78 -193 -107 -288 -3 -8 -29 34 -58 95 -67 138 -123 213 -253 341 -58 57 -262 259 -454 450 l-350 347 -42 -42 -41 -41 481 -478 480 -478 52 -102 c104 -204 137 -355 128 -591 -5 -162 -17 -211 -72 -297 -35 -56 -97 -115 -146 -141 -97 -50 -135 -56 -384 -64 -269 -9 -380 -27 -511 -81 -97 -40 -221 -133 -279 -209 l-45 -59 44 -31 45 -30 83 83 c95 96 195 153 332 187 88 22 314 38 339 24 15 -8 11 -14 -22 -40 -63 -48 -114 -117 -180 -243 -98 -187 -181 -270 -331 -332 -41 -17 -77 -33 -79 -34 -1 -2 5 -27 14 -55 20 -60 15 -60 155 8 80 39 109 60 180 131 73 74 95 105 159 224 108 200 179 262 426 370 175 75 263 152 325 282 49 103 58 148 65 341 10 250 29 384 77 534 31 98 131 286 202 381 38 50 250 270 525 544 l461 460 -40 40 -40 40 -198 -197 c-108 -108 -317 -315 -464 -460 -146 -144 -289 -293 -318 -330 l-51 -68 -37 48 c-117 152 -138 183 -163 237 -90 192 -78 398 35 630 58 118 136 234 229 339 51 58 62 65 85 60 15 -4 36 -15 47 -26 19 -19 19 -20 1 -31 -63 -40 -84 -57 -113 -95 -100 -131 -94 -375 12 -499 74 -87 199 -117 292 -72 129 62 205 247 169 416 -26 126 -80 205 -171 247 -36 17 -60 37 -74 61 -11 20 -21 39 -21 42 0 3 37 3 82 0 111 -7 296 8 388 32 100 27 202 70 275 116 70 45 220 189 211 203 -18 29 -258 66 -370 57 -82 -7 -219 -39 -288 -66 -51 -20 -61 -14 -27 17 66 59 175 249 213 373 25 80 52 264 41 281 -8 13 -111 -36 -200 -95 -98 -65 -233 -202 -302 -308 l-50 -77 -8 82 c-13 154 -55 283 -130 398 -57 88 -69 98 -89 68z m79 -311 c37 -110 45 -279 21 -423 -10 -54 -21 -103 -26 -108 -5 -5 -16 8 -25 30 -69 162 -83 405 -34 579 10 35 13 37 24 22 7 -10 25 -54 40 -100z m559 11 c-40 -138 -143 -305 -264 -427 -86 -88 -168 -156 -176 -148 -18 17 145 321 226 421 68 85 198 206 222 206 4 0 0 -24 -8 -52z m-974 -423 c61 -123 105 -376 82 -475 l-8 -35 -39 70 c-98 174 -155 414 -129 545 l7 32 23 -29 c13 -15 42 -64 64 -108z m1325 -64 c17 -7 12 -14 -44 -49 -80 -52 -193 -96 -300 -116 -106 -20 -311 -33 -311 -19 0 15 186 108 278 138 143 47 320 68 377 46z m-652 -521 c73 -64 101 -204 63 -317 -23 -70 -91 -133 -141 -133 -156 0 -233 256 -124 414 32 47 66 65 121 66 38 0 54 -6 81 -30z"/> <path d="M5343 6586 c-36 -31 -56 -73 -51 -112 2 -23 8 -29 27 -29 32 0 110 119 94 144 -16 25 -38 24 -70 -3z"/> <path d="M6375 6164 c-44 -42 -252 -248 -463 -457 -401 -399 -449 -456 -522 -609 -79 -167 -99 -272 -119 -633 -12 -197 -34 -300 -90 -419 -74 -157 -191 -278 -417 -432 -298 -203 -408 -302 -487 -435 -44 -75 -92 -195 -117 -294 l-18 -70 36 -12 c74 -23 77 -22 100 72 41 166 114 296 227 403 72 69 282 219 292 209 2 -3 0 -14 -5 -24 -18 -33 -41 -137 -45 -208 -4 -63 8 -224 18 -233 2 -3 26 1 52 7 l48 12 0 147 c0 124 3 158 22 217 30 96 104 211 208 325 48 52 98 112 112 133 14 20 28 37 32 37 3 0 18 -35 32 -78 15 -42 41 -111 59 -152 42 -101 60 -180 60 -271 0 -109 -26 -182 -120 -339 -92 -153 -129 -227 -160 -318 -26 -79 -52 -262 -48 -339 l3 -58 55 0 c55 0 55 0 53 30 -3 55 17 229 33 294 23 91 51 150 153 320 110 183 132 242 140 379 l6 104 84 -68 c233 -187 318 -305 371 -516 12 -46 25 -87 30 -92 6 -6 110 10 110 17 0 28 -61 212 -89 272 -71 152 -160 257 -341 402 -178 143 -282 291 -315 448 -15 73 -18 172 -6 215 7 24 7 24 30 -13 34 -55 133 -140 204 -175 34 -16 114 -55 177 -86 184 -88 242 -147 342 -341 53 -104 73 -132 147 -205 72 -71 102 -94 181 -132 132 -64 138 -66 151 -31 28 74 26 78 -41 103 -148 55 -257 158 -340 322 -68 132 -127 216 -184 259 -25 19 -46 38 -46 43 0 13 242 0 327 -18 172 -37 314 -120 409 -240 l30 -39 45 29 c24 15 46 29 48 31 11 7 -110 139 -167 181 -172 127 -352 171 -697 172 -111 0 -179 5 -220 15 -284 73 -394 295 -345 695 22 179 96 367 198 501 27 36 249 262 493 502 l444 437 -40 39 -40 40 -80 -75z"/> </g> </svg><span><small>PER TARANTO</small><b>POSTILVA</b></span></a>
+  <a class="firma" href="https://www.postilva.it/" target="_blank" rel="noopener"><svg class="logo" aria-hidden="true" focusable="false" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="331 220 362 580" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"> <path d="M5156 7928 c-30 -45 -84 -174 -100 -238 -23 -92 -31 -267 -17 -375 14 -100 55 -234 101 -324 16 -33 30 -68 30 -77 0 -9 -21 -40 -48 -68 -26 -28 -62 -69 -80 -91 l-33 -40 7 65 c7 71 -7 211 -31 305 -8 33 -40 111 -71 174 -48 98 -68 126 -139 198 -45 45 -88 83 -96 83 -36 0 -74 -269 -58 -412 21 -184 82 -343 196 -506 60 -86 65 -98 55 -121 -5 -14 -28 -69 -50 -121 -57 -133 -75 -236 -70 -377 l4 -114 -185 183 c-379 373 -472 463 -479 466 -4 1 -25 -15 -45 -36 l-38 -38 468 -465 c338 -335 483 -485 521 -540 l52 -77 -39 -83 c-32 -68 -78 -193 -107 -288 -3 -8 -29 34 -58 95 -67 138 -123 213 -253 341 -58 57 -262 259 -454 450 l-350 347 -42 -42 -41 -41 481 -478 480 -478 52 -102 c104 -204 137 -355 128 -591 -5 -162 -17 -211 -72 -297 -35 -56 -97 -115 -146 -141 -97 -50 -135 -56 -384 -64 -269 -9 -380 -27 -511 -81 -97 -40 -221 -133 -279 -209 l-45 -59 44 -31 45 -30 83 83 c95 96 195 153 332 187 88 22 314 38 339 24 15 -8 11 -14 -22 -40 -63 -48 -114 -117 -180 -243 -98 -187 -181 -270 -331 -332 -41 -17 -77 -33 -79 -34 -1 -2 5 -27 14 -55 20 -60 15 -60 155 8 80 39 109 60 180 131 73 74 95 105 159 224 108 200 179 262 426 370 175 75 263 152 325 282 49 103 58 148 65 341 10 250 29 384 77 534 31 98 131 286 202 381 38 50 250 270 525 544 l461 460 -40 40 -40 40 -198 -197 c-108 -108 -317 -315 -464 -460 -146 -144 -289 -293 -318 -330 l-51 -68 -37 48 c-117 152 -138 183 -163 237 -90 192 -78 398 35 630 58 118 136 234 229 339 51 58 62 65 85 60 15 -4 36 -15 47 -26 19 -19 19 -20 1 -31 -63 -40 -84 -57 -113 -95 -100 -131 -94 -375 12 -499 74 -87 199 -117 292 -72 129 62 205 247 169 416 -26 126 -80 205 -171 247 -36 17 -60 37 -74 61 -11 20 -21 39 -21 42 0 3 37 3 82 0 111 -7 296 8 388 32 100 27 202 70 275 116 70 45 220 189 211 203 -18 29 -258 66 -370 57 -82 -7 -219 -39 -288 -66 -51 -20 -61 -14 -27 17 66 59 175 249 213 373 25 80 52 264 41 281 -8 13 -111 -36 -200 -95 -98 -65 -233 -202 -302 -308 l-50 -77 -8 82 c-13 154 -55 283 -130 398 -57 88 -69 98 -89 68z m79 -311 c37 -110 45 -279 21 -423 -10 -54 -21 -103 -26 -108 -5 -5 -16 8 -25 30 -69 162 -83 405 -34 579 10 35 13 37 24 22 7 -10 25 -54 40 -100z m559 11 c-40 -138 -143 -305 -264 -427 -86 -88 -168 -156 -176 -148 -18 17 145 321 226 421 68 85 198 206 222 206 4 0 0 -24 -8 -52z m-974 -423 c61 -123 105 -376 82 -475 l-8 -35 -39 70 c-98 174 -155 414 -129 545 l7 32 23 -29 c13 -15 42 -64 64 -108z m1325 -64 c17 -7 12 -14 -44 -49 -80 -52 -193 -96 -300 -116 -106 -20 -311 -33 -311 -19 0 15 186 108 278 138 143 47 320 68 377 46z m-652 -521 c73 -64 101 -204 63 -317 -23 -70 -91 -133 -141 -133 -156 0 -233 256 -124 414 32 47 66 65 121 66 38 0 54 -6 81 -30z"/> <path d="M5343 6586 c-36 -31 -56 -73 -51 -112 2 -23 8 -29 27 -29 32 0 110 119 94 144 -16 25 -38 24 -70 -3z"/> <path d="M6375 6164 c-44 -42 -252 -248 -463 -457 -401 -399 -449 -456 -522 -609 -79 -167 -99 -272 -119 -633 -12 -197 -34 -300 -90 -419 -74 -157 -191 -278 -417 -432 -298 -203 -408 -302 -487 -435 -44 -75 -92 -195 -117 -294 l-18 -70 36 -12 c74 -23 77 -22 100 72 41 166 114 296 227 403 72 69 282 219 292 209 2 -3 0 -14 -5 -24 -18 -33 -41 -137 -45 -208 -4 -63 8 -224 18 -233 2 -3 26 1 52 7 l48 12 0 147 c0 124 3 158 22 217 30 96 104 211 208 325 48 52 98 112 112 133 14 20 28 37 32 37 3 0 18 -35 32 -78 15 -42 41 -111 59 -152 42 -101 60 -180 60 -271 0 -109 -26 -182 -120 -339 -92 -153 -129 -227 -160 -318 -26 -79 -52 -262 -48 -339 l3 -58 55 0 c55 0 55 0 53 30 -3 55 17 229 33 294 23 91 51 150 153 320 110 183 132 242 140 379 l6 104 84 -68 c233 -187 318 -305 371 -516 12 -46 25 -87 30 -92 6 -6 110 10 110 17 0 28 -61 212 -89 272 -71 152 -160 257 -341 402 -178 143 -282 291 -315 448 -15 73 -18 172 -6 215 7 24 7 24 30 -13 34 -55 133 -140 204 -175 34 -16 114 -55 177 -86 184 -88 242 -147 342 -341 53 -104 73 -132 147 -205 72 -71 102 -94 181 -132 132 -64 138 -66 151 -31 28 74 26 78 -41 103 -148 55 -257 158 -340 322 -68 132 -127 216 -184 259 -25 19 -46 38 -46 43 0 13 242 0 327 -18 172 -37 314 -120 409 -240 l30 -39 45 29 c24 15 46 29 48 31 11 7 -110 139 -167 181 -172 127 -352 171 -697 172 -111 0 -179 5 -220 15 -284 73 -394 295 -345 695 22 179 96 367 198 501 27 36 249 262 493 502 l444 437 -40 39 -40 40 -80 -75z"/> </g> </svg><span><small>PER TARANTO</small><b>POSTILVA</b></span></a>
   <span class="tavolo">Un progetto del tavolo Quartieri, Spazi e Mare</span>
   <a class="partecipa" href="https://www.postilva.it/partecipa/" target="_blank" rel="noopener">Partecipa ›</a>
 </div></header>
 
 <!-- barra dello strumento -->
 <div class="barra g"><div class="w">
-  <a class="marchio" href="#inizio" aria-label="Patrimonio comune, pagina iniziale"><svg class="marchio-segno" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7.5 12 2.5l9 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="4" y="9" width="4" height="4" rx=".8"/><rect x="10" y="9" width="4" height="4" rx=".8"/><rect x="16" y="9" width="4" height="4" rx=".8"/><rect x="4" y="15" width="4" height="4" rx=".8" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="10.6" y="15" width="2.8" height="6.5" rx=".6"/><rect x="16" y="15" width="4" height="4" rx=".8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 21.5h19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="nome">Patrimonio <em>comune</em></span></a>
+  <a class="marchio" href="#inizio" aria-label="Patrimonio comune, pagina iniziale"><span class="nome">Patrimonio <em>comune</em></span></a>
   <nav aria-label="Sezioni del sito">
     <a href="#inizio" data-nav="inizio">Inizio</a>
     <a href="#mappa" data-nav="mappa">Mappa</a>
@@ -434,9 +435,9 @@ h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
 <section class="vista" data-vista="inizio" aria-labelledby="t-inizio">
   <div class="apertura g" role="img" aria-label="Foto: il Palazzo di Città di Taranto, sede del Comune"><div class="w">
     <div class="apertura-testo">
-      <p class="kicker">Taranto · il censimento degli edifici del Comune · dati al <span data-meta="generato"></span></p>
+      <p class="kicker">Taranto · edifici del Comune · al <span data-meta="generato"></span></p>
       <h1 id="t-inizio" tabindex="-1">Il patrimonio del Comune, <em>edificio per edificio.</em></h1>
-      <p class="sotto">Nell'elenco ufficiale ci sono <span data-num="particelle_elenco"></span> particelle con edifici: scuole, uffici, negozi, magazzini, impianti sportivi, ruderi, case popolari. Le mettiamo sulla mappa una per una, con le fonti, e andiamo a vedere come sono usate.</p>
+      <p class="sotto">Scuole, uffici, negozi, ruderi: <span data-num="particelle_elenco"></span> particelle, una per una, con le fonti.</p>
       <a class="bottone" href="#mappa">Apri la mappa</a>
       <p class="credito">Foto: il Palazzo di Città, sede del Comune, 2022 · Bernard Gagnon, <a href="https://commons.wikimedia.org/wiki/File:Palazzo_di_citt%C3%A0,_Taranto.jpg" target="_blank" rel="noopener">CC0</a></p>
     </div>
@@ -749,6 +750,7 @@ window.MAPPA_DATI={"edifici":{"type":"FeatureCollection","features":[{"type":"Fe
     var r = rotta();
     if (r.vista === "scheda" && !perId[r.id]) r = { vista: "scheda", id: null };
     $$(".vista").forEach(function (s) { s.hidden = s.getAttribute("data-vista") !== r.vista; });
+    document.body.classList.toggle("in-mappa", r.vista === "mappa"); // mappa a tutto schermo
     $$("[data-nav]").forEach(function (a) {
       var attivo = a.getAttribute("data-nav") === r.vista;
       if (attivo) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
