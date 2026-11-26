@@ -8,6 +8,7 @@ Legge:
   dati/citta/posizioni.csv       area della particella sulla mappa catastale
   dati/citta/poligoni.geojson    poligoni delle particelle (Agenzia delle Entrate, CC BY 4.0)
   dati/nascosti.csv              immobili tolti dalla mappa (locali tecnici, magazzini): restano nei numeri
+  dati/verifiche.csv             uso verificato su fonte ufficiale senza sopralluogo (es. scuole nell'anagrafe del Ministero)
   sito/dati/osm/                 base OpenStreetMap (scripts/scarica_base_osm.py)
   sito/src/                      template HTML, CSS, JS
 
@@ -54,6 +55,9 @@ def edifici():
     # locali tecnici e magazzini guardati e tolti dalla mappa (Antonio, 26/11/2026): restano nel conteggio
     with open(os.path.join(RADICE, "dati/nascosti.csv"), encoding="utf-8") as f:
         nascosti = {r["id"] for r in csv.DictReader(f)}
+    # uso verificato su fonte ufficiale (Antonio, 26/11/2026): scuole in uso nell'anagrafe del Ministero
+    with open(os.path.join(RADICE, "dati/verifiche.csv"), encoding="utf-8") as f:
+        verifiche = {r["id"]: {k: r[k] for k in ("uso", "come", "codici", "conferma", "data")} for r in csv.DictReader(f)}
     out, fonti, st = [], [], Counter()
     for fn in sorted(glob.glob(os.path.join(RADICE, "dati/edifici/*.json"))):
         if os.path.basename(fn).startswith("_"):
@@ -83,6 +87,8 @@ def edifici():
         p["fonti_rif"] = fonti.index(d.get("fonti"))
         p.update(locali=locali, n_locali=len(locali), tipi=tipi_p, tipo_bene=tipi_p[0],
                  n_abitazioni=n_ab, n_pertinenze=n_pert, lat=d["lat"], lon=d["lon"])
+        if d["id"] in verifiche:
+            p["verifica"] = verifiche[d["id"]]
         a = aree.get((d["foglio"], d["particella"]))
         p["area_particella_m2"] = int(a) if a else None
         out.append({"type": "Feature", "id": d["id"], "properties": p,
@@ -285,6 +291,7 @@ def main():
         "nascosti": st["nascosti"],
         "con_via": sum(1 for f in feats if f["properties"].get("via_vicina")),
         "verificati": sum(1 for f in feats if f["properties"].get("data_sopralluogo")),
+        "verificati_fonte": sum(1 for f in feats if f["properties"].get("verifica") and not f["properties"].get("data_sopralluogo")),
         "per_tipo": {k: per_tipo.get(k, 0) for k, _ in tipi.TIPI},
         "cercati_online": sum(1 for f in feats if f["properties"].get("online")),
         "tamburi": sum(1 for f in feats if f["properties"].get("quartiere") == "Tamburi"),

@@ -53,8 +53,10 @@
     ["da_capire", "Da capire", "#7ea6e0", "fonti incerte o in contrasto"],
     ["non_noto", "Uso non noto", "#6b6b74", "solo l'elenco del Comune e il catasto"]
   ];
+  function verificato(p) { return !!(p.data_sopralluogo || p.verifica); }
   function uso(p) {
     if (p.uso_verificato) return p.uso_verificato;
+    if (p.verifica && p.verifica.uso) return p.verifica.uso;
     var o = p.online || {}, i = o.indicazione;
     if (o.piano) return "piano";
     if ((p.locali || []).some(function (l) { return l.categoria === "F02"; })) return "rudere";
@@ -73,8 +75,8 @@
   }
   function etichettaUso(p) {
     var u = uso(p), visto = !!p.data_sopralluogo;
-    return '<span class="stato" style="color:' + coloreUso(u) + '">' + simbolo(u, 16, visto) + esc(nomeUso(u)) +
-      '<span class="fonte-uso">' + (visto ? " · visto sul posto" : u === "non_noto" ? "" : " · da fonti") + "</span></span>";
+    return '<span class="stato" style="color:' + coloreUso(u) + '">' + simbolo(u, 16, verificato(p)) + esc(nomeUso(u)) +
+      '<span class="fonte-uso">' + (visto ? " · visto sul posto" : p.verifica ? " · verificato su fonte ufficiale" : u === "non_noto" ? "" : " · da fonti") + "</span></span>";
   }
 
   /* ---------- testi delle schede ---------- */
@@ -392,7 +394,7 @@
   }
   function puntiFiltrati() {
     return { type: "FeatureCollection", features: edifici.filter(function (f) { return visibile(f.properties); }).map(function (f) {
-      return { type: "Feature", geometry: f.geometry, properties: { id: f.properties.id, u: uso(f.properties), v: f.properties.data_sopralluogo ? 1 : 0 } };
+      return { type: "Feature", geometry: f.geometry, properties: { id: f.properties.id, u: uso(f.properties), v: verificato(f.properties) ? 1 : 0 } };
     }) };
   }
   function limitiCitta() { // il 76% centrale dei punti: la vista parte sulla città, non sui punti isolati
@@ -640,11 +642,12 @@
   function contaUso(u) { return edifici.filter(function (f) { return uso(f.properties) === u; }).length; }
   function disegnaLegenda() {
     if ($("#legenda")) $("#legenda").innerHTML = USI.map(function (u) { return "<div>" + simbolo(u[0], 15, false) + "<span>" + esc(u[1]) + " · " + contaUso(u[0]) + "</span></div>"; }).join("") +
-      '<p class="nota">Bordo: uso secondo le fonti. Pieno: visto sul posto.</p>';
+      '<p class="nota">Bordo: uso secondo le fonti. Pieno: verificato, sul posto o su una fonte ufficiale.</p>';
     $("#legenda-metodo").innerHTML = USI.map(function (u) {
       return "<li>" + simbolo(u[0], 20, false) + "<span><b>" + esc(u[1]) + "</b> (" + contaUso(u[0]) + "): " + esc(u[3]) + "</span></li>";
-    }).join("") + "<li>" + simbolo("in_uso", 20, true) + "<span>Quadratino pieno: uso <b>visto sul posto</b> (" +
-      edifici.filter(function (f) { return f.properties.data_sopralluogo; }).length + ").</span></li>";
+    }).join("") + "<li>" + simbolo("in_uso", 20, true) + "<span>Quadratino pieno: uso <b>verificato</b>, visto sul posto (" +
+      edifici.filter(function (f) { return f.properties.data_sopralluogo; }).length + ") o confermato da una fonte ufficiale, come le scuole in uso nell'anagrafe del Ministero dell'Istruzione (" +
+      edifici.filter(function (f) { return f.properties.verifica && !f.properties.data_sopralluogo; }).length + ").</span></li>";
   }
   /* ---------- notizie in primo piano (dati/notizie.json): fascia a scorrimento ---------- */
   function riempi(t) { // {chiave} = meta.numeri, {uso:chiave} = edifici con quell'uso
@@ -800,10 +803,13 @@
     h.push('<p class="uso-scheda">' + etichettaUso(p) + "</p>");
     var sintesi;
     if (p.data_sopralluogo) sintesi = "Visto sul posto il " + esc(dataIt(p.data_sopralluogo)) + ": " + esc(etichetta(STATI, p.stato).toLowerCase()) + ".";
+    else if (p.verifica)
+      sintesi = "Verificato: " + esc(nomeUso(uso(p)).toLowerCase()) + ". Fonte: " + esc(p.verifica.come) + (p.verifica.codici ? " (codice " + esc(p.verifica.codici) + ")" : "") +
+        (p.verifica.conferma ? "; confermato su " + esc(p.verifica.conferma) : "") + " il " + esc(dataIt(p.verifica.data)) + ". Non serve il sopralluogo.";
     else if (on && on.indicazione && on.indicazione !== "nessuna_info")
       sintesi = "Non ancora visto sul posto. Secondo le fonti online: " + esc((INDICAZIONI[on.indicazione] || "").toLowerCase()) + (on.certezza ? " (certezza " + esc(on.certezza) + ")" : "") + ".";
     else sintesi = "Non ancora visto sul posto. Sappiamo che è del Comune e dove si trova sul catasto; non sappiamo se è in uso.";
-    h.push('<div class="richiamo"><p>' + sintesi + "</p>" + (!p.data_sopralluogo && on ? '<span class="nota">Le indicazioni online non sono verifiche: le fonti sono qui sotto.</span>' : "") + "</div>");
+    h.push('<div class="richiamo"><p>' + sintesi + "</p>" + (!verificato(p) && on ? '<span class="nota">Le indicazioni online non sono verifiche: le fonti sono qui sotto.</span>' : "") + "</div>");
     if (pericolo) h.push('<div class="pericolo" role="note"><p><strong>Attenzione:</strong> edificio ' + esc(etichetta(STATI, p.stato).toLowerCase()) +
       ". Può essere pericoloso: non entrare e non avvicinarti. Questa scheda serve a conoscere il bene, non a visitarlo.</p></div>");
 
@@ -875,9 +881,9 @@
     if (conStima) h.push(sezione(x + "costi", "Quanto costa riaprirlo", costi +
       "<p><strong>Stima parametrica di massima, non perizia.</strong> <a href=\"#metodo\">Come si fanno le stime</a></p>", "costi"));
     var manca = [];
-    if (!p.data_sopralluogo) manca.push(["Il sopralluogo", "andiamo a vedere dall'esterno com'è e se è usato: solo allora la scheda è «verificata»."]);
+    if (!verificato(p)) manca.push(["Il sopralluogo", "andiamo a vedere dall'esterno com'è e se è usato: solo allora la scheda è «verificata»."]);
     var fotoNostre = foto.filter(function (f) { return f.origine !== "online"; });
-    if (!fotoNostre.length) manca.push([foto.length ? "Le foto del sopralluogo" : "Le foto", "facciata, ingresso e intorno, solo dall'esterno e senza persone né targhe."]);
+    if (!fotoNostre.length && !p.verifica) manca.push([foto.length ? "Le foto del sopralluogo" : "Le foto", "facciata, ingresso e intorno, solo dall'esterno e senza persone né targhe."]);
     if (!st.length) manca.push(["La storia", "dalla ricerca d'archivio e dall'accesso agli atti: ogni passaggio con la sua fonte."]);
     if (!conStima) manca.push(["La stima dei costi per riaprirlo", 'dopo il sopralluogo, con un tecnico: una stima di massima, non una perizia. <a href="#metodo">Come si fanno le stime</a>']);
     if (manca.length) h.push(sezione(x + "manca", "Cosa manca ancora", '<ul class="manca">' + manca.map(function (m) {
@@ -922,6 +928,7 @@
     if (pi) h.push('<section class="sez pianta"><h2>Sul catasto</h2>' + pi + '<p class="nota">' + (es ? "Contorno inventato per l'esempio. Nelle schede vere è quello della particella sul catasto." : "Contorno della particella (Agenzia delle Entrate, CC BY 4.0). Il quadratino è il punto usato sulla mappa.") + "</p></section>");
     var passi = [[true, "Nell'elenco del Comune", "elenco beni immobili 2024"], [true, "Trovato sul catasto", "posizione e contorno"],
       [!!on, "Cercato online", on ? ((on.note || []).length === 1 ? "1 indicazione con fonte" : (on.note || []).length + " indicazioni con fonte") : "atti, scuole, notizie"],
+      p.verifica && !p.data_sopralluogo ? [true, "Verificato su fonte ufficiale", dataIt(p.verifica.data)] :
       [!!p.data_sopralluogo, "Visto sul posto", p.data_sopralluogo ? dataIt(p.data_sopralluogo) : "stato, dall'esterno"],
       [foto.filter(function (f) { return f.origine !== "online"; }).length > 0, "Foto del sopralluogo", "senza persone né targhe"], [(p.storia || []).length > 0, "Storia", "archivio e accesso agli atti"],
       [p.stima && p.stima.min_eur != null, "Stima dei costi", "con un tecnico"]];
