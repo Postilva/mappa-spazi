@@ -397,3 +397,7 @@ h1:focus, h2:focus, [tabindex="-1"]:focus { outline: none; }
 .foto-griglia figcaption a { color: var(--ink-2); }
 .foto-griglia:not(.foto-esempio) { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
 .foto-griglia img { max-height: 420px; object-fit: cover; }
+
+/* Titoli grossi della home in Anton, come il logo, postilva.it e bonifiche.postilva.it (Antonio, 26/11/2026). Anton ha un solo peso (400). */
+.apertura h1, .censimento h2 { font-family: var(--f-firma); font-weight: 400; letter-spacing: .005em; }
+.apertura h1 { line-height: 1; }
