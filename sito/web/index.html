@@ -20,7 +20,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Patrimonio comune", "alternateName": "Patrimonio comune – Postilva", "url": "https://patrimonio.postilva.it/", "inLanguage": "it", "publisher": {"@type": "Organization", "name": "Postilva", "url": "https://www.postilva.it/"}}</script>
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/vendor/maplibre-gl.css">
-<link rel="stylesheet" href="assets/app.css?v=fa87c65081">
+<link rel="stylesheet" href="assets/app.css?v=25b8433e4c">
 <script src="assets/vendor/maplibre-gl.js"></script>
 </head>
 <body>
@@ -125,27 +125,43 @@
 
 <!-- MAPPA -->
 <section class="vista" data-vista="mappa" aria-labelledby="t-mappa" hidden>
-  <div class="mappa-v">
-    <aside class="lato" aria-label="Filtri ed elenco degli edifici">
-      <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
-      <p class="nota">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini, con il colore dell'uso più frequente. Colore: uso conosciuto. Solo bordo: secondo le fonti; pieno: visto sul posto.</p>
-      <label for="cerca" class="sotto-et">Cerca</label>
-      <input id="cerca" class="cerca" type="search" placeholder="Via, zona, nome o codice (es. 203-18)" autocomplete="off">
-      <button type="button" class="apri-filtri" id="apri-filtri" data-filtri aria-expanded="false" aria-controls="filtri"><span>Filtri</span><i aria-hidden="true">▾</i></button>
-      <div class="filtri" id="filtri">
-        <p class="sotto-et">Uso conosciuto</p>
-        <div class="chips" id="filtro-online" role="group" aria-label="Uso conosciuto"></div>
-        <p class="sotto-et">Tipo di locale</p>
-        <div class="chips" id="filtro-tipo" role="group" aria-label="Tipo di locale"></div>
+  <!-- mappa come quella delle bonifiche (Antonio, 27/11/2026): mappa a tutto schermo, pannello sopra, legenda sulla mappa -->
+  <div class="mapwrap">
+    <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli edifici. Alternativa testuale: l'elenco">
+      <p class="mappa-attesa">Caricamento della mappa…</p>
+    </div>
+    <aside class="panel" id="panel" aria-label="Elenco e filtri">
+      <div class="ph">
+        <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
+        <button type="button" class="close" id="panel-close" aria-label="Chiudi l'elenco">✕</button>
+        <button type="button" class="grande" id="panel-big" aria-pressed="false">Allarga</button>
+        <p class="intro">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini.</p>
+        <div class="seg" role="radiogroup" aria-label="Colori e filtri per">
+          <button type="button" role="radio" data-c="uso" aria-checked="true">Uso</button>
+          <button type="button" role="radio" data-c="tipo" aria-checked="false">Tipo</button>
+        </div>
+        <div class="chips" id="filtri-chips" role="group" aria-label="Filtri"></div>
+        <input id="cerca" class="cerca" type="search" placeholder="Cerca: via, zona, nome o codice (es. 203-18)" autocomplete="off" aria-label="Cerca un edificio">
+        <p class="lcount"><span id="lcount"></span> · <button type="button" class="linkbtn" id="fuori-open" aria-haspopup="dialog">Cosa non è sulla mappa?</button></p>
       </div>
       <ul class="lista" id="lista"></ul>
     </aside>
-    <div class="campo-mappa">
-      <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli edifici. Alternativa testuale: l'elenco">
-        <p class="mappa-attesa">Caricamento della mappa…</p>
+    <button type="button" class="paneltoggle" id="panel-open">☰ Elenco e filtri</button>
+    <details class="legend-map" id="legenda">
+      <summary><span>Legenda</span></summary>
+      <div class="lg-in">
+        <p class="lg-t" id="lg-t">Uso conosciuto</p>
+        <ul class="lg-voci" id="lg-voci"></ul>
+        <div id="lg-x"></div>
       </div>
-    </div>
+    </details>
+    <div class="pv" id="pv" hidden role="region" aria-label="Anteprima dell'edificio"></div>
   </div>
+  <dialog id="fuori-dlg" aria-labelledby="fuori-t">
+    <button type="button" class="x" id="fuori-close" aria-label="Chiudi">✕</button>
+    <h2 id="fuori-t">Cosa non è sulla mappa</h2>
+    <div id="fuori"></div>
+  </dialog>
 </section>
 
 <!-- SCHEDA -->
@@ -255,7 +271,7 @@
   <p>Patrimonio comune, il censimento degli edifici del Comune di Taranto. A cura di <a href="https://www.postilva.it/" target="_blank" rel="noopener">Postilva</a>, tavolo Quartieri, Spazi e Mare · Versione di prova, dati al <span data-meta="generato"></span> · <a href="#privacy">Privacy e crediti</a></p>
 </div></footer>
 
-<script>window.THREE_URL="assets/vendor/three.min.js";window.MAPPA_DATI_URL={"edifici": "dati/edifici.geojson?v=fa87c65081", "base": "dati/base.geojson?v=fa87c65081", "meta": {"generato": "2026-11-27", "maplibre": "4.7.1", "titolo": "Patrimonio comune", "tipi": [["negozi", "Negozi e botteghe"], ["laboratori", "Laboratori"], ["magazzini", "Magazzini e depositi"], ["uffici", "Uffici"], ["scuole", "Scuole"], ["industriali", "Opifici e capannoni"], ["sport", "Impianti sportivi"], ["ruderi", "Ruderi (unità collabenti)"], ["altro", "Altro"]], "numeri": {"particelle_elenco": 539, "localizzate": 488, "da_localizzare": 51, "in_mappa": 199, "locali": 334, "solo_abitazioni": 285, "nascosti": 4, "con_via": 197, "verificati": 0, "verificati_fonte": 4, "per_tipo": {"negozi": 87, "laboratori": 8, "magazzini": 20, "uffici": 40, "scuole": 61, "industriali": 26, "sport": 6, "ruderi": 35, "altro": 51}, "cercati_online": 109, "tamburi": 11, "nel_piano": 16, "piano_alienazioni": 82, "piano_valorizzazioni": 82, "resto": 188, "per_indicazione": {"in_uso": 52, "da_capire": 24, "nessuna_info": 10, "solo_osm": 8, "chiuso": 3, "riconvertito": 1, "probabile_abbandono": 11}}, "fonti": [[{"titolo": "Elenco beni immobili – anno 2024", "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative", "data": "2024-05-29", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721", "uso": "identificativi, foglio, particella, subalterni e categorie catastali"}, {"titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)", "ente": "Agenzia delle Entrate", "data": "2026-11-10", "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php", "licenza": "CC BY 4.0", "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"}, {"titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)", "ente": "© OpenStreetMap contributors", "data": "2026-11-01", "url": "https://www.openstreetmap.org/copyright", "licenza": "ODbL", "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"}]], "contatti": {"email": "postilvaofficial@gmail.com", "pec": "postilva@pec.it", "modulo": "https://docs.google.com/forms/d/e/1FAIpQLSe9oA-NpLRv6a84kBkU07RM11R2jJHh3X2QhbmT_FuRl7-70Q/viewform", "modulo_campo_scheda": "entry.92687739"}, "notizie": [{"data": "2026-11-23", "etichetta": "In primo piano · Piano delle alienazioni 2026-2028", "titolo": "Il Comune vuole vendere <em>{piano_alienazioni} beni<\/em> e darne in affitto altri {piano_valorizzazioni}.", "testo": "Lo ha deciso il Consiglio comunale il 17 marzo 2026, nel Documento unico di programmazione. Tra questi ci sono due ex scuole del Paolo VI (in vendita nel 2028), l'ex Gerontocomio di via delle Ceramiche (1.248.000 €) e 63 locali in Città vecchia da dare in affitto. L'asta dell'ex mercato di via Plinio è stata revocata ad agosto.", "pulsante": {"testo": "Vedi sulla mappa i {nel_piano} edifici del piano", "filtro_uso": "piano"}, "link": {"testo": "La delibera n. 30/2026", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-ap/-/papca/display/5250181"}, "nota": "Gli altri beni del piano sono appartamenti, box e locali che non sono sulla mappa. Gli edifici del piano non sono per forza vuoti: il piano dice che il Comune non li ritiene necessari alle sue funzioni."}, {"data": "2026-11-23", "etichetta": "Il censimento · Ricerca nelle fonti", "titolo": "Abbiamo cercato <em>{cercati_online} edifici su {in_mappa}<\/em> negli atti e nelle notizie.", "testo": "Prima di andare sul posto guardiamo cosa si sa già: il piano delle alienazioni del Comune, l'anagrafe delle scuole, il catasto, le notizie locali. Per {uso:in_uso} edifici le fonti dicono che sono in uso, per {uso:non_noto} non sappiamo ancora niente. Ogni indicazione ha la sua fonte nella scheda.", "pulsante": {"testo": "Vedi gli edifici di cui non sappiamo niente", "filtro_uso": "non_noto"}, "nota": "Le indicazioni delle fonti non sono verifiche: diventano certe solo con il sopralluogo."}, {"data": "2026-11-19", "etichetta": "In programma · Sopralluoghi", "titolo": "Si parte dai Tamburi: <em>{tamburi} edifici<\/em> da andare a vedere.", "testo": "Il tavolo Quartieri, Spazi e Mare ha in programma i primi sopralluoghi ai Tamburi. Si guarda solo dall'esterno: com'è l'edificio, se è aperto, che uso ha. Le foto, senza persone né targhe, arriveranno nelle schede.", "pulsante": {"testo": "Vedi gli edifici dei Tamburi", "zona": "tamburi"}, "nota": "Qui pubblicheremo le notizie di ogni sopralluogo."}], "osm": {"zoom": [10, 14], "bbox": [17.14055, 40.37122, 17.33371, 40.5502], "attribuzione": "© OpenStreetMap contributors (ODbL) · OpenFreeMap · OpenMapTiles"}}, "osm": "dati/osm/"};</script>
-<script src="assets/app.js?v=fa87c65081"></script>
+<script>window.THREE_URL="assets/vendor/three.min.js";window.MAPPA_DATI_URL={"edifici": "dati/edifici.geojson?v=25b8433e4c", "base": "dati/base.geojson?v=25b8433e4c", "meta": {"generato": "2026-11-27", "maplibre": "4.7.1", "titolo": "Patrimonio comune", "tipi": [["negozi", "Negozi e botteghe"], ["laboratori", "Laboratori"], ["magazzini", "Magazzini e depositi"], ["uffici", "Uffici"], ["scuole", "Scuole"], ["industriali", "Opifici e capannoni"], ["sport", "Impianti sportivi"], ["ruderi", "Ruderi (unità collabenti)"], ["altro", "Altro"]], "numeri": {"particelle_elenco": 539, "localizzate": 488, "da_localizzare": 51, "in_mappa": 199, "locali": 334, "solo_abitazioni": 285, "nascosti": 4, "con_via": 197, "verificati": 0, "verificati_fonte": 4, "per_tipo": {"negozi": 87, "laboratori": 8, "magazzini": 20, "uffici": 40, "scuole": 61, "industriali": 26, "sport": 6, "ruderi": 35, "altro": 51}, "cercati_online": 109, "tamburi": 11, "nel_piano": 16, "piano_alienazioni": 82, "piano_valorizzazioni": 82, "resto": 188, "per_indicazione": {"in_uso": 52, "da_capire": 24, "nessuna_info": 10, "solo_osm": 8, "chiuso": 3, "riconvertito": 1, "probabile_abbandono": 11}}, "fonti": [[{"titolo": "Elenco beni immobili – anno 2024", "ente": "Comune di Taranto, Direzione Patrimonio e Demanio – Politiche abitative", "data": "2024-05-29", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-g/-/papca/display/3570721", "uso": "identificativi, foglio, particella, subalterni e categorie catastali"}, {"titolo": "Cartografia catastale – servizio WFS INSPIRE (CP:CadastralParcel)", "ente": "Agenzia delle Entrate", "data": "2026-11-10", "url": "https://wfs.cartografia.agenziaentrate.gov.it/inspire/wfs/owfs01.php", "licenza": "CC BY 4.0", "uso": "posizione: baricentro (o punto interno) del poligono della particella, consultato il 2026-11-10"}, {"titolo": "OpenStreetMap (tessere OpenFreeMap, schema OpenMapTiles)", "ente": "© OpenStreetMap contributors", "data": "2026-11-01", "url": "https://www.openstreetmap.org/copyright", "licenza": "ODbL", "uso": "via più vicina e zona indicativa: ricavate in automatico, non verificate"}]], "contatti": {"email": "postilvaofficial@gmail.com", "pec": "postilva@pec.it", "modulo": "https://docs.google.com/forms/d/e/1FAIpQLSe9oA-NpLRv6a84kBkU07RM11R2jJHh3X2QhbmT_FuRl7-70Q/viewform", "modulo_campo_scheda": "entry.92687739"}, "notizie": [{"data": "2026-11-23", "etichetta": "In primo piano · Piano delle alienazioni 2026-2028", "titolo": "Il Comune vuole vendere <em>{piano_alienazioni} beni<\/em> e darne in affitto altri {piano_valorizzazioni}.", "testo": "Lo ha deciso il Consiglio comunale il 17 marzo 2026, nel Documento unico di programmazione. Tra questi ci sono due ex scuole del Paolo VI (in vendita nel 2028), l'ex Gerontocomio di via delle Ceramiche (1.248.000 €) e 63 locali in Città vecchia da dare in affitto. L'asta dell'ex mercato di via Plinio è stata revocata ad agosto.", "pulsante": {"testo": "Vedi sulla mappa i {nel_piano} edifici del piano", "filtro_uso": "piano"}, "link": {"testo": "La delibera n. 30/2026", "url": "https://taranto.trasparenza-valutazione-merito.it/web/trasparenza/papca-ap/-/papca/display/5250181"}, "nota": "Gli altri beni del piano sono appartamenti, box e locali che non sono sulla mappa. Gli edifici del piano non sono per forza vuoti: il piano dice che il Comune non li ritiene necessari alle sue funzioni."}, {"data": "2026-11-23", "etichetta": "Il censimento · Ricerca nelle fonti", "titolo": "Abbiamo cercato <em>{cercati_online} edifici su {in_mappa}<\/em> negli atti e nelle notizie.", "testo": "Prima di andare sul posto guardiamo cosa si sa già: il piano delle alienazioni del Comune, l'anagrafe delle scuole, il catasto, le notizie locali. Per {uso:in_uso} edifici le fonti dicono che sono in uso, per {uso:non_noto} non sappiamo ancora niente. Ogni indicazione ha la sua fonte nella scheda.", "pulsante": {"testo": "Vedi gli edifici di cui non sappiamo niente", "filtro_uso": "non_noto"}, "nota": "Le indicazioni delle fonti non sono verifiche: diventano certe solo con il sopralluogo."}, {"data": "2026-11-19", "etichetta": "In programma · Sopralluoghi", "titolo": "Si parte dai Tamburi: <em>{tamburi} edifici<\/em> da andare a vedere.", "testo": "Il tavolo Quartieri, Spazi e Mare ha in programma i primi sopralluoghi ai Tamburi. Si guarda solo dall'esterno: com'è l'edificio, se è aperto, che uso ha. Le foto, senza persone né targhe, arriveranno nelle schede.", "pulsante": {"testo": "Vedi gli edifici dei Tamburi", "zona": "tamburi"}, "nota": "Qui pubblicheremo le notizie di ogni sopralluogo."}], "osm": {"zoom": [10, 14], "bbox": [17.14055, 40.37122, 17.33371, 40.5502], "attribuzione": "© OpenStreetMap contributors (ODbL) · OpenFreeMap · OpenMapTiles"}}, "osm": "dati/osm/"};</script>
+<script src="assets/app.js?v=25b8433e4c"></script>
 </body>
 </html>

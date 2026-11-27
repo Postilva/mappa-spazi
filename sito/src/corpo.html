@@ -99,27 +99,43 @@
 
 <!-- MAPPA -->
 <section class="vista" data-vista="mappa" aria-labelledby="t-mappa" hidden>
-  <div class="mappa-v">
-    <aside class="lato" aria-label="Filtri ed elenco degli edifici">
-      <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
-      <p class="nota">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini, con il colore dell'uso più frequente. Colore: uso conosciuto. Solo bordo: secondo le fonti; pieno: visto sul posto.</p>
-      <label for="cerca" class="sotto-et">Cerca</label>
-      <input id="cerca" class="cerca" type="search" placeholder="Via, zona, nome o codice (es. 203-18)" autocomplete="off">
-      <button type="button" class="apri-filtri" id="apri-filtri" data-filtri aria-expanded="false" aria-controls="filtri"><span>Filtri</span><i aria-hidden="true">▾</i></button>
-      <div class="filtri" id="filtri">
-        <p class="sotto-et">Uso conosciuto</p>
-        <div class="chips" id="filtro-online" role="group" aria-label="Uso conosciuto"></div>
-        <p class="sotto-et">Tipo di locale</p>
-        <div class="chips" id="filtro-tipo" role="group" aria-label="Tipo di locale"></div>
+  <!-- mappa come quella delle bonifiche (Antonio, 27/11/2026): mappa a tutto schermo, pannello sopra, legenda sulla mappa -->
+  <div class="mapwrap">
+    <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli edifici. Alternativa testuale: l'elenco">
+      <p class="mappa-attesa">Caricamento della mappa…</p>
+    </div>
+    <aside class="panel" id="panel" aria-label="Elenco e filtri">
+      <div class="ph">
+        <h1 id="t-mappa" tabindex="-1"><span id="conteggio"></span></h1>
+        <button type="button" class="close" id="panel-close" aria-label="Chiudi l'elenco">✕</button>
+        <button type="button" class="grande" id="panel-big" aria-pressed="false">Allarga</button>
+        <p class="intro">Tocca un quadratino per vedere l'edificio; i numeri raggruppano edifici vicini.</p>
+        <div class="seg" role="radiogroup" aria-label="Colori e filtri per">
+          <button type="button" role="radio" data-c="uso" aria-checked="true">Uso</button>
+          <button type="button" role="radio" data-c="tipo" aria-checked="false">Tipo</button>
+        </div>
+        <div class="chips" id="filtri-chips" role="group" aria-label="Filtri"></div>
+        <input id="cerca" class="cerca" type="search" placeholder="Cerca: via, zona, nome o codice (es. 203-18)" autocomplete="off" aria-label="Cerca un edificio">
+        <p class="lcount"><span id="lcount"></span> · <button type="button" class="linkbtn" id="fuori-open" aria-haspopup="dialog">Cosa non è sulla mappa?</button></p>
       </div>
       <ul class="lista" id="lista"></ul>
     </aside>
-    <div class="campo-mappa">
-      <div id="mappa-box" class="mappa-box" role="region" aria-label="Mappa interattiva degli edifici. Alternativa testuale: l'elenco">
-        <p class="mappa-attesa">Caricamento della mappa…</p>
+    <button type="button" class="paneltoggle" id="panel-open">☰ Elenco e filtri</button>
+    <details class="legend-map" id="legenda">
+      <summary><span>Legenda</span></summary>
+      <div class="lg-in">
+        <p class="lg-t" id="lg-t">Uso conosciuto</p>
+        <ul class="lg-voci" id="lg-voci"></ul>
+        <div id="lg-x"></div>
       </div>
-    </div>
+    </details>
+    <div class="pv" id="pv" hidden role="region" aria-label="Anteprima dell'edificio"></div>
   </div>
+  <dialog id="fuori-dlg" aria-labelledby="fuori-t">
+    <button type="button" class="x" id="fuori-close" aria-label="Chiudi">✕</button>
+    <h2 id="fuori-t">Cosa non è sulla mappa</h2>
+    <div id="fuori"></div>
+  </dialog>
 </section>
 
 <!-- SCHEDA -->
