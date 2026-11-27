@@ -141,7 +141,7 @@ def osm_incorporato():
         fonts[f"{f}/{r}"] = b64(gzip.compress(open(fn, "rb").read(), 9, mtime=0))
     fonte = json.load(open(os.path.join(cart, "fonte.json")))
     return {"tessere": tessere, "fonts": fonts, "gzip": True, "zoom": fonte["zoom"], "bbox": fonte["bbox"],
-            "attribuzione": fonte["attribuzione"]}
+            "bbox_largo": fonte.get("bbox_largo", fonte["bbox"]), "attribuzione": fonte["attribuzione"]}
 
 
 # Logo «Il palazzo di tufo» (proposta C, scelta da Antonio il 25/11/2026): edificio basso di tufo con porta ad arco,
@@ -329,7 +329,7 @@ def main():
     p_notizie = os.path.join(RADICE, "dati/notizie.json")  # notizie della fascia in home, la prima è la più recente
     meta["notizie"] = json.load(open(p_notizie, encoding="utf-8")) if os.path.exists(p_notizie) else []
     if osm:
-        meta["osm"] = {"zoom": osm["zoom"], "bbox": osm["bbox"], "attribuzione": osm["attribuzione"]}
+        meta["osm"] = {"zoom": osm["zoom"], "bbox": osm["bbox"], "bbox_largo": osm["bbox_largo"], "attribuzione": osm["attribuzione"]}
 
     testa = (f'<title>{TITOLO}</title>\n'
              f'<meta name="claude:viewport-fit-sides" content="cover">\n'

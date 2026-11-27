@@ -440,7 +440,7 @@
     mappa.jumpTo(cam);
     // mai oltre la mappa di base: dove finiscono le tessere resterebbe un fondo nero (Antonio, 27/11/2026, come nelle bonifiche).
     // Se il riquadro è più alto o più largo della zona coperta, ci si avvicina quanto basta.
-    var t = (meta.osm && meta.osm.bbox) || base.bbox, W = c.clientWidth, H = c.clientHeight;
+    var t = (meta.osm && (meta.osm.bbox_largo || meta.osm.bbox)) || base.bbox, W = c.clientWidth, H = c.clientHeight; // zona coperta dagli zoom 10–12
     var p1 = mappa.project([t[0], t[1]]), p2 = mappa.project([t[2], t[3]]);
     var dz = Math.log(Math.max(W / Math.abs(p2.x - p1.x), H / Math.abs(p1.y - p2.y), 1)) / Math.LN2;
     if (dz > 0) mappa.jumpTo({ zoom: mappa.getZoom() + dz + 0.02 });

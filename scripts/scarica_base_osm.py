@@ -9,7 +9,7 @@ Cosa scarica:
   zoom 14:    solo le tessere dove c'è almeno una particella con locali di interesse (scripts/tipi.py),
               più la tessera accanto quando la particella è vicina al bordo. Altrove la mappa ingrandisce z13.
 
-Uso: python3 scripts/scarica_base_osm.py   (dopo scripts/posizioni_citta.py)
+Uso: python3 scripts/scarica_base_osm.py [--stessa-versione]   (dopo scripts/posizioni_citta.py)
 Esito: sito/dati/osm/{z}/{x}/{y}.pbf, sito/dati/osm/fonts/<font>/<range>.pbf, sito/dati/osm/fonte.json
 
 Dati © OpenStreetMap contributors (ODbL), tessere OpenFreeMap / OpenMapTiles.
@@ -23,6 +23,9 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 R = os.path.join(QUI, "..")
 OUT = os.path.join(R, "sito", "dati", "osm")
 MARGINE = 0.015               # gradi oltre i punti
+# Zoom 10–12 su un riquadro più largo (Antonio, 27/11/2026): su uno schermo largo la mappa deve poter mostrare
+# tutti gli edifici senza uscire dalla base (oltre il bordo resterebbe un fondo nero).
+LARGO = (0.16, 0.08)          # gradi in più (longitudine, latitudine) per gli zoom 10–12
 BORDO = 0.2                   # frazione di tessera: sotto, si scarica anche la tessera accanto
 FONT = ["Noto Sans Regular", "Noto Sans Bold", "Noto Sans Italic"]
 RANGE = ["0-255", "256-511", "8192-8447"]  # latino, latino esteso, punteggiatura (’ –)
@@ -61,9 +64,11 @@ def main():
     b = [min(p[0] for p in pp) - MARGINE, min(p[1] for p in pp) - MARGINE,
          max(p[0] for p in pp) + MARGINE, max(p[1] for p in pp) + MARGINE]
     voglio = set()
+    bl = [b[0] - LARGO[0], b[1] - LARGO[1], b[2] + LARGO[0], b[3] + LARGO[1]]
     for z in range(10, 14):
-        x0, y1 = (int(v) for v in frazione(b[0], b[1], z))
-        x1, y0 = (int(v) for v in frazione(b[2], b[3], z))
+        r = bl if z <= 12 else b
+        x0, y1 = (int(v) for v in frazione(r[0], r[1], z))
+        x1, y0 = (int(v) for v in frazione(r[2], r[3], z))
         voglio |= {(z, x, y) for x in range(x0, x1 + 1) for y in range(y0, y1 + 1)}
     for lon, lat, interesse in pp:
         if not interesse:
@@ -75,13 +80,15 @@ def main():
         if fy % 1 < BORDO: ys.add(int(fy) - 1)
         if fy % 1 > 1 - BORDO: ys.add(int(fy) + 1)
         voglio |= {(14, x, y) for x in xs for y in ys}
-    tj = json.loads(scarica("https://tiles.openfreemap.org/planet"))
-    modello = tj["tiles"][0]
     vecchia = None
     try:
         vecchia = json.load(open(os.path.join(OUT, "fonte.json")))["tessere"]
     except Exception:
         pass
+    if "--stessa-versione" in sys.argv and vecchia:   # aggiunge tessere senza cambiare la versione dei dati
+        modello = vecchia
+    else:
+        modello = json.loads(scarica("https://tiles.openfreemap.org/planet"))["tiles"][0]
     if vecchia != modello:   # nuova versione dei dati: si riparte da zero per non mescolare versioni
         for d in os.listdir(OUT) if os.path.isdir(OUT) else []:
             if d.isdigit():
@@ -107,7 +114,7 @@ def main():
             if not os.path.exists(p):
                 os.makedirs(os.path.dirname(p), exist_ok=True)
                 open(p, "wb").write(scarica(f"https://tiles.openfreemap.org/fonts/{urllib.request.quote(f)}/{r}.pbf"))
-    json.dump({"tessere": modello, "zoom": [10, 14], "bbox": [round(v, 5) for v in b],
+    json.dump({"tessere": modello, "zoom": [10, 14], "bbox": [round(v, 5) for v in b], "bbox_largo": [round(v, 5) for v in bl],
                "attribuzione": "© OpenStreetMap contributors (ODbL) · OpenFreeMap · OpenMapTiles"},
               open(os.path.join(OUT, "fonte.json"), "w"), indent=1)
     per_z = defaultdict(int)
