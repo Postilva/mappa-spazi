@@ -199,6 +199,7 @@
     if (r.vista === "scheda" && !perId[r.id]) r = { vista: "scheda", id: null };
     $$(".vista").forEach(function (s) { s.hidden = s.getAttribute("data-vista") !== r.vista; });
     document.body.classList.toggle("in-mappa", r.vista === "mappa"); // mappa a tutto schermo
+    $$("details.hmenu").forEach(function (d) { d.open = false; }); // il menù del telefono si chiude a ogni cambio di pagina
     $$("[data-nav]").forEach(function (a) {
       var attivo = a.getAttribute("data-nav") === r.vista;
       if (attivo) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
