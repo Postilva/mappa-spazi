@@ -438,9 +438,15 @@
     var cam = mappa.cameraForBounds(limitiEdifici(), { padding: margini() });
     if (!cam) return;
     mappa.jumpTo(cam);
+    // mai oltre la mappa di base: dove finiscono le tessere resterebbe un fondo nero (Antonio, 27/11/2026, come nelle bonifiche).
+    // Se il riquadro è più alto o più largo della zona coperta, ci si avvicina quanto basta.
+    var t = (meta.osm && meta.osm.bbox) || base.bbox, W = c.clientWidth, H = c.clientHeight;
+    var p1 = mappa.project([t[0], t[1]]), p2 = mappa.project([t[2], t[3]]);
+    var dz = Math.log(Math.max(W / Math.abs(p2.x - p1.x), H / Math.abs(p1.y - p2.y), 1)) / Math.LN2;
+    if (dz > 0) mappa.jumpTo({ zoom: mappa.getZoom() + dz + 0.02 });
     var bb = mappa.getBounds(), dx = (bb.getEast() - bb.getWest()) * 0.08, dy = (bb.getNorth() - bb.getSouth()) * 0.08;
     mappa.setMinZoom(mappa.getZoom());
-    mappa.setMaxBounds([[bb.getWest() - dx, bb.getSouth() - dy], [bb.getEast() + dx, bb.getNorth() + dy]]);
+    mappa.setMaxBounds([[Math.max(t[0], bb.getWest() - dx), Math.max(t[1], bb.getSouth() - dy)], [Math.min(t[2], bb.getEast() + dx), Math.min(t[3], bb.getNorth() + dy)]]);
     vistaFatta = true;
   }
   var attesaRidimensiona = null;
@@ -537,6 +543,9 @@
         if (mossa && rotta().vista === "mappa") salvaStato();
       });
       mappa.on("move", piazzaPv);
+      // la mappa segue sempre le dimensioni del suo riquadro: se la pagina cambia altezza dopo la partenza
+      // (anteprime, barra del browser che sparisce) non resta un fondo nero sotto la mappa (Antonio, 27/11/2026)
+      if (window.ResizeObserver) new ResizeObserver(function () { if (!mappa) return; mappa.resize(); if (vistaFatta && !mossa && !selezionato && !$('[data-vista="mappa"]').hidden) inquadraTutti(); piazzaPv(); }).observe(box);
       mappa.on("mousemove", function (e) {
         if (mappaPronta) mappa.getCanvas().style.cursor = sotto(e.point).length ? "pointer" : "";
       });

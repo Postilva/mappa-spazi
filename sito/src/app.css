@@ -501,3 +501,17 @@ body.panel-off .mapwrap .maplibregl-ctrl-bottom-right { margin-bottom: calc(72px
   .pv .body { padding-bottom: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { .panel, .pv { transition: none; } }
+
+/* Elenco sul telefono (Antonio, 27/11/2026): pannello più alto, niente riga di istruzioni, filtri su una riga che scorre
+   di lato (come nelle bonifiche): l'elenco ha almeno metà del pannello. */
+@media (max-width: 860px) {
+  .panel { height: 78svh; }
+  .panel .ph { gap: 8px; padding: 10px 12px 8px; }
+  .panel .ph h1 { font-size: 1.1rem; }
+  .panel .ph .intro { display: none; }
+  .panel .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -12px; padding-inline: 12px; }
+  .panel .chips::-webkit-scrollbar { display: none; }
+  .panel .chips button { flex: none; white-space: nowrap; min-height: 36px; }
+  .panel .cerca { padding: 8px 16px; }
+  .seg button { min-height: 32px; }
+}
